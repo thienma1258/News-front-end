@@ -1,0 +1,12 @@
+<h1 i18n>Hello world</h1>
+<!--i18n: optional meaning|optional description -->
+I don't output any element either
+<!--/i18n-->
+
+<select name="langue" [(ngModel)]="langue" (change)="OnChangeLangue($event)">
+	<option value="en">EngLish</option>
+<option value="es">Esapla</option>
+</select>
+  <router-outlet name="header"></router-outlet>
+  <router-outlet></router-outlet>
+   <router-outlet name="footer"></router-outlet>
