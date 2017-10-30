@@ -8,7 +8,7 @@ import {HeaderComponent} from './shared/header/header.component';
 import {SubMenuComponent} from './shared/sub-menu/sub-menu.component';
 import {IntroductionComponent} from './introduction/introduction.component';
 import {AcademicComponent} from './academic/academic.component';
-import { PostComponent } from './shared/src/app/front/shared/post/post.component';
+import { PostComponent } from './shared/post/post.component';
 
 @NgModule({
   declarations: [
