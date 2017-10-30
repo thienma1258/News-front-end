@@ -1,6 +1,6 @@
 import { TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID, MissingTranslationStrategy } from '@angular/core';
 import { CompilerConfig } from '@angular/compiler';
-import  {Utility} from './shared/services/utility.services';
+import {Utility} from './shared/services/utility.services';
 export function getTranslationProviders(): Promise<Object[]> {
 
   // Get the locale id from the global
@@ -14,7 +14,7 @@ export function getTranslationProviders(): Promise<Object[]> {
   }
 
   // Ex: 'locale/messages.es.xlf`
-  const translationFile = './locale/messages.'+locale+'.xlf';
+  const translationFile = './locale/messages.' + locale + '.xlf';
 
   return getTranslationsWithSystemJs(translationFile)
     .then( (translations: string ) => [
@@ -30,7 +30,7 @@ declare var System: any;
 
 function getTranslationsWithSystemJs(file: string) {
   //const util=new Utility();
- //return util.getFile(file);
+  //return util.getFile(file);
   return System.import(file + '!text'); // relies on text plugin
 }
 

@@ -1,0 +1,21 @@
+.selected {
+  font-weight: bold;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+hr {
+  border-bottom: 1px solid;
+  color: #ccc6c1;
+}
