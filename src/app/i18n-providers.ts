@@ -1,6 +1,6 @@
 import { TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID, MissingTranslationStrategy } from '@angular/core';
 import { CompilerConfig } from '@angular/compiler';
-import  {Utility} from './shared/services/utility.services';
+import {Utility} from './shared/services/utility.services';
 export function getTranslationProviders(): Promise<Object[]> {
 
   // Get the locale id from the global
