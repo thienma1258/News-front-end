@@ -8,6 +8,7 @@ import {HeaderComponent} from './shared/header/header.component';
 import {SubMenuComponent} from './shared/sub-menu/sub-menu.component';
 import {IntroductionComponent} from './introduction/introduction.component';
 import {AcademicComponent} from './academic/academic.component';
+import { PostComponent } from './shared/src/app/front/shared/post/post.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {AcademicComponent} from './academic/academic.component';
     HomepageComponent,
     SubMenuComponent,
     IntroductionComponent,
-    AcademicComponent
+    AcademicComponent,
+    PostComponent
   ],
   imports: [
     FrontRoutingModule,

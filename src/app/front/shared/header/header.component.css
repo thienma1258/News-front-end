@@ -1,0 +1,77 @@
+header{
+  display: block;
+  overflow: hidden;
+  width:100%;
+  padding: 2% 8%;
+}
+
+.title{
+  color: #610f0f;
+  margin-left:26px;
+  vertical-align: middle;
+  font-size: 36px;
+}
+
+nav{
+  display: block;
+  color: white;
+  padding: 2% 8%;
+  background-color: #610f0f;
+}
+
+nav ul{
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li{
+  margin-right:10%;
+  display:inline;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav ul li a{
+  color: white;
+  text-decoration: none;
+}
+
+.nav{
+  display: inline;
+}
+
+.nav-right{
+  float:right;
+  line-height:4.5;
+}
+
+#myCarousel{
+  height:100px;
+}
+
+.nav-link{
+
+}
+
+inline{
+  display: inline;
+}
+
+#logo{
+  vertical-align: middle;
+  width:60px;
+  height:60px;
+}
+
+
+#search-button{
+  width:30px;
+  height:30px;
+}
+
+#translate-button{
+  margin-left:20px;
+  margin-right:10px;
+  width:30px;
+  height:30px;
+}
