@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: '', component: HeaderComponent, outlet: 'header'},
   {path: '', component: HomepageComponent},
   {path: 'introduction', component: IntroductionComponent},
+  {path: 'introduction/:postId', component: IntroductionComponent},
   {path: 'academic', component: AcademicComponent}
 ];
 

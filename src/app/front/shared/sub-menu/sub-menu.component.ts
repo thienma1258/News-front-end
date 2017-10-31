@@ -8,7 +8,7 @@ import {Component, OnInit, Input} from '@angular/core';
 export class SubMenuComponent implements OnInit, Input {
 
   @Input() titles: string[];
-  selectedTitle: string;
+  @Input() selectedTitle: string;
 
   constructor() {
 

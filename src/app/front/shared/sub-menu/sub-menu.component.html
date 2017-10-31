@@ -1,6 +1,9 @@
 <ul>
-  <li *ngFor="let title of titles">
-    <a href="" [class.selected]="title === selectedTitle">{{title}}</a>
+  <li *ngFor="let title of titles" [class.selected]="title === selectedTitle"
+      (click)="onSelect(title)">
+    <!--<a href="/introduction">-->
+      {{title}}
+    <!--</a>-->
     <hr>
   </li>
 </ul>
