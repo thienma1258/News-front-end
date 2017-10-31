@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
+export const ASSERT_IMAGES_URL = './../../../../assets/images/';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

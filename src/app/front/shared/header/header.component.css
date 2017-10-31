@@ -5,7 +5,7 @@ header{
   padding: 2% 8%;
 }
 
-.title{
+.news-title{
   color: #610f0f;
   margin-left:26px;
   vertical-align: middle;
@@ -32,8 +32,18 @@ nav ul li{
 }
 
 nav ul li a{
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
+  -webkit-transition-duration: 0.3s; /* Safari */
+  transition-duration: 0.3s;
+}
+
+nav ul li a:hover{
+  color: white;
+}
+
+nav ul li a:active{
+  color: white;
 }
 
 .nav{
@@ -43,10 +53,6 @@ nav ul li a{
 .nav-right{
   float:right;
   line-height:4.5;
-}
-
-.nav-link{
-
 }
 
 inline{
@@ -65,9 +71,17 @@ inline{
   height:30px;
 }
 
+.translation{
+  color: black;
+}
+
 #translate-button{
   margin-left:20px;
   margin-right:10px;
   width:30px;
   height:30px;
+}
+
+a{
+  text-decoration: none;
 }
