@@ -1,0 +1,13 @@
+.preview-image{
+  height: 100%;
+}
+
+.title{
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.created-time{
+  color: gray;
+}

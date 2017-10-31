@@ -1,7 +1,55 @@
 #myCarousel{
-  height:400px;
+  height:600px;
 }
 
 .carousel-inner div img{
-  height:400px;
+  height:600px;
+  width: 100%;
+}
+
+.carousel-overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 60%;
+  padding: 100px 20px;
+  color: white;
+  background: rgb(353, 66, 80);
+  background: rgba(353, 66, 80, 0.7);
+  width: 360px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.carousel-overlay a{
+  display: inline-block;
+  text-decoration: none;
+  color: blue;
+  background-color: white;
+  border-radius: 1px;
+  border: 0px;
+  margin-top: 60px;
+  padding: 6px 12px;
+}
+
+.row{
+  margin: auto;
+}
+
+.news{
+  background-color: #ECEEED;
+  padding: 2% 8%;
+}
+
+.news-title{
+  text-align: center;
+  font-weight: bold;
+  font-size: 28px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid;
+}
+
+.horizontal-spacing{
+  padding: 0 30px;
 }

@@ -1,0 +1,22 @@
+#information{
+  color: white;
+  background-color: #955E5E;
+  text-align: center;
+  padding: 40px 120px;
+}
+
+.wrapper{
+  display: inline-block;
+}
+
+#title{
+  font-weight: bold;
+  font-size: 22px;
+}
+
+#copyright{
+  color: white;
+  text-align: right;
+  padding: 15px 10% 15px 0;
+  background: #444444;
+}

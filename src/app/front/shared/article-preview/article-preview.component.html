@@ -1,0 +1,17 @@
+<div [ngSwitch]="displayType">
+  <div *ngSwitchCase="1">
+    <a routerLink="">
+      <img class="col-lg-5 preview-image" src="{{assertImagesUrl + article.imageUrls[0]}}">
+      <div class="col-lg-7 content">
+        <p class="title">{{article.title}}</p>
+        <p class="created-time">{{article.createdTime}}</p>
+      </div>
+    </a>
+  </div>
+  <div *ngSwitchCase="2">
+
+  </div>
+  <div *ngSwitchCase="3">
+
+  </div>
+</div>

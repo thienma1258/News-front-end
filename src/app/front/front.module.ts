@@ -8,7 +8,10 @@ import {HeaderComponent} from './shared/header/header.component';
 import {SubMenuComponent} from './shared/sub-menu/sub-menu.component';
 import {IntroductionComponent} from './introduction/introduction.component';
 import {AcademicComponent} from './academic/academic.component';
-import { PostComponent } from './shared/post/post.component';
+import {PostComponent} from './shared/post/post.component';
+import {FooterComponent} from './shared/footer/footer.component';
+import { ArticlePreviewComponent } from './shared/article-preview/article-preview.component';
+import { EventPreviewComponent } from './shared/event-preview/event-preview.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { PostComponent } from './shared/post/post.component';
     SubMenuComponent,
     IntroductionComponent,
     AcademicComponent,
-    PostComponent
+    PostComponent,
+    FooterComponent,
+    ArticlePreviewComponent,
+    EventPreviewComponent
   ],
   imports: [
     FrontRoutingModule,
