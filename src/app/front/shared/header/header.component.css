@@ -5,18 +5,18 @@ header{
   padding: 2% 8%;
 }
 
-.news-title{
-  color: #610f0f;
+.title{
+  color: black;
   margin-left:26px;
   vertical-align: middle;
-  font-size: 36px;
+  font-size: 28px;
 }
 
 nav{
   display: block;
   color: white;
   padding: 2% 8%;
-  background-color: #610f0f;
+  background-color: #CE4656;
 }
 
 nav ul{
@@ -50,13 +50,22 @@ nav ul li a:active{
   display: inline;
 }
 
+.nav a{
+  display: block;
+}
+
 .nav-right{
   float:right;
   line-height:4.5;
 }
 
-inline{
-  display: inline;
+.navbar-toggle{
+  float: none;
+}
+
+#toggle-menu-button{
+  width: 30px;
+  height: 30px;
 }
 
 #logo{
@@ -65,16 +74,36 @@ inline{
   height:60px;
 }
 
-.nav-item.active{
-  color:black;
+.translation{
+  color: black;
 }
+
+.header-search input{
+  width: 0;
+  border: 0;
+  border-radius:0;
+  box-shadow: none;
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  -o-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+.header-search:hover input{
+  display: inline;
+  width: 200px;
+  border-radius: 3px;
+  border: 1px solid gray;
+}
+
+.form-control{
+  width: 200px;
+  display: inline-block;
+}
+
 #search-button{
   width:30px;
   height:30px;
-}
-
-.translation{
-  color: black;
 }
 
 #translate-button{
@@ -86,4 +115,122 @@ inline{
 
 a{
   text-decoration: none;
+}
+
+@media (max-width: 1440px) {
+  .title{
+    font-size: 20px;
+    margin-left: 16px;
+  }
+
+  nav ul li{
+    font-size: 16px;
+  }
+
+  #search-button{
+    width:28px;
+    height:28px;
+  }
+
+  #translate-button{
+    margin-left:16px;
+    margin-right:8px;
+    width:26px;
+    height:26px;
+  }
+
+  .header-search:hover input{
+    width: 200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .title{
+    font-size: 16px;
+    margin-left: 8px;
+  }
+
+  nav ul li{
+    font-size: 14px;
+  }
+
+  #search-button{
+    width:26px;
+    height:26px;
+  }
+
+  #translate-button{
+    margin-left:10px;
+    margin-right:8px;
+    width:26px;
+    height:26px;
+  }
+
+  .header-search:hover input{
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title{
+    font-size: 12px;
+    margin-left: 6px;
+  }
+
+  nav ul li{
+    font-size: 12px;
+  }
+
+  #search-button{
+    width:22px;
+    height:22px;
+  }
+
+  #translate-button{
+    margin-left:6px;
+    margin-right:3px;
+    width:22px;
+    height:22px;
+  }
+
+  .header-search:hover input{
+    width: 100px;
+  }
+}
+
+@media (max-width: 425px) {
+  header{
+    display: block;
+    overflow: hidden;
+    width:100%;
+    padding: 1% 6%;
+  }
+
+  .title{
+    font-size: 12px;
+    margin-left: 6px;
+  }
+
+  nav{
+    display: block;
+    color: white;
+    padding: 1% 6%;
+    background-color: #CE4656;
+  }
+
+  #search-button{
+    width:20px;
+    height:20px;
+  }
+
+  #translate-button{
+    margin-left:6px;
+    margin-right:3px;
+    width:20px;
+    height:20px;
+  }
+
+  .header-search:hover input{
+    width: 100px;
+  }
 }

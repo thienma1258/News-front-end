@@ -2,14 +2,17 @@
   <div class="nav navbar-header">
     <a routerLink="">
       <img id="logo" src="../../../../assets/images/eed-logo.jpg">
-      <span class="news-title" i18n><b>Electrical Engineering Department</b></span>
+      <span class="title" i18n><b>Nation Chi Nan University - Department of Electrical Engineering</b></span>
     </a>
   </div>
 
   <div class="nav-right">
-    <a routerLink="">
-      <img id="search-button" src="./../../../../assets/images/search.png">
-    </a>
+    <span class="header-search">
+        <input type="text" class="form-control" maxlength="64" placeholder="Search" />
+        <a routerLink="">
+          <img id="search-button" src="./../../../../assets/images/search.png">
+        </a>
+    </span>
     <a class="translation" routerLink="">
       <img id="translate-button" src="./../../../../assets/images/translation-web.png">
       <span><b>English</b></span>
@@ -18,7 +21,11 @@
 </header>
 
 <nav>
-  <ul>
+  <button type="button" class="navbar-toggle collapsed">
+    <img id="toggle-menu-button" src="../../../../assets/images/menu.png">
+  </button>
+  
+  <ul class="collapse navbar-collapse">
     <li class="nav-item active">
       <a class="nav-link" href="#">INTRODUCTION</a>
     </li>

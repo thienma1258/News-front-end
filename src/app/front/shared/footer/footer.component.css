@@ -1,22 +1,36 @@
+img{
+  width:20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+a{
+  color: black;
+  text-decoration: underline;
+}
+
+span{
+  margin-right: 10px;
+}
+
 #information{
-  color: white;
-  background-color: #955E5E;
-  text-align: center;
+  text-align: left;
   padding: 40px 120px;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 26px;
+  margin-bottom: 20px;
 }
 
 .wrapper{
   display: inline-block;
 }
 
-#title{
-  font-weight: bold;
-  font-size: 22px;
-}
-
 #copyright{
   color: white;
-  text-align: right;
-  padding: 15px 10% 15px 0;
-  background: #444444;
+  text-align: center;
+  padding: 15px 0;
+  background: #850615;
 }
