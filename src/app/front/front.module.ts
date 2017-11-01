@@ -12,6 +12,8 @@ import {PostComponent} from './shared/post/post.component';
 import {FooterComponent} from './shared/footer/footer.component';
 import { ArticlePreviewComponent } from './shared/article-preview/article-preview.component';
 import { EventPreviewComponent } from './shared/event-preview/event-preview.component';
+import { FacebookModule } from 'ngx-facebook';
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -28,7 +30,8 @@ import { EventPreviewComponent } from './shared/event-preview/event-preview.comp
   imports: [
     FrontRoutingModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    FacebookModule.forRoot()
   ],
   providers: [],
   bootstrap: []
