@@ -7,12 +7,14 @@ import {SubMenuComponent} from '../shared/sub-menu/sub-menu.component';
   styleUrls: ['./introduction.component.css']
 })
 export class IntroductionComponent implements OnInit {
-  titles: string[] = ['About us', 'Facility & Advisor', 'Department structure & Staff', 'Contact'];
+  titles: string[];
+  selectedTitle: string;
 
   constructor() {
   }
 
   ngOnInit() {
+    this.titles = ['About us', 'Facility & Advisor', 'Department structure & Staff', 'Contact'];
+    this.selectedTitle = this.titles[0];
   }
-
 }

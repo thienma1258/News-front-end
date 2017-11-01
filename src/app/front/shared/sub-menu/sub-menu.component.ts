@@ -5,10 +5,10 @@ import {Component, OnInit, Input} from '@angular/core';
   templateUrl: './sub-menu.component.html',
   styleUrls: ['./sub-menu.component.css']
 })
-export class SubMenuComponent implements OnInit, Input {
+export class SubMenuComponent implements OnInit {
 
   @Input() titles: string[];
-  selectedTitle: string;
+  @Input() selectedTitle: string;
 
   constructor() {
 

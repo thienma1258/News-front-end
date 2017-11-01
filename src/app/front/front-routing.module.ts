@@ -6,13 +6,15 @@ import { SubMenuComponent } from './shared/sub-menu/sub-menu.component';
 import {IntroductionComponent} from './introduction/introduction.component';
 import {AcademicComponent} from './academic/academic.component';
 import {FooterComponent} from './shared/footer/footer.component';
-
+import {ResearchComponent} from './research/research.component';
 const routes: Routes = [
   {path: '', component: HeaderComponent, outlet: 'header'},
   {path: '', component: HomepageComponent},
   {path: '', component: FooterComponent, outlet: 'footer'},
   {path: 'introduction', component: IntroductionComponent},
-  {path: 'academic', component: AcademicComponent}
+  {path: 'introduction/:postId', component: IntroductionComponent},
+  {path: 'academic', component: AcademicComponent},
+  {path:'research',component:ResearchComponent}
 ];
 
 @NgModule({

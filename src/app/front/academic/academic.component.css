@@ -1,0 +1,20 @@
+.container {
+  margin-top: 50px;
+}
+
+#titleImg {
+  margin-bottom: 12px;
+  width: 100%;
+}
+#title h3 {
+  display: inline;
+}
+#title {
+  display: inline;
+}
+
+#title h3 {
+  margin-top: -12px;
+  font-weight: bold;
+}
+
