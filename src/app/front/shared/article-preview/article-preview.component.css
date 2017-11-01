@@ -1,13 +1,26 @@
 .preview-image{
-  height: 100%;
+  max-height: 500px;
 }
 
 .title{
-  color: black;
   font-weight: bold;
   font-size: 20px;
 }
 
 .created-time{
   color: gray;
+}
+
+a{
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.large .image{
+  max-width: 100%;
+}
+
+.large .content{
+  margin-top: 20px;
 }

@@ -11,6 +11,9 @@ export class ArticlePreviewComponent implements OnInit {
   assertImagesUrl = ASSERT_IMAGES_URL;
   @Input() article: Article;
   @Input() displayType: number;
+  @Input() showTitle = false;
+  @Input() showPreviewContent = false;
+  @Input() showCreatedTime = false;
 
   constructor() {
   }

@@ -9,6 +9,7 @@
     <div *ngFor="let article of highlightArticles; let i = index" ngClass="{{i == 0 ? 'item active': 'item'}}">
       <img src="{{assertImagesUrl + article.imageUrls[0]}}">
       <div class="carousel-overlay">
+        <p id="carousel-title">{{article.title}}</p>
         <p>{{article.previewContent}}</p>
         <a routerLink="{{article.url}}">SEE MORE</a>
       </div>
@@ -26,9 +27,9 @@
   </a>
 </div>
 
-<div class="news">
+<div id="news">
   <div class="row">
-    <div class="col-lg-4 horizontal-spacing">
+    <div class="col-lg-4 col-md-4 horizontal-spacing">
       <p class="news-title">ABOUT US</p>
       <div>
         <img style="max-width:100%; " src="./../../../assets/images/001.jpg">
@@ -37,20 +38,41 @@
         </p>
       </div>
     </div>
-    <div class="col-lg-4 horizontal-spacing">
+    <div class="col-lg-4 col-md-4 horizontal-spacing">
       <p class="news-title">LATEST NEWS</p>
-      <div *ngFor="let article of latestArticles">
-        <app-article-preview [article]="article" [displayType]="1"></app-article-preview>
+      <div *ngFor="let article of latestArticles; let i = index">
+        <app-article-preview [article]="article" [displayType]="1" [showTitle]="true" [showCreatedTime]="true"></app-article-preview>
         <br style="clear: both;"/>
-        <div style="border-bottom: 2px solid #E0DFDC; margin: 12px 0;"></div>
+        <div *ngIf="i != latestArticles.length - 1" style="border-bottom: 2px solid #E0DFDC; margin: 12px 0;"></div>
       </div>
     </div>
-    <div class="col-lg-4 horizontal-spacing">
+    <div class="col-lg-4 col-md-4 horizontal-spacing">
       <p class="news-title">UPCOMING EVENT</p>
       <div *ngFor="let event of upcomingEvent">
         <app-event-preview [event]="event"></app-event-preview>
         <br style="clear: both;"/>
       </div>
+    </div>
+  </div>
+</div>
+
+<div id="about">
+  <div class="row">
+    <div class="col-lg-3 col-md-3">
+      <p class="about-title">Admissions</p>
+      <app-article-preview [article]="admissionsArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
+    </div>
+    <div class="col-lg-3 col-md-3">
+      <p class="about-title">Academics</p>
+      <app-article-preview [article]="academicsArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
+    </div>
+    <div class="col-lg-3 col-md-3">
+      <p class="about-title">Research</p>
+      <app-article-preview [article]="researchArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
+    </div>
+    <div class="col-lg-3 col-md-3">
+      <p class="about-title">Student life</p>
+      <app-article-preview [article]="studentLifeArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
     </div>
   </div>
 </div>
