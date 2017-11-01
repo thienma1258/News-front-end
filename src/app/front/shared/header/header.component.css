@@ -65,7 +65,9 @@ inline{
   height:60px;
 }
 
-
+.nav-item.active{
+  color:black;
+}
 #search-button{
   width:30px;
   height:30px;
