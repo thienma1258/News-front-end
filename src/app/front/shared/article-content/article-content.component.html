@@ -1,0 +1,16 @@
+<img *ngIf="article.imageUrls" id="titleImg" src={{article.imageUrls[0]}}>
+<div id="title">
+  <h3>{{article.previewContent}}</h3>
+  <div class="translator pull-right">
+    <span>E</span>
+    <input type="image" src="./assets/images/translation-post.png" height="20px" width="20px">
+  </div>
+</div>
+<h3>{{article.previewContent}}</h3>
+<p>{{article.content}}</p>
+<div class="social pull-right bottom">
+  <fb-like class="socialItem" href="https://www.google.com.vn" layout="button_count" share="true"
+           size="large"></fb-like>
+  <input class="socialItem" type="image" src="./assets/images/Print.png">
+  <input class="socialItem" type="image" src="./assets/images/Email.png">
+</div>
