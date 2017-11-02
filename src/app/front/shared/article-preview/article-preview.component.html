@@ -1,7 +1,7 @@
 <div [ngSwitch]="displayType">
   <div *ngSwitchCase="1">
     <a routerLink="">
-      <img class="col-lg-5 col-md-5" src="{{assertImagesUrl + article.imageUrls[0]}}">
+      <img class="col-lg-5 col-md-5 image" src="{{assertImagesUrl + article.imageUrls[0]}}">
       <div class="col-lg-7 col-md-7 content">
         <p *ngIf="showTitle" class="title">{{article.title}}</p>
         <p *ngIf="showPreviewContent">{{article.previewContent}}</p>

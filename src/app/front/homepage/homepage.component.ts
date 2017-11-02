@@ -9,6 +9,15 @@ import {ASSERT_IMAGES_URL} from '../../app.component';
 })
 export class HomepageComponent implements OnInit {
   assertImagesUrl = ASSERT_IMAGES_URL;
+  aboutArticle: Article = {
+    title: 'title1',
+    imageUrls: ['001t.jpg'],
+    previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Suspendisse volutpat ipsum eget nulla rutrum vehicula. Vestibulum a eros rhoncus, lacinia turpis quis, vehicula arcu. Cras in ligula rutrum, gravida lectus vitae, scelerisque purus. Maecenas nec libero eget enim eleifend mollis sit amet auctor dolor. In pulvinar laoreet neque, nec cursus purus dapibus fringilla.',
+    content: 'content 1',
+    url: '',
+    createdTime: 'Oct 28, 2017'
+  };
+
   highlightArticles: Article[] = [
     {
       title: 'title1',

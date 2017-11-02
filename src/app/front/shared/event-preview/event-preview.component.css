@@ -35,3 +35,30 @@ a {
 #title{
   font-weight: bold;
 }
+
+@media (max-width: 1440px) {
+  .content{
+    font-size: 14px;
+  }
+  .content #title{
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content{
+    font-size: 12px;
+  }
+  .content #title{
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 425px) {
+  .content{
+    font-size: 10px;
+  }
+  .content #title{
+    font-size: 12px;
+  }
+}

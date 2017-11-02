@@ -1,7 +1,7 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li *ngFor="let image of carouselImages; let i = index" data-target="#myCarousel" [attr.data-slide-to]="i" ngClass="{{i == 0 ? 'active':''}}"></li>
+    <li *ngFor="let article of highlightArticles; let i = index" data-target="#myCarousel" [attr.data-slide-to]="i" ngClass="{{i == 0 ? 'active':''}}"></li>
   </ol>
 
   <!-- Wrapper for slides -->
@@ -31,12 +31,7 @@
   <div class="row">
     <div class="col-lg-4 col-md-4 horizontal-spacing">
       <p class="news-title">ABOUT US</p>
-      <div>
-        <img style="max-width:100%; " src="./../../../assets/images/001.jpg">
-        <p style="font-size: 18px;">
-          preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Suspendisse volutpat ipsum eget nulla rutrum vehicula. Vestibulum a eros rhoncus, lacinia turpis quis, vehicula arcu. Cras in ligula rutrum, gravida lectus vitae, scelerisque purus. Maecenas nec libero eget enim eleifend mollis sit amet auctor dolor. In pulvinar laoreet neque, nec cursus purus dapibus fringilla.
-        </p>
-      </div>
+      <app-article-preview [article]="aboutArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
     </div>
     <div class="col-lg-4 col-md-4 horizontal-spacing">
       <p class="news-title">LATEST NEWS</p>
@@ -58,19 +53,19 @@
 
 <div id="about">
   <div class="row">
-    <div class="col-lg-3 col-md-3">
+    <div class="col-lg-3 col-md-3 col-sm-6">
       <p class="about-title">Admissions</p>
       <app-article-preview [article]="admissionsArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
     </div>
-    <div class="col-lg-3 col-md-3">
+    <div class="col-lg-3 col-md-3 col-sm-6">
       <p class="about-title">Academics</p>
       <app-article-preview [article]="academicsArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
     </div>
-    <div class="col-lg-3 col-md-3">
+    <div class="col-lg-3 col-md-3 col-sm-6">
       <p class="about-title">Research</p>
       <app-article-preview [article]="researchArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
     </div>
-    <div class="col-lg-3 col-md-3">
+    <div class="col-lg-3 col-md-3 col-sm-6">
       <p class="about-title">Student life</p>
       <app-article-preview [article]="studentLifeArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
     </div>

@@ -7,6 +7,10 @@
   width: 100%;
 }
 
+.carousel-indicators li{
+  margin-right: 20px;
+}
+
 .carousel-overlay{
   position: absolute;
   top: 0;
@@ -74,8 +78,30 @@
 }
 
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .news-title{
     font-size: 18px;
+  }
+  .carousel-overlay{
+    right:0;
+    left: auto;
+    width: 320px;
+    padding: 100px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-title{
+    font-size: 23px;
+  }
+  .carousel-overlay{
+    right:0;
+    left: auto;
+    width: 300px;
+    padding: 80px 28px;
+    font-size: 14px;
+  }
+  .carousel-overlay #carousel-title{
+    font-size: 20px;
   }
 }
