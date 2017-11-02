@@ -13,6 +13,10 @@ span{
   margin-right: 10px;
 }
 
+#contact{
+  margin-bottom: 40px;
+}
+
 #information{
   text-align: left;
   padding: 40px 120px;
@@ -33,4 +37,11 @@ span{
   text-align: center;
   padding: 15px 0;
   background: #850615;
+}
+
+@media (max-width: 425px){
+  #information{
+    text-align: left;
+    padding: 40px 60px;
+  }
 }
