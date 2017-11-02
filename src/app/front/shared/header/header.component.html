@@ -1,8 +1,13 @@
-<header>
+<header xmlns="http://www.w3.org/1999/html">
   <div class="nav navbar-header">
     <a routerLink="">
       <img id="logo" src="../../../../assets/images/eed-logo.jpg">
-      <span class="title" i18n><b>Nation Chi Nan University - Department of Electrical Engineering</b></span>
+      <span id="title" i18n>
+        <b style="display: inline-block;">
+          <span>Nation Chi Nan University -</span>
+          <span class="break-line">Department of Electrical Engineering</span>
+        </b>
+      </span>
     </a>
   </div>
 
@@ -15,28 +20,28 @@
     </span>
     <a class="translation" routerLink="">
       <img id="translate-button" src="./../../../../assets/images/translation-web.png">
-      <span><b>English</b></span>
+      <span id="language"><b>English</b></span>
     </a>
   </div>
 </header>
 
 <nav>
-  <button type="button" class="navbar-toggle collapsed">
+  <button type="button" class="navbar-toggle collapsed" (click)="toggleMenu()">
     <img id="toggle-menu-button" src="../../../../assets/images/menu.png">
   </button>
-  
-  <ul class="collapse navbar-collapse">
+
+  <ul class="collapse navbar-collapse" [ngClass]="{'in': isToggleMenuExpanded}">
     <li class="nav-item active">
-      <a class="nav-link" href="#">INTRODUCTION</a>
+      <a class="nav-link" routerLink="">INTRODUCTION</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">ACADEMICS & ADMISSIONS</a>
+      <a class="nav-link" routerLink="">ACADEMICS & ADMISSIONS</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">RESEARCH</a>
+      <a class="nav-link" routerLink="">RESEARCH</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">NEWS</a>
+      <a class="nav-link" routerLink="">NEWS</a>
     </li>
   </ul>
 </nav>

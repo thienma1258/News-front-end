@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  isToggleMenuExpanded = false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  toggleMenu() {
+    this.isToggleMenuExpanded = (this.isToggleMenuExpanded === true ? false : true);
+  }
 }

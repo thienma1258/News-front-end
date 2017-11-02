@@ -5,11 +5,8 @@ header{
   padding: 2% 8%;
 }
 
-.title{
-  color: black;
-  margin-left:26px;
-  vertical-align: middle;
-  font-size: 28px;
+.break-line{
+  display: inline-block;
 }
 
 nav{
@@ -47,29 +44,39 @@ nav ul li a:active{
 }
 
 .nav{
-  display: inline;
+  display: inline-block;
 }
 
 .nav a{
-  display: block;
+  display: table;
 }
 
 .nav-right{
   float:right;
-  line-height:4.5;
+  margin-top: 10px;
 }
 
 .navbar-toggle{
   float: none;
+  margin: 0;
 }
 
 #toggle-menu-button{
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
+}
+
+#title{
+  display: table-cell;
+  color: black;
+  vertical-align: middle;
+  font-size: 28px;
 }
 
 #logo{
+  display: table-cell;
   vertical-align: middle;
+  margin-right: 20px;
   width:60px;
   height:60px;
 }
@@ -81,6 +88,7 @@ nav ul li a:active{
 .header-search input{
   width: 0;
   border: 0;
+  padding: 0;
   border-radius:0;
   box-shadow: none;
   -webkit-transition: all 0.7s ease-in-out;
@@ -92,6 +100,7 @@ nav ul li a:active{
 .header-search:hover input{
   display: inline;
   width: 200px;
+  padding: 6px 12px;
   border-radius: 3px;
   border: 1px solid gray;
 }
@@ -113,14 +122,17 @@ nav ul li a:active{
   height:30px;
 }
 
+#language{
+  display: inline-block;
+}
+
 a{
   text-decoration: none;
 }
 
 @media (max-width: 1440px) {
-  .title{
+  #title{
     font-size: 20px;
-    margin-left: 16px;
   }
 
   nav ul li{
@@ -145,13 +157,16 @@ a{
 }
 
 @media (max-width: 1024px) {
-  .title{
-    font-size: 16px;
-    margin-left: 8px;
+  #title{
+    font-size: 18px;
   }
 
   nav ul li{
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  .break-line{
+    display: block;
   }
 
   #search-button{
@@ -167,14 +182,13 @@ a{
   }
 
   .header-search:hover input{
-    width: 150px;
+    width: 180px;
   }
 }
 
 @media (max-width: 768px) {
-  .title{
-    font-size: 12px;
-    margin-left: 6px;
+  #title{
+    font-size: 16px;
   }
 
   nav ul li{
@@ -194,7 +208,13 @@ a{
   }
 
   .header-search:hover input{
-    width: 100px;
+    width: 160px;
+  }
+
+  #logo{
+    width:50px;
+    height:50px;
+    margin-right: 8px;
   }
 }
 
@@ -203,19 +223,32 @@ a{
     display: block;
     overflow: hidden;
     width:100%;
-    padding: 1% 6%;
+    padding: 10px 3%;
   }
 
-  .title{
-    font-size: 12px;
-    margin-left: 6px;
+  #title{
+    font-size: 11px;
   }
 
   nav{
     display: block;
     color: white;
-    padding: 1% 6%;
+    padding:0 3%;
     background-color: #CE4656;
+  }
+
+  nav ul li{
+    display: block;
+    margin: 20px 0;
+  }
+
+  .nav-right{
+    float:right;
+    margin-top: 5px;
+  }
+
+  #language{
+    display: none;
   }
 
   #search-button{
@@ -225,12 +258,72 @@ a{
 
   #translate-button{
     margin-left:6px;
-    margin-right:3px;
     width:20px;
     height:20px;
   }
 
   .header-search:hover input{
-    width: 100px;
+    width: 80px;
+  }
+
+  #logo{
+    width:40px;
+    height:40px;
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 350px) {
+  header{
+    display: block;
+    overflow: hidden;
+    width:100%;
+    padding: 10px 3%;
+  }
+
+  #title{
+    font-size: 10px;
+  }
+
+  nav{
+    display: block;
+    color: white;
+    padding:0 3%;
+    background-color: #CE4656;
+  }
+
+  nav ul li{
+    display: block;
+    margin: 20px 0;
+  }
+
+  .nav-right{
+    float:right;
+    margin-top: 0;
+  }
+
+  #language{
+    display: none;
+  }
+
+  #search-button{
+    width:18px;
+    height:18px;
+  }
+
+  #translate-button{
+    margin-left:3px;
+    width:18px;
+    height:18px;
+  }
+
+  .header-search:hover input{
+    width: 80px;
+  }
+
+  #logo{
+    width:32px;
+    height:32px;
+    margin-right: 6px;
   }
 }
