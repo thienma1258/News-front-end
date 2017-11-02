@@ -24,3 +24,58 @@ hr {
   border-bottom: 1px solid;
   color: #ccc6c1;
 }
+
+@media (max-width: 1024px) {
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .caret {
+    cursor: pointer;
+    border-width: 10px;
+  }
+}
+
+@media (max-width: 425px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .caret {
+    cursor: pointer;
+    border-width: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .caret {
+    cursor: pointer;
+    border-width: 10px;
+  }
+}

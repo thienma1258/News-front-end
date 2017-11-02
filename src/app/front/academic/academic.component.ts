@@ -7,6 +7,8 @@ import {Article} from '../shared/interface/article';
   styleUrls: ['./academic.component.css']
 })
 export class AcademicComponent implements OnInit {
+  parentRoute: string;
+  parentRouteName: string;
   titles: string[];
   selectedTitle: string;
   article: Article = {
@@ -48,6 +50,8 @@ export class AcademicComponent implements OnInit {
   };
 
   ngOnInit() {
+    this.parentRoute = '/academic';
+    this.parentRouteName = 'Academic & Admissions';
     this.titles = [
       'Academic Information',
       'Student Graduate & Undergraduate',

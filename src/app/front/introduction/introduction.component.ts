@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Article} from '../shared/interface/article';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-introduction',
@@ -9,6 +8,7 @@ import {Router} from '@angular/router';
 })
 export class IntroductionComponent implements OnInit {
   parentRoute: string;
+  parentRouteName: string;
   titles: string[];
   selectedTitle: string;
   article: Article = {
@@ -49,12 +49,12 @@ export class IntroductionComponent implements OnInit {
     createdTime: 'ajsklfdj',
   };
 
-  constructor(private router: Router) {
-
+  constructor() {
   }
 
   ngOnInit() {
-    this.parentRoute = 'introduction';
+    this.parentRoute = '/introduction';
+    this.parentRouteName = 'Introduction';
     this.titles = ['About us', 'Facility & Advisor', 'Department structure & Staff', 'Contact'];
     this.selectedTitle = this.titles[0];
   }

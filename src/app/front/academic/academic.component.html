@@ -1,11 +1,14 @@
 <div class="container">
-  <div class="row">
+  <div class="row desktop">
     <div class="col-lg-3 col-md-3">
-      <sub-menu [titles]="titles" [selectedTitle]="selectedTitle"></sub-menu>
+      <sub-menu [parentRoute]="parentRoute" [parentRouteName]="parentRouteName" [titles]="titles" [selectedTitle]="selectedTitle"></sub-menu>
     </div>
     <div class="col-lg-9 col-md-9">
       <app-article-content [article]="article"></app-article-content>
     </div>
   </div>
+  <div class="row mobile">
+    <sub-menu [parentRoute]="parentRoute" [parentRouteName]="parentRouteName" [titles]="titles" [selectedTitle]="selectedTitle"></sub-menu>
+    <app-article-content [article]="article"></app-article-content>
+  </div>
 </div>
-

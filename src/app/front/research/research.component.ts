@@ -6,6 +6,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./research.component.css']
 })
 export class ResearchComponent implements OnInit {
+  parentRoute: string;
+  parentRouteName: string;
   public menu: string[];
   public selectedtitle;
 
@@ -23,6 +25,8 @@ export class ResearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.parentRoute = '/research';
+    this.parentRouteName = 'Research';
     this.createmenu();
   }
 
