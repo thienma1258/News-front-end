@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SubMenuComponent} from '../shared/sub-menu/sub-menu.component';
-import {FacebookService, InitParams} from 'ngx-facebook';
 import {Article} from '../shared/interface/article';
-import * as url from 'url';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-introduction',
@@ -10,6 +8,7 @@ import * as url from 'url';
   styleUrls: ['./introduction.component.css']
 })
 export class IntroductionComponent implements OnInit {
+  parentRoute: string;
   titles: string[];
   selectedTitle: string;
   article: Article = {
@@ -50,10 +49,12 @@ export class IntroductionComponent implements OnInit {
     createdTime: 'ajsklfdj',
   };
 
-  constructor() {
+  constructor(private router: Router) {
+
   }
 
   ngOnInit() {
+    this.parentRoute = 'introduction';
     this.titles = ['About us', 'Facility & Advisor', 'Department structure & Staff', 'Contact'];
     this.selectedTitle = this.titles[0];
   }

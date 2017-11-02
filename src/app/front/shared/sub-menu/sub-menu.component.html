@@ -1,9 +1,26 @@
-<ul>
-  <li *ngFor="let title of titles" [class.selected]="title === selectedTitle"
-      (click)="onSelect(title)">
-    <!--<a href="/introduction">-->
-      {{title}}
-    <!--</a>-->
-    <hr>
-  </li>
-</ul>
+<div class="desktop">
+  <ul>
+    <li *ngFor="let title of titles" [class.selected]="title === selectedTitle"
+        (click)="onSelect(title)">
+      <a routerLink="/{{parentRoute}}/{{title}}">
+        {{title}}
+      </a>
+      <hr>
+    </li>
+  </ul>
+</div>
+<div class="mobile dropdown">
+  <a routerLink="/{{parentRoute}}/{{selectedTitle}}">
+    {{parentRoute}} | {{selectedTitle}}
+  </a>
+  <button class="btn dropdown-toggle glyphicon glyphicon-triangle-bottom" type="button" data-toggle="dropdown"></button>
+  <ul class="dropdown-menu">
+    <li *ngFor="let title of titles" [class.selected]="title === selectedTitle"
+        (click)="onSelect(title)">
+      <a routerLink="/{{parentRoute}}/{{title}}">
+        {{title}}
+      </a>
+      <hr>
+    </li>
+  </ul>
+</div>

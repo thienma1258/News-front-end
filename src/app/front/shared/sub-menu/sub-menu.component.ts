@@ -6,7 +6,7 @@ import {Component, OnInit, Input} from '@angular/core';
   styleUrls: ['./sub-menu.component.css']
 })
 export class SubMenuComponent implements OnInit {
-
+  @Input() parentRoute: string;
   @Input() titles: string[];
   @Input() selectedTitle: string;
 
