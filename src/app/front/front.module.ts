@@ -13,6 +13,7 @@ import { ArticlePreviewComponent } from './shared/article-preview/article-previe
 import { EventPreviewComponent } from './shared/event-preview/event-preview.component';
 import { FacebookModule } from 'ngx-facebook';
 import { ArticleContentComponent } from './shared/article-content/article-content.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ArticleContentComponent } from './shared/article-content/article-conten
     FrontRoutingModule,
     RouterModule,
     CommonModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: []

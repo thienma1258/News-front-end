@@ -12,7 +12,7 @@ header{
 nav{
   display: block;
   color: white;
-  padding: 2% 8%;
+  padding: 26px 8%;
   background-color: #CE4656;
 }
 
@@ -56,9 +56,14 @@ nav ul li a:active{
   margin-top: 10px;
 }
 
-.navbar-toggle{
-  float: none;
-  margin: 0;
+.navbar-toggler{
+  border: 0;
+  box-shadow: none;
+  /*padding: 6px 0;*/
+}
+
+#navbar-content{
+  white-space: nowrap;
 }
 
 #toggle-menu-button{

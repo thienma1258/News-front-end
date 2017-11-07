@@ -2,38 +2,19 @@
   margin-top: 50px;
 }
 
-@media (max-width: 1024px) {
-  .mobile {
-    display: none;
-  }
-  .desktop {
-    display: block;
-  }
+.mobile {
+  display: none;
+}
+
+.desktop {
+  display: flex;
 }
 
 @media (max-width: 768px) {
   .mobile {
-    display: block;
+    display: flex;
   }
   .desktop {
     display: none;
-  }
-}
-
-@media (max-width: 425px) {
-  .desktop {
-    display: none;
-  }
-  .mobile {
-    display: block;
-  }
-}
-
-@media (max-width: 320px) {
-  .desktop {
-    display: none;
-  }
-  .mobile {
-    display: block;
   }
 }
