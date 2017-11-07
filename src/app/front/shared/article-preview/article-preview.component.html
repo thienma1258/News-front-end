@@ -1,11 +1,13 @@
 <div [ngSwitch]="displayType">
   <div *ngSwitchCase="1">
     <a routerLink="">
-      <img class="col-lg-5 col-md-5 image" src="{{assertImagesUrl + article.imageUrls[0]}}">
-      <div class="col-lg-7 col-md-7 content">
-        <p *ngIf="showTitle" class="title">{{article.title}}</p>
-        <p *ngIf="showPreviewContent">{{article.previewContent}}</p>
-        <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime}}</p>
+      <div class="row">
+        <img class="col-xl-5 col-lg-5 image" src="{{assertImagesUrl + article.imageUrls[0]}}">
+        <div class="col-xl-7 col-lg-7 content">
+          <p *ngIf="showTitle" class="title">{{article.title}}</p>
+          <p *ngIf="showPreviewContent">{{article.previewContent}}</p>
+          <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime}}</p>
+        </div>
       </div>
     </a>
   </div>

@@ -13,6 +13,7 @@
 }
 .imgb{
 	width: 80%;
+	padding-left: 10%;
 	height: 500px;;
 }
 @media only screen and (max-width: 476px){
@@ -24,6 +25,7 @@
 	height: auto;
 }
 .imgb{
+	padding-left: 0px;
 	height: auto;
 	width: 100%
 }

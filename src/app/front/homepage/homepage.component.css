@@ -2,7 +2,7 @@
   height:600px;
 }
 
-.carousel-inner div img{
+.carousel-image{
   height:600px;
   width: 100%;
 }
@@ -149,7 +149,7 @@
     height:300px;
   }
 
-  .carousel-inner div img{
+  .carousel-image{
     height:300px;
     width: 100%;
   }
@@ -190,7 +190,7 @@
     height:300px;
   }
 
-  .carousel-inner div img{
+  .carousel-image{
     height:300px;
     width: 100%;
   }

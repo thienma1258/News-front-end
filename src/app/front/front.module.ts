@@ -15,6 +15,7 @@ import { FacebookModule } from 'ngx-facebook';
 import { ArticleContentComponent } from './shared/article-content/article-content.component';
 import { ArticleNewsResearchComponent } from './shared/article-news-research/article-news-research.component';
 import { NewsComponent } from './news/news.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NewsComponent } from './news/news.component';
     FrontRoutingModule,
     RouterModule,
     CommonModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: []
