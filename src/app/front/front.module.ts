@@ -13,6 +13,8 @@ import { ArticlePreviewComponent } from './shared/article-preview/article-previe
 import { EventPreviewComponent } from './shared/event-preview/event-preview.component';
 import { FacebookModule } from 'ngx-facebook';
 import { ArticleContentComponent } from './shared/article-content/article-content.component';
+import { ArticleNewsResearchComponent } from './shared/article-news-research/article-news-research.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ArticleContentComponent } from './shared/article-content/article-conten
     ArticlePreviewComponent,
     EventPreviewComponent,
     ResearchComponent,
-    ArticleContentComponent
+    ArticleContentComponent,
+    ArticleNewsResearchComponent,
+    NewsComponent
   ],
   imports: [
     FrontRoutingModule,

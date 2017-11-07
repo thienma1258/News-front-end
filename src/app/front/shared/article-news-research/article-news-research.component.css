@@ -1,0 +1,35 @@
+.smallimg{
+	height: 300px;
+
+}
+
+.imgs{
+	height: 200px;
+	width: 100%;
+}
+.bigimg{
+	height: 600px;
+
+}
+.imgb{
+	width: 80%;
+	height: 500px;;
+}
+@media only screen and (max-width: 476px){
+	.smallimg{
+	height: auto;
+
+}
+.imgs{
+	height: auto;
+}
+.imgb{
+	height: auto;
+	width: 100%
+}
+.bigimg{
+	height: auto;
+
+}
+}
+
