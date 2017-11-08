@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   isToggleMenuExpanded = false;
-  constructor() { }
+  language = 'English';
+  locale = 'en';
+
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('en');
+  }
 
   ngOnInit() {
   }
 
   toggleMenu() {
-    this.isToggleMenuExpanded = (this.isToggleMenuExpanded === true ? false : true);
+    this.isToggleMenuExpanded = (this.isToggleMenuExpanded !== true);
+  }
+
+  switchLanguage() {
+    this.language = (this.language === 'English' ? '中文' : 'English');
+    this.locale = (this.locale === 'en' ? 'zh-tw' : 'en');
+    this.translate.use(this.locale);
   }
 }

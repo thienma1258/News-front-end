@@ -2,12 +2,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {HomepageComponent} from './homepage/homepage.component';
 import {HeaderComponent} from './shared/header/header.component';
-import {SubMenuComponent} from './shared/sub-menu/sub-menu.component';
 import {IntroductionComponent} from './introduction/introduction.component';
 import {AcademicComponent} from './academic/academic.component';
 import {FooterComponent} from './shared/footer/footer.component';
 import {ResearchComponent} from './research/research.component';
 import {NewsComponent} from './news/news.component';
+
 const routes: Routes = [
   {path: '', component: HeaderComponent, outlet: 'header'},
   {path: '', component: HomepageComponent},
@@ -17,10 +17,9 @@ const routes: Routes = [
   {path: 'academic', component: AcademicComponent},
   {path: 'academic/:title', component: AcademicComponent},
   {path: 'research', component: ResearchComponent},
-   {path: 'research/:title', component: ResearchComponent},
+  {path: 'research/:title', component: ResearchComponent},
   {path: 'news', component: NewsComponent},
-   {path: 'news/:title', component: NewsComponent},
- 
+  {path: 'news/:title', component: NewsComponent},
 ];
 
 @NgModule({

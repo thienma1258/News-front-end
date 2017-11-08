@@ -16,6 +16,7 @@ import { ArticleContentComponent } from './shared/article-content/article-conten
 import { ArticleNewsResearchComponent } from './shared/article-news-research/article-news-research.component';
 import { NewsComponent } from './news/news.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -37,10 +38,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     CommonModule,
     FacebookModule.forRoot(),
-    NgbModule
+    NgbModule,
+    TranslateModule
   ],
   providers: [],
   bootstrap: []
 })
 export class FrontModule {
+
 }

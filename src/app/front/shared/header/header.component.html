@@ -2,10 +2,10 @@
   <div class="nav navbar-header">
     <a routerLink="">
       <img id="logo" src="../../../../assets/images/eed-logo.jpg">
-      <span id="title" i18n>
+      <span id="title">
         <b style="display: inline-block;">
-          <span>Nation Chi Nan University -</span>
-          <span class="break-line">Department of Electrical Engineering</span>
+          <span i18n>{{'Title.University' | translate}}</span>
+          <span i18n class="break-line">{{'Title.Department' | translate}}</span>
         </b>
       </span>
     </a>
@@ -18,9 +18,9 @@
           <img id="search-button" src="./../../../../assets/images/search.png">
         </a>
     </span>
-    <a class="translation" routerLink="">
+    <a class="translation" routerLink="" (click)="switchLanguage()">
       <img id="translate-button" src="./../../../../assets/images/translation-web.png">
-      <span id="language"><b>English</b></span>
+      <span id="language"><b>{{language}}</b></span>
     </a>
   </div>
 </header>
@@ -33,16 +33,16 @@
 
   <ul class="collapse navbar-collapse" id="navbar-content" [ngClass]="{'show': isToggleMenuExpanded}">
     <li class="nav-item active">
-      <a class="nav-link" routerLinkActive="nav-link-active" routerLink="/introduction">INTRODUCTION</a>
+      <a i18n class="nav-link" routerLinkActive="nav-link-active" routerLink="/introduction">{{'Nav.Introduction' | translate}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLinkActive="nav-link-active" routerLink="/academic">ACADEMICS & ADMISSIONS</a>
+      <a i18n class="nav-link" routerLinkActive="nav-link-active" routerLink="/academic">{{'Nav.Academics_Admissions' | translate}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLinkActive="nav-link-active" routerLink="/research">RESEARCH</a>
+      <a i18n class="nav-link" routerLinkActive="nav-link-active" routerLink="/research">{{'Nav.Research' | translate}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLinkActive="nav-link-active" routerLink="/news">NEWS</a>
+      <a i18n class="nav-link" routerLinkActive="nav-link-active" routerLink="/news">{{'Nav.News' | translate}}</a>
     </li>
   </ul>
 
