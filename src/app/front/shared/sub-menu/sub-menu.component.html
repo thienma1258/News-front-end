@@ -1,23 +1,26 @@
 <div class="desktop">
   <ul>
     <a *ngFor="let title of titles" [class.selected]="title === selectedTitle"
-        (click)="onSelect(title)" routerLink="/{{parentRoute}}/{{title}}">
-        {{title}}
+       (click)="onSelect(title)" routerLink="/{{parentRoute}}/{{title}}">
+      {{title}}
       <hr>
     </a>
   </ul>
 </div>
-<div class="mobile dropdown">
-  <a routerLink="/{{parentRoute}}/{{selectedTitle}}">
-    <b>{{parentRouteName}}</b> | {{selectedTitle}}
-  </a>
-  <!--<button class="btn dropdown-toggle glyphicon glyphicon-triangle-bottom" type="button" data-toggle="dropdown"></button>-->
-  <span class="caret dropdown-toggle pull-right" data-toggle="dropdown"></span>
-  <ul class="dropdown-menu dropdown-menu-right">
-    <a *ngFor="let title of titles" [class.selected]="title === selectedTitle"
-        (click)="onSelect(title)" routerLink="/{{parentRoute}}/{{title}}" routerLinkActive="active">
-        {{title}}
-      <hr>
+<div class="mobile">
+  <div ngbDropdown ngbDropdownToggle class="dropdown dropdown-toggle">
+    <a  routerLink="/{{parentRoute}}/{{selectedTitle}}">
+      <b>{{parentRouteName}}</b> | {{selectedTitle}}
     </a>
-  </ul>
+    <!--<button class="btn dropdown-toggle glyphicon glyphicon-triangle-bottom" type="button" data-toggle="dropdown"></button>-->
+
+    <!--<span ngbDropdownToggle class="caret"></span>-->
+    <ul ngbDropdownMenu="left">
+      <a *ngFor="let title of titles" [class.selected]="title === selectedTitle"
+         (click)="onSelect(title)" routerLink="/{{parentRoute}}/{{title}}">
+        {{title}}
+        <hr>
+      </a>
+    </ul>
+  </div>
 </div>

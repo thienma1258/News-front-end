@@ -36,14 +36,17 @@ hr {
 @media (max-width: 768px) {
   .mobile {
     display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .desktop {
     display: none;
   }
 
-  .caret {
+  .dropdown-toggle::after {
     cursor: pointer;
     border-width: 10px;
+    margin-left: 1.5em;
   }
 }
