@@ -87,7 +87,7 @@
 
 @media (max-width: 1024px) {
   .news-title{
-    font-size: 18px;
+    font-size: 20px;
   }
   .carousel-overlay{
     right:0;
@@ -98,8 +98,11 @@
 }
 
 @media (max-width: 768px) {
+  #news{
+    padding: 20px 10px;
+  }
   .news-title{
-    font-size: 23px;
+    font-size: 17px;
   }
   .carousel-overlay{
     right:0;

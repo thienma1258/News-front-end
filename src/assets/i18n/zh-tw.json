@@ -8,5 +8,15 @@
     "Academics_Admissions":"學術 & 招生",
     "Research":"研究",
     "News":"資訊"
+  },
+  "Homepage":{
+    "SeeMore":"詳細",
+    "AboutUs":"关于校方",
+    "LatestNews":"最新公告",
+    "UpcomingEvent":"活动",
+    "Admissions":"招生",
+    "Academics":"教學研究",
+    "Research":"教學研究",
+    "StudentLife":"在學學生"
   }
 }

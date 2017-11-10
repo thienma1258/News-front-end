@@ -88,6 +88,7 @@ nav ul li a:hover{
 
 .translation{
   color: black;
+  cursor: pointer;
 }
 
 .header-search input{
@@ -245,7 +246,7 @@ a{
 
   nav ul li{
     display: block;
-    margin: 20px 0;
+    padding: 10px 0;
   }
 
   .nav-right{
