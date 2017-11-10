@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'news',
@@ -10,22 +10,24 @@ export class NewsComponent implements OnInit {
   parentRouteName: string;
   public menu: string[];
   public selectedtitle;
-  constructor() { }
 
-ngOnInit() {
+  constructor() {
+  }
+
+  ngOnInit() {
     this.parentRoute = '/news';
     this.parentRouteName = 'News';
     this.createmenu();
   }
-  createmenu(){
-  	   this.menu = new Array<string>();
-    this.menu.push('Depeartment News');
+
+  createmenu() {
+    this.menu = new Array<string>();
+    this.menu.push('Department News');
     this.menu.push('Course News');
     this.menu.push('Event');
     this.menu.push('School leadership');
-    this.menu.push('Calender');
+    this.menu.push('Calendar');
     this.selectedtitle = this.menu[0];
-
   }
 
 }

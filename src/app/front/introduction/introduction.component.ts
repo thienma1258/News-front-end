@@ -46,7 +46,7 @@ export class IntroductionComponent implements OnInit {
     previewContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     imageUrls: ['./assets/images/NCNU_06020.jpg'],
     url: '',
-    createdTime: 'ajsklfdj',
+    createdTime: '10/11/2017',
   };
 
   constructor() {

@@ -48,24 +48,25 @@ a {
 
 @media (max-width: 1024px) {
   .content{
-    font-size: 12px;
+    font-size: 14px;
   }
   .content #title{
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
-@media (max-width: 768px){
+/*@media (max-width: 768px){*/
   /*.circle{*/
-    /*width:60px;*/
-    /*height:60px;*/
-    /*margin-right: 5%;*/
-    /*line-height: 1;*/
-    /*padding: 10px 10px 0 10px;*/
-    /*border-radius: 50%;*/
-    /*border: 6px solid #EB5757;*/
+    /*float: none;*/
+    /*margin: 0 50px;*/
   /*}*/
-}
+  /*.content{*/
+    /*font-size: 16px;*/
+  /*}*/
+  /*#title{*/
+    /*margin-bottom: 8px;*/
+  /*}*/
+/*}*/
 
 @media (max-width: 425px) {
   .content{

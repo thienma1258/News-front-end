@@ -18,7 +18,7 @@ export class SubMenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(title: string): void {
-    this.selectedTitle = title;
-  }
+  // onSelect(title: string): void {
+  //   this.selectedTitle = title;
+  // }
 }

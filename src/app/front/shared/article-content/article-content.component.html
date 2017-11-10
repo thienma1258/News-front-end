@@ -2,9 +2,12 @@
 <div class="container">
   <div id="title">
     <h3>{{article.previewContent}}</h3>
-    <div class="translator float-right">
-      <span>E</span>
-      <input type="image" src="./assets/images/translation-post.png" height="20px" width="20px">
+    <div id="information">
+      <span>Created Time: {{article.createdTime}}</span>
+      <div class="translator">
+        <span>E</span>
+        <input type="image" src="./assets/images/translation-post.png" height="20px" width="20px">
+      </div>
     </div>
   </div>
   <h3>{{article.previewContent}}</h3>

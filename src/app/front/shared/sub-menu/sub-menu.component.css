@@ -7,6 +7,10 @@ li {
   cursor: pointer;
 }
 
+.active-link{
+  font-weight: bold;
+}
+
 a {
   text-decoration: none;
   color: black;

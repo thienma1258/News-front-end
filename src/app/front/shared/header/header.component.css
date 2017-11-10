@@ -39,6 +39,10 @@ nav ul li a:hover{
   color: white;
 }
 
+.nav-link{
+  cursor: pointer;
+}
+
 .nav-link-active{
   color: white !important;
 }
@@ -136,6 +140,24 @@ a{
   text-decoration: none;
 }
 
+.dropdown-toggle::after {
+  display:none;
+}
+
+.dropdown-menu{
+  padding: 0;
+}
+
+.dropdown-item{
+  cursor: pointer;
+  display: block;
+  color: white;
+  padding: 10px 12px;
+  background-color: #CE4656;
+  font-weight: bold;
+  font-size: 16px;
+}
+
 @media (max-width: 1440px) {
   #title{
     font-size: 20px;
@@ -198,6 +220,10 @@ a{
   }
 
   nav ul li{
+    font-size: 12px;
+  }
+
+  .dropdown-item{
     font-size: 12px;
   }
 

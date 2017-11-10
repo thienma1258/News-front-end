@@ -33,16 +33,50 @@
 
   <ul class="collapse navbar-collapse" id="navbar-content" [ngClass]="{'show': isToggleMenuExpanded}">
     <li class="nav-item active">
-      <a i18n class="nav-link" routerLinkActive="nav-link-active" routerLink="/introduction">{{'Nav.Introduction' | translate}}</a>
+      <a ngbDropdown ngbDropdownToggle i18n class="nav-link" routerLinkActive="nav-link-active">
+        {{'Nav.Introduction' | translate}}
+        <div ngbDropdownMenu>
+          <a class="dropdown-item" routerLink="/introduction/About us">ABOUT US</a>
+          <a class="dropdown-item" routerLink="/introduction/Facility & Advisor">FACILITY & ADVISOR</a>
+          <a class="dropdown-item" routerLink="/introduction/Department structure & Staff">DEPARTMENT STRUCTURE & STAFF</a>
+          <a class="dropdown-item" routerLink="/introduction/Contact">CONTACT</a>
+        </div>
+      </a>
     </li>
     <li class="nav-item">
-      <a i18n class="nav-link" routerLinkActive="nav-link-active" routerLink="/academic">{{'Nav.Academics_Admissions' | translate}}</a>
+      <a ngbDropdown ngbDropdownToggle i18n class="nav-link" routerLinkActive="nav-link-active">
+        {{'Nav.Academics_Admissions' | translate}}
+        <div ngbDropdownMenu>
+          <a class="dropdown-item" routerLink="/academic/Academic Information">ACADEMIC INFORMATION</a>
+          <a class="dropdown-item" routerLink="/academic/Student Graduate & Undergraduate">STUDENT GRADUATED & UNDERGRADUATE</a>
+          <a class="dropdown-item" routerLink="/academic/Teaching">TEACHING</a>
+          <a class="dropdown-item" routerLink="/academic/Degree Requirement">DEGREE REQUIREMENT</a>
+        </div>
+      </a>
     </li>
     <li class="nav-item">
-      <a i18n class="nav-link" routerLinkActive="nav-link-active" routerLink="/research">{{'Nav.Research' | translate}}</a>
+      <a ngbDropdown ngbDropdownToggle i18n class="nav-link" routerLinkActive="nav-link-active">
+        {{'Nav.Research' | translate}}
+        <div ngbDropdownMenu>
+          <a class="dropdown-item" routerLink="/research/Research News">RESEARCH NEWS</a>
+          <a class="dropdown-item" routerLink="/research/Laboratory">LABORATORY</a>
+          <a class="dropdown-item" routerLink="/research/Conferences and seminars">CONFERENCES AND SEMINARS</a>
+          <a class="dropdown-item" routerLink="/research/Area">AREA</a>
+          <a class="dropdown-item" routerLink="/research/Poster">POSTER</a>
+        </div>
+      </a>
     </li>
     <li class="nav-item">
-      <a i18n class="nav-link" routerLinkActive="nav-link-active" routerLink="/news">{{'Nav.News' | translate}}</a>
+      <a ngbDropdown ngbDropdownToggle i18n class="nav-link" routerLinkActive="nav-link-active">
+        {{'Nav.News' | translate}}
+        <div ngbDropdownMenu>
+          <a class="dropdown-item" routerLink="/news/Department News">DEPARTMENT NEWS</a>
+          <a class="dropdown-item" routerLink="/news/Course News">COURSE NEWS</a>
+          <a class="dropdown-item" routerLink="/news/Event">EVENT</a>
+          <a class="dropdown-item" routerLink="/news/School leadership">SCHOOL LEADERSHIP</a>
+          <a class="dropdown-item" routerLink="/news/Calendar">CALENDAR</a>
+        </div>
+      </a>
     </li>
   </ul>
 

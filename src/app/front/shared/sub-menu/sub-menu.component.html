@@ -1,7 +1,6 @@
 <div class="desktop">
   <ul>
-    <a *ngFor="let title of titles" [class.selected]="title === selectedTitle"
-       (click)="onSelect(title)" routerLink="/{{parentRoute}}/{{title}}">
+    <a *ngFor="let title of titles" routerLink="/{{parentRoute}}/{{title}}" routerLinkActive="active-link">
       {{title}}
       <hr>
     </a>
@@ -16,8 +15,7 @@
 
     <!--<span ngbDropdownToggle class="caret"></span>-->
     <ul ngbDropdownMenu="left">
-      <a *ngFor="let title of titles" [class.selected]="title === selectedTitle"
-         (click)="onSelect(title)" routerLink="/{{parentRoute}}/{{title}}">
+      <a *ngFor="let title of titles" routerLink="/{{parentRoute}}/{{title}}" routerLinkActive="active-link">
         {{title}}
         <hr>
       </a>

@@ -16,6 +16,19 @@
   font-weight: bold;
 }
 
+#information{
+  display: block;
+  margin: 20px 0;
+  padding: 6px 20px;
+  background: rgba(80, 80, 80, 0.2);
+}
+
+.translator{
+  display: block;
+  float: right;
+  text-align: right;
+}
+
 .social {
   display: -ms-flexbox;
   display: -webkit-flex;

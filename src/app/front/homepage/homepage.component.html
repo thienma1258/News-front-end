@@ -47,7 +47,6 @@
       <p i18n class="news-title">{{'Homepage.LatestNews' | translate}}</p>
       <div *ngFor="let article of latestArticles; let i = index">
         <app-article-preview [article]="article" [displayType]="1" [showTitle]="true" [showCreatedTime]="true"></app-article-preview>
-        <br style="clear: both;"/>
         <div *ngIf="i != latestArticles.length - 1" style="border-bottom: 2px solid #E0DFDC; margin: 12px 0;"></div>
       </div>
     </div>
