@@ -8,5 +8,15 @@
     "Academics_Admissions":"ACADEMICS & ADMISSIONS",
     "Research":"RESEARCH",
     "News":"NEWS"
+  },
+  "Homepage":{
+    "SeeMore":"SEE MORE",
+    "AboutUs":"ABOUT US",
+    "LatestNews":"LATEST NEWS",
+    "UpcomingEvent":"UPCOMING EVENT",
+    "Admissions":"Admissions",
+    "Academics":"Academics",
+    "Research":"Research",
+    "StudentLife":"Student Life"
   }
 }

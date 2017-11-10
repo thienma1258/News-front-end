@@ -2,6 +2,7 @@ img{
   width:20px;
   height: 20px;
   margin-right: 10px;
+  float: none;
 }
 
 a{
@@ -19,7 +20,7 @@ span{
 
 #information{
   text-align: left;
-  padding: 40px 120px;
+  padding: 40px 10%;
 }
 
 .title{
@@ -28,9 +29,14 @@ span{
   margin-bottom: 20px;
 }
 
+#phone div{
+  display: inline-block;
+}
+
 .wrapper{
   display: inline-block;
 }
+
 
 #copyright{
   color: white;
@@ -40,8 +46,16 @@ span{
 }
 
 @media (max-width: 425px){
-  #information{
-    text-align: left;
-    padding: 40px 60px;
+  #link-left{
+    margin-bottom: 20px;
+  }
+  #phone{
+    display: flex;
+  }
+  #phone div{
+    display: block;
+  }
+  #phone span{
+    display: block;
   }
 }

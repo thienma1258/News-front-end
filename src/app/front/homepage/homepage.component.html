@@ -4,7 +4,7 @@
     <div class="carousel-overlay">
       <p id="carousel-title">{{article.title}}</p>
       <p id="carousel-overlay-content">{{article.previewContent}}</p>
-      <a i18n routerLink="{{article.url}}">SEE MORE</a>
+      <a i18n routerLink="{{article.url}}">{{'Homepage.SeeMore' | translate}}</a>
     </div>
   </ng-template>
 </ngb-carousel>
@@ -40,11 +40,11 @@
 <div id="news">
   <div class="row">
     <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing">
-      <p i18n class="news-title">ABOUT US</p>
+      <p i18n class="news-title">{{'Homepage.AboutUs' | translate}}</p>
       <app-article-preview [article]="aboutArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
     </div>
     <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing">
-      <p i18n class="news-title">LATEST NEWS</p>
+      <p i18n class="news-title">{{'Homepage.LatestNews' | translate}}</p>
       <div *ngFor="let article of latestArticles; let i = index">
         <app-article-preview [article]="article" [displayType]="1" [showTitle]="true" [showCreatedTime]="true"></app-article-preview>
         <br style="clear: both;"/>
@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing">
-      <p i18n class="news-title">UPCOMING EVENT</p>
+      <p i18n class="news-title">{{'Homepage.UpcomingEvent' | translate}}</p>
       <div *ngFor="let event of upcomingEvent">
         <app-event-preview [event]="event"></app-event-preview>
         <br style="clear: both;"/>
@@ -64,19 +64,19 @@
 <div id="about">
   <div class="row">
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-      <p i18n class="about-title">Admissions</p>
+      <p i18n class="about-title">{{'Homepage.Admissions' | translate}}</p>
       <app-article-preview [article]="admissionsArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-      <p i18n class="about-title">Academics</p>
+      <p i18n class="about-title">{{'Homepage.Academics' | translate}}</p>
       <app-article-preview [article]="academicsArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-      <p i18n class="about-title">Research</p>
+      <p i18n class="about-title">{{'Homepage.Research' | translate}}</p>
       <app-article-preview [article]="researchArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-      <p i18n class="about-title">Student life</p>
+      <p i18n class="about-title">{{'Homepage.StudentLife' | translate}}</p>
       <app-article-preview [article]="studentLifeArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
     </div>
   </div>

@@ -55,6 +55,18 @@ a {
   }
 }
 
+@media (max-width: 768px){
+  /*.circle{*/
+    /*width:60px;*/
+    /*height:60px;*/
+    /*margin-right: 5%;*/
+    /*line-height: 1;*/
+    /*padding: 10px 10px 0 10px;*/
+    /*border-radius: 50%;*/
+    /*border: 6px solid #EB5757;*/
+  /*}*/
+}
+
 @media (max-width: 425px) {
   .content{
     font-size: 10px;
