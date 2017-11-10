@@ -11,8 +11,15 @@
       </div>
     </a>
   </div>
-  <div *ngSwitchCase="2">
-
+  <div *ngSwitchCase="2" class="large">
+<a routerLink="/introduction">
+      <img class="image" src="{{article.imageUrls[0]}}">
+      <div class="content">
+        <p *ngIf="showTitle" class="title">{{article.title}}</p>
+        <p *ngIf="showPreviewContent">{{article.previewContent}}</p>
+        <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime}}</p>
+      </div>
+    </a>
   </div>
   <div class="large" *ngSwitchCase="3">
     <a routerLink="">

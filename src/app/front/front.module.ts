@@ -13,11 +13,11 @@ import { ArticlePreviewComponent } from './shared/article-preview/article-previe
 import { EventPreviewComponent } from './shared/event-preview/event-preview.component';
 import { FacebookModule } from 'ngx-facebook';
 import { ArticleContentComponent } from './shared/article-content/article-content.component';
-import { ArticleNewsResearchComponent } from './shared/article-news-research/article-news-research.component';
 import { NewsComponent } from './news/news.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
-
+import { ResearchDetailsComponent } from './research-details/research-details.component';
+import { NewsDetailsComponent } from './news-details/news-details.component';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -30,8 +30,10 @@ import {TranslateModule, TranslateService} from '@ngx-translate/core';
     EventPreviewComponent,
     ResearchComponent,
     ArticleContentComponent,
-    ArticleNewsResearchComponent,
-    NewsComponent
+  
+    NewsComponent,
+    ResearchDetailsComponent,
+    NewsDetailsComponent
   ],
   imports: [
     FrontRoutingModule,
