@@ -1,46 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Article} from '../shared/interface/article';
 @Component({
-  selector: 'app-research',
-  templateUrl: './research.component.html',
-  styleUrls: ['./research.component.css']
+  selector: 'research-details',
+  templateUrl: './research-details.component.html',
+  styleUrls: ['./research-details.component.css']
 })
-export class ResearchComponent implements OnInit {
-  parentRoute: string;
-  parentRouteName: string;
-  public menu: string[];
-  public selectedtitle;
-  public articles:Article[];
-
-  constructor() {
-this.articles=new Array<Article>();
-
-this.articles.push(this.getArticle());
-
-this.articles.push(this.getArticle());
-
-this.articles.push(this.getArticle());
-
-this.articles.push(this.getArticle());
-  }
-
-  createmenu() {
-    this.menu = new Array<string>();
-    this.menu.push('Research News');
-    this.menu.push('Laboratory');
-    this.menu.push('Conferences and seminars');
-    this.menu.push('Area');
-    this.menu.push('Poster');
-    this.selectedtitle = this.menu[0];
-  }
-
-  ngOnInit() {
-    this.parentRoute = '/research';
-    this.parentRouteName = 'Research';
-    this.createmenu();
-  }
-  getArticle(){
-    return  {
+export class ResearchDetailsComponent implements OnInit {
+article: Article = {
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante\n' +
     '  dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce\n' +
@@ -73,10 +39,13 @@ this.articles.push(this.getArticle());
     '  aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet\n' +
     '  mollis lectus. Vivamus consectetuer risus et tortor.',
     previewContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    imageUrls: ['http://file.hstatic.net/1000192210/product/upload_40caae4a4a264141826499dc0edc00bf.jpg'],
+    imageUrls: ['./assets/images/NCNU_06020.jpg'],
     url: '',
     createdTime: 'ajsklfdj',
   };
+  constructor() { }
+
+  ngOnInit() {
   }
 
 }
