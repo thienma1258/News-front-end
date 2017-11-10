@@ -1,7 +1,7 @@
 <div class="container background" style="width: 100%;height: 100%">
   <!-- row -->
   <div class="row margin-top3">
-    <div class="col-md-3" style="padding-left: 4%">
+    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 submenu" style="padding-left: 4%;display: flex">
       <!-- sub menu -->
       <app-sub-menu [parentRoute]="parentRoute" [parentRouteName]="parentRouteName"
                 [titles]="menu" [selectedTitle]="selectedtitle"></app-sub-menu>
@@ -10,11 +10,14 @@
     </div>
     <!-- end submenu -->
     <!-- Main -->
-    <div class="col-md-9 mg-t-10" >
-<div class="container">
+
+    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+     
+
+ <div class="container">
     <div class="row">
     <!-- 1 image -->
-  <div class=" col-md-4 col-xs-12" *ngFor="let article of articles">
+  <div class=" col-md-4  col-xs-12" *ngFor="let article of articles">
         <!-- 1 img -->
       <!--   <a routerLink="/research/">
         <div class="smallimg">
@@ -25,11 +28,6 @@
 
          ></app-article-preview>
       </div>
-
-    </div>
-  </div>
-  <!-- end row -->
-
 
     </div>
   </div>

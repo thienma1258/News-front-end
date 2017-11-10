@@ -1,5 +1,5 @@
 <div class="desktop">
-  <ul>
+  <ul style="padding-left: 2%">
     <a *ngFor="let title of titles" [class.selected]="title === selectedTitle"
        (click)="onSelect(title)" routerLink="/{{parentRoute}}/{{title}}">
       {{title}}
