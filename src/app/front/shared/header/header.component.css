@@ -55,9 +55,13 @@ nav ul li a:hover{
   display: table;
 }
 
-.nav-right{
+.header-nav-right{
   float:right;
   margin-top: 10px;
+}
+
+.nav-right{
+  display: none;
 }
 
 .navbar-toggler{
@@ -96,19 +100,24 @@ nav ul li a:hover{
 }
 
 .header-search input{
+  /*height:inherit;*/
   width: 0;
   border: 0;
-  padding: 0;
   border-radius:0;
   box-shadow: none;
+  border: 1px solid transparent;
+  background-color: transparent;
+  padding: 6px 12px;
   -webkit-transition: all 0.7s ease-in-out;
   -moz-transition: all 0.7s ease-in-out;
   -o-transition: all 0.7s ease-in-out;
   transition: all 0.7s ease-in-out;
-  
+
 }
 
 .header-search:hover input{
+  /*height:inherit;*/
+  background-color: white;
   display: inline;
   width: 200px;
   padding: 6px 12px;
@@ -121,12 +130,12 @@ nav ul li a:hover{
   display: inline-block;
 }
 
-#search-button{
+.search-button{
   width:30px;
   height:30px;
 }
 
-#translate-button{
+.translate-button{
   margin-left:20px;
   margin-right:10px;
   width:30px;
@@ -147,6 +156,7 @@ a{
 
 .dropdown-menu{
   padding: 0;
+  border:0;
 }
 
 .dropdown-item{
@@ -168,12 +178,12 @@ a{
     font-size: 16px;
   }
 
-  #search-button{
+  .search-button{
     width:28px;
     height:28px;
   }
 
-  #translate-button{
+  .translate-button{
     margin-left:16px;
     margin-right:8px;
     width:26px;
@@ -198,12 +208,12 @@ a{
     display: block;
   }
 
-  #search-button{
+  .search-button{
     width:26px;
     height:26px;
   }
 
-  #translate-button{
+  .translate-button{
     margin-left:10px;
     margin-right:8px;
     width:26px;
@@ -228,12 +238,12 @@ a{
     font-size: 12px;
   }
 
-  #search-button{
+  .search-button{
     width:22px;
     height:22px;
   }
 
-  #translate-button{
+  .translate-button{
     margin-left:6px;
     margin-right:3px;
     width:22px;
@@ -260,13 +270,13 @@ a{
   }
 
   #title{
-    font-size: 11px;
+    font-size: 16px;
   }
 
   nav{
     display: block;
     color: white;
-    padding:0 3%;
+    padding:10px 3%;
     background-color: #CE4656;
   }
 
@@ -275,21 +285,35 @@ a{
     padding: 10px 0;
   }
 
+  .header-nav-right{
+    display: none;
+  }
+
   .nav-right{
-    float:right;
-    margin-top: 5px;
+    display: inline-block;
+    float: right;
+    font-size: 16px;
+    margin-top: 7px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 10px;
+  }
+
+  .language{
+    vertical-align: middle;
   }
 
   #language{
     display: none;
   }
 
-  #search-button{
+  .search-button{
     width:20px;
     height:20px;
   }
 
-  #translate-button{
+  .translate-button{
     margin-left:6px;
     width:20px;
     height:20px;
@@ -300,8 +324,9 @@ a{
   }
 
   #logo{
-    width:40px;
-    height:40px;
+    width:50px;
+    height:50px;
+    margin-top: 2px;
     margin-right: 8px;
   }
 }
@@ -315,13 +340,13 @@ a{
   }
 
   #title{
-    font-size: 10px;
+    font-size: 14px;
   }
 
   nav{
     display: block;
     color: white;
-    padding:0 3%;
+    padding:10px 3%;
     background-color: #CE4656;
   }
 
@@ -330,21 +355,26 @@ a{
     margin: 20px 0;
   }
 
-  .nav-right{
+  .header-nav-right{
     float:right;
     margin-top: 0;
+  }
+
+  .nav-right{
+    font-size: 12px;
+    margin-top: 6px;
   }
 
   #language{
     display: none;
   }
 
-  #search-button{
+  .search-button{
     width:18px;
     height:18px;
   }
 
-  #translate-button{
+  .translate-button{
     margin-left:3px;
     width:18px;
     height:18px;
@@ -355,8 +385,8 @@ a{
   }
 
   #logo{
-    width:32px;
-    height:32px;
+    width:50px;
+    height:50px;
     margin-right: 6px;
   }
 }
