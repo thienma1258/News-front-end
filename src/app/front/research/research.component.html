@@ -4,7 +4,7 @@
     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 submenu" style="padding-left: 4%;display: flex">
       <!-- sub menu -->
       <app-sub-menu [parentRoute]="parentRoute" [parentRouteName]="parentRouteName"
-                [titles]="menu" [selectedTitle]="selectedtitle"></app-sub-menu>
+                    [titles]="menu" [selectedTitle]="selectedtitle"></app-sub-menu>
 
 
     </div>
@@ -12,25 +12,24 @@
     <!-- Main -->
 
     <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-     
 
- <div class="container">
-    <div class="row">
-    <!-- 1 image -->
-  <div class=" col-md-4  col-xs-12" *ngFor="let article of articles">
-        <!-- 1 img -->
-      <!--   <a routerLink="/research/">
-        <div class="smallimg">
-          <img src="https://www.paramedics.org/wp-content/uploads/2017/01/research.jpg" class="imgs" alt="">
-          <p class="long-word">One solution for abcx</p>
-        </div> -->
-         <app-article-preview [article]="article" [displayType]="2" [showPreviewContent]="true"
 
-         ></app-article-preview>
+      <div class="container">
+        <div class="row">
+          <!-- 1 image -->
+          <div class=" col-md-4  col-xs-12" *ngFor="let article of articles">
+            <!-- 1 img -->
+            <!--   <a routerLink="/research/">
+              <div class="smallimg">
+                <img src="https://www.paramedics.org/wp-content/uploads/2017/01/research.jpg" class="imgs" alt="">
+                <p class="long-word">One solution for abcx</p>
+              </div> -->
+            <app-article-preview [article]="article" [displayType]="2"
+                                 [showPreviewContent]="true"></app-article-preview>
+          </div>
+
+        </div>
       </div>
-
+      <!-- end row -->
     </div>
-  </div>
-  <!-- end row -->
-</div>
-<!-- end container -->
+    <!-- end container -->
