@@ -1,22 +1,21 @@
-import { RouterModule, Routes, PreloadAllModules} from '@angular/router';
-import { NgModule } from '@angular/core';
+import {RouterModule, Routes, PreloadAllModules} from '@angular/router';
+import {NgModule} from '@angular/core';
 
- const routes: Routes = [
-    { path: '',
-      loadChildren: 'app/front/front.module#FrontModule'
-    }
- ];
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: 'app/front/front.module#FrontModule'
+  }
+];
 
 
- @NgModule({
-  declarations: [
-
-  ],
+@NgModule({
+  declarations: [],
   imports: [
-      RouterModule.forRoot(
-        routes,
-        {preloadingStrategy: PreloadAllModules }
-      )
+    RouterModule.forRoot(
+      routes,
+      {preloadingStrategy: PreloadAllModules}
+    )
   ],
   providers: [],
   bootstrap: [],
@@ -24,4 +23,4 @@ import { NgModule } from '@angular/core';
 })
 export class AppRoutingModule {
 
- }
+}
