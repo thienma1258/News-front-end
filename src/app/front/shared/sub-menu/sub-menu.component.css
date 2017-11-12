@@ -14,6 +14,8 @@ li {
 a {
   text-decoration: none;
   color: black;
+  padding-bottom: 5%;
+  padding-top: 5%;
 }
 
 a:active {
@@ -24,9 +26,9 @@ a:hover {
 
 }
 
-hr {
-  border-bottom: 1px solid;
-  color: #ccc6c1;
+.divider {
+  display: block;
+  border-bottom: 1px solid #ccc6c1;
 }
 
 .mobile {
