@@ -30,7 +30,6 @@ import { NewsDetailsComponent } from './news-details/news-details.component';
     EventPreviewComponent,
     ResearchComponent,
     ArticleContentComponent,
-  
     NewsComponent,
     ResearchDetailsComponent,
     NewsDetailsComponent
