@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'login',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  isShowPassword = false;
+  showPasswordIcon = '../../../assets/images/display-password.png';
+  hidePasswordIcon = '../../../assets/images/hide-password.png';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  togglePassword() {
+    this.isShowPassword = !this.isShowPassword;
+  }
 }

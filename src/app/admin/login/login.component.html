@@ -2,12 +2,23 @@
   <div id="sign-in-block">
     <h1 class="title">SIGN IN</h1>
     <form id="sign-in-form">
-      <input type="text" placeholder="Email"><br/>
-      <input type="password" placeholder="Password"><br/>
+      <div class="text-box">
+        <input type="text" placeholder="Email" required>
+      </div>
+      <br/>
+      <div class="text-box">
+        <input type="{{isShowPassword ? 'type' : 'password'}}" placeholder="Password" required>
+        <img (click)="togglePassword()" id="toggle-password-button" src="{{isShowPassword ? showPasswordIcon : hidePasswordIcon}}">
+      </div>
+      <br/>
       <button id="btn-sign-in" type="submit">SIGN IN</button>
     </form>
     <div id="forget-password-block">
-      <a href="#">Forget your password ?</a>
+      <a href="#">Forgot your password?</a>
     </div>
+  </div>
+  <div id="footer">
+    <img id="logo" src="../../../assets/images/eed-logo.png">
+    <span id="name">National Chi Nan University - Department of Electrical Engineering</span>
   </div>
 </div>

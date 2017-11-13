@@ -4,7 +4,7 @@
   width: 100%;
   background-color: #2B2D5A;
   text-align: center;
-  padding: 100px 0;
+  padding: 10% 0;
 }
 
 #sign-in-block{
@@ -22,18 +22,27 @@
   font-size: 46px;
 }
 
-input{
-  width: 380px;
+.text-box{
+  display: block;
+  text-align: left;
+  border-bottom: 2px solid gray;
   margin-bottom: 30px;
-  border: 1px solid #7CAEE9;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
+}
+
+input{
+  padding: 5px 0;
+  border: 0 solid gray;
+  /*border-bottom-width: 1.5px;*/
+  width: 400px;
   outline: none;
 }
 
+input:focus{
+  border-color: #7CAEE9;
+}
+
 #sign-in-form{
-  padding: 0 30px 50px 30px;
+  padding: 0 40px 50px 40px;
 }
 
 #btn-sign-in{
@@ -53,6 +62,25 @@ input{
 
 #forget-password-block a{
   display: block;
-  color: #5B5762;
+  color: gray;
   text-decoration: underline;
+}
+
+#footer{
+  margin-top: 3%;
+  text-align: center;
+  color: white;
+}
+
+#logo{
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+
+#toggle-password-button{
+  position: relative;
+  right: 0;
+  bottom: 0;
+  margin-right: 20px;
 }
