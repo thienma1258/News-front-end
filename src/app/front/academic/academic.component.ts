@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Article} from '../shared/interface/article';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-academic',
@@ -49,7 +50,13 @@ export class AcademicComponent implements OnInit {
     createdTime: 'ajsklfdj',
   };
 
+  constructor(private route: ActivatedRoute){
+  }
+
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.selectedTitle = params['title'];
+    });
     this.parentRoute = '/academic';
     this.parentRouteName = 'Academic & Admissions';
     this.titles = [

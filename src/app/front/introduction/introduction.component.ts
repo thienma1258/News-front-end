@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Article} from '../shared/interface/article';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-introduction',
@@ -49,10 +50,13 @@ export class IntroductionComponent implements OnInit {
     createdTime: '10/11/2017',
   };
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.selectedTitle = params['title'];
+    });
     this.parentRoute = '/introduction';
     this.parentRouteName = 'Introduction';
     this.titles = ['About us', 'Facility & Advisor', 'Department structure & Staff', 'Contact'];

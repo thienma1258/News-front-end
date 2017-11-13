@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Article} from '../shared/interface/article';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'news',
@@ -13,7 +14,7 @@ export class NewsComponent implements OnInit {
   public selectedtitle;
   public articles: Article[];
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
     this.articles = new Array<Article>();
     this.articles.push(this.getarticle());
     this.articles.push(this.getarticle());
@@ -21,6 +22,9 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.selectedtitle = params['title'];
+    });
     this.parentRoute = '/news';
     this.parentRouteName = 'News';
     this.createmenu();
@@ -33,7 +37,7 @@ export class NewsComponent implements OnInit {
     this.menu.push('Event');
     this.menu.push('School leadership');
     this.menu.push('Calendar');
-    this.selectedtitle = this.menu[0];
+    // this.selectedtitle = this.menu[0];
   }
 
   getarticle() {
