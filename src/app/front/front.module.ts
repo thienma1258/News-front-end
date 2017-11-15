@@ -9,15 +9,16 @@ import {SubMenuComponent} from './shared/sub-menu/sub-menu.component';
 import {IntroductionComponent} from './introduction/introduction.component';
 import {AcademicComponent} from './academic/academic.component';
 import {FooterComponent} from './shared/footer/footer.component';
-import { ArticlePreviewComponent } from './shared/article-preview/article-preview.component';
-import { EventPreviewComponent } from './shared/event-preview/event-preview.component';
-import { FacebookModule } from 'ngx-facebook';
-import { ArticleContentComponent } from './shared/article-content/article-content.component';
-import { NewsComponent } from './news/news.component';
+import {ArticlePreviewComponent} from './shared/article-preview/article-preview.component';
+import {EventPreviewComponent} from './shared/event-preview/event-preview.component';
+import {FacebookModule} from 'ngx-facebook';
+import {ArticleContentComponent} from './shared/article-content/article-content.component';
+import {NewsComponent} from './news/news.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import { ResearchDetailsComponent } from './research-details/research-details.component';
-import { NewsDetailsComponent } from './news-details/news-details.component';
+import {TranslateModule} from '@ngx-translate/core';
+import {ResearchDetailsComponent} from './research-details/research-details.component';
+import {NewsDetailsComponent} from './news-details/news-details.component';
+
 @NgModule({
   declarations: [
     HeaderComponent,

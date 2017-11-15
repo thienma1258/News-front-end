@@ -1,0 +1,48 @@
+.preview-image{
+  max-height: 500px;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.created-time{
+  color: gray;
+}
+
+a{
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.image{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+.large .content{
+  margin-top: 20px;
+}
+
+@media(max-width: 1440px){
+  .title{
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 1024px){
+  .title{
+    font-size: 14px;
+  }
+}
+
+
+@media(max-width: 768px){
+  .title{
+    font-size: 16px;
+  }
+}
+

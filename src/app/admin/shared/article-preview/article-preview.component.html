@@ -1,0 +1,10 @@
+<div>
+  <a routerLink="">
+    <img class="image" src="{{assertImagesUrl + article.imageUrls[0]}}">
+    <div class="content">
+      <p *ngIf="showTitle" class="title">{{article.title}}</p>
+      <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime}}</p>
+      <p *ngIf="showPreviewContent">{{article.previewContent}}</p>
+    </div>
+  </a>
+</div>

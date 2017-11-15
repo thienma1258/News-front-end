@@ -1,3 +1,56 @@
-<p>
-  dashboard works!
-</p>
+<div class="content">
+  <div class="statistic-chart box">
+    <p class="title">TOTAL VISIT</p>
+    <canvas baseChart
+            width="4"
+            height="1"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType">
+    </canvas>
+  </div>
+  <div class="row">
+    <div class="box" id="recent-news">
+      <p class="title">RECENT NEWS</p>
+      <div class="row">
+        <article-preview class="col-xl-4"  *ngFor="let article of previewRecentNews;" [article]="article"
+                         [showTitle]="true" [showCreatedTime]="true" [showPreviewContent]="true"></article-preview>
+      </div>
+      <i routerLink="" class="see-more">See More</i>
+    </div>
+    <div class="box" id="recent-event">
+      <p class="title">RECENT EVENTS</p>
+      <event-preview *ngFor="let event of previewRecentEvent;" [event]="event"></event-preview>
+      <i routerLink="" class="see-more">See More</i>
+    </div>
+  </div>
+  <div class="box" id="activity-logs">
+    <div class="row">
+      <table class="table">
+        <thead>
+        <tr>
+          <th width="15%">#</th>
+          <th width="15%">User</th>
+          <th width="25%">Date</th>
+          <th width="45%">Activity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let log of activityLogs; let i = index">
+          <td>#{{i + 1}}</td>
+          <td>{{log.user}}</td>
+          <td>{{log.date}}</td>
+          <td>{{log.activity}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <i routerLink="" class="see-more">See More</i>
+  </div>
+  <footer>
+    Copyright &copy; 1998-2017, National Chi Nan University - Department of Electrical Engineering
+  </footer>
+</div>

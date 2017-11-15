@@ -52,7 +52,18 @@ input:focus{
   border-radius: 6px;
   border: none;
   color: white;
+  cursor: pointer;
   font-weight: bold;
+}
+
+#btn-sign-in:hover{
+  background: rgba(235, 87, 87, 0.8);
+}
+
+#error-message{
+  color: red;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 #forget-password-block{

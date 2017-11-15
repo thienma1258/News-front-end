@@ -1,16 +1,18 @@
 <div id="background">
   <div id="sign-in-block">
     <h1 class="title">SIGN IN</h1>
-    <form id="sign-in-form">
+    <form id="sign-in-form" (ngSubmit)="login(loginForm.value.email, loginForm.value.password)" [formGroup]="loginForm">
       <div class="text-box">
-        <input type="text" placeholder="Email" required>
+        <input type="text" placeholder="Email" formControlName="email" required>
       </div>
       <br/>
       <div class="text-box">
-        <input type="{{isShowPassword ? 'type' : 'password'}}" placeholder="Password" required>
+        <input type="{{isShowPassword ? 'type' : 'password'}}" placeholder="Password" formControlName="password" required>
         <img (click)="togglePassword()" id="toggle-password-button" src="{{isShowPassword ? showPasswordIcon : hidePasswordIcon}}">
       </div>
-      <br/>
+      <div *ngIf="isLogInFailed" id="error-message">
+        Login failed!
+      </div>
       <button id="btn-sign-in" type="submit">SIGN IN</button>
     </form>
     <div id="forget-password-block">
