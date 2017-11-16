@@ -1,0 +1,16 @@
+.content{
+  display: inline-block;
+}
+
+.preview-image{
+  width: 100%;
+}
+
+img{
+  cursor: pointer;
+}
+
+:host{
+  display: block;
+  margin-bottom: 20px;
+}

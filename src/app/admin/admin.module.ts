@@ -17,6 +17,9 @@ import {IntroductionComponent} from './introduction/introduction.component';
 import {AcademicsComponent} from './academics/academics.component';
 import {ResearchComponent} from './research/research.component';
 import {NewsComponent} from './news/news.component';
+import { ContainerBoxComponent } from './shared/container-box/container-box.component';
+import { PreviewEditBoxComponent } from './shared/preview-edit-box/preview-edit-box.component';
+import { AdminFooterComponent } from './shared/admin-footer/admin-footer.component';
 
 @NgModule({
   imports: [
@@ -39,7 +42,10 @@ import {NewsComponent} from './news/news.component';
     IntroductionComponent,
     AcademicsComponent,
     ResearchComponent,
-    NewsComponent
+    NewsComponent,
+    ContainerBoxComponent,
+    PreviewEditBoxComponent,
+    AdminFooterComponent
   ]
 })
 export class AdminModule {

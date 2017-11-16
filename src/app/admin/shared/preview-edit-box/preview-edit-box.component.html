@@ -1,0 +1,12 @@
+<div [ngSwitch]="displayType">
+  <div class="content" *ngSwitchCase="1">
+    <img class="preview-image" src="{{assertImagesUrl + article.imageUrls[0]}}">
+    <div style="text-align: center; font-size: 20px; margin-top: 10px;">
+      {{article.title}}
+      <div style="float: right;">
+        <img routerLink="{{editLink}}" src="../../../../assets/images/edit.png">
+        <img style="margin-left: 10px;" src="../../../../assets/images/cancel.png">
+      </div>
+    </div>
+  </div>
+</div>

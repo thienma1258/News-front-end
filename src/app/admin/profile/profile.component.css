@@ -1,0 +1,39 @@
+.content{
+  margin-left: 50px;
+}
+
+content-box{
+  margin-bottom: 30px;
+}
+
+.phone{
+  display: flex;
+}
+
+.add-slide img{
+  width: 100%;
+  padding: 20% 30%;
+  cursor: pointer;
+}
+
+@media (max-width: 576px){
+  .link-col-num{
+    display: none;
+  }
+
+  .content{
+    display: block;
+    margin: 0;
+    margin-bottom: 6px;
+  }
+
+  .title{
+    display: block;
+    color: rgba(100, 100, 100, 0.8);
+    margin-bottom: 4px;
+  }
+
+  .phone{
+    display: block;
+  }
+}
