@@ -7,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AdminComponent implements OnInit {
   language = 'English';
+  isToggleMenuExpanded = false;
 
   constructor() {
   }
@@ -14,4 +15,7 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggleMenu() {
+    this.isToggleMenuExpanded = !this.isToggleMenuExpanded;
+  }
 }

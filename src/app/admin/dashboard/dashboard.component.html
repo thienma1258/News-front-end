@@ -16,14 +16,16 @@
     <div class="box" id="recent-news">
       <p class="title">RECENT NEWS</p>
       <div class="row">
-        <article-preview class="col-xl-4"  *ngFor="let article of previewRecentNews;" [article]="article"
+        <article-preview class="col-xl-4 col-lg-4 col-md-4"  *ngFor="let article of previewRecentNews;" [article]="article"
                          [showTitle]="true" [showCreatedTime]="true" [showPreviewContent]="true"></article-preview>
       </div>
       <i routerLink="" class="see-more">See More</i>
     </div>
     <div class="box" id="recent-event">
       <p class="title">RECENT EVENTS</p>
-      <event-preview *ngFor="let event of previewRecentEvent;" [event]="event"></event-preview>
+      <div class="row">
+        <event-preview class="col-md-6 col-lg-12" *ngFor="let event of previewRecentEvent;" [event]="event"></event-preview>
+      </div>
       <i routerLink="" class="see-more">See More</i>
     </div>
   </div>

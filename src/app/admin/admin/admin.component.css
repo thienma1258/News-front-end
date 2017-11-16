@@ -8,6 +8,18 @@ nav{
   padding: 0;
 }
 
+.header-logo{
+  display: block;
+}
+
+.nav-menu-toggle{
+  display: none;
+}
+
+.navbar-mobile{
+  display: none;
+}
+
 ul{
   padding: 0;
 }
@@ -46,6 +58,7 @@ a{
 .content{
   margin-left: 17%;
   margin-top: 100px;
+  padding: 30px 5%;
   width: 100%;
   height: 100%;
   background-color: rgba(220, 220, 220, 1);
@@ -221,5 +234,133 @@ nav ul li a img{
   .nav-header{
     font-size: 24px;
     width: 25%;
+  }
+}
+
+@media (max-width: 768px){
+  .nav-header a span{
+    display: none;
+  }
+
+  .nav-header{
+    width: 15%;
+    padding: 30px 30px;
+  }
+
+  .navbar-fixed-left{
+    width: 15%;
+  }
+
+  .navbar-fixed-left ul li a{
+    padding: 20px 30px;
+  }
+
+  .navbar-fixed-left ul li a span{
+    display: none;
+  }
+
+  .navbar-fixed-left ul li a{
+    display: inline-block;
+  }
+
+  .top-nav{
+    width: 85%;
+  }
+
+  .content{
+    margin-left: 15%;
+    width: 85%;
+  }
+}
+
+@media (max-width: 576px){
+  .navbar-fixed-left {
+    display: none;
+  }
+
+  .header-logo{
+    display: none;
+  }
+
+  .nav-menu-toggle{
+    display: block;
+    background: none;
+    border: none;
+  }
+
+  .nav-menu-toggle img{
+    width: 30px;
+    height: 30px;
+  }
+
+  .navbar-fixed-top{
+    height: 60px;
+  }
+
+  .navbar-mobile{
+    display: none;
+    position: static;
+    height: 100%;
+    margin-top: 60px;
+  }
+
+  .show{
+    display: block;
+  }
+
+  .navbar-mobile ul{
+    margin: 0;
+  }
+
+  .navbar-mobile ul li a{
+    display: block;
+  }
+
+  .navbar-mobile ul li a img{
+    display: none;
+  }
+
+  .nav-header{
+    color: white;
+    background-color: #EB5757;
+    width: 20%;
+    height: 100%;
+    padding: 8px 15px;
+  }
+
+  .nav-header img{
+    margin: 0;
+  }
+
+  .top-nav{
+    padding: 0;
+  }
+
+  .header-nav-left{
+    display: none;
+  }
+
+  .header-nav-right{
+    margin: 8px;
+  }
+
+  .avatar{
+    width: 45px;
+    height: 45px;
+  }
+
+  .username{
+    font-size: 16px;
+  }
+
+  .content{
+    margin-left: 0;
+    margin-top: 60px;
+    width: 100%;
+    padding: 30px 0;
+  }
+
+  .collapse-margin{
+    margin-top: 0;
   }
 }
