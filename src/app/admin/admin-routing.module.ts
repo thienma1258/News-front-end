@@ -5,6 +5,11 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {AdminComponent} from './admin/admin.component';
 import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './shared/auth.guard';
+import {ProfileComponent} from "./profile/profile.component";
+import {IntroductionComponent} from "./introduction/introduction.component";
+import {AcademicsComponent} from "./academics/academics.component";
+import {ResearchComponent} from "./research/research.component";
+import {NewsComponent} from "./news/news.component";
 
 const routes: Routes = [
   {
@@ -20,6 +25,26 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent
       },
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: 'introduction',
+        component: IntroductionComponent
+      },
+      {
+        path: 'academics',
+        component: AcademicsComponent
+      },
+      {
+        path: 'research',
+        component: ResearchComponent
+      },
+      {
+        path: 'news',
+        component: NewsComponent
+      }
     ]
   },
   {

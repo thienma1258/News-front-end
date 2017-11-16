@@ -40,6 +40,7 @@ a{
   top: 100px;
   height: 100%;
   width: 17%;
+  z-index: 1100;
 }
 
 .content{
@@ -58,12 +59,17 @@ nav ul li a{
   display: block;
   font-size: 16px;
   padding: 20px 0px 20px 40px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 6px solid transparent;
 }
 
 nav ul li a img{
   margin-right: 15px;
   width: 30px;
+}
+
+.link-active{
+  border-left: 6px solid white !important;
 }
 
 .nav-header{
