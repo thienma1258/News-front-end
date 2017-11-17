@@ -1,35 +1,38 @@
 <div class="content">
-  <div class="statistic-chart box">
-    <p class="title">TOTAL VISIT</p>
-    <canvas baseChart
-            width="4"
-            height="1"
-            [datasets]="lineChartData"
-            [labels]="lineChartLabels"
-            [options]="lineChartOptions"
-            [colors]="lineChartColors"
-            [legend]="lineChartLegend"
-            [chartType]="lineChartType">
-    </canvas>
+  <div id="statistic-chart">
+    <container-box>
+      <p class="title">TOTAL VISIT</p>
+      <canvas baseChart
+              width="4"
+              height="1"
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType">
+      </canvas>
+    </container-box>
   </div>
-  <div class="row">
-    <div class="box" id="recent-news">
+  <div class="row" style="display: flex">
+    <container-box id="recent-news" [isShowSeeMore]="true">
       <p class="title">RECENT NEWS</p>
       <div class="row">
         <article-preview class="col-xl-4 col-lg-4 col-md-4"  *ngFor="let article of previewRecentNews;" [article]="article"
                          [showTitle]="true" [showCreatedTime]="true" [showPreviewContent]="true"></article-preview>
       </div>
-      <i routerLink="" class="see-more">See More</i>
-    </div>
-    <div class="box" id="recent-event">
+    </container-box>
+
+    <container-box id="recent-event" [isShowSeeMore]="true">
       <p class="title">RECENT EVENTS</p>
       <div class="row">
         <event-preview class="col-md-6 col-lg-12" *ngFor="let event of previewRecentEvent;" [event]="event"></event-preview>
       </div>
-      <i routerLink="" class="see-more">See More</i>
-    </div>
+    </container-box>
   </div>
-  <div class="box" id="activity-logs">
+
+  <container-box [isShowSeeMore]="true">
+    <p class="title">RECENT ACTIVITY</p>
     <div class="row">
       <table class="table">
         <thead>
@@ -50,7 +53,6 @@
         </tbody>
       </table>
     </div>
-    <i routerLink="" class="see-more">See More</i>
-  </div>
+  </container-box>
   <admin-footer></admin-footer>
 </div>

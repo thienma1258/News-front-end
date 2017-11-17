@@ -1,4 +1,4 @@
-<content-box [title]="'CONTACT'" [editLink]="'/edit'">
+<container-box [title]="'CONTACT'" [editLink]="'/edit'">
   <div>
     <span class="title">Name:</span>
     <span class="content">{{contactName}}</span>
@@ -19,9 +19,9 @@
     <span class="title">Fax:</span>
     <span class="content">{{contactFax}}</span>
   </div>
-</content-box>
+</container-box>
 
-<content-box [title]="'LINK'" [editLink]="'/edit'">
+<container-box [title]="'LINK'" [editLink]="'/edit'">
   <table class="table">
     <thead>
       <tr>
@@ -38,15 +38,15 @@
       </tr>
     </tbody>
   </table>
-</content-box>
+</container-box>
 
-<content-box [title]="'SLIDE'" [editLink]="'/edit'">
+<container-box [title]="'SLIDE'" [editLink]="'/edit'">
   <div class="row">
     <preview-edit-box class="col-xl-4 col-lg-4 col-md-6" *ngFor="let slide of slides;" [article]="slide"></preview-edit-box>
     <div class="col-xl-4 col-lg-4 col-md-6 add-slide">
-      <img style="background-color: #ccc6c1" src="../../../assets/images/add.png">
+      <img src="../../../assets/images/add.png">
     </div>
   </div>
-</content-box>
+</container-box>
 
 <admin-footer></admin-footer>

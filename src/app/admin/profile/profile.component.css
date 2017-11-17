@@ -2,7 +2,7 @@
   margin-left: 50px;
 }
 
-content-box{
+container-box{
   margin-bottom: 30px;
 }
 
@@ -14,6 +14,11 @@ content-box{
   width: 100%;
   padding: 20% 30%;
   cursor: pointer;
+  background-color: #ccc6c1
+}
+
+container-box{
+  margin-bottom: 30px;
 }
 
 @media (max-width: 576px){

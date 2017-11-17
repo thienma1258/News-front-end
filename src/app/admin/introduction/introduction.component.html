@@ -1,3 +1,21 @@
-<p>
-  introduction works!
-</p>
+<container-box [title]="'ABOUT US'" [editLink]="'/edit'" [isShowSeeMore]="true" [isShowEditButton]="true">
+  <p class="title">{{aboutArticle.title}}</p>
+  <p>{{aboutArticle.previewContent}}</p>
+</container-box>
+
+<container-box [title]="'FACILITY & ADVISOR'" [editLink]="'/edit'" [isShowSeeMore]="true" [isShowEditButton]="true">
+  <p class="title">{{facilityArticle.title}}</p>
+  <p>{{facilityArticle.previewContent}}</p>
+</container-box>
+
+<container-box [title]="'DEPARTMENT STRUCTURE & STAFF'" [editLink]="'/edit'" [isShowSeeMore]="true" [isShowEditButton]="true">
+  <p class="title">{{departmentArticle.title}}</p>
+  <p>{{departmentArticle.previewContent}}</p>
+</container-box>
+
+<container-box [title]="'CONTACT'" [editLink]="'/edit'" [isShowSeeMore]="true" [isShowEditButton]="true">
+  <p class="title">{{contactArticle.title}}</p>
+  <p>{{contactArticle.previewContent}}</p>
+</container-box>
+
+<admin-footer></admin-footer>
