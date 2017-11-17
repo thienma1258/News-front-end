@@ -1,0 +1,18 @@
+.title{
+  font-weight: bold;
+  font-size: 26px;
+}
+
+container-box{
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1440px){
+  p{
+    font-size: 14px;
+  }
+
+  .title{
+    font-size: 20px;
+  }
+}

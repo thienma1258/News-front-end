@@ -1,3 +1,21 @@
-<p>
-  academics works!
-</p>
+<container-box [title]="'ACADEMIC INFORMATION'" [editLink]="'/edit'" [isShowSeeMore]="true" [isShowEditButton]="true">
+  <p class="title">{{academicArticle.title}}</p>
+  <p>{{academicArticle.previewContent}}</p>
+</container-box>
+
+<container-box [title]="'STUDENT GRADUATE AND UNGRADUATE'" [editLink]="'/edit'" [isShowSeeMore]="true" [isShowEditButton]="true">
+  <p class="title">{{studentArticle.title}}</p>
+  <p>{{studentArticle.previewContent}}</p>
+</container-box>
+
+<container-box [title]="'TEACHING'" [editLink]="'/edit'" [isShowSeeMore]="true" [isShowEditButton]="true">
+  <p class="title">{{departmentArticle.title}}</p>
+  <p>{{departmentArticle.previewContent}}</p>
+</container-box>
+
+<container-box [title]="'DEGREE REQUIREMENT'" [editLink]="'/edit'" [isShowSeeMore]="true" [isShowEditButton]="true">
+  <p class="title">{{degreeArticle.title}}</p>
+  <p>{{degreeArticle.previewContent}}</p>
+</container-box>
+
+<admin-footer></admin-footer>
