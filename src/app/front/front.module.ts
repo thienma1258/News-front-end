@@ -16,7 +16,7 @@ import {ArticleContentComponent} from './shared/article-content/article-content.
 import {NewsComponent} from './news/news.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TranslateModule} from '@ngx-translate/core';
-import {ResearchDetailsComponent} from './research-details/research-details.component';
+// import {ResearchDetailsComponent} from './research-details/research-details.component';
 import {NewsDetailsComponent} from './news-details/news-details.component';
 
 @NgModule({
@@ -32,7 +32,7 @@ import {NewsDetailsComponent} from './news-details/news-details.component';
     ResearchComponent,
     ArticleContentComponent,
     NewsComponent,
-    ResearchDetailsComponent,
+    // ResearchDetailsComponent,
     NewsDetailsComponent
   ],
   imports: [
