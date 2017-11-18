@@ -303,9 +303,11 @@ nav ul li a img{
 
   .navbar-mobile{
     display: none;
-    position: static;
-    height: 100%;
-    margin-top: 60px;
+    position: fixed;
+    width: 100%;
+    height: fit-content;
+    top: 60px;
+    z-index: 2000;
   }
 
   .show{
@@ -362,9 +364,5 @@ nav ul li a img{
     margin-top: 60px;
     width: 100%;
     padding: 30px 0;
-  }
-
-  .collapse-margin{
-    margin-top: 0;
   }
 }
