@@ -15,6 +15,7 @@ import {LaboratoryComponent} from "./research/laboratory/laboratory.component";
 import {ConferencesAndSeminarsComponent} from "./research/conferences-and-seminars/conferences-and-seminars.component";
 import {AreasComponent} from "./research/areas/areas.component";
 import {PostersComponent} from "./research/posters/posters.component";
+import {EditArticleDetailComponent} from "./shared/edit-article-detail/edit-article-detail.component";
 
 const routes: Routes = [
   {
@@ -24,7 +25,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: DashboardComponent
+        redirectTo: '/admin/dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'edit/:id',
+        component: EditArticleDetailComponent
       },
       {
         path: 'dashboard',
@@ -48,7 +54,8 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: ResearchNewsComponent
+            redirectTo: '/admin/research/research-news',
+            pathMatch: 'full'
           },
           {
             path: 'research-news',

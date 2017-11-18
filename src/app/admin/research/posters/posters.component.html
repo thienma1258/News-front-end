@@ -1,3 +1,5 @@
-<p>
-  posters works!
-</p>
+<button type="button" class="btn">Add new</button>
+<div class="row">
+  <preview-edit-box class="col-xl-4 col-lg-4 col-md-4" [displayType]="2"
+                    *ngFor="let article of articles" [article]="article"></preview-edit-box>
+</div>

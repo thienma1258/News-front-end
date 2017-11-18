@@ -11,11 +11,12 @@ export class PreviewEditBoxComponent implements OnInit {
   assertImagesUrl = ASSERT_IMAGES_URL;
   @Input() displayType = 1;
   @Input() article: Article;
-  @Input() editLink = '/edit';
+  @Input() editLink = 'admin/edit/';
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

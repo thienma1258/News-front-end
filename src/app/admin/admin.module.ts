@@ -25,6 +25,7 @@ import { LaboratoryComponent } from './research/laboratory/laboratory.component'
 import { ConferencesAndSeminarsComponent } from './research/conferences-and-seminars/conferences-and-seminars.component';
 import { AreasComponent } from './research/areas/areas.component';
 import { PostersComponent } from './research/posters/posters.component';
+import { EditArticleDetailComponent } from './shared/edit-article-detail/edit-article-detail.component';
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import { PostersComponent } from './research/posters/posters.component';
     LaboratoryComponent,
     ConferencesAndSeminarsComponent,
     AreasComponent,
-    PostersComponent
+    PostersComponent,
+    EditArticleDetailComponent
   ]
 })
 export class AdminModule {
