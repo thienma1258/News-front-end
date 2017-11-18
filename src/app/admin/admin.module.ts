@@ -20,6 +20,11 @@ import {NewsComponent} from './news/news.component';
 import { ContainerBoxComponent } from './shared/container-box/container-box.component';
 import { PreviewEditBoxComponent } from './shared/preview-edit-box/preview-edit-box.component';
 import { AdminFooterComponent } from './shared/admin-footer/admin-footer.component';
+import { ResearchNewsComponent } from './research/research-news/research-news.component';
+import { LaboratoryComponent } from './research/laboratory/laboratory.component';
+import { ConferencesAndSeminarsComponent } from './research/conferences-and-seminars/conferences-and-seminars.component';
+import { AreasComponent } from './research/areas/areas.component';
+import { PostersComponent } from './research/posters/posters.component';
 
 @NgModule({
   imports: [
@@ -45,7 +50,12 @@ import { AdminFooterComponent } from './shared/admin-footer/admin-footer.compone
     NewsComponent,
     ContainerBoxComponent,
     PreviewEditBoxComponent,
-    AdminFooterComponent
+    AdminFooterComponent,
+    ResearchNewsComponent,
+    LaboratoryComponent,
+    ConferencesAndSeminarsComponent,
+    AreasComponent,
+    PostersComponent
   ]
 })
 export class AdminModule {

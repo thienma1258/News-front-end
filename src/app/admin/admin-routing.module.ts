@@ -10,6 +10,11 @@ import {IntroductionComponent} from "./introduction/introduction.component";
 import {AcademicsComponent} from "./academics/academics.component";
 import {ResearchComponent} from "./research/research.component";
 import {NewsComponent} from "./news/news.component";
+import {ResearchNewsComponent} from "./research/research-news/research-news.component";
+import {LaboratoryComponent} from "./research/laboratory/laboratory.component";
+import {ConferencesAndSeminarsComponent} from "./research/conferences-and-seminars/conferences-and-seminars.component";
+import {AreasComponent} from "./research/areas/areas.component";
+import {PostersComponent} from "./research/posters/posters.component";
 
 const routes: Routes = [
   {
@@ -39,7 +44,33 @@ const routes: Routes = [
       },
       {
         path: 'research',
-        component: ResearchComponent
+        component: ResearchComponent,
+        children: [
+          {
+            path: '',
+            component: ResearchNewsComponent
+          },
+          {
+            path: 'research-news',
+            component: ResearchNewsComponent
+          },
+          {
+            path: 'laboratory',
+            component: LaboratoryComponent
+          },
+          {
+            path: 'conferences-seminars',
+            component: ConferencesAndSeminarsComponent
+          },
+          {
+            path: 'areas',
+            component: AreasComponent
+          },
+          {
+            path: 'posters',
+            component: PostersComponent
+          }
+        ]
       },
       {
         path: 'news',

@@ -1,0 +1,13 @@
+.nav-link{
+  font-weight: 400;
+  color: inherit;
+}
+
+.active{
+  font-weight: bold;
+  border-bottom: 3px solid #EB5757 !important;
+}
+
+.content{
+  padding: 20px 30px;
+}
