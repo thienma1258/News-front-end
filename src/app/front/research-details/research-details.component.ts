@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {} from ''
 import {Article} from '../shared/interface/article';
 @Component({
   selector: 'research-details',
@@ -6,6 +7,10 @@ import {Article} from '../shared/interface/article';
   styleUrls: ['./research-details.component.css']
 })
 export class ResearchDetailsComponent implements OnInit {
+     parentRoute: string;
+  parentRouteName: string;
+  titles: string[];
+  selectedTitle: string;
 article: Article = {
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante\n' +
@@ -46,6 +51,13 @@ article: Article = {
   constructor() { }
 
   ngOnInit() {
+   // this.route.params.subscribe(params => {
+   //    this.selectedTitle = params['title'];
+   //  });
+   //  this.parentRoute = '/introduction';
+   //  this.parentRouteName = 'Introduction';
+   //  this.titles = ['About us', 'Facility & Advisor', 'Department structure & Staff', 'Contact'];
+   //  this.selectedTitle = this.titles[0];
   }
 
 }
