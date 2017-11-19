@@ -1,3 +1,13 @@
-<p>
-  edit-article-detail works!
-</p>
+<div>
+  <span style="display: inline-block;">Edit post</span>
+  <div class="right-nav">
+    <a class="translation" (click)="switchLanguage()">
+      <img class="translation-icon" src="./../../../../assets/images/translation-web.png">
+      <span class="language"><b>{{language}}</b></span>
+    </a>
+    <a>
+      <img class="done-icon" src="./../../../../assets/images/done.png">
+    </a>
+  </div>
+  <input class="input-title" type="text">
+</div>

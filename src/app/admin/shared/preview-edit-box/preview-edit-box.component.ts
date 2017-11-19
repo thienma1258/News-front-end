@@ -11,7 +11,7 @@ export class PreviewEditBoxComponent implements OnInit {
   assertImagesUrl = ASSERT_IMAGES_URL;
   @Input() displayType = 1;
   @Input() article: Article;
-  @Input() editLink = 'admin/edit/';
+  @Input() editLink = '/admin/research/edit/';
 
   constructor() { }
 

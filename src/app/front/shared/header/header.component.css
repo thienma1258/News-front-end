@@ -131,7 +131,7 @@ nav ul li a:hover{
   height:30px;
 }
 
-.translate-button{
+.icon{
   margin-left:20px;
   margin-right:10px;
   width:30px;
@@ -179,7 +179,7 @@ a{
     height:28px;
   }
 
-  .translate-button{
+  .icon{
     margin-left:16px;
     margin-right:8px;
     width:26px;
@@ -209,7 +209,7 @@ a{
     height:26px;
   }
 
-  .translate-button{
+  .icon{
     margin-left:10px;
     margin-right:8px;
     width:26px;
@@ -239,7 +239,7 @@ a{
     height:22px;
   }
 
-  .translate-button{
+  .icon{
     margin-left:6px;
     margin-right:3px;
     width:22px;
@@ -309,7 +309,7 @@ a{
     height:20px;
   }
 
-  .translate-button{
+  .icon{
     margin-left:6px;
     width:20px;
     height:20px;
@@ -370,7 +370,7 @@ a{
     height:18px;
   }
 
-  .translate-button{
+  .icon{
     margin-left:3px;
     width:18px;
     height:18px;

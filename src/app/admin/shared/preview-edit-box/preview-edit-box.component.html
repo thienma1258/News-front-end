@@ -4,7 +4,7 @@
     <div style="text-align: center; font-size: 20px; margin-top: 10px;">
       {{article.title}}
       <div style="float: right;">
-        <img class="icon" routerLink="{{editLink + '1'}}" src="../../../../assets/images/edit.png">
+        <img class="icon" routerLink="{{editLink + article.id}}" src="../../../../assets/images/edit.png">
         <img class="icon" style="margin-left: 10px;" src="../../../../assets/images/cancel.png">
       </div>
     </div>
@@ -15,7 +15,7 @@
       <p style="font-weight: 500px;">{{article.title}}</p>
       <p style="font-size: 12px; color: rgba(100, 100, 100, 0.6);">{{article.createdTime}}</p>
       <div style="float: right;">
-        <img class="icon" routerLink="/admin/edit/3" src="../../../../assets/images/edit.png">
+        <img class="icon" routerLink="{{editLink + article.id}}" src="../../../../assets/images/edit.png">
         <img class="icon" style="margin-left: 10px;" src="../../../../assets/images/cancel.png">
       </div>
     </div>

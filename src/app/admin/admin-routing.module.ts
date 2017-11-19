@@ -29,10 +29,6 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
-        path: 'edit/:id',
-        component: EditArticleDetailComponent
-      },
-      {
         path: 'dashboard',
         component: DashboardComponent
       },
@@ -56,6 +52,10 @@ const routes: Routes = [
             path: '',
             redirectTo: '/admin/research/research-news',
             pathMatch: 'full'
+          },
+          {
+            path: 'edit/:id',
+            component: EditArticleDetailComponent
           },
           {
             path: 'research-news',
