@@ -20,6 +20,18 @@ import {NewsComponent} from './news/news.component';
 import { ContainerBoxComponent } from './shared/container-box/container-box.component';
 import { PreviewEditBoxComponent } from './shared/preview-edit-box/preview-edit-box.component';
 import { AdminFooterComponent } from './shared/admin-footer/admin-footer.component';
+import { ResearchNewsComponent } from './research/research-news/research-news.component';
+import { LaboratoryComponent } from './research/laboratory/laboratory.component';
+import { ConferencesAndSeminarsComponent } from './research/conferences-and-seminars/conferences-and-seminars.component';
+import { AreasComponent } from './research/areas/areas.component';
+import { PostersComponent } from './research/posters/posters.component';
+import { EditArticleDetailComponent } from './shared/edit-article-detail/edit-article-detail.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { DepartmentNewsComponent } from './news/department-news/department-news.component';
+import { CourseNewsComponent } from './news/course-news/course-news.component';
+import { EventsComponent } from './news/events/events.component';
+import { SchoolLeadershipComponent } from './news/school-leadership/school-leadership.component';
+import { CalendarComponent } from './news/calendar/calendar.component';
 
 @NgModule({
   imports: [
@@ -30,6 +42,8 @@ import { AdminFooterComponent } from './shared/admin-footer/admin-footer.compone
     ChartsModule,
     ReactiveFormsModule,
     AdminRoutingModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
   ],
   providers: [AuthGuard, AuthService],
   declarations: [
@@ -45,8 +59,20 @@ import { AdminFooterComponent } from './shared/admin-footer/admin-footer.compone
     NewsComponent,
     ContainerBoxComponent,
     PreviewEditBoxComponent,
-    AdminFooterComponent
+    AdminFooterComponent,
+    ResearchNewsComponent,
+    LaboratoryComponent,
+    ConferencesAndSeminarsComponent,
+    AreasComponent,
+    PostersComponent,
+    EditArticleDetailComponent,
+    DepartmentNewsComponent,
+    CourseNewsComponent,
+    EventsComponent,
+    SchoolLeadershipComponent,
+    CalendarComponent
   ]
 })
+
 export class AdminModule {
 }

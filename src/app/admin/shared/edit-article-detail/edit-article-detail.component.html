@@ -1,0 +1,14 @@
+<div>
+  <span style="display: inline-block;">Edit post</span>
+  <div class="right-nav">
+    <a class="translation" (click)="switchLanguage()">
+      <img class="translation-icon" src="./../../../../assets/images/translation-web.png">
+      <span class="language"><b>{{editorLanguage}}</b></span>
+    </a>
+    <a (click)="finishEdit()">
+      <img class="done-icon" src="./../../../../assets/images/done.png">
+    </a>
+  </div>
+  <input class="input-title" type="text">
+  <div class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="editorContent"></div>
+</div>

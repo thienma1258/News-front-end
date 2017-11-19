@@ -18,4 +18,8 @@ export class AdminComponent implements OnInit {
   toggleMenu() {
     this.isToggleMenuExpanded = !this.isToggleMenuExpanded;
   }
+
+  switchLanguage() {
+
+  }
 }
