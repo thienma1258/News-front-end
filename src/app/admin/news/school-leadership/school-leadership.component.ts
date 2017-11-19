@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {Article} from '../../../front/shared/interface/article';
+import {Article} from "../../../front/shared/interface/article";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'laboratory',
-  templateUrl: './laboratory.component.html',
-  styleUrls: ['./laboratory.component.css']
+  selector: 'school-leadership',
+  templateUrl: './school-leadership.component.html',
+  styleUrls: ['./school-leadership.component.css']
 })
-export class LaboratoryComponent implements OnInit {
+export class SchoolLeadershipComponent implements OnInit {
 
   articles: Article[] = [
     {
@@ -66,8 +66,8 @@ export class LaboratoryComponent implements OnInit {
   }
 
   addNewArticle() {
-    this.router.navigate(['/admin/research/addnew', {
-      type: 'laboratory'
+    this.router.navigate(['/admin/news/addnew', {
+      type: 'school-leadership'
     }]);
   }
 }

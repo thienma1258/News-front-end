@@ -26,6 +26,12 @@ import { ConferencesAndSeminarsComponent } from './research/conferences-and-semi
 import { AreasComponent } from './research/areas/areas.component';
 import { PostersComponent } from './research/posters/posters.component';
 import { EditArticleDetailComponent } from './shared/edit-article-detail/edit-article-detail.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { DepartmentNewsComponent } from './news/department-news/department-news.component';
+import { CourseNewsComponent } from './news/course-news/course-news.component';
+import { EventsComponent } from './news/events/events.component';
+import { SchoolLeadershipComponent } from './news/school-leadership/school-leadership.component';
+import { CalendarComponent } from './news/calendar/calendar.component';
 
 @NgModule({
   imports: [
@@ -36,6 +42,8 @@ import { EditArticleDetailComponent } from './shared/edit-article-detail/edit-ar
     ChartsModule,
     ReactiveFormsModule,
     AdminRoutingModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
   ],
   providers: [AuthGuard, AuthService],
   declarations: [
@@ -57,8 +65,14 @@ import { EditArticleDetailComponent } from './shared/edit-article-detail/edit-ar
     ConferencesAndSeminarsComponent,
     AreasComponent,
     PostersComponent,
-    EditArticleDetailComponent
+    EditArticleDetailComponent,
+    DepartmentNewsComponent,
+    CourseNewsComponent,
+    EventsComponent,
+    SchoolLeadershipComponent,
+    CalendarComponent
   ]
 })
+
 export class AdminModule {
 }

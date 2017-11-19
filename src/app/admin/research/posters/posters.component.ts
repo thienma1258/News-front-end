@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Article} from '../../../front/shared/interface/article';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'posters',
@@ -59,9 +60,14 @@ export class PostersComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  addNewArticle() {
+    this.router.navigate(['/admin/research/addnew', {
+      type: 'posters'
+    }]);
+  }
 }

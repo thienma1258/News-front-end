@@ -7,6 +7,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {Http, HttpModule} from '@angular/http';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -18,6 +19,8 @@ export function HttpLoaderFactory(http: Http) {
   ],
   imports: [
     NgbModule.forRoot(),
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
     BrowserModule,
     FormsModule,
     AppRoutingModule,

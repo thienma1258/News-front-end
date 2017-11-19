@@ -1,0 +1,11 @@
+.btn{
+  border: 1px solid rgb(200, 200, 200);
+  background-color: inherit;
+  float: right;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.row{
+  clear: both;
+}
