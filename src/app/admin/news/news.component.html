@@ -1,20 +1,22 @@
 <container-box>
   <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/news/department-news" routerLinkActive="active">Department News</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/news/course-news" routerLinkActive="active">Course News</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/news/events" routerLinkActive="active">Events</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/news/school-leadership" routerLinkActive="active">School Leadership</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/news/calendar" routerLinkActive="active">Calendar</a>
-    </li>
+    <div class="row">
+      <li class="nav-item col-xs-6">
+        <a class="nav-link" routerLink="/admin/news/department-news" routerLinkActive="active">Department News</a>
+      </li>
+      <li class="nav-item col-xs-6">
+        <a class="nav-link" routerLink="/admin/news/course-news" routerLinkActive="active">Course News</a>
+      </li>
+      <li class="nav-item col-xs-6">
+        <a class="nav-link" routerLink="/admin/news/events" routerLinkActive="active">Events</a>
+      </li>
+      <li class="nav-item col-xs-6">
+        <a class="nav-link" routerLink="/admin/news/school-leadership" routerLinkActive="active">School Leadership</a>
+      </li>
+      <li class="nav-item col-xs-6">
+        <a class="nav-link" routerLink="/admin/news/calendar" routerLinkActive="active">Calendar</a>
+      </li>
+    </div>
   </ul>
   <div class="content">
     <router-outlet></router-outlet>

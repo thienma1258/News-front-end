@@ -1,20 +1,22 @@
 <container-box>
   <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/research/research-news" routerLinkActive="active">Research News</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/research/laboratory" routerLinkActive="active">Laboratory</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/research/conferences-seminars" routerLinkActive="active">Conference and seminars</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/research/areas" routerLinkActive="active">Areas</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/research/posters" routerLinkActive="active">Poster</a>
-    </li>
+    <div class="row">
+      <li class="nav-item col-xs-6">
+        <a class="nav-link" routerLink="/admin/research/research-news" routerLinkActive="active">Research News</a>
+      </li>
+      <li class="nav-item col-xs-6">
+        <a class="nav-link" routerLink="/admin/research/laboratory" routerLinkActive="active">Laboratory</a>
+      </li>
+      <li class="nav-item col-xs-6">
+        <a class="nav-link" routerLink="/admin/research/conferences-seminars" routerLinkActive="active">Conference and seminars</a>
+      </li>
+      <li class="nav-item col-xs-6">
+        <a class="nav-link" routerLink="/admin/research/areas" routerLinkActive="active">Areas</a>
+      </li>
+      <li class="nav-item col-xs-6">
+        <a class="nav-link" routerLink="/admin/research/posters" routerLinkActive="active">Poster</a>
+      </li>
+    </div>
   </ul>
   <div class="content">
     <router-outlet></router-outlet>
