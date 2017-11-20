@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 export class IntroductionComponent implements OnInit {
   parentRoute: string;
   parentRouteName: string;
-  titles: string[];
+  titles: any;
   selectedTitle: string;
   article: Article = {
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -59,7 +59,24 @@ export class IntroductionComponent implements OnInit {
     });
     this.parentRoute = '/introduction';
     this.parentRouteName = 'Introduction';
-    this.titles = ['About us', 'Facility & Advisor', 'Department structure & Staff', 'Contact'];
+    this.titles = [
+      {
+        'route': 'about-us',
+        'name': 'About us'
+      },
+      {
+        'route': 'facility-advisor',
+        'name': 'Facility advisor'
+      },
+      {
+        'route': 'department-structure-staff',
+        'name': 'Department structure and staff'
+      },
+      {
+        'route': 'contact',
+        'name': 'Contact'
+      }
+    ];
     this.selectedTitle = this.titles[0];
   }
 }

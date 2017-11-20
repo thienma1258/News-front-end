@@ -8,7 +8,7 @@ import {Component, OnInit, Input} from '@angular/core';
 export class SubMenuComponent implements OnInit {
   @Input() parentRoute: string;
   @Input() parentRouteName: string;
-  @Input() titles: string[];
+  @Input() titles: any;
   @Input() selectedTitle: string;
 
   constructor() {

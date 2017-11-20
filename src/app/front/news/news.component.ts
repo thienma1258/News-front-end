@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 export class NewsComponent implements OnInit {
   parentRoute: string;
   parentRouteName: string;
-  public menu: string[];
+  public menu: any;
   public selectedtitle;
   public articles: Article[];
 
@@ -27,17 +27,28 @@ export class NewsComponent implements OnInit {
     });
     this.parentRoute = '/news';
     this.parentRouteName = 'News';
-    this.createmenu();
-  }
-
-  createmenu() {
-    this.menu = new Array<string>();
-    this.menu.push('Department News');
-    this.menu.push('Course News');
-    this.menu.push('Event');
-    this.menu.push('School leadership');
-    this.menu.push('Calendar');
-    // this.selectedtitle = this.menu[0];
+    this.menu = [
+      {
+        'route': 'department-news',
+        'name': 'Department News'
+      },
+      {
+        'route': 'course-news',
+        'name': 'Course News'
+      },
+      {
+        'route': 'event',
+        'name': 'Event'
+      },
+      {
+        'route': 'school-leadership',
+        'name': 'School Leadership'
+      },
+      {
+        'route': 'calendar',
+        'name': 'Calendar'
+      }
+    ];
   }
 
   getarticle() {

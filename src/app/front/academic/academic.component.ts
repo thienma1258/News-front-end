@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 export class AcademicComponent implements OnInit {
   parentRoute: string;
   parentRouteName: string;
-  titles: string[];
+  titles: any;
   selectedTitle: string;
   article: Article = {
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -60,10 +60,22 @@ export class AcademicComponent implements OnInit {
     this.parentRoute = '/academic';
     this.parentRouteName = 'Academic & Admissions';
     this.titles = [
-      'Academic Information',
-      'Student Graduate & Undergraduate',
-      'Teaching',
-      'Degree Requirement'
+      {
+        'route': 'academic-information',
+        'name': 'Academic Information'
+      },
+      {
+        'route':'student-graduate-and-undergraduate',
+        'name': 'Student graduate and undergraduate',
+      },
+      {
+        'route':'teaching',
+        'name': 'Teaching',
+      },
+      {
+        'route': 'degree-requirement',
+        'name': 'Degree requirement'
+      }
     ];
     this.selectedTitle = this.titles[0];
   }

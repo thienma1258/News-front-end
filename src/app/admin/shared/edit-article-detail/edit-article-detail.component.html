@@ -1,6 +1,11 @@
 <div>
   <span style="display: inline-block;">Edit post</span>
   <div class="right-nav">
+    <select class="form-control article-size-dropdown">
+      <option>Small</option>
+      <option>Wide</option>
+      <option>Large</option>
+    </select>
     <a class="translation" (click)="switchLanguage()">
       <img class="translation-icon" src="./../../../../assets/images/translation-web.png">
       <span class="language"><b>{{editorLanguage}}</b></span>

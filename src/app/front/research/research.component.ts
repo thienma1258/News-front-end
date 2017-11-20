@@ -10,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
 export class ResearchComponent implements OnInit {
   parentRoute: string;
   parentRouteName: string;
-  public menu: string[];
+  public menu: any;
   public selectedtitle;
   public articles: Article[];
 
@@ -28,11 +28,11 @@ export class ResearchComponent implements OnInit {
 
   createmenu() {
     this.menu = new Array<string>();
-    this.menu.push('Research News');
-    this.menu.push('Laboratory');
-    this.menu.push('Conferences and seminars');
-    this.menu.push('Area');
-    this.menu.push('Poster');
+    this.menu.push();
+    this.menu.push();
+    this.menu.push();
+    this.menu.push();
+    this.menu.push('poster');
     // this.selectedtitle = this.menu[0];
   }
 
@@ -42,7 +42,29 @@ export class ResearchComponent implements OnInit {
     });
     this.parentRoute = '/research';
     this.parentRouteName = 'Research';
-    this.createmenu();
+
+    this.menu = [
+      {
+        'route': 'research-news',
+        'name': 'Research News'
+      },
+      {
+        'route': 'laboratory',
+        'name': 'Laboratory'
+      },
+      {
+        'route': 'conferences-and-seminars',
+        'name': 'Conferences & Seminars'
+      },
+      {
+        'route': 'area',
+        'name': 'Area'
+      },
+      {
+        'route': 'poster',
+        'name': 'Poster'
+      }
+    ];
   }
 
   getArticle() {

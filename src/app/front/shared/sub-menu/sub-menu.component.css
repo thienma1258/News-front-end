@@ -2,6 +2,10 @@
   font-weight: bold;
 }
 
+ul{
+  padding-left: 0;
+}
+
 li {
   list-style-type: none;
   cursor: pointer;
@@ -36,7 +40,7 @@ a:hover {
 }
 
 .desktop {
-  display: flex;
+  display: block;
 }
 
 @media (max-width: 1024px) {

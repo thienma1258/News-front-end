@@ -1,7 +1,7 @@
 <div class="desktop">
-  <ul style="padding-left: 7%">
-    <a *ngFor="let title of titles" class="divider" routerLink="/{{parentRoute}}/{{title}}" routerLinkActive="active-link">
-      {{title}}
+  <ul>
+    <a *ngFor="let title of titles" class="divider" routerLink="/{{parentRoute}}/{{title.route}}" routerLinkActive="active-link">
+      {{title.name}}
       <!--<hr>-->
     </a>
   </ul>
@@ -15,9 +15,9 @@
 
     <!--<span ngbDropdownToggle class="caret"></span>-->
     <ul ngbDropdownMenu="left">
-      <a *ngFor="let title of titles" class="divider" routerLink="/{{parentRoute}}/{{title}}" routerLinkActive="active-link">
-        {{title}}
-        <!--<hr>-->
+      <a *ngFor="let title of titles" routerLink="/{{parentRoute}}/{{title.route}}" routerLinkActive="active-link">
+        {{title.name}}
+        <hr>
       </a>
     </ul>
   </div>
