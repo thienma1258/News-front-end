@@ -1,4 +1,4 @@
-<div id="background">
+<div class="container">
   <div id="sign-in-block">
     <h1 class="title">SIGN IN</h1>
     <form id="sign-in-form" (ngSubmit)="login(loginForm.value.email, loginForm.value.password)" [formGroup]="loginForm">
@@ -21,6 +21,7 @@
   </div>
   <div id="footer">
     <img id="logo" src="../../../assets/images/eed-logo.png">
-    <span id="name">National Chi Nan University - Department of Electrical Engineering</span>
+    <span id="name">National Chi Nan University - <span id="footer-department">Department of Electrical Engineering </span></span>
   </div>
+
 </div>

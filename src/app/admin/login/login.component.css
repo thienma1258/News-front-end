@@ -1,10 +1,14 @@
-#background{
-  display: block;
-  height: 100vh;
-  width: 100%;
+:host{
+  display: table;
   background-color: #2B2D5A;
   text-align: center;
-  padding: 10% 0;
+  height: 100vh;
+  width: 100%;
+}
+
+.container{
+  display: table-cell;
+  vertical-align: middle;
 }
 
 #sign-in-block{
@@ -78,7 +82,7 @@ input:focus{
 }
 
 #footer{
-  margin-top: 3%;
+  margin-top: 20px;
   text-align: center;
   color: white;
 }
@@ -90,8 +94,56 @@ input:focus{
 }
 
 #toggle-password-button{
-  position: relative;
-  right: 0;
-  bottom: 0;
   margin-right: 20px;
+}
+
+@media (max-width: 576px){
+  #sign-in-block{
+    padding-top: 30px;
+  }
+
+  #sign-in-form{
+    padding: 0 40px 40px 40px;
+  }
+
+  .title{
+    margin-bottom: 30px;
+    font-size: 36px;
+  }
+
+  input{
+    width: 200px;
+  }
+
+  #footer{
+    text-align: left;
+  }
+
+  #logo{
+    float: left;
+    margin-right: 10px;
+  }
+
+  #footer-department{
+    display: block;
+  }
+}
+
+@media (max-width: 380px){
+  #sign-in-block{
+    padding-top: 30px;
+  }
+
+  #sign-in-form{
+    padding: 0 30px 30px 30px;
+  }
+
+  .title{
+    margin-bottom: 30px;
+    font-size: 36px;
+  }
+
+  input{
+    width: 200px;
+  }
 }
