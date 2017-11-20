@@ -1,9 +1,9 @@
 <div class="box">
   <p *ngIf="title !== ''" class="title"><span>{{title}}</span></p>
-  <img *ngIf="isShowEditButton" class="edit-button" routerLink="{{editLink}}" src="../../../../assets/images/edit.png">
+  <img *ngIf="editLink != ''" class="edit-button" routerLink="{{editLink}}" src="../../../../assets/images/edit.png">
   <hr *ngIf="title !== ''"/>
   <ng-content></ng-content>
-  <div style="text-align: right;">
-    <i *ngIf="isShowSeeMore" routerLink="" class="see-more">See More</i>
+  <div style="text-align: right; margin-top: 10px">
+    <i *ngIf="seeMoreLink != ''" routerLink="{{seeMoreLink}}" class="see-more">See More</i>
   </div>
 </div>

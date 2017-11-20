@@ -15,7 +15,7 @@
     </container-box>
   </div>
   <div class="row" style="display: flex">
-    <container-box id="recent-news" [isShowSeeMore]="true">
+    <container-box id="recent-news" [seeMoreLink]="'/admin/news'">
       <p class="title">RECENT NEWS</p>
       <div class="row">
         <article-preview class="col-xl-4 col-lg-4 col-md-4"  *ngFor="let article of previewRecentNews;" [article]="article"
@@ -23,7 +23,7 @@
       </div>
     </container-box>
 
-    <container-box id="recent-event" [isShowSeeMore]="true">
+    <container-box id="recent-event" [seeMoreLink]="'/admin/news/events'">
       <p class="title">RECENT EVENTS</p>
       <div class="row">
         <event-preview class="col-md-6 col-lg-12" *ngFor="let event of previewRecentEvent;" [event]="event"></event-preview>
@@ -31,7 +31,7 @@
     </container-box>
   </div>
 
-  <container-box [isShowSeeMore]="true">
+  <container-box>
     <p class="title">RECENT ACTIVITY</p>
     <div class="row">
       <table class="table">

@@ -8,8 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ContainerBoxComponent implements OnInit {
   @Input() title = '';
   @Input() editLink = '';
-  @Input() isShowSeeMore = false;
-  @Input() isShowEditButton = false;
+  @Input() seeMoreLink = '';
 
   constructor() {
   }
