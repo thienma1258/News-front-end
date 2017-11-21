@@ -1,9 +1,6 @@
+import {Article} from './article';
+
 export interface Event {
-  title: string;
-  imageUrls?: string[];
-  previewContent?: string;
-  content: string;
-  url: string;
+  article: Article;
   eventDate: string;
-  createdTime: string;
 }

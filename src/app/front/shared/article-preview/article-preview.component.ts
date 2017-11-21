@@ -15,6 +15,10 @@ export class ArticlePreviewComponent implements OnInit {
   @Input() showPreviewContent = false;
   @Input() showCreatedTime = false;
 
+  get LanguageLocale() {
+    return localStorage.getItem('locale');
+  }
+
   constructor() {
   }
 

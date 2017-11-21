@@ -7,15 +7,19 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  private locale = 'en';
+
   isToggleMenuExpanded = false;
   language = '中文';
-  locale = 'en';
 
   constructor(private translate: TranslateService) {
+    this.locale = 'en';
+    localStorage.setItem('locale', 'en');
     translate.setDefaultLang('en');
   }
 
   ngOnInit() {
+
   }
 
   toggleMenu() {
@@ -25,6 +29,7 @@ export class HeaderComponent implements OnInit {
   switchLanguage() {
     this.language = (this.language === 'English' ? '中文' : 'English');
     this.locale = (this.locale === 'en' ? 'zh-tw' : 'en');
+    localStorage.setItem('locale', this.locale);
     this.translate.use(this.locale);
   }
 }

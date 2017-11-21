@@ -1,8 +1,12 @@
+import {ArticleSize} from '../enum/article-size.enum';
+
 export class Article {
-  title: string;
+  id: string;
+  englishTitle: string;
+  chineseTitle: string;
+  size: ArticleSize;
   imageUrls?: string[];
-  previewContent?: string;
-  content: string;
-  url: string;
+  englishContent?: string;
+  chineseContent?: string;
   createdTime: string;
 }

@@ -1,9 +1,23 @@
 <ngb-carousel>
   <ng-template ngbSlide *ngFor="let article of highlightArticles; let i = index">
-    <img class="carousel-image" src="{{assertImagesUrl + article.imageUrls[0]}}">
+    <img class="carousel-image" src="{{article.imageUrls[0]}}">
     <div class="carousel-overlay">
-      <p id="carousel-title">{{article.title}}</p>
-      <p id="carousel-overlay-content">{{article.previewContent}}</p>
+      <p id="carousel-title">
+        <ng-container *ngIf="LanguageLocale == 'en'">
+          {{article.englishTitle}}
+        </ng-container>
+        <ng-container *ngIf="LanguageLocale == 'zh-tw'">
+          {{article.chineseTitle}}
+        </ng-container>
+      </p>
+      <p id="carousel-overlay-content">
+        <ng-container *ngIf="LanguageLocale == 'en'">
+          {{article.englishContent}}
+        </ng-container>
+        <ng-container *ngIf="LanguageLocale == 'zh-tw'">
+          {{article.chineseContent}}
+        </ng-container>
+      </p>
       <!--<a i18n routerLink="{{article.url}}">{{'Homepage.SeeMore' | translate}}</a>-->
     </div>
   </ng-template>
@@ -11,20 +25,20 @@
 
 <div id="news">
   <div class="row">
-    <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing">
+    <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing group">
       <p i18n class="news-title">{{'Homepage.AboutUs' | translate}}</p>
-      <app-article-preview [article]="aboutArticle" [displayType]="3" [showPreviewContent]="true"></app-article-preview>
+      <app-article-preview [article]="aboutArticle" [displayType]="3" [showTitle]="true" [showPreviewContent]="true"></app-article-preview>
     </div>
-    <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing">
+    <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing group">
       <p i18n class="news-title">{{'Homepage.LatestNews' | translate}}</p>
       <div *ngFor="let article of latestArticles; let i = index">
         <app-article-preview [article]="article" [displayType]="1" [showTitle]="true" [showCreatedTime]="true"></app-article-preview>
         <div *ngIf="i != latestArticles.length - 1" style="border-bottom: 2px solid #E0DFDC; margin: 12px 0;"></div>
       </div>
     </div>
-    <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing">
+    <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing group">
       <p i18n class="news-title">{{'Homepage.UpcomingEvent' | translate}}</p>
-      <div *ngFor="let event of upcomingEvent">
+      <div *ngFor="let event of upcomingEvents">
         <app-event-preview [event]="event"></app-event-preview>
         <br style="clear: both;"/>
       </div>

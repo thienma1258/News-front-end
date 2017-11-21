@@ -121,7 +121,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 576px) {
   .news-title{
     font-size: 23px;
   }
@@ -159,6 +159,10 @@
   .carousel-image{
     height:300px;
     width: 100%;
+  }
+
+  .group{
+    margin-top: 20px;
   }
 }
 

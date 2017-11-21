@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Article} from '../../shared/interface/article';
 import {Event} from '../../shared/interface/event';
-import {ActivityLog} from "../../shared/interface/activity-log";
+import {ActivityLog} from '../../shared/interface/activity-log';
 
 @Component({
   selector: 'dashboard',
@@ -29,63 +29,6 @@ export class DashboardComponent implements OnInit {
   ];
   public lineChartLegend = false;
   public lineChartType = 'line';
-
-  previewRecentNews: Article[] = [
-    {
-      title: 'title1',
-      imageUrls: ['001t.jpg'],
-      previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-      content: 'content 1',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title2',
-      imageUrls: ['070.jpg'],
-      previewContent: 'preview content 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-      content: 'content 2',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title3',
-      imageUrls: ['077.jpg'],
-      previewContent: 'preview content 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-      content: 'content 3',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-  ];
-
-  previewRecentEvent: Event[] = [
-    {
-      title: 'title1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla.',
-      imageUrls: ['001t.jpg'],
-      previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      content: 'content 1 ',
-      url: '',
-      eventDate: 'Nov 20',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla.',
-      imageUrls: ['001t.jpg'],
-      previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      content: 'content 1 ',
-      url: '',
-      eventDate: 'Nov 20',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla.',
-      imageUrls: ['001t.jpg'],
-      previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      content: 'content 1 ',
-      url: '',
-      eventDate: 'Nov 20',
-      createdTime: 'Oct 28, 2017'
-    },
-  ];
 
   activityLogs: ActivityLog[] = [
     {

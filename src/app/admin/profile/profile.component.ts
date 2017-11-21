@@ -38,33 +38,6 @@ export class ProfileComponent implements OnInit {
     }
   ];
 
-  slides: Article[] = [
-    {
-      title: 'title1',
-      imageUrls: ['001t.jpg'],
-      previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-      content: 'content 1',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title2',
-      imageUrls: ['070.jpg'],
-      previewContent: 'preview content 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-      content: 'content 2',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title3',
-      imageUrls: ['077.jpg'],
-      previewContent: 'preview content 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-      content: 'content 3',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-  ];
-
   constructor() { }
 
   ngOnInit() {

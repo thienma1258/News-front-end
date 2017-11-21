@@ -18,6 +18,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TranslateModule} from '@ngx-translate/core';
 import {ResearchDetailsComponent} from './research-details/research-details.component';
 import {NewsDetailsComponent} from './news-details/news-details.component';
+import {ArticleService} from '../shared/services/article.service';
+import {EventService} from '../shared/services/event.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,7 @@ import {NewsDetailsComponent} from './news-details/news-details.component';
     NgbModule,
     TranslateModule
   ],
-  providers: [],
+  providers: [ArticleService, EventService],
   bootstrap: []
 })
 export class FrontModule {
