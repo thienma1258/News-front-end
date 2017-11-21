@@ -85,6 +85,10 @@ const routes: Routes = [
           {
             path: 'posters',
             component: PostersComponent
+          },
+          {
+            path: '**',
+            redirectTo: '/admin/research'
           }
         ]
       },
@@ -124,6 +128,10 @@ const routes: Routes = [
           {
             path: 'calendar',
             component: CalendarComponent
+          },
+          {
+            path: '**',
+            redirectTo: '/admin/news'
           }
         ]
       }
@@ -132,6 +140,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/admin'
   }
 ];
 @NgModule({

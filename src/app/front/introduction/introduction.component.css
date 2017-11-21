@@ -1,5 +1,6 @@
 .container {
-  margin: 50px 8% 0 8%;
+  padding: 50px 8%;
+  width: 100%;
 }
 
 .mobile {

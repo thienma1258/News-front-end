@@ -3,7 +3,7 @@
 }
 
 .carousel-image{
-  height:600px;
+  height: calc(100vh - 180px);
   width: 100%;
 }
 

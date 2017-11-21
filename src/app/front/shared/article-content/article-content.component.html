@@ -4,9 +4,11 @@
     <h3>{{article.previewContent}}</h3>
     <div id="information">
       <span>Created Time: {{article.createdTime}}</span>
-      <div class="translator">
+      <div class="translator" style="display: table;">
         <span>E</span>
-        <input type="image" src="./assets/images/translation-post.png" height="20px" width="20px">
+        <a style="cursor: pointer; display: table-cell; vertical-align: middle;">
+          <img src="./assets/images/translation-post.png" style="margin-left:6px; margin-bottom: 3px; width: 22px; height: 22px; cursor: pointer;">
+        </a>
       </div>
     </div>
   </div>
