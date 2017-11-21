@@ -7,7 +7,7 @@ import {AcademicComponent} from './academic/academic.component';
 import {FooterComponent} from './shared/footer/footer.component';
 import {ResearchComponent} from './research/research.component';
 import {NewsComponent} from './news/news.component';
-// import { ResearchDetailsComponent } from './research-details/research-details.component';
+import { ResearchDetailsComponent } from './research-details/research-details.component';
 const routes: Routes = [
   {path: '', component: HeaderComponent, outlet: 'header'},
   {path: '', component: HomepageComponent},
