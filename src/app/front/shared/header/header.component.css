@@ -172,6 +172,10 @@ a{
     font-size: 20px;
   }
 
+  nav{
+    padding: 18px 8%;
+  }
+
   nav ul li{
     font-size: 16px;
   }
@@ -196,6 +200,10 @@ a{
 @media (max-width: 1024px) {
   #title{
     font-size: 18px;
+  }
+
+  nav{
+    padding: 14px 8%;
   }
 
   nav ul li{
