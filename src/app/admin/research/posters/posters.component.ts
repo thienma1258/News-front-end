@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Article} from '../../../front/shared/interface/article';
+import {Article} from '../../../shared/interface/article';
 import {Router} from "@angular/router";
 
 @Component({

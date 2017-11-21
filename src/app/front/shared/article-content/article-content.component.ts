@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FacebookService, InitParams} from 'ngx-facebook';
-import {Article} from '../interface/article';
+import {Article} from '../../../shared/interface/article';
 
 @Component({
   selector: 'app-article-content',

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from '../../front/shared/interface/article';
-import {Event} from '../../front/shared/interface/event';
-import {ActivityLog} from "../../front/shared/interface/activity-log";
+import {Article} from '../../shared/interface/article';
+import {Event} from '../../shared/interface/event';
+import {ActivityLog} from "../../shared/interface/activity-log";
 
 @Component({
   selector: 'dashboard',

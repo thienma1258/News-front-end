@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Article} from '../shared/interface/article';
+import {Article} from '../../shared/interface/article';
 @Component({
   selector: 'research-details',
   templateUrl: './research-details.component.html',

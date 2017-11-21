@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from '../shared/interface/article';
-import {Event} from '../shared/interface/event';
+import {Article} from '../../shared/interface/article';
+import {Event} from '../../shared/interface/event';
 import {ASSERT_IMAGES_URL} from '../../app.component';
 
 @Component({

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Event} from '../interface/event';
+import {Event} from '../../../shared/interface/event';
 
 @Component({
   selector: 'app-event-preview',

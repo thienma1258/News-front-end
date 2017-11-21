@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from '../shared/interface/article';
+import {Article} from '../../shared/interface/article';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -10,8 +10,29 @@ import {ActivatedRoute} from '@angular/router';
 export class NewsComponent implements OnInit {
   parentRoute: string;
   parentRouteName: string;
-  public menu: any;
-  public selectedtitle;
+  public menu: any = [
+    {
+      'route': 'department-news',
+      'name': 'Department News'
+    },
+    {
+      'route': 'course-news',
+      'name': 'Course News'
+    },
+    {
+      'route': 'event',
+      'name': 'Event'
+    },
+    {
+      'route': 'school-leadership',
+      'name': 'School Leadership'
+    },
+    {
+      'route': 'calendar',
+      'name': 'Calendar'
+    }
+  ];
+  public selectedTitle;
   public articles: Article[];
 
   constructor(private route: ActivatedRoute) {
@@ -23,32 +44,15 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.selectedtitle = params['title'];
+      this.selectedTitle = params['title'];
+      for (const title of this.menu) {
+        if (title.route === this.selectedTitle) {
+          this.selectedTitle = title.name;
+        }
+      }
     });
     this.parentRoute = '/news';
     this.parentRouteName = 'News';
-    this.menu = [
-      {
-        'route': 'department-news',
-        'name': 'Department News'
-      },
-      {
-        'route': 'course-news',
-        'name': 'Course News'
-      },
-      {
-        'route': 'event',
-        'name': 'Event'
-      },
-      {
-        'route': 'school-leadership',
-        'name': 'School Leadership'
-      },
-      {
-        'route': 'calendar',
-        'name': 'Calendar'
-      }
-    ];
   }
 
   getarticle() {

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from '../shared/interface/article';
+import {Article} from '../../shared/interface/article';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -10,7 +10,24 @@ import {ActivatedRoute} from '@angular/router';
 export class AcademicComponent implements OnInit {
   parentRoute: string;
   parentRouteName: string;
-  titles: any;
+  titles: any = [
+    {
+      'route': 'academic-information',
+      'name': 'Academic Information'
+    },
+    {
+      'route': 'student-graduate-and-undergraduate',
+      'name': 'Student graduate and undergraduate',
+    },
+    {
+      'route': 'teaching',
+      'name': 'Teaching',
+    },
+    {
+      'route': 'degree-requirement',
+      'name': 'Degree requirement'
+    }
+  ];
   selectedTitle: string;
   article: Article = {
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -47,37 +64,22 @@ export class AcademicComponent implements OnInit {
     previewContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     imageUrls: ['./assets/images/NCNU_06020.jpg'],
     url: '',
-    createdTime: 'ajsklfdj',
+    createdTime: '11/11/2017',
   };
 
-  constructor(private route: ActivatedRoute){
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.selectedTitle = params['title'];
+      for (const title of this.titles) {
+        if (title.route === this.selectedTitle) {
+          this.selectedTitle = title.name;
+        }
+      }
     });
     this.parentRoute = '/academic';
     this.parentRouteName = 'Academic & Admissions';
-    this.titles = [
-      {
-        'route': 'academic-information',
-        'name': 'Academic Information'
-      },
-      {
-        'route':'student-graduate-and-undergraduate',
-        'name': 'Student graduate and undergraduate',
-      },
-      {
-        'route':'teaching',
-        'name': 'Teaching',
-      },
-      {
-        'route': 'degree-requirement',
-        'name': 'Degree requirement'
-      }
-    ];
-    this.selectedTitle = this.titles[0];
   }
-
 }

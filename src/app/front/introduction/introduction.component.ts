@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from '../shared/interface/article';
+import {Article} from '../../shared/interface/article';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -10,7 +10,24 @@ import {ActivatedRoute} from '@angular/router';
 export class IntroductionComponent implements OnInit {
   parentRoute: string;
   parentRouteName: string;
-  titles: any;
+  titles: any = [
+    {
+      'route': 'about-us',
+      'name': 'About us'
+    },
+    {
+      'route': 'facility-advisor',
+      'name': 'Facility advisor'
+    },
+    {
+      'route': 'department-structure-staff',
+      'name': 'Department structure and staff'
+    },
+    {
+      'route': 'contact',
+      'name': 'Contact'
+    }
+  ];
   selectedTitle: string;
   article: Article = {
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -56,27 +73,13 @@ export class IntroductionComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.selectedTitle = params['title'];
+      for (const title of this.titles) {
+        if (title.route === this.selectedTitle) {
+          this.selectedTitle = title.name;
+        }
+      }
     });
     this.parentRoute = '/introduction';
     this.parentRouteName = 'Introduction';
-    this.titles = [
-      {
-        'route': 'about-us',
-        'name': 'About us'
-      },
-      {
-        'route': 'facility-advisor',
-        'name': 'Facility advisor'
-      },
-      {
-        'route': 'department-structure-staff',
-        'name': 'Department structure and staff'
-      },
-      {
-        'route': 'contact',
-        'name': 'Contact'
-      }
-    ];
-    this.selectedTitle = this.titles[0];
   }
 }
