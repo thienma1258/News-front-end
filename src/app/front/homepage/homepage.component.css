@@ -3,7 +3,7 @@
 }
 
 .carousel-image{
-  height: calc(100vh - 180px);
+  height: calc(100vh - 150px);
   width: 100%;
 }
 
@@ -89,6 +89,11 @@
   .news-title{
     font-size: 20px;
   }
+
+  .carousel-image{
+    height: 600px;
+  }
+
   .carousel-overlay{
     right:0;
     left: auto;
