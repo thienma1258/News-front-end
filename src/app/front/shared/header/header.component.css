@@ -2,7 +2,7 @@ header{
   display: block;
   overflow: hidden;
   width:100%;
-  padding: 2% 8%;
+  padding: 1% 8%;
 }
 
 .break-line{
@@ -12,7 +12,7 @@ header{
 nav{
   display: block;
   color: white;
-  padding: 26px 8%;
+  padding: 20px 8%;
   background-color: #CE4656;
 }
 

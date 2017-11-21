@@ -8,7 +8,7 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
   isToggleMenuExpanded = false;
-  language = 'English';
+  language = '中文';
   locale = 'en';
 
   constructor(private translate: TranslateService) {

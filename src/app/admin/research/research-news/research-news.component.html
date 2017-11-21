@@ -1,5 +1,5 @@
 <button type="button" class="btn" (click)="addNewArticle()">Add new</button>
 <div class="row">
-  <preview-edit-box class="col-xl-4 col-lg-4 col-md-6" [displayType]="2"
+  <preview-edit-box class="col-xl-4 col-lg-4 col-md-6" [displayType]="2" [editLink]="'/admin/research/edit/'"
                     *ngFor="let article of articles" [article]="article"></preview-edit-box>
 </div>

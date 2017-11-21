@@ -14,10 +14,6 @@ span{
   margin-right: 10px;
 }
 
-#contact{
-  margin-bottom: 40px;
-}
-
 #information{
   background-color: rgba(80, 80, 80, 0.2);
   text-align: left;
@@ -46,16 +42,23 @@ span{
   background: #850615;
 }
 
-@media (max-width: 425px){
+@media (max-width: 576px){
   #link-left{
     margin-bottom: 20px;
   }
+
+  #contact{
+    margin-bottom: 40px;
+  }
+
   #phone{
     display: flex;
   }
+
   #phone div{
     display: block;
   }
+
   #phone span{
     display: block;
   }
