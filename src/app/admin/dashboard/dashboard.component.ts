@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Article} from '../../shared/interface/article';
 import {Event} from '../../shared/interface/event';
 import {ActivityLog} from '../../shared/interface/activity-log';
+import {ArticleService} from "../../shared/services/article.service";
+import {EventService} from "../../shared/services/event.service";
 
 @Component({
   selector: 'dashboard',
@@ -29,6 +31,9 @@ export class DashboardComponent implements OnInit {
   ];
   public lineChartLegend = false;
   public lineChartType = 'line';
+
+  private recentNews: Article[] = [];
+  private recentEvents: Event[] = [];
 
   activityLogs: ActivityLog[] = [
     {
@@ -68,10 +73,14 @@ export class DashboardComponent implements OnInit {
     }
   ];
 
-  constructor() {
+  constructor(private articleService: ArticleService, private eventService: EventService) {
   }
 
   ngOnInit() {
+    for (let i = 0; i < 3; i++) {
+      this.recentNews.push(this.articleService.getArticle(String(i)));
+      this.recentEvents.push(this.eventService.getEvent(String(i)));
+    }
   }
 
 }

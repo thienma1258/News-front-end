@@ -1,5 +1,10 @@
-.content{
-  margin-left: 50px;
+.title{
+  display: inline-block;
+  width: 150px;
+}
+
+span{
+  display: inline-block;
 }
 
 container-box{
@@ -8,6 +13,10 @@ container-box{
 
 .phone{
   display: flex;
+}
+
+.long-width{
+  width: 70%;
 }
 
 .add-slide img{
@@ -19,6 +28,41 @@ container-box{
 
 container-box{
   margin-bottom: 30px;
+}
+
+.edit-box{
+  border: 0;
+  border-bottom: 1px solid gray;
+  outline: none;
+}
+
+/deep/ .customClass {
+  background-color: #F8F8F8;
+  border-radius: 5px;
+  margin:5px;
+}
+
+/deep/ .customClass .img-ul-upload {
+  background-color: #CE4656 !important;
+}
+
+/deep/ .customClass .img-ul-container .img-ul-image {
+  width: 100%;
+  height: stretch;
+}
+
+.slide-edit p{
+  margin-bottom: 8px;
+}
+
+.slide-edit input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.slide-edit textarea{
+  width: 100%;
+  min-height: 100px;
 }
 
 @media (max-width: 576px){

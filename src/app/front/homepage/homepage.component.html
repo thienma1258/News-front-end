@@ -3,18 +3,18 @@
     <img class="carousel-image" src="{{article.imageUrls[0]}}">
     <div class="carousel-overlay">
       <p id="carousel-title">
-        <ng-container *ngIf="LanguageLocale == 'en'">
+        <ng-container *ngIf="Locale == 'en'">
           {{article.englishTitle}}
         </ng-container>
-        <ng-container *ngIf="LanguageLocale == 'zh-tw'">
+        <ng-container *ngIf="Locale == 'zh-tw'">
           {{article.chineseTitle}}
         </ng-container>
       </p>
       <p id="carousel-overlay-content">
-        <ng-container *ngIf="LanguageLocale == 'en'">
+        <ng-container *ngIf="Locale == 'en'">
           {{article.englishContent}}
         </ng-container>
-        <ng-container *ngIf="LanguageLocale == 'zh-tw'">
+        <ng-container *ngIf="Locale == 'zh-tw'">
           {{article.chineseContent}}
         </ng-container>
       </p>
@@ -27,7 +27,7 @@
   <div class="row">
     <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing group">
       <p i18n class="news-title">{{'Homepage.AboutUs' | translate}}</p>
-      <app-article-preview [article]="aboutArticle" [displayType]="3" [showTitle]="true" [showPreviewContent]="true"></app-article-preview>
+      <app-article-preview [article]="aboutArticle" [articleUrl]="'/introduction/about-us'" [displayType]="3" [showTitle]="true" [showPreviewContent]="true"></app-article-preview>
     </div>
     <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing group">
       <p i18n class="news-title">{{'Homepage.LatestNews' | translate}}</p>

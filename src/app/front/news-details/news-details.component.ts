@@ -12,4 +12,8 @@ export class NewsDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
+  get Locale() {
+    return localStorage.getItem('locale');
+  }
+
 }

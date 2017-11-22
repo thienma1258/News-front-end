@@ -6,10 +6,15 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  language = 'English';
+  language = '中文';
+  locale = 'en';
   isToggleMenuExpanded = false;
 
   constructor() {
+  }
+
+  get Locale() {
+    return localStorage.getItem('locale');
   }
 
   ngOnInit() {
@@ -20,6 +25,8 @@ export class AdminComponent implements OnInit {
   }
 
   switchLanguage() {
-
+    this.language = (this.language === 'English' ? '中文' : 'English');
+    this.locale = (this.locale === 'en' ? 'zh-tw' : 'en');
+    localStorage.setItem('locale', this.locale);
   }
 }

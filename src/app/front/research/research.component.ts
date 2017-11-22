@@ -39,6 +39,10 @@ export class ResearchComponent implements OnInit {
   constructor(private route: ActivatedRoute) {
   }
 
+  get Locale() {
+    return localStorage.getItem('locale');
+  }
+
   createmenu() {
     this.menu = new Array<string>();
     this.menu.push();

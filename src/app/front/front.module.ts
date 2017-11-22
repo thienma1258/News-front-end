@@ -20,6 +20,7 @@ import {ResearchDetailsComponent} from './research-details/research-details.comp
 import {NewsDetailsComponent} from './news-details/news-details.component';
 import {ArticleService} from '../shared/services/article.service';
 import {EventService} from '../shared/services/event.service';
+import {UniversityService} from '../shared/services/university.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import {EventService} from '../shared/services/event.service';
     NgbModule,
     TranslateModule
   ],
-  providers: [ArticleService, EventService],
+  providers: [ArticleService, EventService, UniversityService],
   bootstrap: []
 })
 export class FrontModule {

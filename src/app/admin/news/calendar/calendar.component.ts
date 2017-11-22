@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Article} from '../../../shared/interface/article';
 import {Router} from '@angular/router';
-import {ArticleSize} from '../../../shared/enum/article-size.enum';
+import {ArticleService} from '../../../shared/services/article.service';
 
 @Component({
   selector: 'calendar',
@@ -9,10 +9,19 @@ import {ArticleSize} from '../../../shared/enum/article-size.enum';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
+  private articles: Article[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private articleService: ArticleService) {
+  }
 
   ngOnInit() {
+    for (let i = 0; i < 6; i++) {
+      this.articles.push(this.articleService.getArticle(String(i)));
+    }
+  }
+
+  get Locale() {
+    return localStorage.getItem('locale');
   }
 
   addNewArticle() {

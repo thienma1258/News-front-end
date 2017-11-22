@@ -18,7 +18,7 @@
     <container-box id="recent-news" [seeMoreLink]="'/admin/news'">
       <p class="title">RECENT NEWS</p>
       <div class="row">
-        <article-preview class="col-xl-4 col-lg-4 col-md-4"  *ngFor="let article of previewRecentNews;" [article]="article"
+        <article-preview class="col-xl-4 col-lg-4 col-md-4"  *ngFor="let article of recentNews;" [article]="article"
                          [showTitle]="true" [showCreatedTime]="true" [showPreviewContent]="true"></article-preview>
       </div>
     </container-box>
@@ -26,12 +26,12 @@
     <container-box id="recent-event" [seeMoreLink]="'/admin/news/events'">
       <p class="title">RECENT EVENTS</p>
       <div class="row">
-        <event-preview class="col-md-6 col-lg-12" *ngFor="let event of previewRecentEvent;" [event]="event"></event-preview>
+        <event-preview class="col-md-6 col-lg-12" *ngFor="let event of recentEvents;" [event]="event"></event-preview>
       </div>
     </container-box>
   </div>
 
-  <container-box>
+  <container-box [seeMoreLink]="'/admin/'">
     <p class="title">RECENT ACTIVITY</p>
     <div class="row">
       <table class="table">

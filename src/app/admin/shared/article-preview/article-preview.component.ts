@@ -17,6 +17,10 @@ export class ArticlePreviewComponent implements OnInit {
   constructor() {
   }
 
+  get Locale() {
+    return localStorage.getItem('locale');
+  }
+
   ngOnInit() {
   }
 

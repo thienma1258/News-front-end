@@ -1,6 +1,12 @@
 <div class="box">
   <p *ngIf="title !== ''" class="title"><span>{{title}}</span></p>
-  <img *ngIf="editLink != ''" class="edit-button" routerLink="{{editLink}}" src="../../../../assets/images/edit.png">
+  <div *ngIf="isShowEditLink" class="edit-button">
+    <img *ngIf="!isEditting" (click)="edit()" src="../../../../assets/images/edit.png">
+    <div *ngIf="isEditting">
+      <img (click)="done()" style="margin-right: 10px;" src="../../../../assets/images/done.png">
+      <img (click)="cancel()" src="../../../../assets/images/cancel.png">
+    </div>
+  </div>
   <hr *ngIf="title !== ''"/>
   <ng-content></ng-content>
   <div style="text-align: right; margin-top: 10px">

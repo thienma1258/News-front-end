@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from '../../shared/interface/article';
 import {ActivatedRoute} from '@angular/router';
+import {ArticleService} from '../../shared/services/article.service';
+import {Article} from '../../shared/interface/article';
 
 @Component({
   selector: 'app-introduction',
@@ -29,20 +30,34 @@ export class IntroductionComponent implements OnInit {
     }
   ];
   selectedTitle: string;
+  article: Article;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private articleService: ArticleService) {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.selectedTitle = params['title'];
-      for (const title of this.titles) {
-        if (title.route === this.selectedTitle) {
-          this.selectedTitle = title.name;
-        }
-      }
-    });
     this.parentRoute = '/introduction';
     this.parentRouteName = 'Introduction';
+    this.route.params.subscribe(params => {
+      this.selectedTitle = params['title'];
+      switch (this.selectedTitle) {
+        case 'about-us':
+          this.selectedTitle = 'About us';
+          this.article = this.articleService.getArticle('3');
+          break;
+        case 'facility-advisor':
+          this.selectedTitle = 'Facility Advisor';
+          this.article = this.articleService.getArticle('4');
+          break;
+        case 'department-structure-staff':
+          this.selectedTitle = 'Department Structure & Staff';
+          this.article = this.articleService.getArticle('5');
+          break;
+        case 'contact':
+          this.selectedTitle = 'Contact';
+          this.article = this.articleService.getArticle('6');
+          break;
+      }
+    });
   }
 }

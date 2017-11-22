@@ -23,7 +23,7 @@ export class HomepageComponent implements OnInit {
   constructor(private articleService: ArticleService, private eventService: EventService) {
   }
 
-  get LanguageLocale() {
+  get Locale() {
     return localStorage.getItem('locale');
   }
 

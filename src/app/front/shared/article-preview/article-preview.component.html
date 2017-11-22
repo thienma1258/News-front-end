@@ -1,6 +1,6 @@
 <div [ngSwitch]="displayType">
   <div *ngSwitchCase="1">
-    <a routerLink="">
+    <a routerLink="{{articleUrl}}">
       <div class="row">
         <img class="col-xl-5 col-lg-5 col-md-5 image" src="{{article.imageUrls[0]}}">
         <div class="col-xl-7 col-lg-7 col-md-7 content">
@@ -26,7 +26,7 @@
     </a>
   </div>
   <div *ngSwitchCase="2" class="large">
-    <a routerLink="/introduction">
+    <a routerLink="{{articleUrl}}">
       <img class="image" src="{{article.imageUrls[0]}}">
       <div class="content">
         <p *ngIf="showTitle" class="title">
@@ -50,7 +50,7 @@
     </a>
   </div>
   <div class="large" *ngSwitchCase="3">
-    <a routerLink="">
+    <a routerLink="{{articleUrl}}">
       <img class="image" src="{{article.imageUrls[0]}}">
       <div class="content">
         <p *ngIf="showTitle" class="title">

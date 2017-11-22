@@ -11,6 +11,10 @@ export class EventPreviewComponent implements OnInit {
 
   constructor() { }
 
+  get Locale() {
+    return localStorage.getItem('locale');
+  }
+
   ngOnInit() {
   }
 

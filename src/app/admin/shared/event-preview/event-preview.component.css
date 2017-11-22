@@ -25,15 +25,19 @@ a {
   overflow: hidden;
 }
 
-#preview-content{
+.preview-content{
   color: gray;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 
 .wrapper{
   display: flex;
 }
 
-#title{
+.title{
   font-weight: bold;
 }
 
@@ -41,7 +45,7 @@ a {
   .content{
     font-size: 14px;
   }
-  .content #title{
+  .content .title{
     font-size: 16px;
   }
 }
@@ -50,7 +54,7 @@ a {
   .content{
     font-size: 14px;
   }
-  .content #title{
+  .content .title{
     font-size: 16px;
   }
 }
@@ -59,7 +63,7 @@ a {
   .content{
     font-size: 10px;
   }
-  .content #title{
+  .content .title{
     font-size: 12px;
   }
 }

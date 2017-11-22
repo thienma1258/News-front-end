@@ -20,6 +20,11 @@ export class ArticleContentComponent implements OnInit {
     fb.init(initParams);
   }
 
+
+  get Locale() {
+    return localStorage.getItem('locale');
+  }
+
   ngOnInit() {
   }
 

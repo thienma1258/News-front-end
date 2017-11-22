@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Article} from '../../shared/interface/article';
 import {ActivatedRoute} from '@angular/router';
+import {ArticleService} from "../../shared/services/article.service";
 
 @Component({
   selector: 'app-academic',
@@ -29,18 +30,31 @@ export class AcademicComponent implements OnInit {
     }
   ];
   selectedTitle: string;
+  article: Article;
 
-
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private articleService: ArticleService) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.selectedTitle = params['title'];
-      for (const title of this.titles) {
-        if (title.route === this.selectedTitle) {
-          this.selectedTitle = title.name;
-        }
+      switch (this.selectedTitle) {
+        case 'academic-information':
+          this.selectedTitle = 'Academic Information';
+          this.article = this.articleService.getArticle('3');
+          break;
+        case 'student-graduate-and-undergraduate':
+          this.selectedTitle = 'Student Graduate & Undergraduate';
+          this.article = this.articleService.getArticle('4');
+          break;
+        case 'teaching':
+          this.selectedTitle = 'Teaching';
+          this.article = this.articleService.getArticle('5');
+          break;
+        case 'degree-requirement':
+          this.selectedTitle = 'Degree Requirement';
+          this.article = this.articleService.getArticle('6');
+          break;
       }
     });
     this.parentRoute = '/academic';

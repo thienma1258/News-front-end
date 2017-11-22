@@ -2,8 +2,10 @@
   <a routerLink="">
     <div class="circle">{{event.eventDate}}</div>
     <div class="content">
-      <p id="title">{{event.title}}</p>
-      <p id="preview-content">{{event.previewContent}}</p>
+      <p *ngIf="Locale === 'en'" class="title">{{event.article.englishTitle}}</p>
+      <p *ngIf="Locale === 'zh-tw'" class="title">{{event.article.chineseTitle}}</p>
+      <p *ngIf="Locale === 'en'" class="preview-content">{{event.article.englishContent}}</p>
+      <p *ngIf="Locale === 'zh-tw'" class="preview-content">{{event.article.chineseContent}}</p>
     </div>
   </a>
 </div>

@@ -11,6 +11,13 @@
   color: gray;
 }
 
+.preview-content{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+}
+
 a{
   text-decoration: none;
   display: block;
