@@ -36,7 +36,6 @@
 input{
   padding: 5px 0;
   border: 0 solid gray;
-  /*border-bottom-width: 1.5px;*/
   width: 400px;
   outline: none;
 }
@@ -61,6 +60,10 @@ input:focus{
 }
 
 #btn-sign-in:hover{
+  background: rgba(235, 87, 87, 0.8);
+}
+
+#btn-sign-in:disabled{
   background: rgba(235, 87, 87, 0.8);
 }
 

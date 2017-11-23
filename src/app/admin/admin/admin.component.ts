@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../shared/auth.service";
 
 @Component({
   selector: 'admin',
@@ -9,8 +10,9 @@ export class AdminComponent implements OnInit {
   language = '中文';
   locale = 'en';
   isToggleMenuExpanded = false;
+  userName: string;
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   get Locale() {
@@ -18,6 +20,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userName = localStorage.getItem('username');
   }
 
   toggleMenu() {
@@ -28,5 +31,16 @@ export class AdminComponent implements OnInit {
     this.language = (this.language === 'English' ? '中文' : 'English');
     this.locale = (this.locale === 'en' ? 'zh-tw' : 'en');
     localStorage.setItem('locale', this.locale);
+  }
+
+  logout() {
+    this.authService.logout().subscribe(
+      data => {
+
+      },
+      err => {
+
+      }
+    );
   }
 }

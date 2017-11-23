@@ -13,7 +13,7 @@
       <div *ngIf="isLogInFailed" id="error-message">
         Login failed!
       </div>
-      <button id="btn-sign-in" type="submit">SIGN IN</button>
+      <button id="btn-sign-in" type="submit" [disabled]="!isSignInButtonEnable">SIGN IN</button>
     </form>
     <div id="forget-password-block">
       <a href="#">Forgot your password?</a>

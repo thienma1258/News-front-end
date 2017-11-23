@@ -36,6 +36,7 @@ import {UniversityService} from '../shared/services/university.service';
 import {ArticleService} from '../shared/services/article.service';
 import {ImageUploadModule} from 'angular2-image-upload';
 import {EventService} from '../shared/services/event.service';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   imports: [
@@ -75,7 +76,8 @@ import {EventService} from '../shared/services/event.service';
     CourseNewsComponent,
     EventsComponent,
     SchoolLeadershipComponent,
-    CalendarComponent
+    CalendarComponent,
+    ChangePasswordComponent
   ]
 })
 
