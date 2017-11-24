@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {EmitterService} from '../shared/emitter.service';
 import {UniversityService} from '../../shared/services/university.service';
-import {UniversityLink} from '../../shared/interface/university-link';
-import {Article} from '../../shared/interface/article';
-import {ArticleService} from "../../shared/services/article.service";
+import {UniversityLink} from '../../shared/model/university-link';
+import {Article} from '../../shared/model/article';
+import {ArticleService} from '../../shared/services/article.service';
+import {UniversityInfo} from '../../shared/model/university-info';
 
 @Component({
   selector: 'profile',
@@ -11,12 +12,7 @@ import {ArticleService} from "../../shared/services/article.service";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  universityEnglishName;
-  universityChineseName;
-  universityEnglishAddress;
-  universityChineseAddress;
-  universityPhoneNumbers: string[];
-  universityFaxNumbers;
+  universityInfo: UniversityInfo;
   links: UniversityLink[];
   slides: Article[] = [];
 
@@ -65,12 +61,15 @@ export class ProfileComponent implements OnInit {
       }
     });
 
-    this.universityEnglishName = this.universityService.getEnglishName();
-    this.universityChineseName = this.universityService.getChineseName();
-    this.universityEnglishAddress = this.universityService.getEnglishAddress();
-    this.universityChineseAddress = this.universityService.getChineseAddress();
-    this.universityPhoneNumbers = this.universityService.getPhoneNumbers();
-    this.universityFaxNumbers = this.universityService.getFaxNumbers();
+    this.universityService.getUniversityInfo().subscribe(
+      data => {
+        this.universityInfo = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
     this.links = this.universityService.getLinks();
 
     for (let i = 0; i < 3; i++) {

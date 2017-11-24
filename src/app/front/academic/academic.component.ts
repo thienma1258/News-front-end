@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from '../../shared/interface/article';
+import {Article} from '../../shared/model/article';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleService} from "../../shared/services/article.service";
 

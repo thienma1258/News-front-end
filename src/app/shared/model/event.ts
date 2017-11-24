@@ -1,6 +1,6 @@
 import {Article} from './article';
 
-export interface Event {
+export class Event {
   article: Article;
   eventDate: string;
 }

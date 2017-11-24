@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {ArticleService} from '../../../shared/services/article.service';
-import {Article} from '../../../shared/interface/article';
+import {Article} from '../../../shared/model/article';
 
 
 @Component({

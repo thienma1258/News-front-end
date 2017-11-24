@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ArticleSize} from '../enum/article-size.enum';
-import {Article} from '../interface/Article';
+import {Article} from '../model/Article';
 
 @Injectable()
 export class ArticleService {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {UniversityLink} from '../../../shared/interface/university-link';
+import {UniversityLink} from '../../../shared/model/university-link';
 import {UniversityService} from '../../../shared/services/university.service';
+import {UniversityInfo} from '../../../shared/model/university-info';
 
 @Component({
   selector: 'app-footer',
@@ -8,18 +9,27 @@ import {UniversityService} from '../../../shared/services/university.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  private universityEnglishAddress: string;
-  private universityPhoneNumbers: string[];
-  private universityFaxNumbers: string[];
+  private universityInfo: UniversityInfo;
   private universityLinks: UniversityLink[];
 
   constructor(private universityService: UniversityService) {
   }
 
+  get Locale() {
+    return localStorage.getItem('locale');
+  }
+
   ngOnInit() {
-    this.universityEnglishAddress = this.universityService.getEnglishAddress();
-    this.universityPhoneNumbers = this.universityService.getPhoneNumbers();
-    this.universityFaxNumbers = this.universityService.getFaxNumbers();
+    this.universityInfo = new UniversityInfo();
+    this.universityService.getUniversityInfo().subscribe(
+      data => {
+        this.universityInfo = data['content'];
+        console.log(data['content']);
+      },
+      err => {
+        console.log(err);
+      }
+    );
     this.universityLinks = this.universityService.getLinks();
   }
 

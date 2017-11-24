@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Event} from './../interface/Event';
+import {Event} from '../model/Event';
 import {ArticleSize} from "../enum/article-size.enum";
 
 @Injectable()

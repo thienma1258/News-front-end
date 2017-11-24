@@ -4,19 +4,24 @@
       <p i18n class="title">Contact</p>
       <div>
         <img src="../../../../assets/images/marker.png">
-        {{universityEnglishAddress}}
+        <ng-container *ngIf="Locale === 'en'">
+          {{universityInfo.englishAddress}}
+        </ng-container>
+        <ng-container *ngIf="Locale === 'zh-tw'">
+          {{universityInfo.chineseAddress}}
+        </ng-container>
       </div>
       <br/>
       <div id="phone">
         <img src="../../../../assets/images/phone.png">
         <div>
-          <span *ngFor="let phone of universityPhoneNumbers">{{phone}}</span>
+          <span *ngFor="let phone of universityInfo.phoneNumbers">{{phone}}</span>
         </div>
       </div>
       <br/>
       <div>
         <img src="../../../../assets/images/fax.png">
-        <span *ngFor="let fax of universityFaxNumbers">{{fax}}</span>
+        <span *ngFor="let fax of universityInfo.faxNumbers">{{fax}}</span>
       </div>
     </div>
 

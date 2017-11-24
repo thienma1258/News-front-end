@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from '../../shared/interface/article';
-import {Event} from '../../shared/interface/event';
-import {ActivityLog} from '../../shared/interface/activity-log';
+import {Article} from '../../shared/model/article';
+import {Event} from '../../shared/model/event';
+import {ActivityLog} from '../../shared/model/activity-log';
 import {ArticleService} from "../../shared/services/article.service";
 import {EventService} from "../../shared/services/event.service";
 

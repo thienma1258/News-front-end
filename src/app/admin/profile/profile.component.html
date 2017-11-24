@@ -1,34 +1,32 @@
 <container-box [title]="'CONTACT'" [isShowEditLink]="true">
   <div class="field">
     <span class="title">Name:</span><span *ngIf="!contactEditMode" class="content">
-      <ng-container *ngIf="Locale === 'en'">{{universityEnglishName}}</ng-container>
-      <ng-container *ngIf="Locale ==='zh-tw'">{{universityChineseName}}</ng-container>
-    </span>
-    <ng-container *ngIf="contactEditMode">
-      <input *ngIf="Locale === 'en'"  class="content edit-box long-width" [(ngModel)]="universityEnglishName" required>
-      <input *ngIf="Locale === 'zh-tw'" class="content edit-box long-width" [(ngModel)]="universityChineseName" required>
+      <ng-container *ngIf="Locale === 'en'">{{universityInfo.englishName}}</ng-container>
+      <ng-container *ngIf="Locale ==='zh-tw'">{{universityInfo.chineseName}}</ng-container>
+    </span><ng-container *ngIf="contactEditMode"><input *ngIf="Locale === 'en'" class="content edit-box long-width" [(ngModel)]="universityInfo.englishName" required><input *ngIf="Locale === 'zh-tw'" class="content edit-box long-width" [(ngModel)]="universityInfo.chineseName"
+             required>
     </ng-container>
   </div>
   <div class="field">
     <span class="title">Address:</span><span *ngIf="!contactEditMode" class="content">
-      <ng-container *ngIf="Locale === 'en'">{{universityEnglishAddress}}</ng-container>
-      <ng-container *ngIf="Locale ==='zh-tw'">{{universityChineseAddress}}</ng-container>
-    </span>
-    <ng-container *ngIf="contactEditMode">
-      <input *ngIf="Locale === 'en'"  class="content edit-box long-width" [(ngModel)]="universityEnglishAddress" required>
-      <input *ngIf="Locale === 'zh-tw'" class="content edit-box long-width" [(ngModel)]="universityChineseAddress" required>
+      <ng-container *ngIf="Locale === 'en'">{{universityInfo.englishAddress}}</ng-container>
+      <ng-container *ngIf="Locale ==='zh-tw'">{{universityInfo.chineseAddress}}</ng-container>
+    </span><ng-container *ngIf="contactEditMode"><input *ngIf="Locale === 'en'" class="content edit-box long-width" [(ngModel)]="universityInfo.englishAddress"
+             required><input *ngIf="Locale === 'zh-tw'" class="content edit-box long-width" [(ngModel)]="universityInfo.chineseAddress"
+             required>
     </ng-container>
   </div>
   <div class="phone field">
     <span class="title">Phone:</span>
     <div class="content">
       <ng-container *ngIf="!contactEditMode">
-        <span style="display: block;"  *ngFor="let phone of universityPhoneNumbers">
+        <span style="display: block;" *ngFor="let phone of universityInfo.phoneNumbers;">
           {{phone}}
         </span>
       </ng-container>
       <ng-container *ngIf="contactEditMode">
-        <input style="display: block;" *ngFor="let phone of universityPhoneNumbers; let i = index" class="content edit-box" [(ngModel)]="universityPhoneNumbers[i]">
+        <input style="display: block;" *ngFor="let phone of universityInfo.phoneNumbers; let i = index"
+               class="content edit-box" [(ngModel)]="universityInfo.phoneNumbers[i]">
       </ng-container>
     </div>
   </div>
@@ -36,7 +34,9 @@
 
   <!--</div>-->
   <div class="field">
-    <span class="title">Fax:</span><span *ngIf="!contactEditMode" class="content">{{universityFaxNumbers}}</span><input *ngIf="contactEditMode" class="content edit-box" [(ngModel)]="universityFaxNumbers" required>
+    <span class="title">Fax:</span><span *ngIf="!contactEditMode"
+                                         class="content">{{universityInfo.faxNumbers}}</span><input
+    *ngIf="contactEditMode" class="content edit-box" [(ngModel)]="universityInfo.faxNumbers" required>
   </div>
 
 </container-box>
@@ -44,39 +44,41 @@
 <container-box [title]="'LINK'" [isShowEditLink]="true">
   <table class="table">
     <thead>
-      <tr>
-        <th class="link-col-num" width="10%">#</th>
-        <th width="45%">Link Text</th>
-        <th width="45%">URL</th>
-      </tr>
+    <tr>
+      <th class="link-col-num" width="10%">#</th>
+      <th width="45%">Link Text</th>
+      <th width="45%">URL</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let l of links; let i = index">
-        <td class="link-col-num">#{{i+1}}</td>
-        <td>
-          <ng-container *ngIf="!linkEditMode">
-            {{l.name}}
-          </ng-container>
-          <input *ngIf="linkEditMode" class="edit-box long-width" [(ngModel)]="links[i].name">
-        </td>
-        <td>
-          <ng-container *ngIf="!linkEditMode">
-            {{l.url}}
-          </ng-container>
-          <input *ngIf="linkEditMode" class="edit-box long-width" [(ngModel)]="links[i].url">
-        </td>
-      </tr>
+    <tr *ngFor="let l of links; let i = index">
+      <td class="link-col-num">#{{i+1}}</td>
+      <td>
+        <ng-container *ngIf="!linkEditMode">
+          {{l.englishName}}
+        </ng-container>
+        <input *ngIf="linkEditMode" class="edit-box long-width" [(ngModel)]="links[i].englishName">
+      </td>
+      <td>
+        <ng-container *ngIf="!linkEditMode">
+          {{l.url}}
+        </ng-container>
+        <input *ngIf="linkEditMode" class="edit-box long-width" [(ngModel)]="links[i].url">
+      </td>
+    </tr>
     </tbody>
   </table>
 </container-box>
 
 <container-box [title]="'SLIDE'">
   <div *ngIf="slideEditMode" style="position: absolute; right: 30px; top: 25px;">
-    <img (click)="slideFinishEdit()" style="cursor: pointer; margin-right: 10px;" src="../../../../assets/images/done.png">
+    <img (click)="slideFinishEdit()" style="cursor: pointer; margin-right: 10px;"
+         src="../../../../assets/images/done.png">
     <img (click)="slideCancelEdit()" style="cursor: pointer;" src="../../../../assets/images/cancel.png">
   </div>
   <div *ngIf="!slideEditMode" class="row">
-    <preview-edit-box class="col-xl-4 col-lg-4 col-md-6" *ngFor="let slide of slides;" [article]="slide"></preview-edit-box>
+    <preview-edit-box class="col-xl-4 col-lg-4 col-md-6" *ngFor="let slide of slides;"
+                      [article]="slide"></preview-edit-box>
     <div (click)="addNewSlide()" class="col-xl-4 col-lg-4 col-md-6 add-slide">
       <img src="../../../assets/images/add.png">
     </div>
