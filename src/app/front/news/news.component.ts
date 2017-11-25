@@ -13,7 +13,7 @@ export class NewsComponent implements OnInit {
   public menu: any;
   public selectedtitle;
   public articles: Article[];
-
+  public showcalender:boolean;
   constructor(private route: ActivatedRoute) {
     this.articles = new Array<Article>();
     this.articles.push(this.getarticle());
@@ -24,6 +24,9 @@ export class NewsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.selectedtitle = params['title'];
+      if(this.selectedtitle=='calendar')
+        this.showcalender=true;
+      console.log(this.selectedtitle);
     });
     this.parentRoute = '/news';
     this.parentRouteName = 'News';

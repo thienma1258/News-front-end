@@ -3,6 +3,11 @@
   <div class="row" style="">
     <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12">
       <!-- sub menu -->
+
+      <!-- div serach  -->
+      <div class="search-form">
+        <input type="text" id="search" placeholder="Search">
+      </div>
       <app-sub-menu [parentRoute]="parentRoute" [parentRouteName]="parentRouteName"
                     [titles]="menu" [selectedTitle]="selectedtitle"></app-sub-menu>
     </div>
@@ -10,6 +15,15 @@
     <!-- Main -->
     <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12" >
       <div class="row">
+        <!-- button lab -->
+        <div class="tab-area" >
+          <button type="" class="tab active">Image Proccesiing</button>
+          <button type="" class="tab">Signal Proccesiing</button>
+          <button type="" class="tab">Information systems</button>
+          <button type="" class="tab">Circuits</button>
+             <button type="" class="tab">...</button>
+        </div>
+
         <!-- col 1 -->
         <!-- 1 image -->
         <div class="article small col-xs-12">
@@ -19,6 +33,7 @@
           </div>
         </div>
         <!-- end  -->
+        
         <!-- big img -->
         <div class="article big col-xs-12">
           <img class="img col1" src="assets/images/077.jpg">
