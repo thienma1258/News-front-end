@@ -10,7 +10,7 @@ import {UniversityInfo} from '../../../shared/model/university-info';
 })
 export class FooterComponent implements OnInit {
   private universityInfo: UniversityInfo;
-  private universityLinks: UniversityLink[];
+  private universityLinks: UniversityLink[] = [];
 
   constructor(private universityService: UniversityService) {
   }
@@ -24,13 +24,20 @@ export class FooterComponent implements OnInit {
     this.universityService.getUniversityInfo().subscribe(
       data => {
         this.universityInfo = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.universityService.getLinks().subscribe(
+      data => {
+        this.universityLinks = data['content'];
         console.log(data['content']);
       },
       err => {
         console.log(err);
       }
     );
-    this.universityLinks = this.universityService.getLinks();
   }
 
 }

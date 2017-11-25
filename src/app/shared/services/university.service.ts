@@ -16,6 +16,7 @@ export class UniversityService {
   // private universityFaxNumber: string[];
   private universityLinks: UniversityLink[];
   private getContactUrl = '/contact/get';
+  private getLinkUrl = '/link/get';
 
   constructor(private http: HttpClient, private authService: AuthService) {
 
@@ -63,7 +64,10 @@ export class UniversityService {
   }
 
   getLinks() {
-    return this.universityLinks;
+    const url = this.authService.apiUrl + this.getLinkUrl;
+    const options = this.authService.getHeader();
+
+    return this.http.get<UniversityLink[]>(url);
   }
 
 }

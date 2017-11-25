@@ -13,7 +13,7 @@ import {UniversityInfo} from '../../shared/model/university-info';
 })
 export class ProfileComponent implements OnInit {
   universityInfo: UniversityInfo;
-  links: UniversityLink[];
+  links: UniversityLink[] = [];
   slides: Article[] = [];
 
   contactEmitter = EmitterService.get('CONTACT');
@@ -27,6 +27,7 @@ export class ProfileComponent implements OnInit {
   selectedSlide: Article;
 
   constructor(private universityService: UniversityService, private articleService: ArticleService) {
+    this.universityInfo = new UniversityInfo();
     this.contactEmitter.subscribe(msg => {
       if (msg === 'edit') {
         this.contactEditMode = true;
@@ -70,7 +71,14 @@ export class ProfileComponent implements OnInit {
       }
     );
 
-    this.links = this.universityService.getLinks();
+    this.universityService.getLinks().subscribe(
+      data => {
+        this.links = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
 
     for (let i = 0; i < 3; i++) {
       this.slides.push(this.articleService.getArticle(String(i)));

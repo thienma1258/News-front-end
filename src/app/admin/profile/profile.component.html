@@ -55,9 +55,17 @@
       <td class="link-col-num">#{{i+1}}</td>
       <td>
         <ng-container *ngIf="!linkEditMode">
-          {{l.englishName}}
+          <ng-container *ngIf="Locale === 'en'">
+            {{l.englishName}}
+          </ng-container>
+          <ng-container *ngIf="Locale === 'zh-tw'">
+            {{l.chineseName}}
+          </ng-container>
         </ng-container>
-        <input *ngIf="linkEditMode" class="edit-box long-width" [(ngModel)]="links[i].englishName">
+        <ng-container *ngIf="linkEditMode">
+          <input *ngIf="Locale === 'en'" class="edit-box long-width" [(ngModel)]="links[i].englishName">
+          <input *ngIf="Locale === 'zh-tw'" class="edit-box long-width" [(ngModel)]="links[i].chineseName">
+        </ng-container>
       </td>
       <td>
         <ng-container *ngIf="!linkEditMode">
