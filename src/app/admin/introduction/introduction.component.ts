@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Article} from '../../front/shared/interface/article';
+import {Component, OnInit} from '@angular/core';
+import {Article} from '../../shared/model/article';
+import {ArticleService} from "../../shared/services/article.service";
 
 @Component({
   selector: 'introduction',
@@ -7,45 +8,24 @@ import {Article} from '../../front/shared/interface/article';
   styleUrls: ['./introduction.component.css']
 })
 export class IntroductionComponent implements OnInit {
-  aboutArticle: Article = {
-    title: 'title1',
-    imageUrls: ['./../../../../assets/images/001t.jpg'],
-    previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-    content: 'content 1',
-    url: '',
-    createdTime: 'Oct 28, 2017'
-  };
 
-  facilityArticle: Article = {
-    title: 'title1',
-    imageUrls: ['./../../../../assets/images/001t.jpg'],
-    previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-    content: 'content 1',
-    url: '',
-    createdTime: 'Oct 28, 2017'
-  };
+  private aboutArticle: Article;
+  private facilityArticle: Article;
+  private departmentArticle: Article;
+  private contactArticle: Article;
 
-  departmentArticle: Article = {
-    title: 'title1',
-    imageUrls: ['./../../../../assets/images/001t.jpg'],
-    previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-    content: 'content 1',
-    url: '',
-    createdTime: 'Oct 28, 2017'
-  };
+  constructor(private articleService: ArticleService) {
+  }
 
-  contactArticle: Article = {
-    title: 'title1',
-    imageUrls: ['./../../../../assets/images/001t.jpg'],
-    previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-    content: 'content 1',
-    url: '',
-    createdTime: 'Oct 28, 2017'
-  };
-
-  constructor() { }
+  get Locale() {
+    return localStorage.getItem('locale');
+  }
 
   ngOnInit() {
+    this.aboutArticle = this.articleService.getArticle('1');
+    this.facilityArticle = this.articleService.getArticle('2');
+    this.departmentArticle = this.articleService.getArticle('3');
+    this.contactArticle = this.articleService.getArticle('4');
   }
 
 }

@@ -8,6 +8,9 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {Http, HttpModule} from '@angular/http';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import {ImageUploadModule} from 'angular2-image-upload';
+import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
+import {AuthService} from "./admin/shared/auth.service";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -21,10 +24,12 @@ export function HttpLoaderFactory(http: Http) {
     NgbModule.forRoot(),
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
+    ImageUploadModule.forRoot(),
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -33,7 +38,7 @@ export function HttpLoaderFactory(http: Http) {
       }
     })
   ],
-  providers: [],
+  providers: [HttpClient, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Event} from '../../../front/shared/interface/event';
+import {Event} from '../../../shared/model/event';
 
 @Component({
   selector: 'event-preview',
@@ -10,6 +10,10 @@ export class EventPreviewComponent implements OnInit {
   @Input() event: Event;
 
   constructor() { }
+
+  get Locale() {
+    return localStorage.getItem('locale');
+  }
 
   ngOnInit() {
   }

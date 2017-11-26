@@ -24,7 +24,14 @@ a{
 }
 
 .large .content{
-  margin-top: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+}
+
+.large .content p{
+  margin-bottom: 0 !important;
 }
 
 @media(max-width: 1440px){
@@ -45,4 +52,3 @@ a{
     font-size: 16px;
   }
 }
-

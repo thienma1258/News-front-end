@@ -1,21 +1,29 @@
-<container-box [title]="'ABOUT US'" [editLink]="'/edit'">
-  <p class="title">{{aboutArticle.title}}</p>
-  <p>{{aboutArticle.previewContent}}</p>
+<container-box [title]="'ABOUT US'" [isShowEditLink]="true">
+  <p *ngIf="Locale === 'en'" class="title">{{aboutArticle.englishTitle}}</p>
+  <p *ngIf="Locale === 'zh-tw'" class="title">{{aboutArticle.chineseTitle}}</p>
+  <p *ngIf="Locale === 'en'">{{aboutArticle.englishContent}}</p>
+  <p *ngIf="Locale === 'zh-tw'">{{aboutArticle.chineseContent}}</p>
 </container-box>
 
-<container-box [title]="'FACILITY & ADVISOR'" [editLink]="'/edit'">
-  <p class="title">{{facilityArticle.title}}</p>
-  <p>{{facilityArticle.previewContent}}</p>
+<container-box [title]="'FACILITY & ADVISOR'" [isShowEditLink]="true">
+  <p *ngIf="Locale === 'en'" class="title">{{facilityArticle.englishTitle}}</p>
+  <p *ngIf="Locale === 'zh-tw'" class="title">{{facilityArticle.chineseTitle}}</p>
+  <p *ngIf="Locale === 'en'">{{facilityArticle.englishContent}}</p>
+  <p *ngIf="Locale === 'zh-tw'">{{facilityArticle.chineseContent}}</p>
 </container-box>
 
-<container-box [title]="'DEPARTMENT STRUCTURE & STAFF'" [editLink]="'/edit'">
-  <p class="title">{{departmentArticle.title}}</p>
-  <p>{{departmentArticle.previewContent}}</p>
+<container-box [title]="'DEPARTMENT STRUCTURE & STAFF'" [isShowEditLink]="true">
+  <p *ngIf="Locale === 'en'" class="title">{{departmentArticle.englishTitle}}</p>
+  <p *ngIf="Locale === 'zh-tw'" class="title">{{departmentArticle.chineseTitle}}</p>
+  <p *ngIf="Locale === 'en'">{{departmentArticle.englishContent}}</p>
+  <p *ngIf="Locale === 'zh-tw'">{{departmentArticle.chineseContent}}</p>
 </container-box>
 
-<container-box [title]="'CONTACT'" [editLink]="'/edit'">
-  <p class="title">{{contactArticle.title}}</p>
-  <p>{{contactArticle.previewContent}}</p>
+<container-box [title]="'CONTACT'" [isShowEditLink]="true">
+  <p *ngIf="Locale === 'en'" class="title">{{contactArticle.englishTitle}}</p>
+  <p *ngIf="Locale === 'zh-tw'" class="title">{{contactArticle.chineseTitle}}</p>
+  <p *ngIf="Locale === 'en'">{{contactArticle.englishContent}}</p>
+  <p *ngIf="Locale === 'zh-tw'">{{contactArticle.chineseContent}}</p>
 </container-box>
 
 <admin-footer></admin-footer>

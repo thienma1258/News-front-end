@@ -32,6 +32,11 @@ import { CourseNewsComponent } from './news/course-news/course-news.component';
 import { EventsComponent } from './news/events/events.component';
 import { SchoolLeadershipComponent } from './news/school-leadership/school-leadership.component';
 import { CalendarComponent } from './news/calendar/calendar.component';
+import {UniversityService} from '../shared/services/university.service';
+import {ArticleService} from '../shared/services/article.service';
+import {ImageUploadModule} from 'angular2-image-upload';
+import {EventService} from '../shared/services/event.service';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   imports: [
@@ -44,8 +49,9 @@ import { CalendarComponent } from './news/calendar/calendar.component';
     AdminRoutingModule,
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
+    ImageUploadModule.forRoot(),
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService],
   declarations: [
     DashboardComponent,
     LoginComponent,
@@ -70,7 +76,8 @@ import { CalendarComponent } from './news/calendar/calendar.component';
     CourseNewsComponent,
     EventsComponent,
     SchoolLeadershipComponent,
-    CalendarComponent
+    CalendarComponent,
+    ChangePasswordComponent
   ]
 })
 

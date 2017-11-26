@@ -1,32 +1,74 @@
 <div [ngSwitch]="displayType">
   <div *ngSwitchCase="1">
-    <a routerLink="">
+    <a routerLink="{{articleUrl}}">
       <div class="row">
-        <img class="col-xl-5 col-lg-5 col-md-5 image" src="{{assertImagesUrl + article.imageUrls[0]}}">
+        <img class="col-xl-5 col-lg-5 col-md-5 image" src="{{article.imageUrls[0]}}">
         <div class="col-xl-7 col-lg-7 col-md-7 content">
-          <p *ngIf="showTitle" class="title">{{article.title}}</p>
-          <p *ngIf="showPreviewContent">{{article.previewContent}}</p>
+          <p *ngIf="showTitle" class="title">
+            <ng-container *ngIf="LanguageLocale == 'en'">
+              {{article.englishTitle}}
+            </ng-container>
+            <ng-container *ngIf="LanguageLocale == 'zh-tw'">
+              {{article.chineseTitle}}
+            </ng-container>
+          </p>
+          <p *ngIf="showPreviewContent">
+            <ng-container *ngIf="LanguageLocale == 'en'">
+              {{article.englishContent}}
+            </ng-container>
+            <ng-container *ngIf="LanguageLocale == 'zh-tw'">
+              {{article.chineseContent}}
+            </ng-container>
+          </p>
           <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime}}</p>
         </div>
       </div>
     </a>
   </div>
   <div *ngSwitchCase="2" class="large">
-    <a routerLink="/introduction">
+    <a routerLink="{{articleUrl}}">
       <img class="image" src="{{article.imageUrls[0]}}">
       <div class="content">
-        <p *ngIf="showTitle" class="title">{{article.title}}</p>
-        <p *ngIf="showPreviewContent">{{article.previewContent}}</p>
+        <p *ngIf="showTitle" class="title">
+          <ng-container *ngIf="LanguageLocale == 'en'">
+            {{article.englishTitle}}
+          </ng-container>
+          <ng-container *ngIf="LanguageLocale == 'zh-tw'">
+            {{article.chineseTitle}}
+          </ng-container>
+        </p>
+        <p *ngIf="showPreviewContent">
+          <ng-container *ngIf="LanguageLocale == 'en'">
+            {{article.englishContent}}
+          </ng-container>
+          <ng-container *ngIf="LanguageLocale == 'zh-tw'">
+            {{article.chineseContent}}
+          </ng-container>
+        </p>
         <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime}}</p>
       </div>
     </a>
   </div>
   <div class="large" *ngSwitchCase="3">
-    <a routerLink="">
-      <img class="image" src="{{assertImagesUrl + article.imageUrls[0]}}">
+    <a routerLink="{{articleUrl}}">
+      <img class="image" src="{{article.imageUrls[0]}}">
       <div class="content">
-        <p *ngIf="showTitle" class="title">{{article.title}}</p>
-        <p *ngIf="showPreviewContent">{{article.previewContent}}</p>
+        <p *ngIf="showTitle" class="title">
+          <ng-container *ngIf="LanguageLocale == 'en'">
+            {{article.englishTitle}}
+          </ng-container>
+          <ng-container *ngIf="LanguageLocale == 'zh-tw'">
+            {{article.chineseTitle}}
+          </ng-container>
+        </p>
+        <p *ngIf="showPreviewContent">
+          <ng-container *ngIf="LanguageLocale == 'en'">
+            {{article.englishContent}}
+          </ng-container>
+          <ng-container *ngIf="LanguageLocale == 'zh-tw'">
+            {{article.chineseContent}}
+          </ng-container>
+        </p>
         <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime}}</p>
       </div>
     </a>

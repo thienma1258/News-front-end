@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {AuthService} from "../shared/auth.service";
+import {AuthService} from '../shared/auth.service';
 
 @Component({
   selector: 'login',
@@ -14,10 +14,11 @@ export class LoginComponent implements OnInit {
 
   showPasswordIcon = '../../../assets/images/display-password.png';
   hidePasswordIcon = '../../../assets/images/hide-password.png';
+  isSignInButtonEnable = true;
 
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, ) {
     this.loginForm = fb.group({
       'email': [null, Validators.required],
       'password': [null, Validators.required]
@@ -32,11 +33,14 @@ export class LoginComponent implements OnInit {
   }
 
   login(username, password) {
-    this.authService.login(username, password);
-    if (this.authService.isLoggedIn) {
-      this.router.navigate(['/admin/dashboard']);
-    } else {
-      this.isLogInFailed = true;
-    }
+    this.isSignInButtonEnable = false;
+    this.authService.login(username, password).subscribe(
+      data => {
+      },
+      error => {
+        this.isLogInFailed = true;
+        this.isSignInButtonEnable = true;
+      }
+    );
   }
 }

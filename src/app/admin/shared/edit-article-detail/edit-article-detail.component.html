@@ -14,6 +14,6 @@
       <img class="done-icon" src="./../../../../assets/images/done.png">
     </a>
   </div>
-  <input class="input-title" type="text">
-  <div class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="editorContent"></div>
+  <input class="input-title" type="text" [(ngModel)]="articleTitle">
+  <div class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="articleContent"></div>
 </div>

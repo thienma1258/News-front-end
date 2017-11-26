@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Article} from '../../../front/shared/interface/article';
+import {Article} from '../../../shared/model/article';
 import {ASSERT_IMAGES_URL} from '../../../app.component';
 
 @Component({
@@ -15,6 +15,10 @@ export class ArticlePreviewComponent implements OnInit {
   @Input() showCreatedTime = false;
 
   constructor() {
+  }
+
+  get Locale() {
+    return localStorage.getItem('locale');
   }
 
   ngOnInit() {

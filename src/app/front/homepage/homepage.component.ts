@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from '../shared/interface/article';
-import {Event} from '../shared/interface/event';
-import {ASSERT_IMAGES_URL} from '../../app.component';
+import {Article} from '../../shared/model/article';
+import {Event} from '../../shared/model/event';
+import {ArticleService} from '../../shared/services/article.service';
+import {EventService} from '../../shared/services/event.service';
 
 @Component({
   selector: 'app-homepage',
@@ -9,148 +10,36 @@ import {ASSERT_IMAGES_URL} from '../../app.component';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  assertImagesUrl = ASSERT_IMAGES_URL;
-  aboutArticle: Article = {
-    title: 'title1',
-    imageUrls: ['001t.jpg'],
-    previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-    content: 'content 1',
-    url: '',
-    createdTime: 'Oct 28, 2017'
-  };
 
-  highlightArticles: Article[] = [
-    {
-      title: 'title1',
-      imageUrls: ['001t.jpg'],
-      previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-      content: 'content 1',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title2',
-      imageUrls: ['070.jpg'],
-      previewContent: 'preview content 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-      content: 'content 2',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title3',
-      imageUrls: ['077.jpg'],
-      previewContent: 'preview content 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi.',
-      content: 'content 3',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-  ];
+  private highlightArticles: Article[] = [];
+  private latestArticles: Article[] = [];
+  private upcomingEvents: Event[] = [];
+  private aboutArticle: Article;
+  private admissionsArticle: Article;
+  private academicsArticle: Article;
+  private researchArticle: Article;
+  private studentLifeArticle: Article;
 
-  latestArticles: Article[] = [
-    {
-      title: 'title1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla.',
-      imageUrls: ['001t.jpg'],
-      previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Suspendisse volutpat ipsum eget nulla rutrum vehicula. Vestibulum a eros rhoncus, lacinia turpis quis, vehicula arcu. Cras in ligula rutrum, gravida lectus vitae, scelerisque purus. Maecenas nec libero eget enim eleifend mollis sit amet auctor dolor. In pulvinar laoreet neque, nec cursus purus dapibus fringilla.',
-      content: 'content 1 ',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla.',
-      imageUrls: ['070.jpg'],
-      previewContent: 'preview content 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Suspendisse volutpat ipsum eget nulla rutrum vehicula. Vestibulum a eros rhoncus, lacinia turpis quis, vehicula arcu. Cras in ligula rutrum, gravida lectus vitae, scelerisque purus. Maecenas nec libero eget enim eleifend mollis sit amet auctor dolor. In pulvinar laoreet neque, nec cursus purus dapibus fringilla.',
-      content: 'content 2',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla.',
-      imageUrls: ['077.jpg'],
-      previewContent: 'preview content 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Suspendisse volutpat ipsum eget nulla rutrum vehicula. Vestibulum a eros rhoncus, lacinia turpis quis, vehicula arcu. Cras in ligula rutrum, gravida lectus vitae, scelerisque purus. Maecenas nec libero eget enim eleifend mollis sit amet auctor dolor. In pulvinar laoreet neque, nec cursus purus dapibus fringilla.',
-      content: 'content 3',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla.',
-      imageUrls: ['001.jpg'],
-      previewContent: 'preview content 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Suspendisse volutpat ipsum eget nulla rutrum vehicula. Vestibulum a eros rhoncus, lacinia turpis quis, vehicula arcu. Cras in ligula rutrum, gravida lectus vitae, scelerisque purus. Maecenas nec libero eget enim eleifend mollis sit amet auctor dolor. In pulvinar laoreet neque, nec cursus purus dapibus fringilla.',
-      content: 'content 4',
-      url: '',
-      createdTime: 'Oct 28, 2017'
-    }
-  ];
+  constructor(private articleService: ArticleService, private eventService: EventService) {
+  }
 
-  upcomingEvent: Event[] = [
-    {
-      title: 'title1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla.',
-      imageUrls: ['001t.jpg'],
-      previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat.',
-      content: 'content 1 ',
-      url: '',
-      eventDate: 'Nov 20',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla.',
-      imageUrls: ['001t.jpg'],
-      previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat.',
-      content: 'content 1 ',
-      url: '',
-      eventDate: 'Nov 20',
-      createdTime: 'Oct 28, 2017'
-    },
-    {
-      title: 'title1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla.',
-      imageUrls: ['001t.jpg'],
-      previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat.',
-      content: 'content 1 ',
-      url: '',
-      eventDate: 'Nov 20',
-      createdTime: 'Oct 28, 2017'
-    },
-  ];
-
-  admissionsArticle: Article = {
-    title: 'title1',
-    imageUrls: ['001t.jpg'],
-    previewContent: 'preview content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Suspendisse volutpat ipsum eget nulla rutrum vehicula. Vestibulum a eros rhoncus, lacinia turpis quis, vehicula arcu. Cras in ligula rutrum, gravida lectus vitae, scelerisque purus. Maecenas nec libero eget enim eleifend mollis sit amet auctor dolor. In pulvinar laoreet neque, nec cursus purus dapibus fringilla.',
-    content: 'content 1',
-    url: '',
-    createdTime: 'Oct 28, 2017'
-  };
-
-  academicsArticle: Article = {
-    title: 'title2',
-    imageUrls: ['070.jpg'],
-    previewContent: 'preview content 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Suspendisse volutpat ipsum eget nulla rutrum vehicula. Vestibulum a eros rhoncus, lacinia turpis quis, vehicula arcu. Cras in ligula rutrum, gravida lectus vitae, scelerisque purus. Maecenas nec libero eget enim eleifend mollis sit amet auctor dolor. In pulvinar laoreet neque, nec cursus purus dapibus fringilla.',
-    content: 'content 2',
-    url: '',
-    createdTime: 'Oct 28, 2017'
-  };
-
-  researchArticle: Article = {
-    title: 'title3',
-    imageUrls: ['077.jpg'],
-    previewContent: 'preview content 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Suspendisse volutpat ipsum eget nulla rutrum vehicula. Vestibulum a eros rhoncus, lacinia turpis quis, vehicula arcu. Cras in ligula rutrum, gravida lectus vitae, scelerisque purus. Maecenas nec libero eget enim eleifend mollis sit amet auctor dolor. In pulvinar laoreet neque, nec cursus purus dapibus fringilla.',
-    content: 'content 3',
-    url: '',
-    createdTime: 'Oct 28, 2017'
-  };
-
-  studentLifeArticle: Article = {
-    title: 'title4',
-    imageUrls: ['001.jpg'],
-    previewContent: 'preview content 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec ultrices nulla. Aliquam erat volutpat. Ut consequat eget purus quis consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et est in magna maximus dapibus vel et mi. Suspendisse volutpat ipsum eget nulla rutrum vehicula. Vestibulum a eros rhoncus, lacinia turpis quis, vehicula arcu. Cras in ligula rutrum, gravida lectus vitae, scelerisque purus. Maecenas nec libero eget enim eleifend mollis sit amet auctor dolor. In pulvinar laoreet neque, nec cursus purus dapibus fringilla.',
-    content: 'content 3',
-    url: '',
-    createdTime: 'Oct 28, 2017'
-  };
-
-  constructor() {
+  get Locale() {
+    return localStorage.getItem('locale');
   }
 
   ngOnInit() {
+    for (let i = 0; i < 3; i++) {
+      this.highlightArticles.push(this.articleService.getArticle(String(i)));
+      this.latestArticles.push(this.articleService.getArticle(String(i)));
+    }
+    this.aboutArticle = this.articleService.getArticle('3');
+    this.admissionsArticle = this.articleService.getArticle('4');
+    this.academicsArticle = this.articleService.getArticle('5');
+    this.researchArticle = this.articleService.getArticle('6');
+    this.studentLifeArticle = this.articleService.getArticle('7');
+    for (let i = 0; i < 3; i++) {
+      this.upcomingEvents.push(this.eventService.getEvent(String(i)));
+    }
   }
 
 }

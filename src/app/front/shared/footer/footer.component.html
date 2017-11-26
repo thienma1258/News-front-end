@@ -4,21 +4,24 @@
       <p i18n class="title">Contact</p>
       <div>
         <img src="../../../../assets/images/marker.png">
-        (545)Daxue Rd, Puli Township, Nantou Country 545, Taiwan (R.O.C)
+        <ng-container *ngIf="Locale === 'en'">
+          {{universityInfo.englishAddress}}
+        </ng-container>
+        <ng-container *ngIf="Locale === 'zh-tw'">
+          {{universityInfo.chineseAddress}}
+        </ng-container>
       </div>
       <br/>
       <div id="phone">
         <img src="../../../../assets/images/phone.png">
         <div>
-          <span>(049) 2910960-4101</span>
-          <span>(049) 2910960-4102</span>
-          <span>(049) 2910960-4103</span>
+          <span *ngFor="let phone of universityInfo.phoneNumbers">{{phone}}</span>
         </div>
       </div>
       <br/>
       <div>
         <img src="../../../../assets/images/fax.png">
-          (049) 2917810
+        <span *ngFor="let fax of universityInfo.faxNumbers">{{fax}}</span>
       </div>
     </div>
 
@@ -27,34 +30,64 @@
       <div class="row">
         <div id="link-left" class="col-lg-5 col-md-5">
           <div>
-            <a href=" http://en.ncnu.edu.tw/">
-              <img src="../../../../assets/images/link.png">NCNU Home
+            <a href="{{universityLinks[0].url}}">
+              <img src="../../../../assets/images/link.png">
+              <ng-container *ngIf="Locale === 'en'">
+                {{universityLinks[0].englishName}}
+              </ng-container>
+              <ng-container *ngIf="Locale === 'zh-tw'">
+                {{universityLinks[0].chineseName}}
+              </ng-container>
             </a>
           </div>
           <br/>
           <div>
-            <a href="http://cloudmail.ncnu.edu.tw/">
-              <img src="../../../../assets/images/link.png">NCNU Email Login
+            <a href="{{universityLinks[1].url}}">
+              <img src="../../../../assets/images/link.png">
+              <ng-container *ngIf="Locale === 'en'">
+                {{universityLinks[1].englishName}}
+              </ng-container>
+              <ng-container *ngIf="Locale === 'zh-tw'">
+                {{universityLinks[1].chineseName}}
+              </ng-container>
             </a>
           </div>
           <br/>
           <div>
-            <a href="http://studentweb.ncnu.edu.tw/">
-              <img src="../../../../assets/images/link.png">NCNU Student Web
+            <a href="{{universityLinks[2].url}}">
+              <img src="../../../../assets/images/link.png">
+              <ng-container *ngIf="Locale === 'en'">
+                {{universityLinks[2].englishName}}
+              </ng-container>
+              <ng-container *ngIf="Locale === 'zh-tw'">
+                {{universityLinks[2].chineseName}}
+              </ng-container>
             </a>
           </div>
         </div>
 
         <div class="col-lg-7 col-md-7">
           <div>
-            <a href="https://www.facebook.com/NCNUEE">
-              <img src="../../../../assets/images/link.png">Fanpage Facebook NCNU EED
+            <a href="{{universityLinks[3].url}}">
+              <img src="../../../../assets/images/link.png">
+              <ng-container *ngIf="Locale === 'en'">
+                {{universityLinks[3].englishName}}
+              </ng-container>
+              <ng-container *ngIf="Locale === 'zh-tw'">
+                {{universityLinks[3].chineseName}}
+              </ng-container>
             </a>
           </div>
           <br/>
           <div>
-            <a href="https://sites.google.com/mail.ncnu.edu.tw/alumniee/%E9%A6%96%E9%A0%81home?authuser=1">
-              <img src="../../../../assets/images/link.png">EE Alumni
+            <a href="{{universityLinks[4].url}}">
+              <img src="../../../../assets/images/link.png">
+              <ng-container *ngIf="Locale === 'en'">
+                {{universityLinks[4].englishName}}
+              </ng-container>
+              <ng-container *ngIf="Locale === 'zh-tw'">
+                {{universityLinks[4].chineseName}}
+              </ng-container>
             </a>
           </div>
         </div>

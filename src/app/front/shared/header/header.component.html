@@ -4,8 +4,14 @@
       <img id="logo" src="../../../../assets/images/eed-logo.png">
       <span id="title">
         <b style="display: inline-block;">
-          <span i18n>{{'Title.University' | translate}}</span>
-          <span i18n class="break-line">{{'Title.Department' | translate}}</span>
+          <ng-container *ngIf="locale === 'en'">
+            <span>{{universityEnglishName}}</span>
+            <span class="break-line">{{departmentEnglishName}}</span>
+          </ng-container>
+          <ng-container *ngIf="locale === 'zh-tw'">
+            <span>{{universityChineseName}}</span>
+            <span class="break-line">{{departmentChineseName}}</span>
+          </ng-container>
         </b>
       </span>
     </a>

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Event} from '../interface/event';
+import {Event} from '../../../shared/model/event';
 
 @Component({
   selector: 'app-event-preview',
@@ -13,6 +13,11 @@ export class EventPreviewComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+  get LanguageLocale() {
+    return localStorage.getItem('locale');
   }
 
 }

@@ -21,6 +21,7 @@ import {CourseNewsComponent} from './news/course-news/course-news.component';
 import {EventsComponent} from './news/events/events.component';
 import {SchoolLeadershipComponent} from './news/school-leadership/school-leadership.component';
 import {CalendarComponent} from './news/calendar/calendar.component';
+import {ChangePasswordComponent} from "./change-password/change-password.component";
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'change-password',
+        component: ChangePasswordComponent
       },
       {
         path: 'profile',

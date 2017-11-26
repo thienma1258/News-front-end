@@ -1,51 +1,108 @@
-<container-box [title]="'CONTACT'" [editLink]="'/edit'">
-  <div>
-    <span class="title">Name:</span>
-    <span class="content">{{contactName}}</span>
+<container-box [title]="'CONTACT'" [isShowEditLink]="true">
+  <div class="field">
+    <span class="title">Name:</span><span *ngIf="!contactEditMode" class="content">
+      <ng-container *ngIf="Locale === 'en'">{{universityInfo.englishName}}</ng-container>
+      <ng-container *ngIf="Locale ==='zh-tw'">{{universityInfo.chineseName}}</ng-container>
+    </span><ng-container *ngIf="contactEditMode"><input *ngIf="Locale === 'en'" class="content edit-box long-width" [(ngModel)]="universityInfo.englishName" required><input *ngIf="Locale === 'zh-tw'" class="content edit-box long-width" [(ngModel)]="universityInfo.chineseName"
+             required>
+    </ng-container>
   </div>
-  <div>
-    <span class="title">Address:</span>
-    <span class="content">{{contactAddress}}</span>
+  <div class="field">
+    <span class="title">Address:</span><span *ngIf="!contactEditMode" class="content">
+      <ng-container *ngIf="Locale === 'en'">{{universityInfo.englishAddress}}</ng-container>
+      <ng-container *ngIf="Locale ==='zh-tw'">{{universityInfo.chineseAddress}}</ng-container>
+    </span><ng-container *ngIf="contactEditMode"><input *ngIf="Locale === 'en'" class="content edit-box long-width" [(ngModel)]="universityInfo.englishAddress"
+             required><input *ngIf="Locale === 'zh-tw'" class="content edit-box long-width" [(ngModel)]="universityInfo.chineseAddress"
+             required>
+    </ng-container>
   </div>
-  <div class="phone">
+  <div class="phone field">
     <span class="title">Phone:</span>
     <div class="content">
-        <span style="display: block;" *ngFor="let phone of contactPhones">
+      <ng-container *ngIf="!contactEditMode">
+        <span style="display: block;" *ngFor="let phone of universityInfo.phoneNumbers;">
           {{phone}}
         </span>
+      </ng-container>
+      <ng-container *ngIf="contactEditMode">
+        <input style="display: block;" *ngFor="let phone of universityInfo.phoneNumbers; let i = index"
+               class="content edit-box" [(ngModel)]="universityInfo.phoneNumbers[i]">
+      </ng-container>
     </div>
   </div>
-  <div>
-    <span class="title">Fax:</span>
-    <span class="content">{{contactFax}}</span>
+  <!--<div style="width: inherit; height: 54px">-->
+
+  <!--</div>-->
+  <div class="field">
+    <span class="title">Fax:</span><span *ngIf="!contactEditMode"
+                                         class="content">{{universityInfo.faxNumbers}}</span><input
+    *ngIf="contactEditMode" class="content edit-box" [(ngModel)]="universityInfo.faxNumbers" required>
   </div>
+
 </container-box>
 
-<container-box [title]="'LINK'" [editLink]="'/edit'">
+<container-box [title]="'LINK'" [isShowEditLink]="true">
   <table class="table">
     <thead>
-      <tr>
-        <th class="link-col-num">#</th>
-        <th>Link Text</th>
-        <th>URL</th>
-      </tr>
+    <tr>
+      <th class="link-col-num" width="10%">#</th>
+      <th width="45%">Link Text</th>
+      <th width="45%">URL</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let l of link; let i = index">
-        <td class="link-col-num">#{{i+1}}</td>
-        <td>{{l.text}}</td>
-        <td>{{l.url}}</td>
-      </tr>
+    <tr *ngFor="let l of links; let i = index">
+      <td class="link-col-num">#{{i+1}}</td>
+      <td>
+        <ng-container *ngIf="!linkEditMode">
+          <ng-container *ngIf="Locale === 'en'">
+            {{l.englishName}}
+          </ng-container>
+          <ng-container *ngIf="Locale === 'zh-tw'">
+            {{l.chineseName}}
+          </ng-container>
+        </ng-container>
+        <ng-container *ngIf="linkEditMode">
+          <input *ngIf="Locale === 'en'" class="edit-box long-width" [(ngModel)]="links[i].englishName">
+          <input *ngIf="Locale === 'zh-tw'" class="edit-box long-width" [(ngModel)]="links[i].chineseName">
+        </ng-container>
+      </td>
+      <td>
+        <ng-container *ngIf="!linkEditMode">
+          {{l.url}}
+        </ng-container>
+        <input *ngIf="linkEditMode" class="edit-box long-width" [(ngModel)]="links[i].url">
+      </td>
+    </tr>
     </tbody>
   </table>
 </container-box>
 
-<container-box [title]="'SLIDE'" [editLink]="'/edit'">
-  <div class="row">
-    <preview-edit-box class="col-xl-4 col-lg-4 col-md-6" *ngFor="let slide of slides;" [article]="slide"></preview-edit-box>
-    <div class="col-xl-4 col-lg-4 col-md-6 add-slide">
+<container-box [title]="'SLIDE'">
+  <div *ngIf="slideEditMode" style="position: absolute; right: 30px; top: 25px;">
+    <img (click)="slideFinishEdit()" style="cursor: pointer; margin-right: 10px;"
+         src="../../../../assets/images/done.png">
+    <img (click)="slideCancelEdit()" style="cursor: pointer;" src="../../../../assets/images/cancel.png">
+  </div>
+  <div *ngIf="!slideEditMode" class="row">
+    <preview-edit-box class="col-xl-4 col-lg-4 col-md-6" *ngFor="let slide of slides;"
+                      [article]="slide"></preview-edit-box>
+    <div (click)="addNewSlide()" class="col-xl-4 col-lg-4 col-md-6 add-slide">
       <img src="../../../assets/images/add.png">
     </div>
+  </div>
+  <div *ngIf="slideEditMode" class="slide-edit">
+    <image-upload
+      [max]="1"
+      [class]="'customClass'"
+      [preview]="true">
+    </image-upload>
+    <p><b>Title</b></p>
+    <input *ngIf="Locale === 'en'" [(ngModel)]="selectedSlide.englishTitle">
+    <input *ngIf="Locale === 'zh-tw'" [(ngModel)]="selectedSlide.chineseTitle">
+    <p><b>Description</b></p>
+    <textarea *ngIf="Locale === 'en'" [(ngModel)]="selectedSlide.englishContent"></textarea>
+    <textarea *ngIf="Locale === 'zh-tw'" [(ngModel)]="selectedSlide.chineseContent"></textarea>
   </div>
 </container-box>
 

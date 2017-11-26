@@ -30,7 +30,12 @@ hr{
 
 .edit-button{
   float: right;
+}
+
+.edit-button img{
   cursor: pointer;
+  width: 25px;
+  height: 25px;
 }
 
 .see-more{

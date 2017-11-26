@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Article} from '../../../front/shared/interface/article';
-import {ASSERT_IMAGES_URL} from '../../../app.component';
+import {Article} from '../../../shared/model/article';
+import {EmitterService} from "../emitter.service";
 
 @Component({
   selector: 'preview-edit-box',
@@ -8,15 +8,28 @@ import {ASSERT_IMAGES_URL} from '../../../app.component';
   styleUrls: ['./preview-edit-box.component.css']
 })
 export class PreviewEditBoxComponent implements OnInit {
-  assertImagesUrl = ASSERT_IMAGES_URL;
   @Input() displayType = 1;
   @Input() article: Article;
   @Input() editLink = '/admin/research/addnew/';
 
-  constructor() { }
+  slideEmitter = EmitterService.get('SLIDE');
+
+  constructor() {
+  }
+
+  get Locale() {
+    return localStorage.getItem('locale');
+  }
 
   ngOnInit() {
 
   }
 
+  edit() {
+    this.slideEmitter.emit('edit/' + this.article.id);
+  }
+
+  delete() {
+    this.slideEmitter.emit('delete/' + this.article.id);
+  }
 }

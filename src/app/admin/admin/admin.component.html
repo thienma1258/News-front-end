@@ -19,10 +19,10 @@
     <div class="header-nav-right">
       <a ngbDropdown ngbDropdownToggle>
         <img class="avatar" src="../../../assets/images/user.png">
-        <span class="username"><b>Admin</b></span>
+        <span class="username"><b>{{userName}}</b></span>
         <div class="dropdown-menu" ngbDropdownMenu>
-          <a class="dropdown-item">Change password</a>
-          <a class="dropdown-item">Log out</a>
+          <a routerLink="/admin/change-password" class="dropdown-item">Change password</a>
+          <a (click)="logout()" class="dropdown-item">Log out</a>
         </div>
       </a>
     </div>
