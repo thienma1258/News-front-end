@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Article} from '../../shared/model/article';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleService} from "../../shared/services/article.service";
+import {ArticleType} from "../../shared/enum/article-type.enum";
 
 @Component({
   selector: 'app-academic',
@@ -41,19 +42,47 @@ export class AcademicComponent implements OnInit {
       switch (this.selectedTitle) {
         case 'academic-information':
           this.selectedTitle = 'Academic Information';
-          this.article = this.articleService.getArticle('3');
+          this.articleService.getArticle(String(ArticleType.AcademicInfo)).subscribe(
+            data => {
+              this.article = data['content'];
+            },
+            err => {
+              console.log(err);
+            }
+          );
           break;
         case 'student-graduate-and-undergraduate':
           this.selectedTitle = 'Student Graduate & Undergraduate';
-          this.article = this.articleService.getArticle('4');
+          this.articleService.getArticle(String(ArticleType.StudentGraduate)).subscribe(
+            data => {
+              this.article = data['content'];
+            },
+            err => {
+              console.log(err);
+            }
+          );
           break;
         case 'teaching':
           this.selectedTitle = 'Teaching';
-          this.article = this.articleService.getArticle('5');
+          this.articleService.getArticle(String(ArticleType.Teaching)).subscribe(
+            data => {
+              this.article = data['content'];
+            },
+            err => {
+              console.log(err);
+            }
+          );
           break;
         case 'degree-requirement':
           this.selectedTitle = 'Degree Requirement';
-          this.article = this.articleService.getArticle('6');
+          this.articleService.getArticle(String(ArticleType.DegreeRequirement)).subscribe(
+            data => {
+              this.article = data['content'];
+            },
+            err => {
+              console.log(err);
+            }
+          );
           break;
       }
     });

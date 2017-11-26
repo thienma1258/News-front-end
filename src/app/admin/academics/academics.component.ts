@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Article} from '../../shared/model/article';
 import {ArticleService} from "../../shared/services/article.service";
+import {ArticleType} from "../../shared/enum/article-type.enum";
 
 @Component({
   selector: 'academics',
@@ -20,10 +21,38 @@ export class AcademicsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.academicArticle = this.articleService.getArticle('1');
-    this.studentArticle = this.articleService.getArticle('2');
-    this.teachingArticle = this.articleService.getArticle('3');
-    this.degreeArticle = this.articleService.getArticle('4');
+    this.articleService.getArticle(String(ArticleType.AcademicInfo)).subscribe(
+      data => {
+        this.academicArticle = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.articleService.getArticle(String(ArticleType.StudentGraduate)).subscribe(
+      data => {
+        this.studentArticle = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.articleService.getArticle(String(ArticleType.Teaching)).subscribe(
+      data => {
+        this.teachingArticle = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.articleService.getArticle(String(ArticleType.DegreeRequirement)).subscribe(
+      data => {
+        this.degreeArticle = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }

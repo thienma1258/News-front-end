@@ -80,9 +80,9 @@ export class ProfileComponent implements OnInit {
       }
     );
 
-    for (let i = 0; i < 3; i++) {
-      this.slides.push(this.articleService.getArticle(String(i)));
-    }
+    // for (let i = 0; i < 3; i++) {
+    //   this.slides.push(this.articleService.getArticle(String(i)));
+    // }
   }
 
   get Locale() {
@@ -93,11 +93,25 @@ export class ProfileComponent implements OnInit {
   }
 
   contactFinishEdit() {
-
+    this.universityService.editUniverSityInfo(this.universityInfo).subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   linkFinishEdit() {
-
+    this.universityService.editLinks(this.links).subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   addNewSlide() {
