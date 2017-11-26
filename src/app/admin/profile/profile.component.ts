@@ -80,9 +80,9 @@ export class ProfileComponent implements OnInit {
       }
     );
 
-    for (let i = 0; i < 3; i++) {
-      this.slides.push(this.articleService.getArticle(String(i)));
-    }
+    // for (let i = 0; i < 3; i++) {
+    //   this.slides.push(this.articleService.getArticle(String(i)));
+    // }
   }
 
   get Locale() {

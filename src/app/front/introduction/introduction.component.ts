@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleService} from '../../shared/services/article.service';
 import {Article} from '../../shared/model/article';
+import {ArticleType} from '../../shared/enum/article-type.enum';
 
 @Component({
   selector: 'app-introduction',
@@ -43,19 +44,47 @@ export class IntroductionComponent implements OnInit {
       switch (this.selectedTitle) {
         case 'about-us':
           this.selectedTitle = 'About us';
-          this.article = this.articleService.getArticle('3');
+          this.articleService.getArticle(String(ArticleType.About)).subscribe(
+            data => {
+              this.article = data['content'];
+            },
+            err => {
+              console.log(err);
+            }
+          );
           break;
         case 'facility-advisor':
           this.selectedTitle = 'Facility Advisor';
-          this.article = this.articleService.getArticle('4');
+          this.articleService.getArticle(String(ArticleType.FacultyAdvisor)).subscribe(
+            data => {
+              this.article = data['content'];
+            },
+            err => {
+              console.log(err);
+            }
+          );
           break;
         case 'department-structure-staff':
           this.selectedTitle = 'Department Structure & Staff';
-          this.article = this.articleService.getArticle('5');
+          this.articleService.getArticle(String(ArticleType.DepartmentStructure)).subscribe(
+            data => {
+              this.article = data['content'];
+            },
+            err => {
+              console.log(err);
+            }
+          );
           break;
         case 'contact':
           this.selectedTitle = 'Contact';
-          this.article = this.articleService.getArticle('6');
+          this.articleService.getArticle(String(ArticleType.Contact)).subscribe(
+            data => {
+              this.article = data['content'];
+            },
+            err => {
+              console.log(err);
+            }
+          );
           break;
       }
     });

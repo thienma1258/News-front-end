@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Article} from '../../../shared/model/article';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ArticleService} from '../../../shared/services/article.service';
+import {ArticleType} from "../../../shared/enum/article-type.enum";
 
 @Component({
   selector: 'research-news',
@@ -15,9 +16,14 @@ export class ResearchNewsComponent implements OnInit {
   }
 
   ngOnInit() {
-    for (let i = 0; i < 6; i++) {
-      this.articles.push(this.articleService.getArticle(String(i)));
-    }
+    this.articleService.getArticle(String(ArticleType.ResearchNews)).subscribe(
+      data => {
+        this.articles = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   get Locale() {

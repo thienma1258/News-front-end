@@ -15,18 +15,9 @@ export class CalendarComponent implements OnInit {
   }
 
   ngOnInit() {
-    for (let i = 0; i < 6; i++) {
-      this.articles.push(this.articleService.getArticle(String(i)));
-    }
   }
 
   get Locale() {
     return localStorage.getItem('locale');
-  }
-
-  addNewArticle() {
-    this.router.navigate(['/admin/news/addnew', {
-      type: 'calendar'
-    }]);
   }
 }

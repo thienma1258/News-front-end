@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {ArticleService} from '../../../shared/services/article.service';
 import {Article} from '../../../shared/model/article';
+import {ArticleType} from '../../../shared/enum/article-type.enum';
 
 
 @Component({
@@ -37,7 +38,14 @@ export class EditArticleDetailComponent implements OnInit {
       if (this.articleId === null || this.articleId === undefined) {
         this.isAddNew = true;
       }
-      this.article = this.articleService.getArticle(String(this.articleId));
+      this.articleService.getArticle(String(ArticleType.FacultyAdvisor)).subscribe(
+        data => {
+          this.article = data['content'];
+        },
+        err => {
+          console.log(err);
+        }
+      );
       if (this.Locale === 'en') {
         this.articleContent = this.article.englishContent;
         this.articleTitle = this.article.englishTitle;

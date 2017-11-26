@@ -28,15 +28,15 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit() {
-    for (let i = 0; i < 3; i++) {
-      this.highlightArticles.push(this.articleService.getArticle(String(i)));
-      this.latestArticles.push(this.articleService.getArticle(String(i)));
-    }
-    this.aboutArticle = this.articleService.getArticle('3');
-    this.admissionsArticle = this.articleService.getArticle('4');
-    this.academicsArticle = this.articleService.getArticle('5');
-    this.researchArticle = this.articleService.getArticle('6');
-    this.studentLifeArticle = this.articleService.getArticle('7');
+    // for (let i = 0; i < 3; i++) {
+    //   this.highlightArticles.push(this.articleService.getArticle(String(i)));
+    //   this.latestArticles.push(this.articleService.getArticle(String(i)));
+    // }
+    // this.aboutArticle = this.articleService.getArticle('3');
+    // this.admissionsArticle = this.articleService.getArticle('4');
+    // this.academicsArticle = this.articleService.getArticle('5');
+    // this.researchArticle = this.articleService.getArticle('6');
+    // this.studentLifeArticle = this.articleService.getArticle('7');
     for (let i = 0; i < 3; i++) {
       this.upcomingEvents.push(this.eventService.getEvent(String(i)));
     }
