@@ -93,11 +93,25 @@ export class ProfileComponent implements OnInit {
   }
 
   contactFinishEdit() {
-
+    this.universityService.editUniverSityInfo(this.universityInfo).subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   linkFinishEdit() {
-
+    this.universityService.editLinks(this.links).subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   addNewSlide() {

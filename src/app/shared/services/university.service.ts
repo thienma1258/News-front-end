@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
 import {UniversityLink} from '../model/university-link';
 import {UniversityInfo} from '../model/university-info';
-import {Http} from '@angular/http';
 import {AuthService} from '../../admin/shared/auth.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class UniversityService {
@@ -17,6 +16,8 @@ export class UniversityService {
   private universityLinks: UniversityLink[];
   private getContactUrl = '/contact/get';
   private getLinkUrl = '/link/get';
+  private editContactUrl = '/contact/edit';
+  private editLinkUrl = '/link/edit';
 
   constructor(private http: HttpClient, private authService: AuthService) {
 
@@ -58,16 +59,42 @@ export class UniversityService {
 
   getUniversityInfo() {
     const url = this.authService.apiUrl + this.getContactUrl;
-    const options = this.authService.getHeader();
 
     return this.http.get<UniversityInfo>(url);
   }
 
   getLinks() {
     const url = this.authService.apiUrl + this.getLinkUrl;
-    const options = this.authService.getHeader();
 
     return this.http.get<UniversityLink[]>(url);
   }
 
+  editUniverSityInfo(universityInfo: UniversityInfo) {
+    const url = this.authService.apiUrl + this.editContactUrl;
+    const options = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Authorization': this.authService.getAccessToken()
+        }
+      )
+    };
+
+    return this.http.put(url, universityInfo, options);
+  }
+
+  editLinks(links: UniversityLink[]) {
+    const url = this.authService.apiUrl + this.editLinkUrl;
+    const options = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Authorization': this.authService.getAccessToken()
+        }
+      )
+    };
+
+    console.log(JSON.stringify(links));
+    return this.http.post(url, links, options);
+  }
 }

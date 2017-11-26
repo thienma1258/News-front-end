@@ -68,4 +68,10 @@ export class AuthService {
 
     return new RequestOptions({headers: headers});
   }
+
+  getAccessToken() {
+    const user: User = JSON.parse(localStorage.getItem('currentUser'));
+    console.log('bearer ' + user.accessToken);
+    return 'bearer ' + user.accessToken;
+  }
 }
