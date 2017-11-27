@@ -35,13 +35,19 @@ export class NewsComponent implements OnInit {
   ];
   public selectedTitle;
   public articles: Article[];
-
+  public showcalender:boolean;
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
+
+   
+     
+
       this.selectedTitle = params['title'];
+      if(this.selectedTitle=='calendar')
+        this.showcalender=true;
       for (const title of this.menu) {
         if (title.route === this.selectedTitle) {
           this.selectedTitle = title.name;
