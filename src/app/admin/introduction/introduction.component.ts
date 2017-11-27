@@ -1,16 +1,15 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Article} from '../../shared/model/article';
 import {ArticleService} from '../../shared/services/article.service';
 import {ArticleType} from '../../shared/enum/article-type.enum';
 import {EmitterService} from '../shared/emitter.service';
-import {EditArticleDetailComponent} from '../shared/edit-article-detail/edit-article-detail.component';
 
 @Component({
   selector: 'introduction',
   templateUrl: './introduction.component.html',
   styleUrls: ['./introduction.component.css']
 })
-export class IntroductionComponent implements OnInit, AfterViewInit {
+export class IntroductionComponent implements OnInit {
   private aboutEmitter = EmitterService.get('ABOUT US');
   private facultyAdvisorEmitter = EmitterService.get('FACILITY & ADVISOR');
   private departmentEmitter = EmitterService.get('DEPARTMENT STRUCTURE & STAFF');
@@ -76,6 +75,7 @@ export class IntroductionComponent implements OnInit, AfterViewInit {
       if (msg === 'edit') {
         this.aboutEditMode = true;
       } else if (msg === 'done') {
+        console.log(this.aboutArticle);
         this.aboutArticleFinishEdit();
         this.aboutEditMode = false;
       } else {

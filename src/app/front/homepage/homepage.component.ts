@@ -3,6 +3,7 @@ import {Article} from '../../shared/model/article';
 import {Event} from '../../shared/model/event';
 import {ArticleService} from '../../shared/services/article.service';
 import {EventService} from '../../shared/services/event.service';
+import {ArticleType} from '../../shared/enum/article-type.enum';
 
 @Component({
   selector: 'app-homepage',
@@ -21,6 +22,11 @@ export class HomepageComponent implements OnInit {
   private studentLifeArticle: Article;
 
   constructor(private articleService: ArticleService, private eventService: EventService) {
+    this.aboutArticle = new Article();
+    this.admissionsArticle = new Article();
+    this.academicsArticle = new Article();
+    this.researchArticle = new Article();
+    this.studentLifeArticle = new Article();
   }
 
   get Locale() {
@@ -28,15 +34,14 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit() {
-    // for (let i = 0; i < 3; i++) {
-    //   this.highlightArticles.push(this.articleService.getArticle(String(i)));
-    //   this.latestArticles.push(this.articleService.getArticle(String(i)));
-    // }
-    // this.aboutArticle = this.articleService.getArticle('3');
-    // this.admissionsArticle = this.articleService.getArticle('4');
-    // this.academicsArticle = this.articleService.getArticle('5');
-    // this.researchArticle = this.articleService.getArticle('6');
-    // this.studentLifeArticle = this.articleService.getArticle('7');
+    this.articleService.getArticle(String(ArticleType.About)).subscribe(
+      data => {
+        this.aboutArticle = data['content'][0];
+      },
+      err => {
+        console.log(err);
+      }
+    );
     for (let i = 0; i < 3; i++) {
       this.upcomingEvents.push(this.eventService.getEvent(String(i)));
     }

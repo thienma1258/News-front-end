@@ -4,6 +4,7 @@ import {Location} from '@angular/common';
 import {ArticleService} from '../../../shared/services/article.service';
 import {Article} from '../../../shared/model/article';
 import {ArticleType} from '../../../shared/enum/article-type.enum';
+import {ArticleSize} from "../../../shared/enum/article-size.enum";
 
 
 @Component({
@@ -17,6 +18,7 @@ export class EditArticleDetailComponent implements OnInit {
 
   articleId: number;
   articleType: string;
+  articleSize = ArticleSize;
   isAddNew = false;
   editorLanguage = 'English';
   editorLocale = 'en';
@@ -61,6 +63,6 @@ export class EditArticleDetailComponent implements OnInit {
 
   switchEditorLanguage() {
     this.editorLanguage = this.editorLanguage === 'English' ? '中文' : 'English';
-    this.editorLocale = this.editorLocale = 'en' ? 'zh-tw' : 'en';
+    this.editorLocale = this.editorLocale === 'en' ? 'zh-tw' : 'en';
   }
 }

@@ -1,13 +1,8 @@
-<img *ngIf="article.imageUrls" id="titleImg" src={{article.imageUrls[0]}}>
 <div class="container">
   <div id="title">
     <h3>
-      <ng-container *ngIf="Locale == 'en'">
-        {{article.englishTitle}}
-      </ng-container>
-      <ng-container *ngIf="Locale == 'zh-tw'">
-        {{article.chineseTitle}}
-      </ng-container>
+      <ng-container *ngIf="Locale == 'en'">{{article.englishTitle}}</ng-container>
+      <ng-container *ngIf="Locale == 'zh-tw'">{{article.chineseTitle}}</ng-container>
     </h3>
     <div id="information">
       <span>Created Time: {{article.createdTime}}</span>
@@ -19,14 +14,10 @@
       </div>
     </div>
   </div>
-  <p>
-    <ng-container *ngIf="Locale == 'en'">
-      {{article.englishContent}}
-    </ng-container>
-    <ng-container *ngIf="Locale == 'zh-tw'">
-      {{article.chineseContent}}
-    </ng-container>
-  </p>
+  <ng-container>
+    <p *ngIf="Locale == 'en'" [innerHtml]="article.englishContent | safeHtml"></p>
+    <p *ngIf="Locale == 'zh-tw'" [innerHtml]="article.chineseContent | safeHtml"></p>
+  </ng-container>
   <div class="social float-right bottom">
     <fb-share class="socialItem" href="https://www.google.com.vn" layout="button_count" share="true"
               size="large"></fb-share>

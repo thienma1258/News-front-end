@@ -34,6 +34,7 @@ export class IntroductionComponent implements OnInit {
   article: Article;
 
   constructor(private route: ActivatedRoute, private articleService: ArticleService) {
+    this.article = new Article();
   }
 
   ngOnInit() {
@@ -46,7 +47,8 @@ export class IntroductionComponent implements OnInit {
           this.selectedTitle = 'About us';
           this.articleService.getArticle(String(ArticleType.About)).subscribe(
             data => {
-              this.article = data['content'];
+              this.article = data['content'][0];
+              console.log(this.article);
             },
             err => {
               console.log(err);
@@ -57,7 +59,7 @@ export class IntroductionComponent implements OnInit {
           this.selectedTitle = 'Facility Advisor';
           this.articleService.getArticle(String(ArticleType.FacultyAdvisor)).subscribe(
             data => {
-              this.article = data['content'];
+              this.article = data['content'][0];
             },
             err => {
               console.log(err);
@@ -68,7 +70,7 @@ export class IntroductionComponent implements OnInit {
           this.selectedTitle = 'Department Structure & Staff';
           this.articleService.getArticle(String(ArticleType.DepartmentStructure)).subscribe(
             data => {
-              this.article = data['content'];
+              this.article = data['content'][0];
             },
             err => {
               console.log(err);
@@ -79,7 +81,7 @@ export class IntroductionComponent implements OnInit {
           this.selectedTitle = 'Contact';
           this.articleService.getArticle(String(ArticleType.Contact)).subscribe(
             data => {
-              this.article = data['content'];
+              this.article = data['content'][0];
             },
             err => {
               console.log(err);

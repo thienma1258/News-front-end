@@ -1,10 +1,10 @@
 <div>
   <span style="display: inline-block;">Edit post</span>
   <div class="right-nav">
-    <select class="form-control article-size-dropdown">
-      <option>Small</option>
-      <option>Wide</option>
-      <option>Large</option>
+    <select class="form-control article-size-dropdown" [(ngModel)]="article.size">
+      <option [ngValue]="articleSize.Small">Small</option>
+      <option [ngValue]="articleSize.Wide">Wide</option>
+      <option [ngValue]="articleSize.Large">Large</option>
     </select>
     <a class="translation" (click)="switchEditorLanguage()">
       <img class="translation-icon" src="./../../../../assets/images/translation-web.png">
