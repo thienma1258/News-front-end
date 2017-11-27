@@ -1,29 +1,49 @@
 <container-box [title]="'ACADEMIC INFORMATION'" [isShowEditLink]="true">
-  <p *ngIf="Locale === 'en'" class="title">{{academicArticle.englishTitle}}</p>
-  <p *ngIf="Locale === 'zh-tw'" class="title">{{academicArticle.chineseTitle}}</p>
-  <p *ngIf="Locale === 'en'">{{academicArticle.englishContent}}</p>
-  <p *ngIf="Locale === 'zh-tw'">{{academicArticle.chineseContent}}</p>
+  <ng-container *ngIf="!academicEditMode">
+    <p *ngIf="Locale === 'en'" class="title">{{academicArticle.englishTitle}}</p>
+    <p *ngIf="Locale === 'zh-tw'" class="title">{{academicArticle.chineseTitle}}</p>
+    <p *ngIf="Locale === 'en'" [innerHtml]="academicArticle.englishContent | safeHtml"></p>
+    <p *ngIf="Locale === 'zh-tw'" [innerHtml]="academicArticle.chineseContent | safeHtml"></p>
+  </ng-container>
+  <ng-container *ngIf="academicEditMode">
+    <edit-article-detail [article]="academicArticle"></edit-article-detail>
+  </ng-container>
 </container-box>
 
 <container-box [title]="'STUDENT GRADUATE AND UNGRADUATE'" [isShowEditLink]="true">
-  <p *ngIf="Locale === 'en'" class="title">{{studentArticle.englishTitle}}</p>
-  <p *ngIf="Locale === 'zh-tw'" class="title">{{studentArticle.chineseTitle}}</p>
-  <p *ngIf="Locale === 'en'">{{studentArticle.englishContent}}</p>
-  <p *ngIf="Locale === 'zh-tw'">{{studentArticle.chineseContent}}</p>
+  <ng-container *ngIf="!studentEditMode">
+    <p *ngIf="Locale === 'en'" class="title">{{studentArticle.englishTitle}}</p>
+    <p *ngIf="Locale === 'zh-tw'" class="title">{{studentArticle.chineseTitle}}</p>
+    <p *ngIf="Locale === 'en'" [innerHtml]="studentArticle.englishContent | safeHtml"></p>
+    <p *ngIf="Locale === 'zh-tw'" [innerHtml]="studentArticle.chineseContent | safeHtml"></p>
+  </ng-container>
+  <ng-container *ngIf="studentEditMode">
+    <edit-article-detail [article]="studentArticle"></edit-article-detail>
+  </ng-container>
 </container-box>
 
 <container-box [title]="'TEACHING'" [isShowEditLink]="true">
-  <p *ngIf="Locale === 'en'" class="title">{{teachingArticle.englishTitle}}</p>
-  <p *ngIf="Locale === 'zh-tw'" class="title">{{teachingArticle.chineseTitle}}</p>
-  <p *ngIf="Locale === 'en'">{{teachingArticle.englishContent}}</p>
-  <p *ngIf="Locale === 'zh-tw'">{{teachingArticle.chineseContent}}</p>
+  <ng-container *ngIf="!teachingEditMode">
+    <p *ngIf="Locale === 'en'" class="title">{{teachingArticle.englishTitle}}</p>
+    <p *ngIf="Locale === 'zh-tw'" class="title">{{teachingArticle.chineseTitle}}</p>
+    <p *ngIf="Locale === 'en'" [innerHtml]="teachingArticle.englishContent | safeHtml"></p>
+    <p *ngIf="Locale === 'zh-tw'" [innerHtml]="teachingArticle.chineseContent | safeHtml"></p>
+  </ng-container>
+  <ng-container *ngIf="teachingEditMode">
+    <edit-article-detail [article]="teachingArticle"></edit-article-detail>
+  </ng-container>
 </container-box>
 
 <container-box [title]="'DEGREE REQUIREMENT'" [isShowEditLink]="true">
-  <p *ngIf="Locale === 'en'" class="title">{{degreeArticle.englishTitle}}</p>
-  <p *ngIf="Locale === 'zh-tw'" class="title">{{degreeArticle.chineseTitle}}</p>
-  <p *ngIf="Locale === 'en'">{{degreeArticle.englishContent}}</p>
-  <p *ngIf="Locale === 'zh-tw'">{{degreeArticle.chineseContent}}</p>
+  <ng-container *ngIf="!degreeEditMode">
+    <p *ngIf="Locale === 'en'" class="title">{{degreeArticle.englishTitle}}</p>
+    <p *ngIf="Locale === 'zh-tw'" class="title">{{degreeArticle.chineseTitle}}</p>
+    <p *ngIf="Locale === 'en'" [innerHtml]="degreeArticle.englishContent | safeHtml"></p>
+    <p *ngIf="Locale === 'zh-tw'" [innerHtml]="degreeArticle.chineseContent | safeHtml"></p>
+  </ng-container>
+  <ng-container *ngIf="degreeEditMode">
+    <edit-article-detail [article]="degreeArticle"></edit-article-detail>
+  </ng-container>
 </container-box>
 
 <admin-footer></admin-footer>

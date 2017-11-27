@@ -6,14 +6,16 @@
       <option>Wide</option>
       <option>Large</option>
     </select>
-    <a class="translation" (click)="switchLanguage()">
+    <a class="translation" (click)="switchEditorLanguage()">
       <img class="translation-icon" src="./../../../../assets/images/translation-web.png">
       <span class="language"><b>{{editorLanguage}}</b></span>
     </a>
-    <a (click)="finishEdit()">
+    <a *ngIf="isShowDoneButton" (click)="finishEdit()">
       <img class="done-icon" src="./../../../../assets/images/done.png">
     </a>
   </div>
-  <input class="input-title" type="text" [(ngModel)]="articleTitle">
-  <div class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="articleContent"></div>
+  <input *ngIf="editorLocale === 'en'" class="input-title" type="text" [(ngModel)]="article.englishTitle">
+  <input *ngIf="editorLocale === 'zh-tw'" class="input-title" type="text" [(ngModel)]="article.chineseTitle">
+  <div *ngIf="editorLocale === 'en'" class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="article.englishContent"></div>
+  <div *ngIf="editorLocale === 'zh-tw'" class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="article.chineseContent"></div>
 </div>

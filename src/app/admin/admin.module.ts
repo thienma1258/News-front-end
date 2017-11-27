@@ -37,9 +37,11 @@ import {ArticleService} from '../shared/services/article.service';
 import {ImageUploadModule} from 'angular2-image-upload';
 import {EventService} from '../shared/services/event.service';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import {SharedModule} from '../shared/shared/shared.module';
 
 @NgModule({
   imports: [
+    SharedModule,
     CommonModule,
     NgbModule,
     RouterModule,

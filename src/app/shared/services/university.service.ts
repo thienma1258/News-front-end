@@ -93,8 +93,6 @@ export class UniversityService {
         }
       )
     };
-
-    console.log(JSON.stringify(links));
     return this.http.post(url, links, options);
   }
 }

@@ -21,6 +21,7 @@ import {NewsDetailsComponent} from './news-details/news-details.component';
 import {ArticleService} from '../shared/services/article.service';
 import {EventService} from '../shared/services/event.service';
 import {UniversityService} from '../shared/services/university.service';
+import {SharedModule} from "../shared/shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {UniversityService} from '../shared/services/university.service';
     NewsDetailsComponent
   ],
   imports: [
+    SharedModule,
     FrontRoutingModule,
     RouterModule,
     CommonModule,

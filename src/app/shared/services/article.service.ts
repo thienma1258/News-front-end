@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
-import {ArticleSize} from '../enum/article-size.enum';
 import {Article} from '../model/Article';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {AuthService} from '../../admin/shared/auth.service';
 
 @Injectable()
 export class ArticleService {
 
   private article: Article;
-  private getArticleUrl = '/article/get?type={type}';
-  private editArticleUrl = '/article/edit/{id}';
-  private searchArticleUrl = '/article/search/{id}';
+
+  private getArticleUrl = '/article/get?';
+  private editArticleUrl = '/article/edit';
+  private searchArticleUrl = '/article/search/{keyword}';
 
   constructor(private http: HttpClient, private authService: AuthService) {
     // this.articles = [
@@ -168,8 +168,30 @@ export class ArticleService {
   }
 
   getArticle(type: string) {
+    const params = new HttpParams().set('type', type);
     const url = this.authService.apiUrl + this.getArticleUrl;
+
+    return this.http.get(url, {
+      params: params
+    });
+  }
+
+  searchArticle(keyword: string) {
+    const url = this.authService.apiUrl + this.searchArticleUrl;
     return this.http.get(url);
   }
 
+  editArticle(article: Article) {
+    const url = this.authService.apiUrl + this.editArticleUrl;
+    const options = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Authorization': this.authService.getAccessToken()
+        }
+      )
+    };
+    console.log(article);
+    return this.http.put(url, article, options);
+  }
 }

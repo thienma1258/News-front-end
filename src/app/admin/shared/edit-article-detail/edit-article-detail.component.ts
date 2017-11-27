@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {ArticleService} from '../../../shared/services/article.service';
@@ -12,17 +12,19 @@ import {ArticleType} from '../../../shared/enum/article-type.enum';
   styleUrls: ['./edit-article-detail.component.css']
 })
 export class EditArticleDetailComponent implements OnInit {
+  @Input() article: Article;
+  isShowDoneButton = false;
+
   articleId: number;
-  article: Article;
-  articleTitle: string;
   articleType: string;
   isAddNew = false;
   editorLanguage = 'English';
+  editorLocale = 'en';
+
   editorOptions = {
     heightMin: 600,
     heightMax: 600
   };
-  articleContent = '';
 
   constructor(private route: ActivatedRoute, private location: Location, private articleService: ArticleService) {
   }
@@ -32,36 +34,33 @@ export class EditArticleDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.articleId = params['id'];
-      this.articleType = params['type'];
-      if (this.articleId === null || this.articleId === undefined) {
-        this.isAddNew = true;
-      }
-      this.articleService.getArticle(String(ArticleType.FacultyAdvisor)).subscribe(
-        data => {
-          this.article = data['content'];
-        },
-        err => {
-          console.log(err);
+    if (this.article === undefined) {
+      this.isShowDoneButton = true;
+      this.article = new Article();
+      this.route.params.subscribe(params => {
+        this.articleId = params['id'];
+        this.articleType = params['type'];
+        if (this.articleId === null || this.articleId === undefined) {
+          this.isAddNew = true;
         }
-      );
-      if (this.Locale === 'en') {
-        this.articleContent = this.article.englishContent;
-        this.articleTitle = this.article.englishTitle;
-      } else {
-        this.articleContent = this.article.chineseContent;
-        this.articleTitle = this.article.chineseTitle;
-      }
-    });
+        this.articleService.getArticle(String(ArticleType.FacultyAdvisor)).subscribe(
+          data => {
+            this.article = data['content'][0];
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      });
+    }
   }
 
   finishEdit() {
-    console.log(this.articleContent);
     this.location.back();
   }
 
-  switchLanguage() {
-
+  switchEditorLanguage() {
+    this.editorLanguage = this.editorLanguage === 'English' ? '中文' : 'English';
+    this.editorLocale = this.editorLocale = 'en' ? 'zh-tw' : 'en';
   }
 }
