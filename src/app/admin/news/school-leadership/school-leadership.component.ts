@@ -16,7 +16,7 @@ export class SchoolLeadershipComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleService.getArticle(String(ArticleType.SchoolLeadership)).subscribe(
+    this.articleService.getArticles(String(ArticleType.SchoolLeadership)).subscribe(
       data => {
         this.articles = data['content'];
       },

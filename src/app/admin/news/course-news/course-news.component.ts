@@ -16,7 +16,7 @@ export class CourseNewsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleService.getArticle(String(ArticleType.CourseNews)).subscribe(
+    this.articleService.getArticles(String(ArticleType.CourseNews)).subscribe(
       data => {
         this.articles = data['content'];
       },

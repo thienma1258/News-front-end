@@ -9,7 +9,7 @@ import {EmitterService} from "../emitter.service";
 })
 export class PreviewEditBoxComponent implements OnInit {
   @Input() displayType = 1;
-  @Input() article: Article;
+  @Input() article: any;
   @Input() editLink = '/admin/research/addnew/';
 
   slideEmitter = EmitterService.get('SLIDE');

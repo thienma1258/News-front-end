@@ -1,27 +1,71 @@
-<ngb-carousel>
-  <ng-template ngbSlide *ngFor="let article of highlightArticles; let i = index">
-    <img class="carousel-image" src="{{article.imageUrls[0]}}">
-    <div class="carousel-overlay">
-      <p id="carousel-title">
-        <ng-container *ngIf="Locale == 'en'">
-          {{article.englishTitle}}
-        </ng-container>
-        <ng-container *ngIf="Locale == 'zh-tw'">
-          {{article.chineseTitle}}
-        </ng-container>
-      </p>
-      <p id="carousel-overlay-content">
-        <ng-container *ngIf="Locale == 'en'">
-          {{article.englishContent}}
-        </ng-container>
-        <ng-container *ngIf="Locale == 'zh-tw'">
-          {{article.chineseContent}}
-        </ng-container>
-      </p>
-      <!--<a i18n routerLink="{{article.url}}">{{'Homepage.SeeMore' | translate}}</a>-->
+<div id="myCarousel" class="carousel slide lazy" data-ride="carousel">
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li *ngFor="let slide of slides; let i = index" data-target="#myCarousel" [attr.data-slide-to]="i" ngClass="{{i == 0 ? 'active':''}}"></li>
+  </ul>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div *ngFor="let slide of slides; let i = index" ngClass="{{i == 0 ? 'carousel-item active': 'carousel-item'}}">
+      <img *ngIf="i === 0" class="carousel-image" src="{{slide.slideImageUrl}}">
+      <img *ngIf="i !== 0" class="carousel-image" data-src="{{slide.slideImageUrl}}">
+      <div class="carousel-overlay">
+        <p id="carousel-title">
+          <ng-container *ngIf="Locale == 'en'">
+            {{slide.englishTitle}}
+          </ng-container>
+          <ng-container *ngIf="Locale == 'zh-tw'">
+            {{slide.chineseTitle}}
+          </ng-container>
+        </p>
+        <p id="carousel-overlay-content">
+          <ng-container *ngIf="Locale == 'en'">
+            {{slide?.englishContent}}
+          </ng-container>
+          <ng-container *ngIf="Locale == 'zh-tw'">
+            {{slide?.chineseContent}}
+          </ng-container>
+        </p>
+      </div>
     </div>
-  </ng-template>
-</ngb-carousel>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+<!--<div>-->
+  <!--<ngb-carousel>-->
+    <!--<ng-template ngbSlide *ngFor="let slide of slides; let i = index">-->
+      <!--<img class="carousel-image" src="{{slide.slideImageUrl}}">-->
+      <!--<div class="carousel-overlay">-->
+        <!--<p id="carousel-title">-->
+          <!--<ng-container *ngIf="Locale == 'en'">-->
+            <!--{{slide.englishTitle}}-->
+          <!--</ng-container>-->
+          <!--<ng-container *ngIf="Locale == 'zh-tw'">-->
+            <!--{{slide.chineseTitle}}-->
+          <!--</ng-container>-->
+        <!--</p>-->
+        <!--<p id="carousel-overlay-content">-->
+          <!--<ng-container *ngIf="Locale == 'en'">-->
+            <!--{{slide.englishContent}}-->
+          <!--</ng-container>-->
+          <!--<ng-container *ngIf="Locale == 'zh-tw'">-->
+            <!--{{slide.chineseContent}}-->
+          <!--</ng-container>-->
+        <!--</p>-->
+        <!--&lt;!&ndash;<a i18n routerLink="{{slide.url}}">{{'Homepage.SeeMore' | translate}}</a>&ndash;&gt;-->
+      <!--</div>-->
+    <!--</ng-template>-->
+  <!--</ngb-carousel>-->
+
+<!--</div>-->
 
 <div id="news">
   <div class="row">

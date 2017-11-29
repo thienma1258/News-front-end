@@ -16,7 +16,7 @@ export class LaboratoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleService.getArticle(String(ArticleType.Laboratory)).subscribe(
+    this.articleService.getArticles(String(ArticleType.Laboratory)).subscribe(
       data => {
         this.articles = data['content'];
       },

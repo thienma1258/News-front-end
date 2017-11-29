@@ -85,7 +85,7 @@
     <img (click)="slideCancelEdit()" style="cursor: pointer;" src="../../../../assets/images/cancel.png">
   </div>
   <div *ngIf="!slideEditMode" class="row">
-    <preview-edit-box class="col-xl-4 col-lg-4 col-md-6" *ngFor="let slide of slides;"
+    <preview-edit-box class="col-xl-4 col-lg-4 col-md-6 slide" *ngFor="let slide of slides;"
                       [article]="slide"></preview-edit-box>
     <div (click)="addNewSlide()" class="col-xl-4 col-lg-4 col-md-6 add-slide">
       <img src="../../../assets/images/add.png">

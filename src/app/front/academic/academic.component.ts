@@ -42,7 +42,7 @@ export class AcademicComponent implements OnInit {
       switch (this.selectedTitle) {
         case 'academic-information':
           this.selectedTitle = 'Academic Information';
-          this.articleService.getArticle(String(ArticleType.AcademicInfo)).subscribe(
+          this.articleService.getArticles(String(ArticleType.AcademicInfo)).subscribe(
             data => {
               this.article = data['content'][0];
             },
@@ -53,7 +53,7 @@ export class AcademicComponent implements OnInit {
           break;
         case 'student-graduate-and-undergraduate':
           this.selectedTitle = 'Student Graduate & Undergraduate';
-          this.articleService.getArticle(String(ArticleType.StudentGraduate)).subscribe(
+          this.articleService.getArticles(String(ArticleType.StudentGraduate)).subscribe(
             data => {
               this.article = data['content'][0];
             },
@@ -64,7 +64,7 @@ export class AcademicComponent implements OnInit {
           break;
         case 'teaching':
           this.selectedTitle = 'Teaching';
-          this.articleService.getArticle(String(ArticleType.Teaching)).subscribe(
+          this.articleService.getArticles(String(ArticleType.Teaching)).subscribe(
             data => {
               this.article = data['content'][0];
             },
@@ -75,7 +75,7 @@ export class AcademicComponent implements OnInit {
           break;
         case 'degree-requirement':
           this.selectedTitle = 'Degree Requirement';
-          this.articleService.getArticle(String(ArticleType.DegreeRequirement)).subscribe(
+          this.articleService.getArticles(String(ArticleType.DegreeRequirement)).subscribe(
             data => {
               this.article = data['content'][0];
             },

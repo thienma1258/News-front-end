@@ -1,9 +1,11 @@
 #myCarousel{
-  height:600px;
+  /*height:600px;*/
+  height: calc(100vh - 171px);
 }
 
 .carousel-image{
-  height: calc(100vh - 150px);
+  height: calc(100vh - 171px);
+  /*height: 600px;*/
   width: 100%;
 }
 

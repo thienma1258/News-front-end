@@ -78,7 +78,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     for (let i = 0; i < 3; i++) {
-      // this.recentNews.push(this.articleService.getArticle(String(i)));
+      // this.recentNews.push(this.articleService.getArticles(String(i)));
       // this.recentEvents.push(this.eventService.getEvent(String(i)));
     }
   }

@@ -45,7 +45,7 @@ export class IntroductionComponent implements OnInit {
       switch (this.selectedTitle) {
         case 'about-us':
           this.selectedTitle = 'About us';
-          this.articleService.getArticle(String(ArticleType.About)).subscribe(
+          this.articleService.getArticles(String(ArticleType.About)).subscribe(
             data => {
               this.article = data['content'][0];
               console.log(this.article);
@@ -57,7 +57,7 @@ export class IntroductionComponent implements OnInit {
           break;
         case 'facility-advisor':
           this.selectedTitle = 'Facility Advisor';
-          this.articleService.getArticle(String(ArticleType.FacultyAdvisor)).subscribe(
+          this.articleService.getArticles(String(ArticleType.FacultyAdvisor)).subscribe(
             data => {
               this.article = data['content'][0];
             },
@@ -68,7 +68,7 @@ export class IntroductionComponent implements OnInit {
           break;
         case 'department-structure-staff':
           this.selectedTitle = 'Department Structure & Staff';
-          this.articleService.getArticle(String(ArticleType.DepartmentStructure)).subscribe(
+          this.articleService.getArticles(String(ArticleType.DepartmentStructure)).subscribe(
             data => {
               this.article = data['content'][0];
             },
@@ -79,7 +79,7 @@ export class IntroductionComponent implements OnInit {
           break;
         case 'contact':
           this.selectedTitle = 'Contact';
-          this.articleService.getArticle(String(ArticleType.Contact)).subscribe(
+          this.articleService.getArticles(String(ArticleType.Contact)).subscribe(
             data => {
               this.article = data['content'][0];
             },

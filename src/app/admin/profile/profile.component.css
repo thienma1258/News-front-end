@@ -19,9 +19,13 @@ container-box{
   width: 70%;
 }
 
+.slide{
+  height: 310px;
+}
+
 .add-slide img{
   width: 100%;
-  padding: 20% 30%;
+  padding: 20% 35%;
   cursor: pointer;
   background-color: #ccc6c1
 }

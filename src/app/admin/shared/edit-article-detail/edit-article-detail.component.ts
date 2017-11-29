@@ -45,7 +45,7 @@ export class EditArticleDetailComponent implements OnInit {
         if (this.articleId === null || this.articleId === undefined) {
           this.isAddNew = true;
         }
-        this.articleService.getArticle(String(ArticleType.FacultyAdvisor)).subscribe(
+        this.articleService.getArticles(String(ArticleType.FacultyAdvisor)).subscribe(
           data => {
             this.article = data['content'][0];
           },

@@ -16,7 +16,7 @@ export class PostersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleService.getArticle(String(ArticleType.Poster)).subscribe(
+    this.articleService.getArticles(String(ArticleType.Poster)).subscribe(
       data => {
         this.articles = data['content'];
       },

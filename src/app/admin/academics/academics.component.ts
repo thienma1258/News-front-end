@@ -38,7 +38,7 @@ export class AcademicsComponent implements OnInit {
     this.teachingArticle = new Article();
     this.degreeArticle = new Article();
 
-    this.articleService.getArticle(String(ArticleType.AcademicInfo)).subscribe(
+    this.articleService.getArticles(String(ArticleType.AcademicInfo)).subscribe(
       data => {
         this.academicArticle = data['content'][0];
       },
@@ -46,7 +46,7 @@ export class AcademicsComponent implements OnInit {
         console.log(err);
       }
     );
-    this.articleService.getArticle(String(ArticleType.StudentGraduate)).subscribe(
+    this.articleService.getArticles(String(ArticleType.StudentGraduate)).subscribe(
       data => {
         this.studentArticle = data['content'][0];
       },
@@ -54,7 +54,7 @@ export class AcademicsComponent implements OnInit {
         console.log(err);
       }
     );
-    this.articleService.getArticle(String(ArticleType.Teaching)).subscribe(
+    this.articleService.getArticles(String(ArticleType.Teaching)).subscribe(
       data => {
         this.teachingArticle = data['content'][0];
       },
@@ -62,7 +62,7 @@ export class AcademicsComponent implements OnInit {
         console.log(err);
       }
     );
-    this.articleService.getArticle(String(ArticleType.DegreeRequirement)).subscribe(
+    this.articleService.getArticles(String(ArticleType.DegreeRequirement)).subscribe(
       data => {
         this.degreeArticle = data['content'][0];
       },

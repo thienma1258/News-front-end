@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {EmitterService} from '../shared/emitter.service';
 import {UniversityService} from '../../shared/services/university.service';
 import {UniversityLink} from '../../shared/model/university-link';
-import {Article} from '../../shared/model/article';
 import {ArticleService} from '../../shared/services/article.service';
 import {UniversityInfo} from '../../shared/model/university-info';
+import {Slide} from '../../shared/model/slide';
 
 @Component({
   selector: 'profile',
@@ -14,7 +14,7 @@ import {UniversityInfo} from '../../shared/model/university-info';
 export class ProfileComponent implements OnInit {
   universityInfo: UniversityInfo;
   links: UniversityLink[] = [];
-  slides: Article[] = [];
+  slides: Slide[] = [];
 
   contactEmitter = EmitterService.get('CONTACT');
   contactEditMode = false;
@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
 
   slideEmitter = EmitterService.get('SLIDE');
   slideEditMode = false;
-  selectedSlide: Article;
+  selectedSlide: Slide;
 
   constructor(private universityService: UniversityService, private articleService: ArticleService) {
     this.universityInfo = new UniversityInfo();
@@ -50,13 +50,13 @@ export class ProfileComponent implements OnInit {
     });
 
     this.slideEmitter.subscribe(msg => {
-      this.slides.forEach(element => {
-        if (element.id === msg.split('/')[1]) {
-          this.selectedSlide = element;
-        }
-      });
       if (msg.split('/')[0] === 'edit') {
         this.slideEditMode = true;
+        this.slides.forEach(element => {
+          if (element.id === msg.split('/')[1]) {
+            this.selectedSlide = element;
+          }
+        });
       } else {
 
       }
@@ -80,9 +80,14 @@ export class ProfileComponent implements OnInit {
       }
     );
 
-    // for (let i = 0; i < 3; i++) {
-    //   this.slides.push(this.articleService.getArticle(String(i)));
-    // }
+    this.articleService.getSlides().subscribe(
+      data => {
+        this.slides = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   get Locale() {
@@ -116,7 +121,7 @@ export class ProfileComponent implements OnInit {
 
   addNewSlide() {
     this.slideEditMode = true;
-    this.selectedSlide = new Article;
+    this.selectedSlide = new Slide();
   }
 
   slideFinishEdit() {

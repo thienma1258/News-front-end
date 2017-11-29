@@ -38,7 +38,7 @@ export class IntroductionComponent implements OnInit {
     this.departmentArticle = new Article();
     this.contactArticle = new Article();
 
-    this.articleService.getArticle(String(ArticleType.About)).subscribe(
+    this.articleService.getArticles(String(ArticleType.About)).subscribe(
       data => {
         this.aboutArticle = data['content'][0];
       },
@@ -46,7 +46,7 @@ export class IntroductionComponent implements OnInit {
         console.log(err);
       }
     );
-    this.articleService.getArticle(String(ArticleType.FacultyAdvisor)).subscribe(
+    this.articleService.getArticles(String(ArticleType.FacultyAdvisor)).subscribe(
       data => {
         this.facilityArticle = data['content'][0];
       },
@@ -54,7 +54,7 @@ export class IntroductionComponent implements OnInit {
         console.log(err);
       }
     );
-    this.articleService.getArticle(String(ArticleType.DepartmentStructure)).subscribe(
+    this.articleService.getArticles(String(ArticleType.DepartmentStructure)).subscribe(
       data => {
         this.departmentArticle = data['content'][0];
       },
@@ -62,7 +62,7 @@ export class IntroductionComponent implements OnInit {
         console.log(err);
       }
     );
-    this.articleService.getArticle(String(ArticleType.Contact)).subscribe(
+    this.articleService.getArticles(String(ArticleType.Contact)).subscribe(
       data => {
         this.contactArticle = data['content'][0];
       },

@@ -16,7 +16,7 @@ export class ConferencesAndSeminarsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleService.getArticle(String(ArticleType.ConferencesAndSemminars)).subscribe(
+    this.articleService.getArticles(String(ArticleType.ConferencesAndSemminars)).subscribe(
       data => {
         this.articles = data['content'];
       },

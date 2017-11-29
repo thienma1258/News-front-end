@@ -8,9 +8,11 @@ export class ArticleService {
 
   private article: Article;
 
-  private getArticleUrl = '/article/get?';
-  private editArticleUrl = '/article/edit';
-  private searchArticleUrl = '/article/search/{keyword}';
+  private getArticleUrl = '/slide/get?';
+  private editArticleUrl = '/slide/edit';
+  private searchArticleUrl = '/slide/search/{keyword}';
+
+  private getSlideUrl = '/slide/get';
 
   constructor(private http: HttpClient, private authService: AuthService) {
     // this.articles = [
@@ -167,7 +169,7 @@ export class ArticleService {
 
   }
 
-  getArticle(type: string) {
+  getArticles(type: string) {
     const params = new HttpParams().set('type', type);
     const url = this.authService.apiUrl + this.getArticleUrl;
 
@@ -193,5 +195,10 @@ export class ArticleService {
     };
     console.log(article);
     return this.http.put(url, article, options);
+  }
+
+  getSlides() {
+    const url = this.authService.apiUrl + this.getSlideUrl;
+    return this.http.get(url);
   }
 }

@@ -16,7 +16,7 @@ export class AreasComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleService.getArticle(String(ArticleType.Area)).subscribe(
+    this.articleService.getArticles(String(ArticleType.Area)).subscribe(
       data => {
         this.articles = data['content'];
       },

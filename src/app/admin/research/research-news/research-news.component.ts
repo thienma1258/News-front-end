@@ -16,7 +16,7 @@ export class ResearchNewsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleService.getArticle(String(ArticleType.ResearchNews)).subscribe(
+    this.articleService.getArticles(String(ArticleType.ResearchNews)).subscribe(
       data => {
         this.articles = data['content'];
       },
