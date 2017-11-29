@@ -41,6 +41,8 @@ export class IntroductionComponent implements OnInit {
     this.articleService.getArticles(String(ArticleType.About)).subscribe(
       data => {
         this.aboutArticle = data['content'][0];
+        console.log(this.aboutArticle);
+        console.log(data['content'][0]);
       },
       err => {
         console.log(err);

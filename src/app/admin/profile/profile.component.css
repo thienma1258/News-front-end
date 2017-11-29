@@ -40,6 +40,27 @@ container-box{
   outline: none;
 }
 
+.right-nav{
+  float: right;
+}
+
+.translation{
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.language{
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.translation-icon{
+  width: 25px;
+  height: 25px;
+}
+
 /deep/ .customClass {
   background-color: #F8F8F8;
   border-radius: 5px;

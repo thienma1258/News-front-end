@@ -97,12 +97,18 @@
       [class]="'customClass'"
       [preview]="true">
     </image-upload>
+    <div class="right-nav">
+      <a class="translation" (click)="switchEditorLanguage()">
+        <img class="translation-icon" src="./../../../../assets/images/translation-web.png">
+        <span class="language"><b>{{editorLanguage}}</b></span>
+      </a>
+    </div>
     <p><b>Title</b></p>
-    <input *ngIf="Locale === 'en'" [(ngModel)]="selectedSlide.englishTitle">
-    <input *ngIf="Locale === 'zh-tw'" [(ngModel)]="selectedSlide.chineseTitle">
+    <input *ngIf="editorLocale === 'en'" [(ngModel)]="selectedSlide.englishTitle">
+    <input *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="selectedSlide.chineseTitle">
     <p><b>Description</b></p>
-    <textarea *ngIf="Locale === 'en'" [(ngModel)]="selectedSlide.englishContent"></textarea>
-    <textarea *ngIf="Locale === 'zh-tw'" [(ngModel)]="selectedSlide.chineseContent"></textarea>
+    <textarea *ngIf="editorLocale === 'en'" [(ngModel)]="selectedSlide.englishContent"></textarea>
+    <textarea *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="selectedSlide.chineseContent"></textarea>
   </div>
 </container-box>
 

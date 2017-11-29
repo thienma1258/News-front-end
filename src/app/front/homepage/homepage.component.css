@@ -1,4 +1,4 @@
-#myCarousel{
+#carousel{
   /*height:600px;*/
   height: calc(100vh - 171px);
 }
@@ -154,7 +154,7 @@
     margin-bottom: 10px;
   }
 
-  #myCarousel{
+  #carousel{
     height:300px;
   }
 
@@ -199,7 +199,7 @@
     margin-bottom: 10px;
   }
 
-  #myCarousel{
+  #carousel{
     height:300px;
   }
 

@@ -5,7 +5,7 @@ export class Article {
   englishTitle: string;
   chineseTitle: string;
   size: ArticleSize;
-  imageUrls?: string[];
+  previewImageUrl: string;
   englishContent?: string;
   chineseContent?: string;
   createdTime: string;
@@ -15,7 +15,7 @@ export class Article {
     this.englishTitle = '';
     this.chineseTitle = '';
     this.size = ArticleSize.Small;
-    this.imageUrls = [];
+    this.previewImageUrl = '';
     this.englishContent = '';
     this.chineseContent = '';
     this.createdTime = '';

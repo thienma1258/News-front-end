@@ -2,7 +2,7 @@
   <div *ngSwitchCase="1">
     <a routerLink="{{articleUrl}}">
       <div class="row">
-        <img class="col-xl-5 col-lg-5 col-md-5 image" src="{{article?.imageUrls[0]}}">
+        <img class="col-xl-5 col-lg-5 col-md-5 image" src="http://localhost:4200/assets/images/eed-logo.png">
         <div class="col-xl-7 col-lg-7 col-md-7 content">
           <p *ngIf="showTitle" class="title">
             <ng-container *ngIf="LanguageLocale == 'en'">
@@ -16,14 +16,14 @@
             <p *ngIf="LanguageLocale == 'en'" [innerHtml]="article.englishContent | safeHtml"></p>
             <p *ngIf="LanguageLocale == 'zh-tw'" [innerHtml]="article.chineseContent | safeHtml"></p>
           </ng-container>
-          <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime}}</p>
+          <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime | date:'MMM dd yyyy'}}</p>
         </div>
       </div>
     </a>
   </div>
   <div *ngSwitchCase="2" class="large">
     <a routerLink="{{articleUrl}}">
-      <img class="image" src="{{article?.imageUrls[0]}}">
+      <img class="image" src="http://localhost:4200/assets/images/eed-logo.png">
       <div class="content">
         <p *ngIf="showTitle" class="title">
           <ng-container *ngIf="LanguageLocale == 'en'">
@@ -37,13 +37,13 @@
           <p *ngIf="LanguageLocale == 'en'" [innerHtml]="article.englishContent | safeHtml"></p>
           <p *ngIf="LanguageLocale == 'zh-tw'" [innerHtml]="article.chineseContent | safeHtml"></p>
         </ng-container>
-        <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime}}</p>
+        <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime | date:'MMM dd yyyy'}}</p>
       </div>
     </a>
   </div>
   <div class="large" *ngSwitchCase="3">
     <a routerLink="{{articleUrl}}">
-      <img class="image" src="{{article?.imageUrls[0]}}">
+      <img class="image" src="http://localhost:4200/assets/images/eed-logo.png">
       <div class="content">
         <p *ngIf="showTitle" class="title">
           <ng-container *ngIf="LanguageLocale == 'en'">
@@ -57,7 +57,7 @@
           <p *ngIf="LanguageLocale == 'en'" [innerHtml]="article.englishContent | safeHtml"></p>
           <p *ngIf="LanguageLocale == 'zh-tw'" [innerHtml]="article.chineseContent | safeHtml"></p>
         </ng-container>
-        <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime}}</p>
+        <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime | date:'MMM dd yyyy'}}</p>
       </div>
     </a>
   </div>

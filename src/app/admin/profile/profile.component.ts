@@ -24,7 +24,11 @@ export class ProfileComponent implements OnInit {
 
   slideEmitter = EmitterService.get('SLIDE');
   slideEditMode = false;
+  isAddingNewSlide = false;
   selectedSlide: Slide;
+
+  editorLanguage = '中文';
+  editorLocale = 'en';
 
   constructor(private universityService: UniversityService, private articleService: ArticleService) {
     this.universityInfo = new UniversityInfo();
@@ -57,8 +61,13 @@ export class ProfileComponent implements OnInit {
             this.selectedSlide = element;
           }
         });
-      } else {
-
+      } else if (msg.split('/')[0] === 'delete') {
+        this.slides.forEach(element => {
+          if (element.id === msg.split('/')[1]) {
+            this.selectedSlide = element;
+            this.deleteSlide();
+          }
+        });
       }
     });
 
@@ -121,14 +130,61 @@ export class ProfileComponent implements OnInit {
 
   addNewSlide() {
     this.slideEditMode = true;
+    this.isAddingNewSlide = true;
     this.selectedSlide = new Slide();
+  }
+
+  deleteSlide() {
+    if (confirm('Are you sure to delete this slide? ')) {
+      this.slides.splice(this.slides.indexOf(this.selectedSlide), 1);
+      this.articleService.removeSlide(this.selectedSlide.id).subscribe(
+        data => {
+          console.log(this.selectedSlide);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
+  }
+
+  slideFinishAdding() {
+    this.slideEditMode = false;
+    this.isAddingNewSlide = false;
+    this.slides.push(this.selectedSlide);
+    this.articleService.addSlide(this.selectedSlide).subscribe(
+      data => {
+
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   slideFinishEdit() {
     this.slideEditMode = false;
+
+    if (this.isAddingNewSlide) {
+      this.slideFinishAdding();
+    } else {
+      this.articleService.editSlide(this.selectedSlide).subscribe(
+        data => {
+
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
   }
 
   slideCancelEdit() {
     this.slideEditMode = false;
+  }
+
+  switchEditorLanguage() {
+    this.editorLanguage = this.editorLanguage === 'English' ? '中文' : 'English';
+    this.editorLocale = this.editorLocale === 'en' ? 'zh-tw' : 'en';
   }
 }

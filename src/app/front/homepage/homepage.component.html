@@ -1,4 +1,4 @@
-<div id="myCarousel" class="carousel slide lazy" data-ride="carousel">
+<div id="carousel" class="carousel slide lazy" data-ride="carousel">
   <!-- Indicators -->
   <ul class="carousel-indicators">
     <li *ngFor="let slide of slides; let i = index" data-target="#myCarousel" [attr.data-slide-to]="i" ngClass="{{i == 0 ? 'active':''}}"></li>
@@ -31,10 +31,10 @@
   </div>
 
   <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+  <a class="carousel-control-prev" href="#carousel" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </a>
-  <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+  <a class="carousel-control-next" href="#carousel" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>
 </div>

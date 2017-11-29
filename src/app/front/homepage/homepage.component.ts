@@ -29,32 +29,32 @@ export class HomepageComponent implements OnInit {
     this.researchArticle = new Article();
     this.studentLifeArticle = new Article();
 
-    this.slides = [
-      {
-        id: '1',
-        englishTitle: 'english title 1',
-        chineseTitle: 'chinese title 1',
-        englishContent: 'english content',
-        chineseContent: 'chinese content',
-        slideImageUrl: './assets/images/001.jpg'
-      },
-      {
-        id: '2',
-        englishTitle: 'english title 2',
-        chineseTitle: 'chinese title 2',
-        englishContent: 'english content',
-        chineseContent: 'chinese content',
-        slideImageUrl: './assets/images/001t.jpg'
-      },
-      {
-        id: '3',
-        englishTitle: 'english title 3',
-        chineseTitle: 'chinese title 3',
-        englishContent: 'english content',
-        chineseContent: 'chinese content',
-        slideImageUrl: './assets/images/070.jpg'
-      }
-    ];
+    // this.slides = [
+    //   {
+    //     id: '1',
+    //     englishTitle: 'english title 1',
+    //     chineseTitle: 'chinese title 1',
+    //     englishContent: 'english content',
+    //     chineseContent: 'chinese content',
+    //     slideImageUrl: './assets/images/001.jpg'
+    //   },
+    //   {
+    //     id: '2',
+    //     englishTitle: 'english title 2',
+    //     chineseTitle: 'chinese title 2',
+    //     englishContent: 'english content',
+    //     chineseContent: 'chinese content',
+    //     slideImageUrl: './assets/images/001t.jpg'
+    //   },
+    //   {
+    //     id: '3',
+    //     englishTitle: 'english title 3',
+    //     chineseTitle: 'chinese title 3',
+    //     englishContent: 'english content',
+    //     chineseContent: 'chinese content',
+    //     slideImageUrl: './assets/images/070.jpg'
+    //   }
+    // ];
   }
 
   get Locale() {
@@ -70,9 +70,32 @@ export class HomepageComponent implements OnInit {
         console.log(err);
       }
     );
-    for (let i = 0; i < 3; i++) {
-      this.upcomingEvents.push(this.eventService.getEvent(String(i)));
-    }
+    this.articleService.getSlides().subscribe(
+      data => {
+        this.slides = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.articleService.getLatestNews().subscribe(
+      data => {
+        this.latestArticles = data['content'];
+        console.log(this.latestArticles);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.eventService.getUpcomingEvent().subscribe(
+      data => {
+        this.upcomingEvents = data['content'];
+        console.log(this.upcomingEvents);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }

@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {HomepageComponent} from './homepage/homepage.component';
@@ -21,7 +21,7 @@ import {NewsDetailsComponent} from './news-details/news-details.component';
 import {ArticleService} from '../shared/services/article.service';
 import {EventService} from '../shared/services/event.service';
 import {UniversityService} from '../shared/services/university.service';
-import {SharedModule} from "../shared/shared/shared.module";
+import {SharedModule} from '../shared/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,11 @@ import {SharedModule} from "../shared/shared/shared.module";
     NgbModule,
     TranslateModule
   ],
-  providers: [ArticleService, EventService, UniversityService],
+  providers: [
+    ArticleService,
+    EventService,
+    UniversityService,
+  ],
   bootstrap: []
 })
 export class FrontModule {

@@ -20,7 +20,8 @@ export class EditArticleDetailComponent implements OnInit {
   articleType: string;
   articleSize = ArticleSize;
   isAddNew = false;
-  editorLanguage = 'English';
+
+  editorLanguage = '中文';
   editorLocale = 'en';
 
   editorOptions = {

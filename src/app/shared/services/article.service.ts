@@ -2,17 +2,23 @@ import {Injectable} from '@angular/core';
 import {Article} from '../model/Article';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {AuthService} from '../../admin/shared/auth.service';
+import {Slide} from '../model/slide';
 
 @Injectable()
 export class ArticleService {
 
-  private article: Article;
+  private numberOfDisplayArticle = 4;
 
-  private getArticleUrl = '/slide/get?';
-  private editArticleUrl = '/slide/edit';
-  private searchArticleUrl = '/slide/search/{keyword}';
+  private getArticleUrl = '/article/get?';
+  private editArticleUrl = '/article/edit';
+  private searchArticleUrl = '/article/search/';
 
   private getSlideUrl = '/slide/get';
+  private addSlideUrl = '/slide/add';
+  private editSlideUrl = '/slide/edit';
+  private removeSlideUrl = '/slide/remove';
+
+  private getLatestArticleUrl = '/article/get-recent/';
 
   constructor(private http: HttpClient, private authService: AuthService) {
     // this.articles = [
@@ -199,6 +205,54 @@ export class ArticleService {
 
   getSlides() {
     const url = this.authService.apiUrl + this.getSlideUrl;
+    return this.http.get(url);
+  }
+
+  addSlide(slide: Slide) {
+    const url = this.authService.apiUrl + this.addSlideUrl;
+    const options = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Authorization': this.authService.getAccessToken()
+        }
+      )
+    };
+    return this.http.post(url, slide, options);
+  }
+
+  editSlide(slide: Slide) {
+    const url = this.authService.apiUrl + this.editSlideUrl;
+    const options = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Authorization': this.authService.getAccessToken()
+        }
+      )
+    };
+    return this.http.put(url, slide, options);
+  }
+
+  removeSlide(slideId: string) {
+    const url = this.authService.apiUrl + this.removeSlideUrl;
+
+    const data: FormData = new FormData();
+    data.append('slideId', slideId);
+
+    const options = {
+      headers: new HttpHeaders(
+        {
+          'Accept': 'application/json',
+          'Authorization': this.authService.getAccessToken()
+        }
+      )
+    };
+    return this.http.post(url, data, options);
+  }
+
+  getLatestNews() {
+    const url = this.authService.apiUrl + this.getLatestArticleUrl + this.numberOfDisplayArticle;
     return this.http.get(url);
   }
 }
