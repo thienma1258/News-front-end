@@ -9,7 +9,7 @@ import {EventService} from '../../../shared/services/event.service';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  private events: Event[] = [];
+  public events: Event[] = [];
 
   constructor(private router: Router, private eventService: EventService) {
   }

@@ -10,9 +10,9 @@ import {ArticleType} from '../../../shared/enum/article-type.enum';
   styleUrls: ['./areas.component.css']
 })
 export class AreasComponent implements OnInit {
-  private articles: Article[] = [];
+  public articles: Article[] = [];
 
-  constructor(private router: Router, private articleService: ArticleService) {
+  constructor(public router: Router, public articleService: ArticleService) {
   }
 
   ngOnInit() {

@@ -9,7 +9,7 @@ import {ArticleService} from '../../../shared/services/article.service';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  private articles: Article[] = [];
+  public articles: Article[] = [];
 
   constructor(private router: Router, private articleService: ArticleService) {
   }

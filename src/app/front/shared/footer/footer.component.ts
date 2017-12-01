@@ -9,10 +9,10 @@ import {UniversityInfo} from '../../../shared/model/university-info';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  private universityInfo: UniversityInfo;
-  private universityLinks: UniversityLink[] = [];
+  public universityInfo: UniversityInfo;
+  public universityLinks: UniversityLink[] = [];
 
-  constructor(private universityService: UniversityService) {
+  constructor(public universityService: UniversityService) {
   }
 
   get Locale() {

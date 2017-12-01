@@ -10,7 +10,7 @@ import {ArticleType} from '../../../shared/enum/article-type.enum';
   styleUrls: ['./department-news.component.css']
 })
 export class DepartmentNewsComponent implements OnInit {
-  private articles: Article[] = [];
+  public articles: Article[] = [];
 
   constructor(private router: Router, private articleService: ArticleService) {
   }

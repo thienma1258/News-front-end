@@ -10,22 +10,22 @@ import {EmitterService} from '../shared/emitter.service';
   styleUrls: ['./introduction.component.css']
 })
 export class IntroductionComponent implements OnInit {
-  private aboutEmitter = EmitterService.get('ABOUT US');
-  private facultyAdvisorEmitter = EmitterService.get('FACILITY & ADVISOR');
-  private departmentEmitter = EmitterService.get('DEPARTMENT STRUCTURE & STAFF');
-  private contactEmitter = EmitterService.get('CONTACT');
+  public aboutEmitter = EmitterService.get('ABOUT US');
+  public facultyAdvisorEmitter = EmitterService.get('FACILITY & ADVISOR');
+  public departmentEmitter = EmitterService.get('DEPARTMENT STRUCTURE & STAFF');
+  public contactEmitter = EmitterService.get('CONTACT');
 
-  private aboutEditMode = false;
-  private facultyAdvisorEditMode = false;
-  private departmentEditMode = false;
-  private contactEditMode = false;
+  public aboutEditMode = false;
+  public facultyAdvisorEditMode = false;
+  public departmentEditMode = false;
+  public contactEditMode = false;
 
-  private aboutArticle: Article;
-  private facilityArticle: Article;
-  private departmentArticle: Article;
-  private contactArticle: Article;
+  public aboutArticle: Article;
+  public facilityArticle: Article;
+  public departmentArticle: Article;
+  public contactArticle: Article;
 
-  constructor(private articleService: ArticleService) {
+  constructor(public articleService: ArticleService) {
   }
 
   get Locale() {

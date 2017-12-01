@@ -10,7 +10,7 @@ import {ArticleType} from "../../../shared/enum/article-type.enum";
   styleUrls: ['./school-leadership.component.css']
 })
 export class SchoolLeadershipComponent implements OnInit {
-  private articles: Article[] = [];
+  public articles: Article[] = [];
 
   constructor(private router: Router, private articleService: ArticleService) {
   }

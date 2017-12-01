@@ -33,7 +33,7 @@ export class AcademicComponent implements OnInit {
   selectedTitle: string;
   article: Article;
 
-  constructor(private route: ActivatedRoute, private articleService: ArticleService) {
+  constructor(public route: ActivatedRoute, public articleService: ArticleService) {
   }
 
   ngOnInit() {

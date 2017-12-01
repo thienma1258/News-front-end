@@ -8,18 +8,18 @@ import {UniversityService} from "../../../shared/services/university.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  private locale = 'en';
+  public locale = 'en';
 
   isToggleMenuExpanded = false;
   language = '中文';
 
-  private universityEnglishName;
-  private universityChineseName;
+  public universityEnglishName;
+  public universityChineseName;
 
-  private departmentEnglishName;
-  private departmentChineseName;
+  public departmentEnglishName;
+  public departmentChineseName;
 
-  constructor(private translate: TranslateService, private universityService: UniversityService) {
+  constructor(public translate: TranslateService, public universityService: UniversityService) {
     this.locale = 'en';
     localStorage.setItem('locale', 'en');
     translate.setDefaultLang('en');

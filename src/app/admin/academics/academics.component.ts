@@ -10,22 +10,22 @@ import {EmitterService} from '../shared/emitter.service';
   styleUrls: ['./academics.component.css']
 })
 export class AcademicsComponent implements OnInit {
-  private academicEmitter = EmitterService.get('ACADEMIC INFORMATION');
-  private studentEmitter = EmitterService.get('STUDENT GRADUATE AND UNGRADUATE');
-  private teachingEmitter = EmitterService.get('TEACHING');
-  private degreeEmitter = EmitterService.get('DEGREE REQUIREMENT');
+  public academicEmitter = EmitterService.get('ACADEMIC INFORMATION');
+  public studentEmitter = EmitterService.get('STUDENT GRADUATE AND UNGRADUATE');
+  public teachingEmitter = EmitterService.get('TEACHING');
+  public degreeEmitter = EmitterService.get('DEGREE REQUIREMENT');
 
-  private academicEditMode = false;
-  private studentEditMode = false;
-  private teachingEditMode = false;
-  private degreeEditMode = false;
+  public academicEditMode = false;
+  public studentEditMode = false;
+  public teachingEditMode = false;
+  public degreeEditMode = false;
 
-  private academicArticle: Article;
-  private studentArticle: Article;
-  private teachingArticle: Article;
-  private degreeArticle: Article;
+  public academicArticle: Article;
+  public studentArticle: Article;
+  public teachingArticle: Article;
+  public degreeArticle: Article;
 
-  constructor(private articleService: ArticleService) {
+  constructor(public articleService: ArticleService) {
   }
 
   get Locale() {

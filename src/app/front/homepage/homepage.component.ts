@@ -13,16 +13,16 @@ import {Slide} from "../../shared/model/slide";
 })
 export class HomepageComponent implements OnInit {
 
-  private slides: Slide[] = [];
-  private latestArticles: Article[] = [];
-  private upcomingEvents: Event[] = [];
-  private aboutArticle: Article;
-  private admissionsArticle: Article;
-  private academicsArticle: Article;
-  private researchArticle: Article;
-  private studentLifeArticle: Article;
+  public slides: Slide[] = [];
+  public latestArticles: Article[] = [];
+  public upcomingEvents: Event[] = [];
+  public aboutArticle: Article;
+  public admissionsArticle: Article;
+  public academicsArticle: Article;
+  public researchArticle: Article;
+  public studentLifeArticle: Article;
 
-  constructor(private articleService: ArticleService, private eventService: EventService) {
+  constructor(public articleService: ArticleService, public eventService: EventService) {
     this.aboutArticle = new Article();
     this.admissionsArticle = new Article();
     this.academicsArticle = new Article();

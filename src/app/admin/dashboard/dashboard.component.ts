@@ -32,8 +32,8 @@ export class DashboardComponent implements OnInit {
   public lineChartLegend = false;
   public lineChartType = 'line';
 
-  private recentNews: Article[] = [];
-  private recentEvents: Event[] = [];
+  public recentNews: Article[] = [];
+  public recentEvents: Event[] = [];
 
   activityLogs: ActivityLog[] = [
     {
@@ -73,7 +73,7 @@ export class DashboardComponent implements OnInit {
     }
   ];
 
-  constructor(private articleService: ArticleService, private eventService: EventService) {
+  constructor(public articleService: ArticleService, public eventService: EventService) {
   }
 
   ngOnInit() {

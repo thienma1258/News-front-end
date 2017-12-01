@@ -10,9 +10,9 @@ import {ArticleType} from "../../../shared/enum/article-type.enum";
   styleUrls: ['./posters.component.css']
 })
 export class PostersComponent implements OnInit {
-  private articles: Article[] = [];
+  public articles: Article[] = [];
 
-  constructor(private router: Router, private articleService: ArticleService) {
+  constructor(public router: Router, public articleService: ArticleService) {
   }
 
   ngOnInit() {
