@@ -23,6 +23,10 @@ a{
   margin-bottom: 10px;
 }
 
+.content{
+  text-overflow:ellipsis;
+}
+
 .large .content{
   overflow: hidden;
   display: -webkit-box;

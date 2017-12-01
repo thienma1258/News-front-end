@@ -1,5 +1,5 @@
-<!--<button type="button" class="btn" (click)="addNewArticle()">Add new</button>-->
-<!--<div class="row">-->
-  <!--<preview-edit-box class="col-xl-4 col-lg-4 col-md-6" [displayType]="2" [editLink]="'/admin/news/edit/'"-->
-                    <!--*ngFor="let slide of articles" [slide]="slide"></preview-edit-box>-->
-<!--</div>-->
+<button type="button" class="btn" (click)="addNewArticle()">Add new</button>
+<div class="row">
+  <preview-edit-box class="col-xl-4 col-lg-4 col-md-6" [displayType]="2" [editLink]="'/admin/news/events/edit'"
+                    *ngFor="let event of events" [article]="event"></preview-edit-box>
+</div>

@@ -8,7 +8,6 @@ import {ASSERT_IMAGES_URL} from '../../../app.component';
   styleUrls: ['./article-preview.component.css']
 })
 export class ArticlePreviewComponent implements OnInit {
-  assertImagesUrl = ASSERT_IMAGES_URL;
   @Input() article: Article;
   @Input() showTitle = false;
   @Input() showPreviewContent = false;

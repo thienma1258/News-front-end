@@ -5,6 +5,9 @@ import {UniversityLink} from '../../shared/model/university-link';
 import {ArticleService} from '../../shared/services/article.service';
 import {UniversityInfo} from '../../shared/model/university-info';
 import {Slide} from '../../shared/model/slide';
+import {FileUploader} from 'ng2-file-upload';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import {AuthService} from '../shared/auth.service';
 
 @Component({
   selector: 'profile',
@@ -25,12 +28,50 @@ export class ProfileComponent implements OnInit {
   slideEmitter = EmitterService.get('SLIDE');
   slideEditMode = false;
   isAddingNewSlide = false;
+
   selectedSlide: Slide;
+  selectedSlideImageUrlPath: SafeUrl;
 
   editorLanguage = '中文';
   editorLocale = 'en';
 
-  constructor(private universityService: UniversityService, private articleService: ArticleService) {
+  uploader: FileUploader;
+
+  constructor(private universityService: UniversityService, private authService: AuthService,
+              private articleService: ArticleService, private sanitizer: DomSanitizer) {
+    this.uploader = new FileUploader(
+      {
+        url: this.articleService.uploadImageUrl,
+        authToken: this.authService.getAccessToken(),
+        itemAlias: 'imgFile'
+      });
+    this.uploader.onAfterAddingFile = (fileItem) => {
+      fileItem.withCredentials = false;
+      this.selectedSlideImageUrlPath = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(fileItem._file)));
+    };
+    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+      console.log(JSON.parse(response));
+      console.log(JSON.parse(response)['content']);
+      console.log(item);
+      console.log(status);
+
+      if (status === 200) {
+        this.selectedSlide.slideImageUrl = JSON.parse(response)['content'];
+        if (this.isAddingNewSlide) {
+          this.slideFinishAdding();
+        } else {
+          this.articleService.editSlide(this.selectedSlide).subscribe(
+            data => {
+
+            },
+            err => {
+              console.log(err);
+            }
+          );
+        }
+      }
+    };
+
     this.universityInfo = new UniversityInfo();
     this.contactEmitter.subscribe(msg => {
       if (msg === 'edit') {
@@ -59,6 +100,8 @@ export class ProfileComponent implements OnInit {
         this.slides.forEach(element => {
           if (element.id === msg.split('/')[1]) {
             this.selectedSlide = element;
+            this.selectedSlideImageUrlPath = element.slideImageUrl;
+            console.log(this.selectedSlideImageUrlPath);
           }
         });
       } else if (msg.split('/')[0] === 'delete') {
@@ -164,19 +207,9 @@ export class ProfileComponent implements OnInit {
 
   slideFinishEdit() {
     this.slideEditMode = false;
+    this.selectedSlide.slideImageUrl = this.selectedSlideImageUrlPath.toString();
 
-    if (this.isAddingNewSlide) {
-      this.slideFinishAdding();
-    } else {
-      this.articleService.editSlide(this.selectedSlide).subscribe(
-        data => {
-
-        },
-        err => {
-          console.log(err);
-        }
-      );
-    }
+    this.uploader.queue[0].upload();
   }
 
   slideCancelEdit() {

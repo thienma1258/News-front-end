@@ -1,48 +1,40 @@
 <container-box [title]="'ABOUT US'" [isShowEditLink]="true">
   <ng-container *ngIf="!aboutEditMode">
-    <p *ngIf="Locale === 'en'" class="title">{{aboutArticle.englishTitle}}</p>
-    <p *ngIf="Locale === 'zh-tw'" class="title">{{aboutArticle.chineseTitle}}</p>
     <p *ngIf="Locale === 'en'" [innerHtml]="aboutArticle.englishContent | safeHtml"></p>
     <p *ngIf="Locale === 'zh-tw'" [innerHtml]="aboutArticle.chineseContent | safeHtml"></p>
   </ng-container>
   <ng-container *ngIf="aboutEditMode">
-    <edit-article-detail [article]="aboutArticle"></edit-article-detail>
+    <edit-article-detail [article]="aboutArticle" [showTitle]="false"></edit-article-detail>
   </ng-container>
 </container-box>
 
 <container-box [title]="'FACILITY & ADVISOR'" [isShowEditLink]="true">
   <ng-container *ngIf="!facultyAdvisorEditMode">
-    <p *ngIf="Locale === 'en'" class="title">{{facilityArticle.englishTitle}}</p>
-    <p *ngIf="Locale === 'zh-tw'" class="title">{{facilityArticle.chineseTitle}}</p>
     <p *ngIf="Locale === 'en'" [innerHtml]="facilityArticle.englishContent | safeHtml"></p>
     <p *ngIf="Locale === 'zh-tw'" [innerHtml]="facilityArticle.chineseContent | safeHtml"></p>
   </ng-container>
   <ng-container *ngIf="facultyAdvisorEditMode">
-    <edit-article-detail [article]="facilityArticle"></edit-article-detail>
+    <edit-article-detail [article]="facilityArticle" [showTitle]="false"></edit-article-detail>
   </ng-container>
 </container-box>
 
 <container-box [title]="'DEPARTMENT STRUCTURE & STAFF'" [isShowEditLink]="true">
   <ng-container *ngIf="!departmentEditMode">
-    <p *ngIf="Locale === 'en'" class="title">{{departmentArticle.englishTitle}}</p>
-    <p *ngIf="Locale === 'zh-tw'" class="title">{{departmentArticle.chineseTitle}}</p>
     <p *ngIf="Locale === 'en'" [innerHtml]="departmentArticle.englishContent | safeHtml"></p>
     <p *ngIf="Locale === 'zh-tw'" [innerHtml]="departmentArticle.englishContent | safeHtml"></p>
   </ng-container>
   <ng-container *ngIf="departmentEditMode">
-    <edit-article-detail [article]="departmentArticle"></edit-article-detail>
+    <edit-article-detail [article]="departmentArticle" [showTitle]="false"></edit-article-detail>
   </ng-container>
 </container-box>
 
 <container-box [title]="'CONTACT'" [isShowEditLink]="true">
   <ng-container *ngIf="!contactEditMode">
-    <p *ngIf="Locale === 'en'" class="title">{{contactArticle.englishTitle}}</p>
-    <p *ngIf="Locale === 'zh-tw'" class="title">{{contactArticle.chineseTitle}}</p>
     <p *ngIf="Locale === 'en'" [innerHtml]="contactArticle.englishContent | safeHtml"></p>
     <p *ngIf="Locale === 'zh-tw'" [innerHtml]="contactArticle.englishContent | safeHtml"></p>
   </ng-container>
   <ng-container *ngIf="contactEditMode">
-    <edit-article-detail [article]="contactArticle"></edit-article-detail>
+    <edit-article-detail [article]="contactArticle" [showTitle]="false"></edit-article-detail>
   </ng-container>
 </container-box>
 

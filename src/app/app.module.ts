@@ -11,6 +11,7 @@ import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
 import {ImageUploadModule} from 'angular2-image-upload';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {AuthService} from './admin/shared/auth.service';
+import {FileSelectDirective} from "ng2-file-upload";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -19,6 +20,7 @@ export function HttpLoaderFactory(http: Http) {
 @NgModule({
   declarations: [
     AppComponent,
+    // FileSelectDirective
   ],
   imports: [
     NgbModule.forRoot(),

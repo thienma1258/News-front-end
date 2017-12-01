@@ -1,11 +1,13 @@
 <div>
   <span style="display: inline-block;">Edit post</span>
   <div class="right-nav">
-    <select class="form-control article-size-dropdown" [(ngModel)]="article.size">
-      <option [ngValue]="articleSize.Small">Small</option>
-      <option [ngValue]="articleSize.Wide">Wide</option>
-      <option [ngValue]="articleSize.Large">Large</option>
-    </select>
+    <ng-container *ngIf="isEditingEvent">
+      <select class="form-control article-size-dropdown" [(ngModel)]="article.size">
+        <option [ngValue]="articleSize.Small">Small</option>
+        <option [ngValue]="articleSize.Wide">Wide</option>
+        <option [ngValue]="articleSize.Large">Large</option>
+      </select>
+    </ng-container>
     <a class="translation" (click)="switchEditorLanguage()">
       <img class="translation-icon" src="./../../../../assets/images/translation-web.png">
       <span class="language"><b>{{editorLanguage}}</b></span>
@@ -14,8 +16,10 @@
       <img class="done-icon" src="./../../../../assets/images/done.png">
     </a>
   </div>
-  <input *ngIf="editorLocale === 'en'" class="input-title" type="text" [(ngModel)]="article.englishTitle">
-  <input *ngIf="editorLocale === 'zh-tw'" class="input-title" type="text" [(ngModel)]="article.chineseTitle">
+  <ng-container *ngIf="showTitle">
+    <input *ngIf="editorLocale === 'en'" class="input-title" type="text" [(ngModel)]="article.englishTitle">
+    <input *ngIf="editorLocale === 'zh-tw'" class="input-title" type="text" [(ngModel)]="article.chineseTitle">
+  </ng-container>
   <div *ngIf="editorLocale === 'en'" class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="article.englishContent"></div>
   <div *ngIf="editorLocale === 'zh-tw'" class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="article.chineseContent"></div>
 </div>

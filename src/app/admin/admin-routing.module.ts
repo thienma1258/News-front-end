@@ -21,7 +21,8 @@ import {CourseNewsComponent} from './news/course-news/course-news.component';
 import {EventsComponent} from './news/events/events.component';
 import {SchoolLeadershipComponent} from './news/school-leadership/school-leadership.component';
 import {CalendarComponent} from './news/calendar/calendar.component';
-import {ChangePasswordComponent} from "./change-password/change-password.component";
+import {ChangePasswordComponent} from './change-password/change-password.component';
+import {EditEventDetailComponent} from "./shared/edit-event-detail/edit-event-detail.component";
 
 const routes: Routes = [
   {
@@ -124,7 +125,13 @@ const routes: Routes = [
           },
           {
             path: 'events',
-            component: EventsComponent
+            component: EventsComponent,
+            children: [
+              {
+                path: 'edit/:id',
+                component: EditEventDetailComponent
+              }
+            ]
           },
           {
             path: 'school-leadership',

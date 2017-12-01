@@ -1,11 +1,11 @@
 <div>
   <a routerLink="">
-    <div class="circle">{{event.beginDate}}</div>
+    <div class="circle">{{event.beginDate | date: 'MMM dd'}}</div>
     <div class="content">
-      <p *ngIf="Locale === 'en'" class="title">{{event.article.englishTitle}}</p>
-      <p *ngIf="Locale === 'zh-tw'" class="title">{{event.article.chineseTitle}}</p>
-      <p *ngIf="Locale === 'en'" class="preview-content">{{event.article.englishContent}}</p>
-      <p *ngIf="Locale === 'zh-tw'" class="preview-content">{{event.article.chineseContent}}</p>
+      <p *ngIf="Locale === 'en'" class="title">{{event.englishTitle}}</p>
+      <p *ngIf="Locale === 'zh-tw'" class="title">{{event.chineseTitle}}</p>
+      <p *ngIf="Locale === 'en'" class="preview-content">{{event.englishContent}}</p>
+      <p *ngIf="Locale === 'zh-tw'" class="preview-content">{{event.chineseContent}}</p>
     </div>
   </a>
 </div>

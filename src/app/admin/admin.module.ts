@@ -38,6 +38,8 @@ import {ImageUploadModule} from 'angular2-image-upload';
 import {EventService} from '../shared/services/event.service';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import {SharedModule} from '../shared/shared/shared.module';
+import {FileSelectDirective, FileUploadModule} from 'ng2-file-upload';
+import { EditEventDetailComponent } from './shared/edit-event-detail/edit-event-detail.component';
 
 @NgModule({
   imports: [
@@ -52,6 +54,7 @@ import {SharedModule} from '../shared/shared/shared.module';
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     ImageUploadModule.forRoot(),
+    FileUploadModule,
   ],
   providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService],
   declarations: [
@@ -79,7 +82,8 @@ import {SharedModule} from '../shared/shared/shared.module';
     EventsComponent,
     SchoolLeadershipComponent,
     CalendarComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    EditEventDetailComponent,
   ]
 })
 

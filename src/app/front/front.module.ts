@@ -37,7 +37,7 @@ import {SharedModule} from '../shared/shared/shared.module';
     ArticleContentComponent,
     NewsComponent,
     ResearchDetailsComponent,
-    NewsDetailsComponent
+    NewsDetailsComponent,
   ],
   imports: [
     SharedModule,

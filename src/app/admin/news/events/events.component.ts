@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Article} from '../../../shared/model/article';
 import {Router} from '@angular/router';
-import {ArticleService} from '../../../shared/services/article.service';
-import {ArticleType} from "../../../shared/enum/article-type.enum";
+import {EventService} from '../../../shared/services/event.service';
 
 @Component({
   selector: 'events',
@@ -10,13 +9,20 @@ import {ArticleType} from "../../../shared/enum/article-type.enum";
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  private articles: Article[] = [];
+  private events: Event[] = [];
 
-  constructor(private router: Router, private articleService: ArticleService) {
+  constructor(private router: Router, private eventService: EventService) {
   }
 
   ngOnInit() {
-
+    this.eventService.getEvents().subscribe(
+      data => {
+        this.events = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   get Locale() {

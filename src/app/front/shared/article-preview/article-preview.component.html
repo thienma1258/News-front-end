@@ -2,7 +2,8 @@
   <div *ngSwitchCase="1">
     <a routerLink="{{articleUrl}}">
       <div class="row">
-        <img class="col-xl-5 col-lg-5 col-md-5 image" src="http://localhost:4200/assets/images/eed-logo.png">
+        <img *ngIf="showPreviewImage" class="col-xl-5 col-lg-5 col-md-5 image" src="{{article.previewImageUrl}}"
+             onerror="src='./assets/images/no_preview_image.jpg'">
         <div class="col-xl-7 col-lg-7 col-md-7 content">
           <p *ngIf="showTitle" class="title">
             <ng-container *ngIf="LanguageLocale == 'en'">
@@ -23,7 +24,8 @@
   </div>
   <div *ngSwitchCase="2" class="large">
     <a routerLink="{{articleUrl}}">
-      <img class="image" src="http://localhost:4200/assets/images/eed-logo.png">
+      <img *ngIf="showPreviewImage" class="image" src="{{article.previewImageUrl}}"
+           onerror="src='./assets/images/no_preview_image.jpg'">
       <div class="content">
         <p *ngIf="showTitle" class="title">
           <ng-container *ngIf="LanguageLocale == 'en'">
@@ -43,7 +45,8 @@
   </div>
   <div class="large" *ngSwitchCase="3">
     <a routerLink="{{articleUrl}}">
-      <img class="image" src="http://localhost:4200/assets/images/eed-logo.png">
+      <img *ngIf="showPreviewImage" class="image" src="{{article.previewImageUrl}}"
+           onerror="src='./assets/images/no_preview_image.jpg'">
       <div class="content">
         <p *ngIf="showTitle" class="title">
           <ng-container *ngIf="LanguageLocale == 'en'">

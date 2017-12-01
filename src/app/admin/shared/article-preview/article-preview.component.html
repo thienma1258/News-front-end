@@ -1,12 +1,12 @@
 <div>
   <a routerLink="">
-    <img class="image" src="{{article.imageUrls[0]}}">
+    <img class="image" src="{{article?.previewImageUrl}}" onerror="src='./assets/images/no_preview_image.jpg'">
     <div class="content">
       <ng-container *ngIf="showTitle">
         <p *ngIf="Locale === 'en'" class="title">{{article.englishTitle}}</p>
         <p *ngIf="Locale === 'zh-tw'" class="title">{{article.chineseTitle}}</p>
       </ng-container>
-      <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime}}</p>
+      <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime | date: 'MMM dd yyyy'}}</p>
       <ng-container *ngIf="showPreviewContent">
         <p *ngIf="Locale === 'en'" class="preview-content">{{article.englishContent}}</p>
         <p *ngIf="Locale === 'zh-tw'" class="preview-content">{{article.chineseContent}}</p>

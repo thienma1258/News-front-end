@@ -2,9 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {ArticleService} from '../../../shared/services/article.service';
+import {ArticleSize} from '../../../shared/enum/article-size.enum';
+import {EventService} from '../../../shared/services/event.service';
 import {Article} from '../../../shared/model/article';
-import {ArticleType} from '../../../shared/enum/article-type.enum';
-import {ArticleSize} from "../../../shared/enum/article-size.enum";
 
 
 @Component({
@@ -12,11 +12,14 @@ import {ArticleSize} from "../../../shared/enum/article-size.enum";
   templateUrl: './edit-article-detail.component.html',
   styleUrls: ['./edit-article-detail.component.css']
 })
+
 export class EditArticleDetailComponent implements OnInit {
   @Input() article: Article;
+  @Input() showTitle = true;
   isShowDoneButton = false;
+  isEditingEvent = false;
 
-  articleId: number;
+  articleId: string;
   articleType: string;
   articleSize = ArticleSize;
   isAddNew = false;
@@ -29,7 +32,8 @@ export class EditArticleDetailComponent implements OnInit {
     heightMax: 600
   };
 
-  constructor(private route: ActivatedRoute, private location: Location, private articleService: ArticleService) {
+  constructor(private route: ActivatedRoute, private location: Location,
+              private articleService: ArticleService, private eventService: EventService) {
   }
 
   get Locale() {
@@ -39,16 +43,14 @@ export class EditArticleDetailComponent implements OnInit {
   ngOnInit() {
     if (this.article === undefined) {
       this.isShowDoneButton = true;
-      this.article = new Article();
       this.route.params.subscribe(params => {
         this.articleId = params['id'];
-        this.articleType = params['type'];
         if (this.articleId === null || this.articleId === undefined) {
           this.isAddNew = true;
         }
-        this.articleService.getArticles(String(ArticleType.FacultyAdvisor)).subscribe(
+        this.articleService.getArticlesById(this.articleId).subscribe(
           data => {
-            this.article = data['content'][0];
+            this.article = data['content'];
           },
           err => {
             console.log(err);
@@ -59,6 +61,14 @@ export class EditArticleDetailComponent implements OnInit {
   }
 
   finishEdit() {
+    this.articleService.editArticle(this.article).subscribe(
+      data => {
+
+      },
+      err => {
+        console.log(err);
+      }
+    );
     this.location.back();
   }
 

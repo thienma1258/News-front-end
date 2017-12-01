@@ -25,11 +25,11 @@ export class PreviewEditBoxComponent implements OnInit {
 
   }
 
-  edit() {
+  editSlide() {
     this.slideEmitter.emit('edit/' + this.article.id);
   }
 
-  delete() {
+  deleteSlide() {
     this.slideEmitter.emit('delete/' + this.article.id);
   }
 }

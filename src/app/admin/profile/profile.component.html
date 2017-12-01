@@ -3,17 +3,24 @@
     <span class="title">Name:</span><span *ngIf="!contactEditMode" class="content">
       <ng-container *ngIf="Locale === 'en'">{{universityInfo.englishName}}</ng-container>
       <ng-container *ngIf="Locale ==='zh-tw'">{{universityInfo.chineseName}}</ng-container>
-    </span><ng-container *ngIf="contactEditMode"><input *ngIf="Locale === 'en'" class="content edit-box long-width" [(ngModel)]="universityInfo.englishName" required><input *ngIf="Locale === 'zh-tw'" class="content edit-box long-width" [(ngModel)]="universityInfo.chineseName"
-             required>
+    </span>
+    <ng-container *ngIf="contactEditMode"><input *ngIf="Locale === 'en'" class="content edit-box long-width"
+                                                 [(ngModel)]="universityInfo.englishName" required><input
+      *ngIf="Locale === 'zh-tw'" class="content edit-box long-width" [(ngModel)]="universityInfo.chineseName"
+      required>
     </ng-container>
   </div>
   <div class="field">
     <span class="title">Address:</span><span *ngIf="!contactEditMode" class="content">
       <ng-container *ngIf="Locale === 'en'">{{universityInfo.englishAddress}}</ng-container>
       <ng-container *ngIf="Locale ==='zh-tw'">{{universityInfo.chineseAddress}}</ng-container>
-    </span><ng-container *ngIf="contactEditMode"><input *ngIf="Locale === 'en'" class="content edit-box long-width" [(ngModel)]="universityInfo.englishAddress"
-             required><input *ngIf="Locale === 'zh-tw'" class="content edit-box long-width" [(ngModel)]="universityInfo.chineseAddress"
-             required>
+    </span>
+    <ng-container *ngIf="contactEditMode"><input *ngIf="Locale === 'en'" class="content edit-box long-width"
+                                                 [(ngModel)]="universityInfo.englishAddress"
+                                                 required><input *ngIf="Locale === 'zh-tw'"
+                                                                 class="content edit-box long-width"
+                                                                 [(ngModel)]="universityInfo.chineseAddress"
+                                                                 required>
     </ng-container>
   </div>
   <div class="phone field">
@@ -92,11 +99,11 @@
     </div>
   </div>
   <div *ngIf="slideEditMode" class="slide-edit">
-    <image-upload
-      [max]="1"
-      [class]="'customClass'"
-      [preview]="true">
-    </image-upload>
+    <div class="upload-image">
+      <img [src]="selectedSlideImageUrlPath" onerror="src='./assets/images/no_preview_image.jpg'">
+      <br/>
+      <input type="file" ng2FileSelect [uploader]="uploader">
+    </div>
     <div class="right-nav">
       <a class="translation" (click)="switchEditorLanguage()">
         <img class="translation-icon" src="./../../../../assets/images/translation-web.png">

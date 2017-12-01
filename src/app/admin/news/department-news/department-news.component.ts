@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Article} from '../../../shared/model/article';
 import {Router} from '@angular/router';
 import {ArticleService} from '../../../shared/services/article.service';
-import {ArticleType} from "../../../shared/enum/article-type.enum";
+import {ArticleType} from '../../../shared/enum/article-type.enum';
 
 @Component({
   selector: 'department-news',

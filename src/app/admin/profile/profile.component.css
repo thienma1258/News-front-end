@@ -61,6 +61,21 @@ container-box{
   height: 25px;
 }
 
+.upload-image{
+  text-align: center;
+}
+
+.upload-image img{
+  width: 445px;
+  height: 300px;
+}
+
+.upload-image input{
+  margin-top: 20px;
+  width: 250px !important;
+  display: inline-block;
+}
+
 /deep/ .customClass {
   background-color: #F8F8F8;
   border-radius: 5px;

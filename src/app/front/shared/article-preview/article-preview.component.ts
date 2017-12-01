@@ -12,6 +12,7 @@ export class ArticlePreviewComponent implements OnInit {
   @Input() article: Article;
   @Input() displayType: number;
   @Input() showTitle = false;
+  @Input() showPreviewImage = false;
   @Input() showPreviewContent = false;
   @Input() showCreatedTime = false;
   @Input() articleUrl = '';

@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Article} from '../../shared/model/article';
 import {Event} from '../../shared/model/event';
 import {ActivityLog} from '../../shared/model/activity-log';
-import {ArticleService} from "../../shared/services/article.service";
-import {EventService} from "../../shared/services/event.service";
+import {ArticleService} from '../../shared/services/article.service';
+import {EventService} from '../../shared/services/event.service';
 
 @Component({
   selector: 'dashboard',
@@ -77,10 +77,23 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    for (let i = 0; i < 3; i++) {
-      // this.recentNews.push(this.articleService.getArticles(String(i)));
-      // this.recentEvents.push(this.eventService.getEvent(String(i)));
-    }
+    this.articleService.getLatestNews().subscribe(
+      data => {
+        this.recentNews = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    this.eventService.getUpcomingEvent().subscribe(
+      data => {
+        this.recentEvents = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }
