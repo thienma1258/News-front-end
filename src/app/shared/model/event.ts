@@ -11,4 +11,5 @@ export class Event {
   chineseContent?: string;
   createdTime: string;
   beginDate: string;
+  lastUpdatedTime: string;
 }

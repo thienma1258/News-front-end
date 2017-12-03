@@ -9,6 +9,7 @@ export class Article {
   englishContent?: string;
   chineseContent?: string;
   createdTime: string;
+  lastUpdatedTime: string;
 
   constructor() {
     this.id = '';

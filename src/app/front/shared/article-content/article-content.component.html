@@ -5,7 +5,7 @@
       <ng-container *ngIf="Locale == 'zh-tw'">{{article.chineseTitle}}</ng-container>
     </h3>
     <div id="information">
-      <span>Created Time: {{article.createdTime}}</span>
+      <span>Last Updated: {{article?.lastUpdatedTime}}</span>
       <div class="translator" style="display: table;">
         <span>E</span>
         <a style="cursor: pointer; display: table-cell; vertical-align: middle;">
