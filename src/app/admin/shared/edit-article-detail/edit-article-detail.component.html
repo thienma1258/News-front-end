@@ -20,6 +20,18 @@
     <input *ngIf="editorLocale === 'en'" class="input-title" type="text" [(ngModel)]="article.englishTitle">
     <input *ngIf="editorLocale === 'zh-tw'" class="input-title" type="text" [(ngModel)]="article.chineseTitle">
   </ng-container>
+  <ng-container *ngIf="isEditingEvent">
+    <label><b>Event begin date: </b></label>
+    <owl-date-time [(ngModel)]="eventbeginDate" [type]="'both'" [dateFormat]="'YYYY MMM DD - hh:mm'"
+                   [hideClearButton]="true" [locale]="en" (onSelect)="onSelectDateTime()"></owl-date-time>
+  </ng-container>
+  <div *ngIf="showPreviewImageEditor" class="upload-image">
+    <label><b>Article's preview image</b></label>
+    <br/>
+    <img [src]="selectedSlideImageUrlPath" onerror="src='./assets/images/no_preview_image.jpg'">
+    <br/>
+    <input type="file" ng2FileSelect [uploader]="uploader">
+  </div>
   <div *ngIf="editorLocale === 'en'" class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="article.englishContent"></div>
   <div *ngIf="editorLocale === 'zh-tw'" class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="article.chineseContent"></div>
 </div>

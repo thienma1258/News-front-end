@@ -125,13 +125,7 @@ const routes: Routes = [
           },
           {
             path: 'events',
-            component: EventsComponent,
-            children: [
-              {
-                path: 'edit/:id',
-                component: EditEventDetailComponent
-              }
-            ]
+            component: EventsComponent
           },
           {
             path: 'school-leadership',

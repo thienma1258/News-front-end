@@ -50,25 +50,9 @@ export class ProfileComponent implements OnInit {
       this.selectedSlideImageUrlPath = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(fileItem._file)));
     };
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-      console.log(JSON.parse(response));
-      console.log(JSON.parse(response)['content']);
-      console.log(item);
-      console.log(status);
-
       if (status === 200) {
         this.selectedSlide.slideImageUrl = JSON.parse(response)['content'];
-        if (this.isAddingNewSlide) {
-          this.slideFinishAdding();
-        } else {
-          this.articleService.editSlide(this.selectedSlide).subscribe(
-            data => {
-
-            },
-            err => {
-              console.log(err);
-            }
-          );
-        }
+        this.updateData();
       }
     };
 
@@ -174,6 +158,7 @@ export class ProfileComponent implements OnInit {
   addNewSlide() {
     this.slideEditMode = true;
     this.isAddingNewSlide = true;
+    this.selectedSlideImageUrlPath = '';
     this.selectedSlide = new Slide();
   }
 
@@ -207,9 +192,27 @@ export class ProfileComponent implements OnInit {
 
   slideFinishEdit() {
     this.slideEditMode = false;
-    this.selectedSlide.slideImageUrl = this.selectedSlideImageUrlPath.toString();
+    if (this.uploader.queue.length > 0) {
+      this.selectedSlide.slideImageUrl = this.selectedSlideImageUrlPath.toString();
+      this.uploader.queue[0].upload();
+    } else {
+      this.updateData();
+    }
+  }
 
-    this.uploader.queue[0].upload();
+  updateData() {
+    if (this.isAddingNewSlide) {
+      this.slideFinishAdding();
+    } else {
+      this.articleService.editSlide(this.selectedSlide).subscribe(
+        data => {
+
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
   }
 
   slideCancelEdit() {

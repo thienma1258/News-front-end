@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {LoginComponent} from './login/login.component';
 import {AdminRoutingModule} from './admin-routing.module';
@@ -40,6 +40,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import {SharedModule} from '../shared/shared/shared.module';
 import {FileSelectDirective, FileUploadModule} from 'ng2-file-upload';
 import { EditEventDetailComponent } from './shared/edit-event-detail/edit-event-detail.component';
+import {DateTimePickerModule} from 'ng-pick-datetime';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -55,8 +57,9 @@ import { EditEventDetailComponent } from './shared/edit-event-detail/edit-event-
     FroalaViewModule.forRoot(),
     ImageUploadModule.forRoot(),
     FileUploadModule,
+    DateTimePickerModule,
   ],
-  providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService],
+  providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService, DatePipe],
   declarations: [
     DashboardComponent,
     LoginComponent,

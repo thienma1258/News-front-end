@@ -12,8 +12,8 @@
     </div>
   </div>
   <div class="content" style="background-color: rgba(100, 100, 100, 0.2); padding: 8px 12px;" *ngSwitchCase="2">
-    <!--edit slide-->
-    <img class="preview-image" src="{{article.slideImageUrl}}" onerror="src='./assets/images/no_preview_image.jpg'">
+    <!--edit article-->
+    <img class="preview-image" src="{{article.previewImageUrl}}" onerror="src='./assets/images/no_preview_image.jpg'">
     <div style="font-size: 20px; margin-top: 10px;">
       <p *ngIf="Locale === 'en'" style="font-weight: 500;">{{article.englishTitle}}</p>
       <p *ngIf="Locale === 'zh-tw'" style="font-weight: 500;">{{article.chineseTitle}}</p>
