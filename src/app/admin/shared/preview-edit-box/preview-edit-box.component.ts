@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Article} from '../../../shared/model/article';
-import {EmitterService} from "../emitter.service";
+import {EmitterService} from '../emitter.service';
 
 @Component({
   selector: 'preview-edit-box',
@@ -11,8 +10,10 @@ export class PreviewEditBoxComponent implements OnInit {
   @Input() displayType = 1;
   @Input() article: any;
   @Input() editLink = '/admin/research/addnew/';
+  @Input() informationTitle: string;
 
   slideEmitter = EmitterService.get('SLIDE');
+  informationEmitter = EmitterService.get('INFORMATION');
 
   constructor() {
   }
@@ -31,5 +32,9 @@ export class PreviewEditBoxComponent implements OnInit {
 
   deleteSlide() {
     this.slideEmitter.emit('delete/' + this.article.id);
+  }
+
+  editInformation() {
+    this.informationEmitter.emit(this.article.id);
   }
 }

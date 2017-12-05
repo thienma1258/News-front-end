@@ -24,4 +24,14 @@
       </div>
     </div>
   </div>
+  <div class="content" style="padding: 8px 12px;" *ngSwitchCase="3">
+    <!--edit information-->
+    <div>
+      <span style="font-size: 20px;"><b>{{informationTitle}}</b></span>
+      <img (click)="editInformation()" class="icon" style="float: right;" src="../../../../assets/images/edit.png">
+    </div>
+    <a style="color: black; text-decoration: none; margin-top: 10px" href="{{article.redirectUrl}}">
+      <img class="preview-image" src="{{article.previewImageUrl}}" onerror="src='./assets/images/no_preview_image.jpg'">
+    </a>
+  </div>
 </div>

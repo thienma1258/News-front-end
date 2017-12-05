@@ -91,16 +91,16 @@ container-box{
   height: stretch;
 }
 
-.slide-edit p{
+.edit-form p{
   margin-bottom: 8px;
 }
 
-.slide-edit input {
+.edit-form input {
   width: 100%;
   margin-bottom: 20px;
 }
 
-.slide-edit textarea{
+.edit-form textarea{
   width: 100%;
   min-height: 100px;
 }

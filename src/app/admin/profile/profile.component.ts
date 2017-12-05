@@ -8,6 +8,7 @@ import {Slide} from '../../shared/model/slide';
 import {FileUploader} from 'ng2-file-upload';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {AuthService} from '../shared/auth.service';
+import {Information} from '../../shared/model/information';
 
 @Component({
   selector: 'profile',
@@ -18,6 +19,7 @@ export class ProfileComponent implements OnInit {
   universityInfo: UniversityInfo;
   links: UniversityLink[] = [];
   slides: Slide[] = [];
+  informations: Information[] = []
 
   contactEmitter = EmitterService.get('CONTACT');
   contactEditMode = false;
@@ -30,7 +32,12 @@ export class ProfileComponent implements OnInit {
   isAddingNewSlide = false;
 
   selectedSlide: Slide;
-  selectedSlideImageUrlPath: SafeUrl;
+
+  informationEmitter = EmitterService.get('INFORMATION');
+  informationEditMode = false;
+  selectedInformation: Information;
+
+  selectedImageUrlPath: SafeUrl;
 
   editorLanguage = '中文';
   editorLocale = 'en';
@@ -47,7 +54,7 @@ export class ProfileComponent implements OnInit {
       });
     this.uploader.onAfterAddingFile = (fileItem) => {
       fileItem.withCredentials = false;
-      this.selectedSlideImageUrlPath = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(fileItem._file)));
+      this.selectedImageUrlPath = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(fileItem._file)));
     };
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
       if (status === 200) {
@@ -56,6 +63,51 @@ export class ProfileComponent implements OnInit {
       }
     };
 
+    this.informations = [
+      {
+        id: '1',
+        englishTitle: 'Academics',
+        chineseTitle: 'Academics C',
+        englishContent: 'english content 1',
+        chineseContent: 'chinese content 1',
+        previewImageUrl: './assert/images/077.jpg',
+        redirectUrl: 'https://www.google.com'
+      },
+      {
+        id: '2',
+        englishTitle: 'Admissions',
+        chineseTitle: 'Admissions C',
+        englishContent: 'english content 2',
+        chineseContent: 'chinese content 2',
+        previewImageUrl: './assert/images/077.jpg',
+        redirectUrl: 'https://www.google.com'
+      },
+      {
+        id: '3',
+        englishTitle: 'Research',
+        chineseTitle: 'Research C',
+        englishContent: 'english content 3',
+        chineseContent: 'chinese content 3',
+        previewImageUrl: './assert/images/077.jpg',
+        redirectUrl: 'https://www.google.com'
+      },
+      {
+        id: '4',
+        englishTitle: 'Student Life',
+        chineseTitle: 'Student Life C',
+        englishContent: 'english content 4',
+        chineseContent: 'chinese content 4',
+        previewImageUrl: './assert/images/077.jpg',
+        redirectUrl: 'https://www.google.com'
+      }
+    ];
+  }
+
+  get Locale() {
+    return localStorage.getItem('locale');
+  }
+
+  ngOnInit() {
     this.universityInfo = new UniversityInfo();
     this.contactEmitter.subscribe(msg => {
       if (msg === 'edit') {
@@ -84,8 +136,8 @@ export class ProfileComponent implements OnInit {
         this.slides.forEach(element => {
           if (element.id === msg.split('/')[1]) {
             this.selectedSlide = element;
-            this.selectedSlideImageUrlPath = element.slideImageUrl;
-            console.log(this.selectedSlideImageUrlPath);
+            this.selectedImageUrlPath = element.slideImageUrl;
+            console.log(this.selectedImageUrlPath);
           }
         });
       } else if (msg.split('/')[0] === 'delete') {
@@ -96,6 +148,16 @@ export class ProfileComponent implements OnInit {
           }
         });
       }
+    });
+
+    this.informationEmitter.subscribe(msg => {
+      this.informationEditMode = true;
+      this.informations.forEach(element => {
+        if (element.id === msg) {
+          this.selectedInformation = element;
+          this.selectedImageUrlPath = element.previewImageUrl;
+        }
+      });
     });
 
     this.universityService.getUniversityInfo().subscribe(
@@ -126,13 +188,6 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  get Locale() {
-    return localStorage.getItem('locale');
-  }
-
-  ngOnInit() {
-  }
-
   contactFinishEdit() {
     this.universityService.editUniverSityInfo(this.universityInfo).subscribe(
       data => {
@@ -158,7 +213,7 @@ export class ProfileComponent implements OnInit {
   addNewSlide() {
     this.slideEditMode = true;
     this.isAddingNewSlide = true;
-    this.selectedSlideImageUrlPath = '';
+    this.selectedImageUrlPath = '';
     this.selectedSlide = new Slide();
   }
 
@@ -193,7 +248,7 @@ export class ProfileComponent implements OnInit {
   slideFinishEdit() {
     this.slideEditMode = false;
     if (this.uploader.queue.length > 0) {
-      this.selectedSlide.slideImageUrl = this.selectedSlideImageUrlPath.toString();
+      this.selectedSlide.slideImageUrl = this.selectedImageUrlPath.toString();
       this.uploader.queue[0].upload();
     } else {
       this.updateData();
@@ -217,6 +272,14 @@ export class ProfileComponent implements OnInit {
 
   slideCancelEdit() {
     this.slideEditMode = false;
+  }
+
+  informationFinishEdit() {
+    this.informationEditMode = false;
+  }
+
+  informationCancelEdit() {
+    this.informationEditMode = false;
   }
 
   switchEditorLanguage() {

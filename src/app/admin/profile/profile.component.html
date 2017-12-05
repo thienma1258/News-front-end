@@ -86,21 +86,15 @@
 </container-box>
 
 <container-box [title]="'SLIDE'">
-  <div *ngIf="slideEditMode" style="position: absolute; right: 30px; top: 25px;">
-    <img (click)="slideFinishEdit()" style="cursor: pointer; margin-right: 10px;"
-         src="../../../../assets/images/done.png">
-    <img (click)="slideCancelEdit()" style="cursor: pointer;" src="../../../../assets/images/cancel.png">
-  </div>
-  <div *ngIf="!slideEditMode" class="row">
-    <preview-edit-box class="col-xl-4 col-lg-4 col-md-6 slide" *ngFor="let slide of slides;"
-                      [article]="slide"></preview-edit-box>
-    <div (click)="addNewSlide()" class="col-xl-4 col-lg-4 col-md-6 add-slide">
-      <img src="../../../assets/images/add.png">
+  <ng-container *ngIf="slideEditMode">
+    <div style="position: absolute; right: 30px; top: 25px;">
+      <img (click)="slideFinishEdit()" style="cursor: pointer; margin-right: 10px;"
+           src="../../../../assets/images/done.png">
+      <img (click)="slideCancelEdit()" style="cursor: pointer;" src="../../../../assets/images/cancel.png">
     </div>
-  </div>
-  <div *ngIf="slideEditMode" class="slide-edit">
+
     <div class="upload-image">
-      <img [src]="selectedSlideImageUrlPath" onerror="src='./assets/images/no_preview_image.jpg'">
+      <img [src]="selectedImageUrlPath" onerror="src='./assets/images/no_preview_image.jpg'">
       <br/>
       <input type="file" ng2FileSelect [uploader]="uploader">
     </div>
@@ -110,12 +104,68 @@
         <span class="language"><b>{{editorLanguage}}</b></span>
       </a>
     </div>
-    <p><b>Title</b></p>
-    <input *ngIf="editorLocale === 'en'" [(ngModel)]="selectedSlide.englishTitle">
-    <input *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="selectedSlide.chineseTitle">
-    <p><b>Description</b></p>
-    <textarea *ngIf="editorLocale === 'en'" [(ngModel)]="selectedSlide.englishContent"></textarea>
-    <textarea *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="selectedSlide.chineseContent"></textarea>
+
+    <div class="edit-form">
+      <p><b>Title</b></p>
+      <input *ngIf="editorLocale === 'en'" [(ngModel)]="selectedSlide.englishTitle">
+      <input *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="selectedSlide.chineseTitle">
+      <p><b>Description</b></p>
+      <textarea *ngIf="editorLocale === 'en'" [(ngModel)]="selectedSlide.englishContent"></textarea>
+      <textarea *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="selectedSlide.chineseContent"></textarea>
+    </div>
+  </ng-container>
+
+  <div *ngIf="!slideEditMode" class="row">
+    <preview-edit-box class="col-xl-4 col-lg-4 col-md-6 slide" *ngFor="let slide of slides;"
+                      [article]="slide"></preview-edit-box>
+    <div (click)="addNewSlide()" class="col-xl-4 col-lg-4 col-md-6 add-slide">
+      <img src="../../../assets/images/add.png">
+    </div>
+  </div>
+</container-box>
+
+<container-box [title]="'INFORMATION'">
+  <ng-container *ngIf="informationEditMode">
+    <div style="position: absolute; right: 30px; top: 25px;">
+      <img (click)="informationFinishEdit()" style="cursor: pointer; margin-right: 10px;"
+           src="../../../../assets/images/done.png">
+      <img (click)="informationCancelEdit()" style="cursor: pointer;" src="../../../../assets/images/cancel.png">
+    </div>
+    <div>
+      <div class="upload-image">
+        <img [src]="selectedImageUrlPath" onerror="src='./assets/images/no_preview_image.jpg'">
+        <br/>
+        <input type="file" ng2FileSelect [uploader]="uploader">
+      </div>
+      <div class="right-nav">
+        <a class="translation" (click)="switchEditorLanguage()">
+          <img class="translation-icon" src="./../../../../assets/images/translation-web.png">
+          <span class="language"><b>{{editorLanguage}}</b></span>
+        </a>
+      </div>
+      <div class="edit-form">
+        <p><b>Title</b></p>
+        <input *ngIf="editorLocale === 'en'" [(ngModel)]="selectedInformation.englishTitle">
+        <input *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="selectedInformation.chineseTitle">
+        <p><b>Description</b></p>
+        <textarea *ngIf="editorLocale === 'en'" [(ngModel)]="selectedInformation.englishContent"></textarea>
+        <textarea *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="selectedInformation.chineseContent"></textarea>
+
+        <p><b>Link post</b></p>
+        <textarea *ngIf="editorLocale === 'en'" [(ngModel)]="selectedInformation.redirectUrl"></textarea>
+      </div>
+    </div>
+  </ng-container>
+
+  <div *ngIf="!informationEditMode" class="row">
+    <ng-container *ngIf="Locale === 'en'">
+      <preview-edit-box class="col-xl-6 col-lg-6 col-md-6" *ngFor="let information of informations" [article]="information"
+                        [displayType]="3" [informationTitle]="information.englishTitle"></preview-edit-box>
+    </ng-container>
+    <ng-container *ngIf="Locale === 'zh-tw'">
+      <preview-edit-box class="col-xl-6 col-lg-6 col-md-6" *ngFor="let information of informations" [article]="information"
+                        [displayType]="3" [informationTitle]="information.chineseTitle"></preview-edit-box>
+    </ng-container>
   </div>
 </container-box>
 
