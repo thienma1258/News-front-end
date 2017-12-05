@@ -12,6 +12,7 @@ export class ArticleService {
   private getArticleUrl;
   private getArticlesUrl;
   private editArticleUrl;
+  private removeArticleUrl;
   private searchArticleUrl;
 
   private getSlideUrl;
@@ -27,6 +28,7 @@ export class ArticleService {
     this.getArticleUrl = this.authService.apiUrl + '/article/get/';
     this.getArticlesUrl = this.authService.apiUrl + '/article/get?';
     this.editArticleUrl = this.authService.apiUrl + '/article/edit';
+    this.removeArticleUrl = this.authService.apiUrl + '/article/remove';
     this.searchArticleUrl = this.authService.apiUrl + '/article/search/';
 
     this.getSlideUrl = this.authService.apiUrl + '/slide/get';
@@ -68,8 +70,23 @@ export class ArticleService {
         }
       )
     };
-    console.log(article);
     return this.http.put(url, article, options);
+  }
+
+  removeArticle(id: string) {
+    const url = this.removeArticleUrl;
+    const data: FormData = new FormData();
+    data.append('id', id);
+    const options = {
+      headers: new HttpHeaders(
+        {
+          'Accept': 'application/json',
+          'Authorization': this.authService.getAccessToken()
+        }
+      )
+    };
+    console.log(id);
+    return this.http.post(url, data, options);
   }
 
   getSlides() {

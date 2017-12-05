@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {EmitterService} from '../emitter.service';
+import {ArticleService} from "../../../shared/services/article.service";
 
 @Component({
   selector: 'preview-edit-box',
@@ -15,7 +16,7 @@ export class PreviewEditBoxComponent implements OnInit {
   slideEmitter = EmitterService.get('SLIDE');
   informationEmitter = EmitterService.get('INFORMATION');
 
-  constructor() {
+  constructor(private articleService: ArticleService) {
   }
 
   get Locale() {
@@ -24,6 +25,19 @@ export class PreviewEditBoxComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  removeArticle() {
+    if (confirm('Are you sure to remove this article ?')) {
+      this.articleService.removeArticle(this.article.id).subscribe(
+        data => {
+
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
   }
 
   editSlide() {

@@ -20,7 +20,7 @@
       <p style="font-size: 12px; color: rgba(100, 100, 100, 0.6);">{{article.createdTime | date: 'MMM dd yyyy'}}</p>
       <div style="text-align: right;">
         <img class="icon" routerLink="{{editLink + article.id}}" src="../../../../assets/images/edit.png">
-        <img class="icon" style="margin-left: 10px;" src="../../../../assets/images/cancel.png">
+        <img class="icon" (click)="removeArticle()" style="margin-left: 10px;" src="../../../../assets/images/cancel.png">
       </div>
     </div>
   </div>
