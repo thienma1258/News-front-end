@@ -16,6 +16,8 @@ export class PreviewEditBoxComponent implements OnInit {
   slideEmitter = EmitterService.get('SLIDE');
   informationEmitter = EmitterService.get('INFORMATION');
 
+  researchNewsEmitter = EmitterService.get('RESEARCH-NEWS');
+
   constructor(private articleService: ArticleService) {
   }
 
@@ -29,6 +31,7 @@ export class PreviewEditBoxComponent implements OnInit {
 
   removeArticle() {
     if (confirm('Are you sure to remove this article ?')) {
+      this.researchNewsEmitter.emit(this.article.id);
       this.articleService.removeArticle(this.article.id).subscribe(
         data => {
 
