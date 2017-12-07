@@ -22,7 +22,7 @@ import {ArticleService} from '../shared/services/article.service';
 import {EventService} from '../shared/services/event.service';
 import {UniversityService} from '../shared/services/university.service';
 import {SharedModule} from '../shared/shared/shared.module';
-
+import {ResearchServices} from '../shared/services/research.services';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -52,6 +52,7 @@ import {SharedModule} from '../shared/shared/shared.module';
     ArticleService,
     EventService,
     UniversityService,
+    ResearchServices
   ],
   bootstrap: []
 })

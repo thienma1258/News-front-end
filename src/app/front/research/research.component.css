@@ -3,7 +3,7 @@
 
 }
 
-.img {  
+.img {
   width: 100%;
   display: inherit;
   padding: 10px;
@@ -25,6 +25,7 @@
 
   height: auto;
 }
+
 .tab-area{
 
   margin-left: 20px;
@@ -94,7 +95,7 @@
   display: none;
 }
 .search-form{
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
 }
 .search-form >#search{
   display: block;
@@ -108,13 +109,43 @@
   background-clip: padding-box;;
   border: 1px solid #ced4da;
   border-radius: .25rem;
-      
+
 background: url('~assets/images/search.png') no-repeat;
 background-size: contain;
 background-origin: content-box;;
     background-position-x: right;
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 
+}
+.tags-container{
+  display:inline;
+}
+.tags-container >span{
+  display: inline-block;
+  border: 2px solid #CCC;
+  color: #AAA;
+  font-size: 12px;
+  line-height: 10px;
+  padding: 5px 9px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 12px;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.tags-container>span:hover{
+  color: #495057;
+  background-color: #AAA;
+
+}
+.tags-container >span.active{
+  border: 2px solid #000;
+  color: #000;
+  background-color: transparent;
 }
 @media (max-width: 1024px) {
   .submenu {
@@ -123,12 +154,12 @@ background-origin: content-box;;
   .article{
     height: max-content;
   }
-  
+
   .tab-area{
-display: none;  
+display: none;
   }
  /* .tab-area>.tab.active{
-  border-bottom: 1px solid red; 
+  border-bottom: 1px solid red;
   font-weight: bold;
   }*/
 
@@ -160,7 +191,7 @@ height: 26px;
 
   }
   .tab-area>.tab:last-child{
-   
+
   /*  height: 26px;*/
     padding: 0px;
     margin-top: -10px;
@@ -169,20 +200,20 @@ height: 26px;
     /*//margin-bottom: -10px;*/
     border-bottom: none;
   }
- 
+
   .tab-area{
     width: 100%;
     margin-left: -10px;
   }
   .tab-area>.tab.active{
-  border-bottom: 1px solid red; 
+  border-bottom: 1px solid red;
   font-weight: bold;
   }
    .article{
    width: 100%;
    margin-left: 0px;
    margin-right: 0px;
-  
+
   }
   .title-article {
     width: 100%;

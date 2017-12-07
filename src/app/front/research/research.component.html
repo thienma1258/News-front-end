@@ -16,82 +16,43 @@
     <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12" >
       <div class="row">
         <!-- button lab -->
-        <div class="tab-area" >
-          <button type="" class="tab active">Image Proccesiing</button>
+        <div class="tags-container col-sm-12 col-md-12">
+          <!-- <button type="" class="tab active">Image Proccesiing</button>
           <button type="" class="tab">Signal Proccesiing</button>
           <button type="" class="tab">Information systems</button>
           <button type="" class="tab">Circuits</button>
-             <button type="" class="tab">...</button>
+             <button type="" class="tab">...</button> -->
+<span *ngFor="let topic of topics;let i=index" (click)="clicktopic(i)" [class.active]="topic.active">{{topic.englishTitle}}</span>
         </div>
 
         <!-- col 1 -->
         <!-- 1 image -->
-        <div class="article small col-xs-12">
+        <div class="article  col-xs-12 small" [class.small]="i!==1 &&i!== 2" [class.big]="i===1 ||i===2 "   *ngFor="let article of articles;let i =index">
           <img class="img col1" src="assets/images/070.jpg">
           <div class="title-article">
-            One skill shot for every thing blame blame blame
+           {{article.englishTitle}}
           </div>
         </div>
         <!-- end  -->
-        
+        <!-- <div class="article small  col-xs-12">
+          <img class="img col1" src="assets/images/070.jpg">
+          <div class="title-article">
+           {{article.englishTitle}}
+          </div>
+        </div> -->
         <!-- big img -->
-        <div class="article big col-xs-12">
+        <!-- <div class="article big col-xs-12">
           <img class="img col1" src="assets/images/077.jpg">
           <div class="title-article">
             One skill shot for every thing blame blame blameGAPasdisadlasjkdsakljdasjlkdklsjalkdjkasdksajdasdsaldkj
             asdasdasdsadsa
 
           </div>
-        </div>
+        </div> -->
         <!-- end -->
         <!-- end col1 -->
         <!-- col 2 -->
-        <div class="article big col-xs-12">
-          <img class="img col2" src="assets/images/077.jpg">
-          <div class="title-article">
-            One skill shot for every thing blame blame blameasdasdsadjashdasdhlkjashldsakjhdashkdjhlsakjdhkjahjdhsa
 
-          </div>
-        </div>
-        <div class="small">
-          <div class="article  col1 col-xs-12">
-            <img class="img " src="assets/images/077.jpg">
-            <div class="title-article">
-              One skill shot for every thing blame blame blame
-
-            </div>
-          </div>
-          <div class="article  col1 col-xs-12">
-            <img class="img " src="assets/images/077.jpg">
-            <div class="title-article">
-              One skill shot for every thing blame blame blame
-
-            </div>
-          </div>
-        </div>
-        <!-- end col 2 -->
-
-
-        <div class="small article col1">
-          <img class="img " src="assets/images/077.jpg">
-          <div class="title-article">
-            One skill shot for every thing blame blame blame
-
-          </div>
-        </div>
-        <div class="small article col1">
-          <img class="img " src="assets/images/077.jpg">
-          <div class="title-article">
-            One skill shot for every thing blame blame blame
-          </div>
-        </div>
-        <div class="small article col1">
-          <img class="img " src="assets/images/077.jpg">
-          <div class="title-article">
-            One skill shot for every thing blame blame blame
-          </div>
-        </div>
-      </div>
       <!-- end row -->
     </div>
     <!-- end container -->

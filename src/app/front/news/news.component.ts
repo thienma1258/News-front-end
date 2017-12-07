@@ -41,13 +41,10 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-
-   
-     
-
       this.selectedTitle = params['title'];
-      if(this.selectedTitle=='calendar')
+      if(this.selectedTitle == 'calendar'){
         this.showcalender=true;
+      }
       for (const title of this.menu) {
         if (title.route === this.selectedTitle) {
           this.selectedTitle = title.name;
