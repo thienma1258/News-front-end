@@ -14,7 +14,6 @@ import {EventPreviewComponent} from './shared/event-preview/event-preview.compon
 import {FacebookModule} from 'ngx-facebook';
 import {ArticleContentComponent} from './shared/article-content/article-content.component';
 import {NewsComponent} from './news/news.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TranslateModule} from '@ngx-translate/core';
 import {ResearchDetailsComponent} from './research-details/research-details.component';
 import {NewsDetailsComponent} from './news-details/news-details.component';
@@ -45,7 +44,6 @@ import {ResearchServices} from '../shared/services/research.services';
     RouterModule,
     CommonModule,
     FacebookModule.forRoot(),
-    NgbModule,
     TranslateModule
   ],
   providers: [
