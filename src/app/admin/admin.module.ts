@@ -41,6 +41,7 @@ import {FileSelectDirective, FileUploadModule} from 'ng2-file-upload';
 import { EditEventDetailComponent } from './shared/edit-event-detail/edit-event-detail.component';
 import {DateTimePickerModule} from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {InformationService} from "../shared/services/information.service";
 
 @NgModule({
   imports: [
@@ -57,7 +58,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FileUploadModule,
     DateTimePickerModule,
   ],
-  providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService, DatePipe],
+  providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService, DatePipe, InformationService],
   declarations: [
     DashboardComponent,
     LoginComponent,

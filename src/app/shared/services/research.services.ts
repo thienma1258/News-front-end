@@ -5,27 +5,29 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class ResearchServices {
-reseachtopicapi="/research/get";
-laboratorytopic="/laboratory/get";
-filtertopics='/article/filter';
+  reseachtopicapi = "/research/get";
+  laboratorytopic = "/laboratory/get";
+  filtertopics = '/article/filter';
 
-constructor(private http: HttpClient, private authService: AuthService)
-{
+  constructor(private http: HttpClient, private authService: AuthService) {
 
-}
-getresearchtopic(){
-  const url = this.authService.apiUrl+this.reseachtopicapi;
-  return this.http.get(url);
-}
-getlaboratorytopic(){
-	const url = this.authService.apiUrl +this.laboratorytopic;
-	return this.http.get(url);
-}
- getarticlebytopics(ids) {
-const data = {
-  researchTopicIds:ids
-};
-const url =this.authService.apiUrl+ this.filtertopics;
-return this.http.post(url, data);
-}
+  }
+
+  getresearchtopic() {
+    const url = this.authService.apiUrl + this.reseachtopicapi;
+    return this.http.get(url);
+  }
+
+  getlaboratorytopic() {
+    const url = this.authService.apiUrl + this.laboratorytopic;
+    return this.http.get(url);
+  }
+
+  getarticlebytopics(ids) {
+    const data = {
+      researchTopicIds: ids
+    };
+    const url = this.authService.apiUrl + this.filtertopics;
+    return this.http.post(url, data);
+  }
 }

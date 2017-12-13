@@ -9,6 +9,7 @@ import {FileUploader} from 'ng2-file-upload';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {AuthService} from '../shared/auth.service';
 import {Information} from '../../shared/model/information';
+import {InformationService} from "../../shared/services/information.service";
 
 @Component({
   selector: 'profile',
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit {
   universityInfo: UniversityInfo;
   links: UniversityLink[] = [];
   slides: Slide[] = [];
-  informations: Information[] = []
+  informations: Information[] = [];
 
   contactEmitter = EmitterService.get('CONTACT');
   contactEditMode = false;
@@ -45,7 +46,8 @@ export class ProfileComponent implements OnInit {
   uploader: FileUploader;
 
   constructor(private universityService: UniversityService, private authService: AuthService,
-              private articleService: ArticleService, private sanitizer: DomSanitizer) {
+              private articleService: ArticleService, private sanitizer: DomSanitizer,
+              private informationService: InformationService) {
     this.uploader = new FileUploader(
       {
         url: this.articleService.uploadImageUrl,
@@ -63,44 +65,53 @@ export class ProfileComponent implements OnInit {
       }
     };
 
-    this.informations = [
-      {
-        id: '1',
-        englishTitle: 'Academics',
-        chineseTitle: 'Academics C',
-        englishContent: 'english content 1',
-        chineseContent: 'chinese content 1',
-        previewImageUrl: './assert/images/077.jpg',
-        redirectUrl: 'https://www.google.com'
+    // this.informations = [
+    //   {
+    //     id: '1',
+    //     englishTitle: 'Academics',
+    //     chineseTitle: 'Academics C',
+    //     englishContent: 'english content 1',
+    //     chineseContent: 'chinese content 1',
+    //     previewImageUrl: './assert/images/077.jpg',
+    //     redirectUrl: 'https://www.google.com'
+    //   },
+    //   {
+    //     id: '2',
+    //     englishTitle: 'Admissions',
+    //     chineseTitle: 'Admissions C',
+    //     englishContent: 'english content 2',
+    //     chineseContent: 'chinese content 2',
+    //     previewImageUrl: './assert/images/077.jpg',
+    //     redirectUrl: 'https://www.google.com'
+    //   },
+    //   {
+    //     id: '3',
+    //     englishTitle: 'Research',
+    //     chineseTitle: 'Research C',
+    //     englishContent: 'english content 3',
+    //     chineseContent: 'chinese content 3',
+    //     previewImageUrl: './assert/images/077.jpg',
+    //     redirectUrl: 'https://www.google.com'
+    //   },
+    //   {
+    //     id: '4',
+    //     englishTitle: 'Student Life',
+    //     chineseTitle: 'Student Life C',
+    //     englishContent: 'english content 4',
+    //     chineseContent: 'chinese content 4',
+    //     previewImageUrl: './assert/images/077.jpg',
+    //     redirectUrl: 'https://www.google.com'
+    //   }
+    // ];
+
+    this.informationService.getInformations().subscribe(
+      data => {
+        this.informations = data['content'];
       },
-      {
-        id: '2',
-        englishTitle: 'Admissions',
-        chineseTitle: 'Admissions C',
-        englishContent: 'english content 2',
-        chineseContent: 'chinese content 2',
-        previewImageUrl: './assert/images/077.jpg',
-        redirectUrl: 'https://www.google.com'
-      },
-      {
-        id: '3',
-        englishTitle: 'Research',
-        chineseTitle: 'Research C',
-        englishContent: 'english content 3',
-        chineseContent: 'chinese content 3',
-        previewImageUrl: './assert/images/077.jpg',
-        redirectUrl: 'https://www.google.com'
-      },
-      {
-        id: '4',
-        englishTitle: 'Student Life',
-        chineseTitle: 'Student Life C',
-        englishContent: 'english content 4',
-        chineseContent: 'chinese content 4',
-        previewImageUrl: './assert/images/077.jpg',
-        redirectUrl: 'https://www.google.com'
+      err => {
+        console.log(err);
       }
-    ];
+    );
   }
 
   get Locale() {

@@ -152,7 +152,7 @@
         <textarea *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="selectedInformation.chineseContent"></textarea>
 
         <p><b>Link post</b></p>
-        <textarea *ngIf="editorLocale === 'en'" [(ngModel)]="selectedInformation.redirectUrl"></textarea>
+        <textarea [(ngModel)]="selectedInformation.redirectUrl"></textarea>
       </div>
     </div>
   </ng-container>

@@ -5,6 +5,8 @@ import {ArticleService} from '../../shared/services/article.service';
 import {EventService} from '../../shared/services/event.service';
 import {ArticleType} from '../../shared/enum/article-type.enum';
 import {Slide} from "../../shared/model/slide";
+import {Information} from "../../shared/model/information";
+import {InformationService} from "../../shared/services/information.service";
 
 @Component({
   selector: 'app-homepage',
@@ -17,44 +19,11 @@ export class HomepageComponent implements OnInit {
   public latestArticles: Article[] = [];
   public upcomingEvents: Event[] = [];
   public aboutArticle: Article;
-  public admissionsArticle: Article;
-  public academicsArticle: Article;
-  public researchArticle: Article;
-  public studentLifeArticle: Article;
+  public informations: Information[] = [];
 
-  constructor(public articleService: ArticleService, public eventService: EventService) {
+  constructor(public articleService: ArticleService, public eventService: EventService,
+              public informationService: InformationService) {
     this.aboutArticle = new Article();
-    this.admissionsArticle = new Article();
-    this.academicsArticle = new Article();
-    this.researchArticle = new Article();
-    this.studentLifeArticle = new Article();
-
-    // this.slides = [
-    //   {
-    //     id: '1',
-    //     englishTitle: 'english title 1',
-    //     chineseTitle: 'chinese title 1',
-    //     englishContent: 'english content',
-    //     chineseContent: 'chinese content',
-    //     slideImageUrl: './assets/images/001.jpg'
-    //   },
-    //   {
-    //     id: '2',
-    //     englishTitle: 'english title 2',
-    //     chineseTitle: 'chinese title 2',
-    //     englishContent: 'english content',
-    //     chineseContent: 'chinese content',
-    //     slideImageUrl: './assets/images/001t.jpg'
-    //   },
-    //   {
-    //     id: '3',
-    //     englishTitle: 'english title 3',
-    //     chineseTitle: 'chinese title 3',
-    //     englishContent: 'english content',
-    //     chineseContent: 'chinese content',
-    //     slideImageUrl: './assets/images/070.jpg'
-    //   }
-    // ];
   }
 
   get Locale() {
@@ -91,6 +60,14 @@ export class HomepageComponent implements OnInit {
       data => {
         this.upcomingEvents = data['content'];
         console.log(this.upcomingEvents);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.informationService.getInformations().subscribe(
+      data => {
+        this.informations = data['content'];
       },
       err => {
         console.log(err);

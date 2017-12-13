@@ -94,25 +94,26 @@
 
 <div id="about">
   <div class="row">
-    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+    <div *ngFor="let information of informations" class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
       <p i18n class="about-title">{{'Homepage.Admissions' | translate}}</p>
-      <app-article-preview [article]="admissionsArticle" [displayType]="3" [showPreviewImage]="true"
-                           [showPreviewContent]="true"></app-article-preview>
+      <app-article-preview [article]="information" [displayType]="3" [showPreviewImage]="true"
+                           [showPreviewContent]="true" [articleUrl]="information.redirectUrl">
+      </app-article-preview>
     </div>
-    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-      <p i18n class="about-title">{{'Homepage.Academics' | translate}}</p>
-      <app-article-preview [article]="academicsArticle" [displayType]="3" [showPreviewImage]="true"
-                           [showPreviewContent]="true"></app-article-preview>
-    </div>
-    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-      <p i18n class="about-title">{{'Homepage.Research' | translate}}</p>
-      <app-article-preview [article]="researchArticle" [displayType]="3" [showPreviewImage]="true"
-                           [showPreviewContent]="true"></app-article-preview>
-    </div>
-    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-      <p i18n class="about-title">{{'Homepage.StudentLife' | translate}}</p>
-      <app-article-preview [article]="studentLifeArticle" [displayType]="3" [showPreviewImage]="true"
-                           [showPreviewContent]="true"></app-article-preview>
-    </div>
+    <!--<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">-->
+      <!--<p i18n class="about-title">{{'Homepage.Academics' | translate}}</p>-->
+      <!--<app-article-preview [article]="academicsArticle" [displayType]="3" [showPreviewImage]="true"-->
+                           <!--[showPreviewContent]="true"></app-article-preview>-->
+    <!--</div>-->
+    <!--<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">-->
+      <!--<p i18n class="about-title">{{'Homepage.Research' | translate}}</p>-->
+      <!--<app-article-preview [article]="researchArticle" [displayType]="3" [showPreviewImage]="true"-->
+                           <!--[showPreviewContent]="true"></app-article-preview>-->
+    <!--</div>-->
+    <!--<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">-->
+      <!--<p i18n class="about-title">{{'Homepage.StudentLife' | translate}}</p>-->
+      <!--<app-article-preview [article]="studentLifeArticle" [displayType]="3" [showPreviewImage]="true"-->
+                           <!--[showPreviewContent]="true"></app-article-preview>-->
+    <!--</div>-->
   </div>
 </div>
