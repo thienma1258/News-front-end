@@ -3,6 +3,8 @@ import {Article} from '../../shared/model/article';
 import {ArticleService} from '../../shared/services/article.service';
 import {ArticleType} from '../../shared/enum/article-type.enum';
 import {EmitterService} from '../shared/emitter.service';
+import {Advisor} from '../../shared/model/advisor';
+import {AdvisorService} from '../../shared/services/advisor.service';
 
 @Component({
   selector: 'introduction',
@@ -16,16 +18,15 @@ export class IntroductionComponent implements OnInit {
   public contactEmitter = EmitterService.get('CONTACT');
 
   public aboutEditMode = false;
-  public facultyAdvisorEditMode = false;
   public departmentEditMode = false;
   public contactEditMode = false;
 
   public aboutArticle: Article;
-  public facilityArticle: Article;
   public departmentArticle: Article;
   public contactArticle: Article;
+  public advisors: Advisor[];
 
-  constructor(public articleService: ArticleService) {
+  constructor(public articleService: ArticleService, public advisorService: AdvisorService) {
   }
 
   get Locale() {
@@ -34,7 +35,6 @@ export class IntroductionComponent implements OnInit {
 
   ngOnInit() {
     this.aboutArticle = new Article();
-    this.facilityArticle = new Article();
     this.departmentArticle = new Article();
     this.contactArticle = new Article();
 
@@ -43,14 +43,6 @@ export class IntroductionComponent implements OnInit {
         this.aboutArticle = data['content'][0];
         console.log(this.aboutArticle);
         console.log(data['content'][0]);
-      },
-      err => {
-        console.log(err);
-      }
-    );
-    this.articleService.getArticles(String(ArticleType.FacultyAdvisor)).subscribe(
-      data => {
-        this.facilityArticle = data['content'][0];
       },
       err => {
         console.log(err);
@@ -84,16 +76,6 @@ export class IntroductionComponent implements OnInit {
         this.aboutEditMode = false;
       }
     });
-    this.facultyAdvisorEmitter.subscribe(msg => {
-      if (msg === 'edit') {
-        this.facultyAdvisorEditMode = true;
-      } else if (msg === 'done') {
-        this.facultyAdvisorArticleFinishEdit();
-        this.facultyAdvisorEditMode = false;
-      } else {
-        this.facultyAdvisorEditMode = false;
-      }
-    });
     this.departmentEmitter.subscribe(msg => {
       if (msg === 'edit') {
         this.departmentEditMode = true;
@@ -114,6 +96,14 @@ export class IntroductionComponent implements OnInit {
         this.contactEditMode = false;
       }
     });
+    this.advisorService.getAllAdvisors().subscribe(
+      data => {
+        this.advisors = data['content'];
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   aboutArticleFinishEdit() {
@@ -128,14 +118,7 @@ export class IntroductionComponent implements OnInit {
   }
 
   facultyAdvisorArticleFinishEdit() {
-    this.articleService.editArticle(this.facilityArticle).subscribe(
-      data => {
 
-      },
-      err => {
-        console.log(err);
-      }
-    );
   }
 
   departmentArticleFinishEdit() {

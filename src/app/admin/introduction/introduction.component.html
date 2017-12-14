@@ -8,14 +8,40 @@
   </ng-container>
 </container-box>
 
-<container-box [title]="'FACILITY & ADVISOR'" [isShowEditLink]="true">
-  <ng-container *ngIf="!facultyAdvisorEditMode">
-    <p *ngIf="Locale === 'en'" [innerHtml]="facilityArticle.englishContent | safeHtml"></p>
-    <p *ngIf="Locale === 'zh-tw'" [innerHtml]="facilityArticle.chineseContent | safeHtml"></p>
-  </ng-container>
-  <ng-container *ngIf="facultyAdvisorEditMode">
-    <edit-article-detail [article]="facilityArticle" [showTitle]="false"></edit-article-detail>
-  </ng-container>
+<container-box [title]="'FACILITY & ADVISOR'">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">All</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">System Group</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu2">Elec. Group</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu3">Com. Group</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu4">Other</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="home">
+      <div *ngFor="let advisor of advisors" class="advisor-info">
+        <advisor-infomation [advisor]="advisor"></advisor-infomation>
+        <div class="order-button">
+          <img class="button button-up" src="./../../../assets/images/up.png">
+          <img class="button button-down" src="./../../../assets/images/down.png">
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="menu1">1</div>
+    <div class="tab-pane" id="menu2">2</div>
+    <div class="tab-pane" id="menu3">3</div>
+    <div class="tab-pane" id="menu4">4</div>
+  </div>
 </container-box>
 
 <container-box [title]="'DEPARTMENT STRUCTURE & STAFF'" [isShowEditLink]="true">

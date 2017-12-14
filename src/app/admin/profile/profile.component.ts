@@ -9,7 +9,7 @@ import {FileUploader} from 'ng2-file-upload';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {AuthService} from '../shared/auth.service';
 import {Information} from '../../shared/model/information';
-import {InformationService} from "../../shared/services/information.service";
+import {InformationService} from '../../shared/services/information.service';
 
 @Component({
   selector: 'profile',
@@ -61,7 +61,7 @@ export class ProfileComponent implements OnInit {
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
       if (status === 200) {
         this.selectedSlide.slideImageUrl = JSON.parse(response)['content'];
-        this.updateData();
+        this.updateSlide();
       }
     };
 
@@ -262,11 +262,11 @@ export class ProfileComponent implements OnInit {
       this.selectedSlide.slideImageUrl = this.selectedImageUrlPath.toString();
       this.uploader.queue[0].upload();
     } else {
-      this.updateData();
+      this.updateSlide();
     }
   }
 
-  updateData() {
+  updateSlide() {
     if (this.isAddingNewSlide) {
       this.slideFinishAdding();
     } else {
@@ -287,6 +287,18 @@ export class ProfileComponent implements OnInit {
 
   informationFinishEdit() {
     this.informationEditMode = false;
+    this.updateInformation();
+  }
+
+  updateInformation() {
+    this.informationService.editInfomation(this.selectedInformation).subscribe(
+      data => {
+
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   informationCancelEdit() {

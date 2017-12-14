@@ -42,6 +42,8 @@ import { EditEventDetailComponent } from './shared/edit-event-detail/edit-event-
 import {DateTimePickerModule} from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InformationService} from "../shared/services/information.service";
+import { AdvisorInfomationComponent } from './shared/advisor-infomation/advisor-infomation.component';
+import {AdvisorService} from '../shared/services/advisor.service';
 
 @NgModule({
   imports: [
@@ -58,7 +60,7 @@ import {InformationService} from "../shared/services/information.service";
     FileUploadModule,
     DateTimePickerModule,
   ],
-  providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService, DatePipe, InformationService],
+  providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService, DatePipe, InformationService, AdvisorService],
   declarations: [
     DashboardComponent,
     LoginComponent,
@@ -86,6 +88,7 @@ import {InformationService} from "../shared/services/information.service";
     CalendarComponent,
     ChangePasswordComponent,
     EditEventDetailComponent,
+    AdvisorInfomationComponent,
   ]
 })
 

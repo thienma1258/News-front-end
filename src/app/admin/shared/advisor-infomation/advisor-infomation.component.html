@@ -1,0 +1,68 @@
+<div id="info-container">
+  <div class="left-info">
+    <img class="avatar" src="./../../../../assets/images/001.jpg">
+    <div class="contact-info">
+      <p class="name">
+        <ng-container *ngIf="Locale === 'en'">
+          {{advisor.englishName}}
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          {{advisor.chineseName}}
+        </ng-container>
+      </p>
+      <p class="phone">{{advisor.phone}}</p>
+    </div>
+  </div>
+  <div class="right-info">
+    <div class="field">
+      <span class="title">Title</span>
+      <span>
+        <ng-container *ngIf="Locale === 'en'">
+          {{advisor.englishTitle}}
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          {{advisor.chineseTitle}}
+        </ng-container>
+      </span>
+    </div>
+    <div class="field">
+      <span class="title">Background</span>
+      <span>
+        <ng-container *ngIf="Locale === 'en'">
+          {{advisor.englishBackground}}
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          {{advisor.chineseBackground}}
+        </ng-container>
+      </span>
+    </div>
+    <div class="field">
+      <span class="title">Speciatly</span>
+      <span>
+        <ng-container *ngIf="Locale === 'en'">
+          {{advisor.englishSpecialties}}
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          {{advisor.chineseSpecialties}}
+        </ng-container>
+      </span>
+    </div>
+    <div class="field">
+      <span class="title">Office</span>
+      <ng-container *ngIf="Locale === 'en'">
+        {{advisor.englishOffice}}
+      </ng-container>
+      <ng-container *ngIf="Locale === 'cn'">
+        {{advisor.chineseOffice}}
+      </ng-container>
+    </div>
+    <div class="field">
+      <span class="title">Email</span>
+      <span>{{advisor.email}}</span>
+    </div>
+  </div>
+  <div class="modify-button">
+    <img (click)="edit()" style="margin-right: 10px" src="../../../../assets/images/edit.png">
+    <img (click)="remove()" src="../../../../assets/images/cancel.png">
+  </div>
+</div>

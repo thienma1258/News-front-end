@@ -29,6 +29,7 @@ export class InformationService {
         }
       )
     };
+    console.log(information);
     return this.http.put(url, information, options);
   }
 }

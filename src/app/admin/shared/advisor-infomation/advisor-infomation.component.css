@@ -1,0 +1,70 @@
+#info-container{
+  position: relative;
+  display: inline-block;
+  width: 85%;
+  border: 3px solid red;
+  padding: 15px 15px;
+}
+
+span{
+  display: inline-block;
+  max-width: 600px;
+}
+
+p{
+  margin-bottom: 0;
+}
+
+.left-info{
+  float: left;
+}
+
+.right-info{
+  padding: 30px 0;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.modify-button{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.modify-button img{
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.name{
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.phone{
+  font-size: 14px;
+}
+
+.contact-info{
+  color: #CE4656;
+  background-color: rgba(255, 0, 100, 0.3);
+  text-align: center;
+  width: 180px;
+}
+
+.avatar{
+  width: 180px;
+  height: 180px;
+  margin-bottom: 10px;
+}
+
+.field{
+  margin-bottom: 10px;
+}
+
+.title{
+  display: inline-block;
+  vertical-align: top;
+  width: 150px;
+}
