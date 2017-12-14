@@ -1,0 +1,84 @@
+<div *ngFor="let advisor of advisors; let i = index" class="advisor-info">
+  <advisor-infomation [advisor]="advisor"></advisor-infomation>
+  <div class="order-button">
+    <img [class.disabled]="i == 0" class="button button-up" src="./../../../assets/images/up.png">
+    <img [class.disabled]="i == advisors.length - 1" class="button button-down" src="./../../../assets/images/down.png">
+  </div>
+</div>
+<ng-container *ngIf="isAddingNew">
+  <div id="info-container">
+    <div class="left-info">
+      <img class="edit-avatar" [src]="selectedImageUrlPath" onerror="src='./assets/images/no_preview_image.jpg'">
+      <input class="upload-image" type="file" ng2FileSelect [uploader]="uploader">
+    </div>
+    <div class="right-info">
+      <div class="field">
+        <span class="title">Name</span>
+        <ng-container *ngIf="Locale === 'en'">
+          <input type="text" [(ngModel)]="newAdvisor.englishName">
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          <input type="text" [(ngModel)]="newAdvisor.chineseName">
+        </ng-container>
+      </div>
+      <div class="field">
+        <span class="title">Title</span>
+        <ng-container *ngIf="Locale === 'en'">
+          <textarea type="text" [(ngModel)]="newAdvisor.englishTitle"></textarea>
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          <textarea type="text" [(ngModel)]="newAdvisor.chineseTitle"></textarea>
+        </ng-container>
+      </div>
+      <div class="field">
+        <span class="title">Background</span>
+        <ng-container *ngIf="Locale === 'en'">
+          <textarea type="text" [(ngModel)]="newAdvisor.englishBackground"></textarea>
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          <textarea type="text" [(ngModel)]="newAdvisor.chineseBackground"></textarea>
+        </ng-container>
+      </div>
+      <div class="field">
+        <span class="title">Speciatly</span>
+        <ng-container *ngIf="Locale === 'en'">
+          <textarea type="text" [(ngModel)]="newAdvisor.englishSpecialties"></textarea>
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          <textarea type="text" [(ngModel)]="newAdvisor.chineseSpecialties"></textarea>
+        </ng-container>
+      </div>
+      <div class="field">
+        <span class="title">Office</span>
+        <ng-container *ngIf="Locale === 'en'">
+          <input type="text" [(ngModel)]="newAdvisor.englishOffice">
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          <input type="text" [(ngModel)]="newAdvisor.chineseOffice">
+        </ng-container>
+      </div>
+      <div class="field">
+        <span class="title">Tel.</span>
+        <input type="text" [(ngModel)]="newAdvisor.phone">
+      </div>
+      <div class="field">
+        <span class="title">Email</span>
+        <input type="text" [(ngModel)]="newAdvisor.email">
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Department Head</label>
+      </div>
+
+      <div class="edit-modify-button">
+        <img (click)="done()" style="margin-right: 10px" src="../../../../assets/images/done.png">
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<div style="width: 85%">
+  <div style="text-align: right;">
+    <button type="button" class="btn-add-new" (click)="addNewAdvisor()">Add new</button>
+  </div>
+</div>
+

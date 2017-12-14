@@ -44,6 +44,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InformationService} from "../shared/services/information.service";
 import { AdvisorInfomationComponent } from './shared/advisor-infomation/advisor-infomation.component';
 import {AdvisorService} from '../shared/services/advisor.service';
+import { AdvisorListComponent } from './shared/advisor-list/advisor-list.component';
 
 @NgModule({
   imports: [
@@ -89,6 +90,7 @@ import {AdvisorService} from '../shared/services/advisor.service';
     ChangePasswordComponent,
     EditEventDetailComponent,
     AdvisorInfomationComponent,
+    AdvisorListComponent,
   ]
 })
 
