@@ -6,12 +6,12 @@
     </h3>
     <div id="information">
       <span>Last Updated: {{article?.lastUpdated}}</span>
-      <div class="translator" style="display: table;">
-        <span>E</span>
-        <a style="cursor: pointer; display: table-cell; vertical-align: middle;">
-          <img src="./assets/images/translation-post.png" style="margin-left:6px; margin-bottom: 3px; width: 22px; height: 22px; cursor: pointer;">
-        </a>
-      </div>
+      <!--<div class="translator" style="display: table;">-->
+        <!--<span>E</span>-->
+        <!--<a style="cursor: pointer; display: table-cell; vertical-align: middle;">-->
+          <!--<img src="./assets/images/translation-post.png" style="margin-left:6px; margin-bottom: 3px; width: 22px; height: 22px; cursor: pointer;">-->
+        <!--</a>-->
+      <!--</div>-->
     </div>
   </div>
   <ng-container>
@@ -19,7 +19,7 @@
     <p *ngIf="Locale == 'zh-tw'" [innerHtml]="article?.chineseContent | safeHtml"></p>
   </ng-container>
   <div class="social float-right bottom">
-    <fb-share class="socialItem" href="https://www.google.com.vn" layout="button_count" share="true"
+    <fb-share class="socialItem" href={{currentUrl}} layout="button_count" share="true"
               size="large"></fb-share>
     <input class="socialItem" type="image" src="./assets/images/Print.png" height="28px">
     <input class="socialItem" type="image" src="./assets/images/Email.png" height="28px">
