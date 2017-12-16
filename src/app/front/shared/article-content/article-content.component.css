@@ -43,6 +43,7 @@
 
 .socialItem {
   margin: 3px;
+  cursor: pointer;
 }
 
 .container {
