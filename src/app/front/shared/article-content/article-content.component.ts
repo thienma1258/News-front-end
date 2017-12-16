@@ -39,7 +39,6 @@ export class ArticleContentComponent implements OnInit {
     popupWin.document.write(`
       <html>
       <head>
-          <title>Print tab</title>
           <style>
           //........Customized style.......
          </style>
