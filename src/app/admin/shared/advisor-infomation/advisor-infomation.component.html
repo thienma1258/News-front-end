@@ -1,22 +1,23 @@
 <div id="info-container">
-  <div class="left-info">
-    <img class="avatar" src="./../../../../assets/images/001.jpg">
-    <div class="contact-info">
-      <p class="name">
-        <ng-container *ngIf="Locale === 'en'">
-          {{advisor.englishName}}
-        </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
-          {{advisor.chineseName}}
-        </ng-container>
-      </p>
-      <p class="phone">{{advisor.phone}}</p>
+  <ng-container *ngIf="!isEditMode">
+    <div class="left-info">
+      <img class="avatar" [src]="selectedImageUrlPath" onerror="src='./assets/images/no_preview_image.jpg'">
+      <div class="contact-info">
+        <p class="name">
+          <ng-container *ngIf="Locale === 'en'">
+            {{advisor.englishName}}
+          </ng-container>
+          <ng-container *ngIf="Locale === 'cn'">
+            {{advisor.chineseName}}
+          </ng-container>
+        </p>
+        <p class="phone">{{advisor.phone}}</p>
+      </div>
     </div>
-  </div>
-  <div class="right-info">
-    <div class="field">
-      <span class="title">Title</span>
-      <span>
+    <div class="right-info">
+      <div class="field">
+        <span class="title">Title</span>
+        <span>
         <ng-container *ngIf="Locale === 'en'">
           {{advisor.englishTitle}}
         </ng-container>
@@ -24,10 +25,10 @@
           {{advisor.chineseTitle}}
         </ng-container>
       </span>
-    </div>
-    <div class="field">
-      <span class="title">Background</span>
-      <span>
+      </div>
+      <div class="field">
+        <span class="title">Background</span>
+        <span>
         <ng-container *ngIf="Locale === 'en'">
           {{advisor.englishBackground}}
         </ng-container>
@@ -35,10 +36,10 @@
           {{advisor.chineseBackground}}
         </ng-container>
       </span>
-    </div>
-    <div class="field">
-      <span class="title">Speciatly</span>
-      <span>
+      </div>
+      <div class="field">
+        <span class="title">Speciatly</span>
+        <span>
         <ng-container *ngIf="Locale === 'en'">
           {{advisor.englishSpecialties}}
         </ng-container>
@@ -46,23 +47,93 @@
           {{advisor.chineseSpecialties}}
         </ng-container>
       </span>
+      </div>
+      <div class="field">
+        <span class="title">Office</span>
+        <ng-container *ngIf="Locale === 'en'">
+          {{advisor.englishOffice}}
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          {{advisor.chineseOffice}}
+        </ng-container>
+      </div>
+      <div class="field">
+        <span class="title">Email</span>
+        <span>{{advisor.email}}</span>
+      </div>
     </div>
-    <div class="field">
-      <span class="title">Office</span>
-      <ng-container *ngIf="Locale === 'en'">
-        {{advisor.englishOffice}}
-      </ng-container>
-      <ng-container *ngIf="Locale === 'cn'">
-        {{advisor.chineseOffice}}
-      </ng-container>
+    <div class="modify-button">
+      <img (click)="edit()" style="margin-right: 10px" src="../../../../assets/images/edit.png">
+      <img (click)="remove()" src="../../../../assets/images/cancel.png">
     </div>
-    <div class="field">
-      <span class="title">Email</span>
-      <span>{{advisor.email}}</span>
+  </ng-container>
+
+  <ng-container *ngIf="isEditMode">
+    <div class="left-info">
+      <img class="edit-avatar" [src]="selectedImageUrlPath" onerror="src='./assets/images/no_preview_image.jpg'">
+      <input class="upload-image" type="file" ng2FileSelect [uploader]="uploader">
     </div>
-  </div>
-  <div class="modify-button">
-    <img (click)="edit()" style="margin-right: 10px" src="../../../../assets/images/edit.png">
-    <img (click)="remove()" src="../../../../assets/images/cancel.png">
-  </div>
+    <div class="right-info">
+      <div class="field">
+        <span class="title">Name</span>
+        <ng-container *ngIf="Locale === 'en'">
+          <input type="text" [(ngModel)]="advisor.englishName">
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          <input type="text" [(ngModel)]="advisor.chineseName">
+        </ng-container>
+      </div>
+      <div class="field">
+        <span class="title">Title</span>
+        <ng-container *ngIf="Locale === 'en'">
+          <textarea type="text" [(ngModel)]="advisor.englishTitle"></textarea>
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          <textarea type="text" [(ngModel)]="advisor.chineseTitle"></textarea>
+        </ng-container>
+      </div>
+      <div class="field">
+        <span class="title">Background</span>
+        <ng-container *ngIf="Locale === 'en'">
+          <textarea type="text" [(ngModel)]="advisor.englishBackground"></textarea>
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          <textarea type="text" [(ngModel)]="advisor.chineseBackground"></textarea>
+        </ng-container>
+      </div>
+      <div class="field">
+        <span class="title">Speciatly</span>
+        <ng-container *ngIf="Locale === 'en'">
+          <textarea type="text" [(ngModel)]="advisor.englishSpecialties"></textarea>
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          <textarea type="text" [(ngModel)]="advisor.chineseSpecialties"></textarea>
+        </ng-container>
+      </div>
+      <div class="field">
+        <span class="title">Office</span>
+        <ng-container *ngIf="Locale === 'en'">
+          <input type="text" [(ngModel)]="advisor.englishOffice">
+        </ng-container>
+        <ng-container *ngIf="Locale === 'cn'">
+          <input type="text" [(ngModel)]="advisor.chineseOffice">
+        </ng-container>
+      </div>
+      <div class="field">
+        <span class="title">Tel.</span>
+        <input type="text" [(ngModel)]="advisor.phone">
+      </div>
+      <div class="field">
+        <span class="title">Email</span>
+        <input type="text" [(ngModel)]="advisor.email">
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" value="">Department Head</label>
+      </div>
+
+      <div class="edit-modify-button">
+        <img (click)="done()" style="margin-right: 10px" src="../../../../assets/images/done.png">
+      </div>
+    </div>
+  </ng-container>
 </div>

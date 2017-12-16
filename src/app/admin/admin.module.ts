@@ -40,10 +40,11 @@ import {SharedModule} from '../shared/shared/shared.module';
 import {FileSelectDirective, FileUploadModule} from 'ng2-file-upload';
 import { EditEventDetailComponent } from './shared/edit-event-detail/edit-event-detail.component';
 import {DateTimePickerModule} from 'ng-pick-datetime';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {InformationService} from "../shared/services/information.service";
+import {InformationService} from '../shared/services/information.service';
 import { AdvisorInfomationComponent } from './shared/advisor-infomation/advisor-infomation.component';
 import {AdvisorService} from '../shared/services/advisor.service';
+import { AdvisorListComponent } from './shared/advisor-list/advisor-list.component';
+import { CKEditorModule } from 'ng2-ckeditor';
 
 @NgModule({
   imports: [
@@ -59,6 +60,7 @@ import {AdvisorService} from '../shared/services/advisor.service';
     ImageUploadModule.forRoot(),
     FileUploadModule,
     DateTimePickerModule,
+    CKEditorModule
   ],
   providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService, DatePipe, InformationService, AdvisorService],
   declarations: [
@@ -89,6 +91,7 @@ import {AdvisorService} from '../shared/services/advisor.service';
     ChangePasswordComponent,
     EditEventDetailComponent,
     AdvisorInfomationComponent,
+    AdvisorListComponent,
   ]
 })
 

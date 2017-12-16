@@ -5,6 +5,7 @@ import {ArticleType} from '../../shared/enum/article-type.enum';
 import {EmitterService} from '../shared/emitter.service';
 import {Advisor} from '../../shared/model/advisor';
 import {AdvisorService} from '../../shared/services/advisor.service';
+import {AdvisorGroup} from '../../shared/enum/advisor-group.enum';
 
 @Component({
   selector: 'introduction',
@@ -24,9 +25,10 @@ export class IntroductionComponent implements OnInit {
   public aboutArticle: Article;
   public departmentArticle: Article;
   public contactArticle: Article;
-  public advisors: Advisor[];
 
-  constructor(public articleService: ArticleService, public advisorService: AdvisorService) {
+  public advisorGroup = AdvisorGroup;
+
+  constructor(public articleService: ArticleService) {
   }
 
   get Locale() {
@@ -96,14 +98,6 @@ export class IntroductionComponent implements OnInit {
         this.contactEditMode = false;
       }
     });
-    this.advisorService.getAllAdvisors().subscribe(
-      data => {
-        this.advisors = data['content'];
-      },
-      err => {
-        console.log(err);
-      }
-    );
   }
 
   aboutArticleFinishEdit() {

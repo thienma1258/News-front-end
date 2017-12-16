@@ -21,25 +21,3 @@ container-box{
   padding: 20px 0;
 }
 
-.order-button{
-  display: inline-block;
-  margin: 0 30px;
-  position: absolute;
-  top: calc(50% - 49px);
-}
-
-.button{
-  display: block;
-  cursor: pointer;
-  /*height: 30px;*/
-  /*width: 60px;*/
-}
-
-.button-up{
-  margin-bottom: 30px;
-}
-
-.advisor-info{
-  margin-bottom: 20px;
-  position: relative;
-}

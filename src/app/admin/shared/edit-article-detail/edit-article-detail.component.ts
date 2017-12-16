@@ -152,4 +152,8 @@ export class EditArticleDetailComponent implements OnInit {
     this.editorLanguage = this.editorLanguage === 'English' ? '中文' : 'English';
     this.editorLocale = this.editorLocale === 'en' ? 'zh-tw' : 'en';
   }
+
+  openImageUploader() {
+    console.log('new image uploader');
+  }
 }
