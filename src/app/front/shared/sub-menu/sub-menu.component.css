@@ -64,6 +64,21 @@ a:hover {
     display: none;
   }
 
+  .glyphicon-triangle-bottom {
+    cursor: pointer;
+    border-width: 10px;
+    margin-left: 1.5em;
+    color: black;
+  }
+
+  button {
+    background: none;
+    border: none;
+    width: 10px;
+  }
+  /*.dropdown-toggle::after {*/
+    /*display: none;*/
+  /*}*/
   .dropdown-toggle::after {
     cursor: pointer;
     border-width: 10px;
