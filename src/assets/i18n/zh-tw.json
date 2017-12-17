@@ -11,13 +11,35 @@
   },
   "Homepage":{
     "SeeMore":"詳細",
-    "AboutUs":"关于校方",
+    "AboutUs":"關於",
     "LatestNews":"最新公告",
     "UpcomingEvent":"活动",
     "Admissions":"招生",
     "Academics":"教學研究",
     "Research":"教學研究",
-    "StudentLife":"在學學生"
+    "StudentLife":"在學學生",
+    "FacultyAdvisor": "設備與師資",
+    "DepartmentStructureStaff": "系所架構與行政人員",
+    "Contact": "聯絡方式",
+    "AcademicInformation": "學術資訊",
+    "StudentGraduate": "研究所與大學部",
+    "Teaching": "教學",
+    "DegreeRequirement": "畢業門檻",
+    "ResearchNews": "研究資訊",
+    "Laboratory": "實驗室",
+    "ConferencesAndSeminars": "研討會與演講公告",
+    "DepartmentNews": "系所資訊",
+    "CourseNews": "課程資訊",
+    "Event": "EVENT",
+    "SchoolLeaderShip": "SCHOOL LEADERSHIP",
+    "Calendar": "行事曆"
+  },
+  "Footer": {
+    "Contact": "聯絡方式",
+    "Address": "地址",
+    "Phone": "電話",
+    "Fax": "傳真",
+    "Link": "相關連結"
   },
   "Search": "尋找"
 }

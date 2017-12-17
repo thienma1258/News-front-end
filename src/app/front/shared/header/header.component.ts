@@ -8,10 +8,10 @@ import {UniversityService} from "../../../shared/services/university.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public locale = 'en';
+  public locale = 'zh-tw';
 
   isToggleMenuExpanded = false;
-  language = '中文';
+  language = 'English';
 
   public universityEnglishName;
   public universityChineseName;
@@ -20,9 +20,8 @@ export class HeaderComponent implements OnInit {
   public departmentChineseName;
 
   constructor(public translate: TranslateService, public universityService: UniversityService) {
-    this.locale = 'en';
-    localStorage.setItem('locale', 'en');
-    translate.setDefaultLang('en');
+    localStorage.setItem('locale', 'zh-tw');
+    translate.setDefaultLang('zh-tw');
   }
 
   ngOnInit() {

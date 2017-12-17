@@ -18,12 +18,6 @@
   </div>
 
   <div class="header-nav-right">
-    <!--<span class="header-search">-->
-        <!--<input type="text" class="search-form" maxlength="64" placeholder="{{'Search' | translate}}"/>-->
-        <!--<a routerLink="">-->
-          <!--<img class="search-button" src="./../../../../assets/images/search.png">-->
-        <!--</a>-->
-    <!--</span>-->
     <a class="translation" (click)="switchLanguage()">
       <img class="icon" src="./../../../../assets/images/translation-web.png">
       <span class="language"><b>{{language}}</b></span>
@@ -44,11 +38,10 @@
         {{'Nav.Introduction' | translate}}
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" routerLink="/introduction/about-us">ABOUT US</a>
-        <a class="dropdown-item" routerLink="/introduction/facility-advisor">FACILITY & ADVISOR</a>
-        <a class="dropdown-item" routerLink="/introduction/department-structure-staff">DEPARTMENT STRUCTURE &
-          STAFF</a>
-        <a class="dropdown-item" routerLink="/introduction/contact">CONTACT</a>
+        <a class="dropdown-item" routerLink="/introduction/about-us">{{'Homepage.AboutUs' | translate}}</a>
+        <a class="dropdown-item" routerLink="/introduction/facility-advisor">{{'Homepage.FacultyAdvisor' | translate}}</a>
+        <a class="dropdown-item" routerLink="/introduction/department-structure-staff">{{'Homepage.DepartmentStructureStaff' | translate}}</a>
+        <a class="dropdown-item" routerLink="/introduction/contact">{{'Homepage.Contact' | translate}}</a>
       </div>
     </li>
     <li class="dropdown nav-item">
@@ -56,35 +49,34 @@
         {{'Nav.Academics_Admissions' | translate}}
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" routerLink="/academic/academic-information">ACADEMIC INFORMATION</a>
-        <a class="dropdown-item" routerLink="/academic/student-graduate-and-undergraduate">STUDENT GRADUATED &
-          UNDERGRADUATE</a>
-        <a class="dropdown-item" routerLink="/academic/teaching">TEACHING</a>
-        <a class="dropdown-item" routerLink="/academic/degree-requirement">DEGREE REQUIREMENT</a>
+        <a class="dropdown-item" routerLink="/academic/academic-information">{{'Homepage.AcademicInformation' | translate}}</a>
+        <a class="dropdown-item" routerLink="/academic/student-graduate-and-undergraduate">{{'Homepage.StudentGraduate' | translate}}</a>
+        <a class="dropdown-item" routerLink="/academic/teaching">{{'Homepage.Teaching' | translate}}</a>
+        <a class="dropdown-item" routerLink="/academic/degree-requirement">{{'Homepage.DegreeRequirement' | translate}}</a>
       </div>
     </li>
     <li class="dropdown nav-item">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" routerLinkActive="nav-link-active">
         {{'Nav.Research' | translate}}
       </a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" routerLink="/research/research-news">RESEARCH NEWS</a>
-        <a class="dropdown-item" routerLink="/research/laboratory">LABORATORY</a>
-        <a class="dropdown-item" routerLink="/research/conferences-and-seminars">CONFERENCES AND SEMINARS</a>
-        <a class="dropdown-item" routerLink="/research/area">AREA</a>
-        <a class="dropdown-item" routerLink="/research/poster">POSTER</a>
-      </div>
+      <!--<div class="dropdown-menu">-->
+        <!--<a class="dropdown-item" routerLink="/research/research-news">RESEARCH NEWS</a>-->
+        <!--<a class="dropdown-item" routerLink="/research/laboratory">LABORATORY</a>-->
+        <!--<a class="dropdown-item" routerLink="/research/conferences-and-seminars">CONFERENCES AND SEMINARS</a>-->
+        <!--<a class="dropdown-item" routerLink="/research/area">AREA</a>-->
+        <!--<a class="dropdown-item" routerLink="/research/poster">POSTER</a>-->
+      <!--</div>-->
     </li>
     <li class="dropdown nav-item">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" routerLinkActive="nav-link-active">
         {{'Nav.News' | translate}}
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" routerLink="/news/department-news">DEPARTMENT NEWS</a>
-        <a class="dropdown-item" routerLink="/news/course-news">COURSE NEWS</a>
-        <a class="dropdown-item" routerLink="/news/event">EVENT</a>
-        <a class="dropdown-item" routerLink="/news/school-leadership">SCHOOL LEADERSHIP</a>
-        <a class="dropdown-item" routerLink="/news/calendar">CALENDAR</a>
+        <a class="dropdown-item" routerLink="/news/department-news">{{'Homepage.DepartmentNews' | translate}}</a>
+        <a class="dropdown-item" routerLink="/news/course-news">{{'Homepage.CourseNews' | translate}}</a>
+        <a class="dropdown-item" routerLink="/news/event">{{'Homepage.Event' | translate}}</a>
+        <a class="dropdown-item" routerLink="/news/school-leadership">{{'Homepage.SchoolLeaderShip' | translate}}</a>
+        <a class="dropdown-item" routerLink="/news/calendar">{{'Homepage.Calendar' | translate}}</a>
       </div>
     </li>
   </ul>

@@ -100,4 +100,12 @@ export class AdvisorListComponent implements OnInit {
   done() {
     this.uploader.queue[0].upload();
   }
+
+  moveUp(){
+
+  }
+
+  moveDown(){
+
+  }
 }

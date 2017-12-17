@@ -17,7 +17,29 @@
     "Admissions":"Admissions",
     "Academics":"Academics",
     "Research":"Research",
-    "StudentLife":"Student Life"
+    "StudentLife":"Student Life",
+    "FacultyAdvisor": "FACILITY & ADVISOR",
+    "DepartmentStructureStaff": "DEPARTMENT STRUCTURE & STAFF",
+    "Contact": "CONTACT",
+    "AcademicInformation": "ACADEMIC INFORMATION",
+    "StudentGraduate": "STUDENT GRADUATED & UNDERGRADUATE",
+    "Teaching": "TEACHING",
+    "DegreeRequirement": "DEGREE REQUIREMENT",
+    "ResearchNews": "RESEARCH NEWS",
+    "Laboratory": "LABORATORY",
+    "ConferencesAndSeminars": "CONFERENCES AND SEMINARS",
+    "DepartmentNews": "DEPARTMENT NEWS",
+    "CourseNews": "COURSE NEWS",
+    "Event": "EVENT",
+    "SchoolLeaderShip": "SCHOOL LEADERSHIP",
+    "Calendar": "CALENDAR"
+  },
+  "Footer": {
+    "Contact": "Contact",
+    "Address": "Address",
+    "Phone": "Phone",
+    "Fax": "Fax",
+    "Link": "Link"
   },
   "Search": "Search"
 }

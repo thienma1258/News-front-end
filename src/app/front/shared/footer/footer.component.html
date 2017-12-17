@@ -1,7 +1,7 @@
 <div id="information">
   <div class="row">
     <div id="contact" class="col-lg-6 col-md-6">
-      <p i18n class="title">Contact</p>
+      <p i18n class="title">{{'Footer.Contact' | translate}}</p>
       <div>
         <img src="../../../../assets/images/marker.png">
         <ng-container *ngIf="Locale === 'en'">
@@ -26,20 +26,20 @@
     </div>
 
     <div class="col-lg-6 col-md-6">
-      <p i18n class="title">Link</p>
+      <p i18n class="title">{{'Footer.Link' | translate}}</p>
       <div class="row">
         <div id="link-left" class="col-lg-5 col-md-5">
           <div>
             <a href="{{universityLinks[0]?.url}}" target="_blank">
               <img src="../../../../assets/images/link.png"><ng-container *ngIf="Locale === 'en'">{{universityLinks[0]?.englishName}}</ng-container>
-              <ng-container *ngIf="Locale === 'zh-tw'">{{universityLinks[0].chineseName}}</ng-container>
+              <ng-container *ngIf="Locale === 'zh-tw'">{{universityLinks[0]?.chineseName}}</ng-container>
             </a>
           </div>
           <br/>
           <div>
             <a href="{{universityLinks[1]?.url}}" target="_blank">
               <img src="../../../../assets/images/link.png"><ng-container *ngIf="Locale === 'en'">{{universityLinks[1]?.englishName}}</ng-container>
-              <ng-container *ngIf="Locale === 'zh-tw'">{{universityLinks[1].chineseName}}</ng-container>
+              <ng-container *ngIf="Locale === 'zh-tw'">{{universityLinks[1]?.chineseName}}</ng-container>
             </a>
           </div>
           <br/>
