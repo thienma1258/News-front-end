@@ -32,18 +32,6 @@
     <br/>
     <input type="file" ng2FileSelect [uploader]="uploader">
   </div>
-  <ckeditor
-    [(ngModel)]="article.englishContent"
-    [readonly]="false"
-    debounce="500">
-
-    <ckbutton [name]="'imageUploader'"
-              [command]="'openImageUploader'"
-              (click)="openImageUploader()"
-              [icon]="'https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-128.png'"
-              [label]="'Upload Image'"
-              [toolbar]="'insert,1'">
-    </ckbutton>
-  </ckeditor>
-
+  <div *ngIf="editorLocale === 'en'" class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="article.englishContent"></div>
+  <div *ngIf="editorLocale === 'zh-tw'" class="editor" [froalaEditor]="editorOptions" [(froalaModel)]="article.chineseContent"></div>
 </div>

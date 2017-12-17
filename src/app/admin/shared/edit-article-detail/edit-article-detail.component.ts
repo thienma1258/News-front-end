@@ -7,6 +7,7 @@ import {EventService} from '../../../shared/services/event.service';
 import {FileUploader} from 'ng2-file-upload';
 import {AuthService} from '../auth.service';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import * as $ from 'jquery';
 
 
 @Component({
