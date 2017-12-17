@@ -8,6 +8,7 @@
         <option [ngValue]="articleSize.Large">Large</option>
       </select>
     </ng-container>
+
     <a class="translation" (click)="switchEditorLanguage()">
       <img class="translation-icon" src="./../../../../assets/images/translation-web.png">
       <span class="language"><b>{{editorLanguage}}</b></span>
@@ -16,9 +17,16 @@
       <img class="done-icon" src="./../../../../assets/images/done.png">
     </a>
   </div>
+  <ng-container *ngIf="showtopic">
+    <div class=" article-size-dropdown"  style="display:inherit;">
+<div class="tags-container">
+<span *ngFor="let topic of topics;let i=index " [class.active]="topic.active" (click)="selectedtopic(i)">{{topic.englishTitle}}</span>
+</div>
+    </div>
+  </ng-container>
   <ng-container *ngIf="showTitle">
     <input *ngIf="editorLocale === 'en'" class="input-title" type="text" [(ngModel)]="article.englishTitle">
-    <input *ngIf="editorLocale === 'zh-tw'" class="input-title" type="text" [(ngModel)]="article.chineseTitle">
+    <input *ngIf="editorLocale === 'zh-tw'" class="input-title" type="text" [(ngModel)] ="article.chineseTitle">
   </ng-container>
   <ng-container *ngIf="isEditingEvent">
     <label><b>Event begin date: </b></label>

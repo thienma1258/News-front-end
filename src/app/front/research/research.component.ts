@@ -73,22 +73,22 @@ export class ResearchComponent implements OnInit {
       else if(this.selectedTitle=='laboratory'){
         this.reserachservices.getlaboratorytopic().subscribe((data)=>{
           console.log(data['content']);
-          this.topics=data['content'];
+          this.topics= data['content'];
         });
-        this.articleservices.getArticles('laboratory').subscribe((data)=>{
+        this.articleservices.getArticles('laboratory').subscribe((data) => {
       if (data['succeed'])
       {
-          this.articles=data['content'];
+          this.articles = data['content'];
       }
         });
       }
-      else if(this.selectedTitle=='conferences-and-seminars'){
+      else if(this.selectedTitle == 'conferences-and-seminars'){
 
       }
-      else if(this.selectedTitle=='area'){
+      else if(this.selectedTitle == 'area'){
 
       }
-      else if(this.selectedTitle=='poster'){
+      else if (this.selectedTitle == 'poster'){
 
       }
       for (const title of this.menu) {
@@ -104,17 +104,17 @@ export class ResearchComponent implements OnInit {
   clicktopic(i){
     // check if topic is click change state
     const researchtopics = new Array<string>();
-   !this.topics[i].active  ? this.topics[i].active = true :this.topics[i].active=false;
-   this.topics.forEach(row=>{
+   !this.topics[i].active  ? this.topics[i].active = true : this.topics[i].active = false;
+   this.topics.forEach(row => {
  row.active ? researchtopics.push(row.id) : '';
 
    });
-   if(researchtopics.length==0){
-    if(this.selectedTitle=='Research News'){
-      this.articleservices.getArticles('ResearchNews').subscribe((data)=>{
+   if (researchtopics.length == 0){
+    if (this.selectedTitle == 'Research News'){
+      this.articleservices.getArticles('ResearchNews').subscribe((data) => {
         if (data['succeed'])
         {
-            this.articles=data['content'];
+            this.articles = data['content'];
         }
           });
     }
@@ -122,9 +122,9 @@ export class ResearchComponent implements OnInit {
     return;
    }
      //  need something to stoping next acting while filter;
-   this.reserachservices.getarticlebytopics(researchtopics).subscribe(data=>{
+   this.reserachservices.getarticlebytopics(researchtopics).subscribe(data => {
      console.log(data);
-     this.articles=data['content'];
+     this.articles = data['content'];
    })
   //  console.log(researchtopics);
 

@@ -21,7 +21,7 @@ export class ArticleService {
   private removeSlideUrl;
 
   private getLatestArticleUrl;
-
+  private addArticlesUrl;
   public uploadImageUrl;
 
   constructor(private http: HttpClient, private authService: AuthService) {
@@ -30,7 +30,7 @@ export class ArticleService {
     this.editArticleUrl = this.authService.apiUrl + '/article/edit';
     this.removeArticleUrl = this.authService.apiUrl + '/article/remove';
     this.searchArticleUrl = this.authService.apiUrl + '/article/search/';
-
+    this.addArticlesUrl = this.authService.apiUrl + '/article/add';
     this.getSlideUrl = this.authService.apiUrl + '/slide/get';
     this.addSlideUrl = this.authService.apiUrl + '/slide/add';
     this.editSlideUrl = this.authService.apiUrl + '/slide/edit';
@@ -71,6 +71,19 @@ export class ArticleService {
       )
     };
     return this.http.put(url, article, options);
+  }
+  // tslint:disable-next-line:one-line
+  addArticle(article: Article){
+    const url = this.addArticlesUrl;
+    const options = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          'Authorization': this.authService.getAccessToken()
+        }
+      )
+    };
+    return this.http.post(url, article, options);
   }
 
   removeArticle(id: string) {

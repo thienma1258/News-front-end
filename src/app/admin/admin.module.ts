@@ -44,7 +44,7 @@ import {InformationService} from '../shared/services/information.service';
 import { AdvisorInfomationComponent } from './shared/advisor-infomation/advisor-infomation.component';
 import {AdvisorService} from '../shared/services/advisor.service';
 import { AdvisorListComponent } from './shared/advisor-list/advisor-list.component';
-
+import {ResearchServices} from '../shared/services/research.services';
 @NgModule({
   imports: [
     SharedModule,
@@ -60,7 +60,9 @@ import { AdvisorListComponent } from './shared/advisor-list/advisor-list.compone
     FileUploadModule,
     DateTimePickerModule,
   ],
-  providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService, DatePipe, InformationService, AdvisorService],
+
+  providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService, DatePipe, InformationService, AdvisorService,
+    ResearchServices],
   declarations: [
     DashboardComponent,
     LoginComponent,

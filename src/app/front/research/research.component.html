@@ -28,7 +28,7 @@
         <!-- col 1 -->
         <!-- 1 image -->
         <div class="article  col-xs-12 small" [class.small]="i!==1 &&i!== 2" [class.big]="i===1 ||i===2 "   *ngFor="let article of articles;let i =index">
-          <img class="img col1" src="assets/images/070.jpg">
+          <img class="img col1"[src]="article.previewImageUrl?article.previewImageUrl:'assets/images/no_preview_image.jpg'" >
           <div class="title-article">
            {{article.englishTitle}}
           </div>

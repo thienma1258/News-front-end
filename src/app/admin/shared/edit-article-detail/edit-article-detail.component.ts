@@ -3,7 +3,10 @@ import {ActivatedRoute} from '@angular/router';
 import {DatePipe, Location} from '@angular/common';
 import {ArticleService} from '../../../shared/services/article.service';
 import {ArticleSize} from '../../../shared/enum/article-size.enum';
+import {ArticleType} from '../../../shared/enum/article-type.enum';
 import {EventService} from '../../../shared/services/event.service';
+import {topic} from '../../../shared/model/research-news-models';
+import {ResearchServices} from '../../../shared/services/research.services';
 import {FileUploader} from 'ng2-file-upload';
 import {AuthService} from '../auth.service';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
@@ -22,7 +25,7 @@ export class EditArticleDetailComponent implements OnInit {
 
   @Input() showTitle = true;
   @Input() showPreviewImageEditor = false;
-
+  @Input() showtopic = false;
   isShowDoneButton = false;
   isEditingEvent = false;
 
@@ -30,10 +33,10 @@ export class EditArticleDetailComponent implements OnInit {
   articleType: string;
   articleSize = ArticleSize;
   isAddNew = false;
-
+  topics: topic[] = [];
   editorLanguage = '中文';
   editorLocale = 'en';
-
+  specifictype= null;
   en: any;
 
   eventbeginDate: Date;
@@ -48,7 +51,9 @@ export class EditArticleDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private location: Location, private datePipe: DatePipe,
               private articleService: ArticleService, private eventService: EventService,
-              private authService: AuthService, private sanitizer: DomSanitizer) {
+              private authService: AuthService, private sanitizer: DomSanitizer,
+              private researchservices: ResearchServices
+            ) {
     this.uploader = new FileUploader(
       {
         url: this.articleService.uploadImageUrl,
@@ -75,6 +80,7 @@ export class EditArticleDetailComponent implements OnInit {
       firstDayOfWeek: 0,
       dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      // tslint:disable-next-line:max-line-length
       monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     };
@@ -90,12 +96,41 @@ export class EditArticleDetailComponent implements OnInit {
       this.isShowDoneButton = true;
       this.route.params.subscribe(params => {
         this.articleId = params['id'];
+        console.log(params.type);
+        // tslint:disable-next-line:one-line
+        if (params.type === 'research-news'){
+          this.specifictype = 30;
+        }
+        // tslint:disable-next-line:one-line
+        else if (params.type === 'laboratory'){
+          this.specifictype = 31;
+        }
+        // tslint:disable-next-line:one-line
+        else if (params.type === 'conferences-and-seminars'){
+          this.specifictype = 32;
+        }
+        // tslint:disable-next-line:one-line
+        else if (params.type === 'areas'){
+          this.specifictype = 33;
+        }
+        // tslint:disable-next-line:whitespace
+        // tslint:disable-next-line:one-line
+        else if ( params.type === 'posters' ){
+          // tslint:disable-next-line:whitespace
+          this.specifictype= 34;
+        }
         if (this.articleId === null || this.articleId === undefined) {
           this.isAddNew = true;
+          this.loadingtopic(this.specifictype);
         }
         this.articleService.getArticlesById(this.articleId).subscribe(
           data => {
+            console.log(data);
             this.article = data['content'];
+
+            this.loadingtopic(this.article.specificType);
+            // loading topic
+
             this.selectedSlideImageUrlPath = this.article.previewImageUrl;
             if (this.article.beginDate) {
               this.isEditingEvent = true;
@@ -119,11 +154,45 @@ export class EditArticleDetailComponent implements OnInit {
   finishEdit() {
     if (this.uploader.queue.length > 0) {
       this.uploader.queue[0].upload();
-    } else {
+    }
+    // tslint:disable-next-line:one-line
+    else if (this.isAddNew){
+      this.addnew();
+    }
+    // tslint:disable-next-line:one-line
+    else {
       this.updateData();
     }
   }
+// tslint:disable-next-line:one-line
+loadingtopic(spcefictype){
+  if (spcefictype === ArticleType.ResearchNews) {
+    this.showtopic = true;
+    // loading topics
+  // tslint:disable-next-line:no-shadowed-variable
+  this.researchservices.getresearchtopic().subscribe(data => {
+    this.topics = data['content'];
 
+  },
+  error => {
+    console.log(error);
+  });
+
+
+  }
+  // tslint:disable-next-line:one-line
+  else if (spcefictype === ArticleType.Laboratory){
+    // tslint:disable-next-line:no-shadowed-variable
+    // tslint:disable-next-line:whitespace
+    this.showtopic =true;
+    this.researchservices.getlaboratorytopic().subscribe(data => {
+      this.topics = data['content'];
+    }, error => {
+      console.log(error);
+      alert('could not load laboratory topic');
+    });
+  }
+}
   updateData() {
     if (this.isEditingEvent) {
       this.eventService.editEvent(this.article).subscribe(
@@ -137,7 +206,8 @@ export class EditArticleDetailComponent implements OnInit {
     } else {
       this.articleService.editArticle(this.article).subscribe(
         data => {
-
+          console.log(data);
+          this.location.back();
         },
         err => {
           console.log(err);
@@ -145,10 +215,20 @@ export class EditArticleDetailComponent implements OnInit {
       );
     }
     this.articleChange.emit(this.article);
-    console.log(this.article);
-    this.location.back();
-  }
 
+
+  }
+// tslint:disable-next-line:one-line
+  addnew(){
+this.article.spcefictype = this.specifictype;
+
+    this.articleService.addArticle(this.article).subscribe(data => {
+      alert('add success');
+      this.location.back();
+    }, error => {
+console.log(error);
+    });
+  }
   switchEditorLanguage() {
     this.editorLanguage = this.editorLanguage === 'English' ? '中文' : 'English';
     this.editorLocale = this.editorLocale === 'en' ? 'zh-tw' : 'en';
@@ -156,5 +236,13 @@ export class EditArticleDetailComponent implements OnInit {
 
   openImageUploader() {
     console.log('new image uploader');
+  }
+  selectedtopic(i){
+    console.log(this.topics);
+    // tslint:disable-next-line:no-unused-expression
+    !this.topics[i].active  ? this.topics[i].active = true :this.topics[i].active=false;
+    // tslint:disable-next-line:no-shadowed-variable
+
+
   }
 }
