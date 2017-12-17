@@ -30,7 +30,7 @@ a{
 .large .content{
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 10;
+  -webkit-line-clamp: 50;
   -webkit-box-orient: vertical;
 }
 
