@@ -4,6 +4,7 @@ import {ArticleService} from '../../shared/services/article.service';
 import {Article} from '../../shared/model/article';
 import {ArticleType} from '../../shared/enum/article-type.enum';
 import {TranslateService, TranslationChangeEvent} from '@ngx-translate/core';
+import {AdvisorGroup} from "../../shared/enum/advisor-group.enum";
 
 @Component({
   selector: 'app-introduction',
@@ -13,9 +14,11 @@ import {TranslateService, TranslationChangeEvent} from '@ngx-translate/core';
 export class IntroductionComponent implements OnInit {
   parentRoute: string;
   parentRouteName: string;
-  titles: any ;
+  titles: any;
   selectedTitle: string;
   article: Article;
+  public isFaculty = false;
+  public advisorGroup = AdvisorGroup;
 
   constructor(private translate: TranslateService, private route: ActivatedRoute, private articleService: ArticleService) {
     this.article = new Article();
@@ -87,14 +90,7 @@ export class IntroductionComponent implements OnInit {
           break;
         case 'facility-advisor':
           this.selectedTitle = 'Facility Advisor';
-          this.articleService.getArticles(String(ArticleType.FacultyAdvisor)).subscribe(
-            data => {
-              this.article = data['content'][0];
-            },
-            err => {
-              console.log(err);
-            }
-          );
+          this.isFaculty = true;
           break;
         case 'department-structure-staff':
           this.selectedTitle = 'Department Structure & Staff';

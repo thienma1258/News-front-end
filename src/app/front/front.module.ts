@@ -22,7 +22,10 @@ import {EventService} from '../shared/services/event.service';
 import {UniversityService} from '../shared/services/university.service';
 import {SharedModule} from '../shared/shared/shared.module';
 import {ResearchServices} from '../shared/services/research.services';
-import {InformationService} from "../shared/services/information.service";
+import {InformationService} from '../shared/services/information.service';
+import { AdvisorInfomationComponent } from './shared/advisor-information/advisor-information.component';
+import { AdvisorListComponent } from './shared/advisor-list/advisor-list.component';
+import {AdvisorService} from "../shared/services/advisor.service";
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -38,6 +41,8 @@ import {InformationService} from "../shared/services/information.service";
     NewsComponent,
     ResearchDetailsComponent,
     NewsDetailsComponent,
+    AdvisorInfomationComponent,
+    AdvisorListComponent,
   ],
   imports: [
     SharedModule,
@@ -52,7 +57,8 @@ import {InformationService} from "../shared/services/information.service";
     EventService,
     UniversityService,
     ResearchServices,
-    InformationService
+    InformationService,
+    AdvisorService
   ],
   bootstrap: []
 })
