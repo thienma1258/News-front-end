@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ArticleService} from '../../shared/services/article.service';
 import {Article} from '../../shared/model/article';
 import {ArticleType} from '../../shared/enum/article-type.enum';
+import {TranslateService, TranslationChangeEvent} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-introduction',
@@ -12,32 +13,61 @@ import {ArticleType} from '../../shared/enum/article-type.enum';
 export class IntroductionComponent implements OnInit {
   parentRoute: string;
   parentRouteName: string;
-  titles: any = [
-    {
-      'route': 'about-us',
-      'name': 'About us'
-    },
-    {
-      'route': 'facility-advisor',
-      'name': 'Facility advisor'
-    },
-    {
-      'route': 'department-structure-staff',
-      'name': 'Department structure and staff'
-    },
-    {
-      'route': 'contact',
-      'name': 'Contact'
-    }
-  ];
+  titles: any ;
   selectedTitle: string;
   article: Article;
 
-  constructor(private route: ActivatedRoute, private articleService: ArticleService) {
+  constructor(private translate: TranslateService, private route: ActivatedRoute, private articleService: ArticleService) {
     this.article = new Article();
   }
 
   ngOnInit() {
+    this.translate.get(['Homepage.AboutUs', 'Homepage.FacultyAdvisor', 'Homepage.DepartmentStructureStaff', 'Homepage.Contact']).subscribe(
+      res => {
+        console.log(res['Homepage.FacultyAdvisor']);
+        this.titles = [
+          {
+            'route': 'about-us',
+            'name': res['Homepage.AboutUs']
+          },
+          {
+            'route': 'facility-advisor',
+            'name': res['Homepage.FacultyAdvisor']
+          },
+          {
+            'route': 'department-structure-staff',
+            'name': res['Homepage.DepartmentStructureStaff']
+          },
+          {
+            'route': 'contact',
+            'name': res['Homepage.Contact']
+          }
+        ];
+      });
+    this.translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
+      this.translate.get(['Homepage.AboutUs', 'Homepage.FacultyAdvisor', 'Homepage.DepartmentStructureStaff', 'Homepage.Contact']).subscribe(
+        res => {
+          this.titles = [
+            {
+              'route': 'about-us',
+              'name': res['Homepage.AboutUs']
+            },
+            {
+              'route': 'facility-advisor',
+              'name': res['Homepage.FacultyAdvisor']
+            },
+            {
+              'route': 'department-structure-staff',
+              'name': res['Homepage.DepartmentStructureStaff']
+            },
+            {
+              'route': 'contact',
+              'name': res['Homepage.Contact']
+            }
+          ];
+        }
+      );
+    });
     this.parentRoute = '/introduction';
     this.parentRouteName = 'Introduction';
     this.route.params.subscribe(params => {

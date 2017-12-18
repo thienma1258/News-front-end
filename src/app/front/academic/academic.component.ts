@@ -3,6 +3,7 @@ import {Article} from '../../shared/model/article';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleService} from "../../shared/services/article.service";
 import {ArticleType} from "../../shared/enum/article-type.enum";
+import {TranslateService, TranslationChangeEvent} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-academic',
@@ -33,10 +34,56 @@ export class AcademicComponent implements OnInit {
   selectedTitle: string;
   article: Article;
 
-  constructor(public route: ActivatedRoute, public articleService: ArticleService) {
+  constructor(private translate: TranslateService,public route: ActivatedRoute, public articleService: ArticleService) {
   }
 
   ngOnInit() {
+    this.translate.get(['Homepage.AcademicInformation', 'Homepage.StudentGraduate', 'Homepage.Teaching', 'Homepage.DegreeRequirement']).subscribe(
+      res => {
+        console.log(res['Homepage.FacultyAdvisor']);
+        this.titles = [
+          {
+            'route': 'academic-information',
+            'name': res['Homepage.AcademicInformation']
+          },
+          {
+            'route': 'student-graduate-and-undergraduate',
+            'name': res['Homepage.StudentGraduate']
+          },
+          {
+            'route': 'teaching',
+            'name': res['Homepage.Teaching']
+          },
+          {
+            'route': 'degree-requirement',
+            'name': res['Homepage.DegreeRequirement']
+          }
+        ];
+      });
+    this.translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
+      this.translate.get(['Homepage.AcademicInformation', 'Homepage.StudentGraduate', 'Homepage.Teaching', 'Homepage.DegreeRequirement']).subscribe(
+        res => {
+          this.titles = [
+            {
+              'route': 'academic-information',
+              'name': res['Homepage.AcademicInformation']
+            },
+            {
+              'route': 'student-graduate-and-undergraduate',
+              'name': res['Homepage.StudentGraduate']
+            },
+            {
+              'route': 'teaching',
+              'name': res['Homepage.Teaching']
+            },
+            {
+              'route': 'degree-requirement',
+              'name': res['Homepage.DegreeRequirement']
+            }
+          ];
+        }
+      );
+    });
     this.route.params.subscribe(params => {
       this.selectedTitle = params['title'];
       switch (this.selectedTitle) {
