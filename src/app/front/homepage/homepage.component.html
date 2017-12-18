@@ -45,6 +45,8 @@
       <p i18n class="news-title">{{'Homepage.AboutUs' | translate}}</p>
       <app-article-preview [article]="aboutArticle" [articleUrl]="'/introduction/about-us'" [displayType]="3"
                            [showPreviewContent]="true"></app-article-preview>
+      <br>
+      <a routerLink="/introduction/about-us" style="color: dodgerblue; float: right;">SEE MORE</a>
     </div>
     <div class="col-xl-4 col-lg-4 col-md-4 horizontal-spacing group">
       <p i18n class="news-title">{{'Homepage.LatestNews' | translate}}</p>
@@ -72,20 +74,5 @@
                            [showPreviewContent]="true" [articleUrl]="information.redirectUrl">
       </app-article-preview>
     </div>
-    <!--<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">-->
-      <!--<p i18n class="about-title">{{'Homepage.Academics' | translate}}</p>-->
-      <!--<app-article-preview [article]="academicsArticle" [displayType]="3" [showPreviewImage]="true"-->
-                           <!--[showPreviewContent]="true"></app-article-preview>-->
-    <!--</div>-->
-    <!--<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">-->
-      <!--<p i18n class="about-title">{{'Homepage.Research' | translate}}</p>-->
-      <!--<app-article-preview [article]="researchArticle" [displayType]="3" [showPreviewImage]="true"-->
-                           <!--[showPreviewContent]="true"></app-article-preview>-->
-    <!--</div>-->
-    <!--<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">-->
-      <!--<p i18n class="about-title">{{'Homepage.StudentLife' | translate}}</p>-->
-      <!--<app-article-preview [article]="studentLifeArticle" [displayType]="3" [showPreviewImage]="true"-->
-                           <!--[showPreviewContent]="true"></app-article-preview>-->
-    <!--</div>-->
   </div>
 </div>
