@@ -7,7 +7,7 @@
           <ng-container *ngIf="Locale === 'en'">
             {{advisor.englishName}}
           </ng-container>
-          <ng-container *ngIf="Locale === 'cn'">
+          <ng-container *ngIf="Locale === 'zh-tw'">
             {{advisor.chineseName}}
           </ng-container>
         </p>
@@ -21,7 +21,7 @@
         <ng-container *ngIf="Locale === 'en'">
           {{advisor.englishTitle}}
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           {{advisor.chineseTitle}}
         </ng-container>
       </span>
@@ -32,7 +32,7 @@
         <ng-container *ngIf="Locale === 'en'">
           {{advisor.englishBackground}}
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           {{advisor.chineseBackground}}
         </ng-container>
       </span>
@@ -43,7 +43,7 @@
         <ng-container *ngIf="Locale === 'en'">
           {{advisor.englishSpecialties}}
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           {{advisor.chineseSpecialties}}
         </ng-container>
       </span>
@@ -53,7 +53,7 @@
         <ng-container *ngIf="Locale === 'en'">
           {{advisor.englishOffice}}
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           {{advisor.chineseOffice}}
         </ng-container>
       </div>
@@ -79,7 +79,7 @@
         <ng-container *ngIf="Locale === 'en'">
           <input type="text" [(ngModel)]="advisor.englishName">
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           <input type="text" [(ngModel)]="advisor.chineseName">
         </ng-container>
       </div>
@@ -88,7 +88,7 @@
         <ng-container *ngIf="Locale === 'en'">
           <textarea type="text" [(ngModel)]="advisor.englishTitle"></textarea>
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           <textarea type="text" [(ngModel)]="advisor.chineseTitle"></textarea>
         </ng-container>
       </div>
@@ -97,7 +97,7 @@
         <ng-container *ngIf="Locale === 'en'">
           <textarea type="text" [(ngModel)]="advisor.englishBackground"></textarea>
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           <textarea type="text" [(ngModel)]="advisor.chineseBackground"></textarea>
         </ng-container>
       </div>
@@ -106,7 +106,7 @@
         <ng-container *ngIf="Locale === 'en'">
           <textarea type="text" [(ngModel)]="advisor.englishSpecialties"></textarea>
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           <textarea type="text" [(ngModel)]="advisor.chineseSpecialties"></textarea>
         </ng-container>
       </div>
@@ -115,7 +115,7 @@
         <ng-container *ngIf="Locale === 'en'">
           <input type="text" [(ngModel)]="advisor.englishOffice">
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           <input type="text" [(ngModel)]="advisor.chineseOffice">
         </ng-container>
       </div>
@@ -130,6 +130,25 @@
       <div class="checkbox">
         <label><input type="checkbox" value="">Department Head</label>
       </div>
+
+      <div *ngIf="isShowLoadingIndicator" class="loading-indicator">
+        <div class="sk-fading-circle">
+          <div class="sk-circle1 sk-circle"></div>
+          <div class="sk-circle2 sk-circle"></div>
+          <div class="sk-circle3 sk-circle"></div>
+          <div class="sk-circle4 sk-circle"></div>
+          <div class="sk-circle5 sk-circle"></div>
+          <div class="sk-circle6 sk-circle"></div>
+          <div class="sk-circle7 sk-circle"></div>
+          <div class="sk-circle8 sk-circle"></div>
+          <div class="sk-circle9 sk-circle"></div>
+          <div class="sk-circle10 sk-circle"></div>
+          <div class="sk-circle11 sk-circle"></div>
+          <div class="sk-circle12 sk-circle"></div>
+        </div>
+        <span class="message">Please wait...</span>
+      </div>
+
 
       <div class="edit-modify-button">
         <img (click)="done()" style="margin-right: 10px" src="../../../../assets/images/done.png">

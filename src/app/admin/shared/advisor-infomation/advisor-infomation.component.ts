@@ -6,18 +6,22 @@ import {AuthService} from '../auth.service';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {AdvisorService} from '../../../shared/services/advisor.service';
 import {EmitterService} from '../emitter.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'advisor-infomation',
   templateUrl: './advisor-infomation.component.html',
   styleUrls: ['./advisor-infomation.component.css']
 })
+
 export class AdvisorInfomationComponent implements OnInit {
   @Input() advisor: Advisor;
   isEditMode = false;
 
   selectedImageUrlPath: SafeUrl;
   uploader: FileUploader;
+
+  isShowLoadingIndicator = false;
 
   public advisorEmitter = EmitterService.get('RemoveAdvisor');
 
@@ -38,14 +42,7 @@ export class AdvisorInfomationComponent implements OnInit {
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
       if (status === 200) {
         this.advisor.facultyImageUrl = JSON.parse(response)['content'];
-        this.advisorService.editAdvisor(this.advisor).subscribe(
-          data => {
-
-          },
-          err => {
-            console.log(err);
-          }
-        );
+        this.updateAdvisor();
       }
     };
   }
@@ -75,7 +72,24 @@ export class AdvisorInfomationComponent implements OnInit {
   }
 
   done() {
-    this.isEditMode = false;
-    this.uploader.queue[0].upload();
+    this.isShowLoadingIndicator = true;
+    if (this.uploader.queue.length > 0) {
+      this.advisor.facultyImageUrl = this.selectedImageUrlPath.toString();
+      this.uploader.queue[0].upload();
+    } else {
+      this.updateAdvisor();
+    }
+  }
+
+  updateAdvisor() {
+    this.advisorService.editAdvisor(this.advisor).subscribe(
+      data => {
+        this.isEditMode = false;
+        this.isShowLoadingIndicator = false;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

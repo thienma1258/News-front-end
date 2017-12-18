@@ -111,10 +111,6 @@ export class IntroductionComponent implements OnInit {
     );
   }
 
-  facultyAdvisorArticleFinishEdit() {
-
-  }
-
   departmentArticleFinishEdit() {
     this.articleService.editArticle(this.departmentArticle).subscribe(
       data => {

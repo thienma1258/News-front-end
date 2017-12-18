@@ -1,8 +1,8 @@
 <div *ngFor="let advisor of advisors; let i = index" class="advisor-info">
   <advisor-infomation [advisor]="advisor"></advisor-infomation>
   <div class="order-button">
-    <img [class.disabled]="i == 0" class="button button-up" src="./../../../assets/images/up.png" (click)="moveUp()">
-    <img [class.disabled]="i == advisors.length - 1" class="button button-down" src="./../../../assets/images/down.png" (click)="moveDown()">
+    <img [class.disabled]="i == 0" class="button button-up" src="./../../../assets/images/up.png" (click)="moveUp(i)">
+    <img [class.disabled]="i == advisors.length - 1" class="button button-down" src="./../../../assets/images/down.png" (click)="moveDown(i)">
   </div>
 </div>
 <ng-container *ngIf="isAddingNew">

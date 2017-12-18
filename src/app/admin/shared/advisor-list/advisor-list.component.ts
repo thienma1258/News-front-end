@@ -101,11 +101,39 @@ export class AdvisorListComponent implements OnInit {
     this.uploader.queue[0].upload();
   }
 
-  moveUp(){
+  moveUp(index: number) {
+    if (index <= 0) {
+      return;
+    }
+    this.advisorService.changeAdvisorOrder(this.advisors[index].id, true).subscribe(
+      data => {
 
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    const c = this.advisors[index];
+    this.advisors[index] = this.advisors[index - 1];
+    this.advisors[index - 1] = c;
+    // this.swap(this.advisors[index], this.advisors[index - 1]);
   }
 
-  moveDown(){
+  moveDown(index: number) {
+    if (index >= this.advisors.length - 1) {
+      return;
+    }
+    this.advisorService.changeAdvisorOrder(this.advisors[index].id, false).subscribe(
+      data => {
 
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    const c = this.advisors[index];
+    this.advisors[index] = this.advisors[index + 1];
+    this.advisors[index + 1] = c;
+    // this.swap(this.advisors[index], this.advisors[index + 1]);
   }
 }
