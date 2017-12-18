@@ -6,7 +6,7 @@ import {AuthService} from '../auth.service';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {AdvisorService} from '../../../shared/services/advisor.service';
 import {EmitterService} from '../emitter.service';
-import {Subscription} from 'rxjs/Subscription';
+import {AdvisorGroup} from '../../../shared/enum/advisor-group.enum';
 
 @Component({
   selector: 'advisor-infomation',
@@ -23,7 +23,10 @@ export class AdvisorInfomationComponent implements OnInit {
 
   isShowLoadingIndicator = false;
 
+  classGroup: string;
+
   public advisorEmitter = EmitterService.get('RemoveAdvisor');
+  public addDeanEmitter = EmitterService.get('AddDean');
 
   constructor(private articleService: ArticleService, private authService: AuthService,
               private sanitizer: DomSanitizer, private advisorService: AdvisorService) {
@@ -52,6 +55,27 @@ export class AdvisorInfomationComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.advisor.isDean) {
+      this.classGroup = 'head-group';
+    } else {
+      switch (this.advisor.facultyGroup) {
+        case AdvisorGroup.Head:
+          this.classGroup = 'head-group';
+          break;
+        case AdvisorGroup.System:
+          this.classGroup = 'sys-group';
+          break;
+        case AdvisorGroup.Elec:
+          this.classGroup = 'elec-group';
+          break;
+        case AdvisorGroup.Com:
+          this.classGroup = 'com-group';
+          break;
+        case AdvisorGroup.Other:
+          this.classGroup = 'other-group';
+          break;
+      }
+    }
     this.selectedImageUrlPath = this.advisor.facultyImageUrl;
   }
 
@@ -72,6 +96,11 @@ export class AdvisorInfomationComponent implements OnInit {
   }
 
   done() {
+    if (this.advisor.isDean) {
+      this.classGroup = 'head-group';
+      this.addDeanEmitter.emit('add');
+    }
+
     this.isShowLoadingIndicator = true;
     if (this.uploader.queue.length > 0) {
       this.advisor.facultyImageUrl = this.selectedImageUrlPath.toString();

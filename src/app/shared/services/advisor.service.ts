@@ -59,7 +59,7 @@ export class AdvisorService {
   }
 
   removeAdvisor(id: string) {
-    const url = this.editAdvisorUrl;
+    const url = this.removeAdvisorUrl;
     const data: FormData = new FormData();
     data.append('facultyId', id);
     const options = {

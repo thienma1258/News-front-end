@@ -1,3 +1,5 @@
+import {AdvisorGroup} from '../enum/advisor-group.enum';
+
 export class Advisor {
   id: string;
   englishName: string;
@@ -12,7 +14,7 @@ export class Advisor {
   chineseOffice: string;
   phone: string;
   email: string;
-  facultyGroup: number;
+  facultyGroup: AdvisorGroup;
   facultyImageUrl: string;
   isDean: boolean;
 }

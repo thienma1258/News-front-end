@@ -17,13 +17,19 @@ export class AdvisorListComponent implements OnInit {
   @Input() group: AdvisorGroup;
 
   public advisorEmitter = EmitterService.get('RemoveAdvisor');
+  public addDeanEmitter = EmitterService.get('AddDean');
 
   isAddingNew = false;
 
   selectedImageUrlPath: SafeUrl;
   uploader: FileUploader;
 
-  public advisors: Advisor[];
+  isShowCreateNewButton = true;
+  isShowLoadingIndicator = false;
+
+  classGroup: string;
+
+  public advisors: Advisor[] = [];
   private newAdvisor: Advisor = new Advisor();
 
   constructor(private articleService: ArticleService, private authService: AuthService,
@@ -43,17 +49,7 @@ export class AdvisorListComponent implements OnInit {
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
       if (status === 200) {
         this.newAdvisor.facultyImageUrl = JSON.parse(response)['content'];
-        this.isAddingNew = false;
-        this.advisors.push(this.newAdvisor);
-        this.advisorService.addAdvisor(this.newAdvisor).subscribe(
-          data => {
-
-          },
-          err => {
-            console.log(err);
-          }
-        );
-        this.newAdvisor = new Advisor();
+        this.createAdvisor();
       }
     };
   }
@@ -63,6 +59,27 @@ export class AdvisorListComponent implements OnInit {
   }
 
   ngOnInit() {
+    switch (this.group) {
+      case AdvisorGroup.All:
+        this.isShowCreateNewButton = false;
+        break;
+      case AdvisorGroup.Head:
+        this.isShowCreateNewButton = false;
+        this.classGroup = 'head-group';
+        break;
+      case AdvisorGroup.System:
+        this.classGroup = 'sys-group';
+        break;
+      case AdvisorGroup.Elec:
+        this.classGroup = 'elec-group';
+        break;
+      case AdvisorGroup.Com:
+        this.classGroup = 'com-group';
+        break;
+      case AdvisorGroup.Other:
+        this.classGroup = 'other-group';
+        break;
+    }
     if (this.group === AdvisorGroup.All) {
       this.advisorService.getAllAdvisors().subscribe(
         data => {
@@ -72,6 +89,18 @@ export class AdvisorListComponent implements OnInit {
           console.log(err);
         }
       );
+    } else if (this.group === AdvisorGroup.Head) {
+      // refresh data to get new dean list
+      this.addDeanEmitter.subscribe(msg => {
+        this.advisorService.getAdvisorbyGroup(this.group).subscribe(
+          data => {
+            this.advisors = data['content'];
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      });
     } else {
       this.advisorService.getAdvisorbyGroup(this.group).subscribe(
         data => {
@@ -98,7 +127,28 @@ export class AdvisorListComponent implements OnInit {
   }
 
   done() {
-    this.uploader.queue[0].upload();
+    this.isShowLoadingIndicator = true;
+    if (this.uploader.queue.length > 0) {
+      this.uploader.queue[0].upload();
+    } else {
+      this.createAdvisor();
+    }
+
+  }
+
+  createAdvisor() {
+    this.newAdvisor.facultyGroup = this.group;
+    this.advisors.push(this.newAdvisor);
+    this.advisorService.addAdvisor(this.newAdvisor).subscribe(
+      data => {
+        this.isAddingNew = false;
+        this.isShowLoadingIndicator = false;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.newAdvisor = new Advisor();
   }
 
   moveUp(index: number) {

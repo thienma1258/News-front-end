@@ -1,9 +1,28 @@
-#info-container{
+.info-container{
   position: relative;
   display: inline-block;
   width: 85%;
-  border: 3px solid red;
   padding: 15px 15px;
+}
+
+.head-group{
+  border: 3px solid red;
+}
+
+.sys-group{
+  border: 3px solid #ADBDF7;
+}
+
+.elec-group{
+  border: 3px solid #A6D690;
+}
+
+.com-group{
+  border: 3px solid #219653;
+}
+
+.other-group{
+  border: 3px solid #BB6BD9;
 }
 
 span{
