@@ -72,7 +72,16 @@ export class EditArticleDetailComponent implements OnInit {
 
       if (status === 200) {
         this.article.previewImageUrl = JSON.parse(response)['content'];
+
+      // tslint:disable-next-line:whitespace
+      // tslint:disable-next-line:one-line
+      if (!this.isAddNew){
         this.updateData();
+      }
+      // tslint:disable-next-line:one-line
+      else{
+        this.addnew();
+      }
       }
     };
 
@@ -94,6 +103,7 @@ export class EditArticleDetailComponent implements OnInit {
     if (this.article === undefined) {
       this.article = {};
       this.isShowDoneButton = true;
+
       this.route.params.subscribe(params => {
         this.articleId = params['id'];
         console.log(params.type);
@@ -121,6 +131,8 @@ export class EditArticleDetailComponent implements OnInit {
         }
         if (this.articleId === null || this.articleId === undefined) {
           this.isAddNew = true;
+
+          this.showPreviewImageEditor = true;
           this.loadingtopic(this.specifictype);
         }
         this.articleService.getArticlesById(this.articleId).subscribe(
@@ -156,11 +168,11 @@ export class EditArticleDetailComponent implements OnInit {
       this.uploader.queue[0].upload();
     }
     // tslint:disable-next-line:one-line
-    else if (this.isAddNew){
+   else if (this.isAddNew){
       this.addnew();
     }
     // tslint:disable-next-line:one-line
-    else {
+    else  {
       this.updateData();
     }
   }
@@ -220,10 +232,15 @@ loadingtopic(spcefictype){
   }
 // tslint:disable-next-line:one-line
   addnew(){
+    alert('starting add new articles');
 this.article.spcefictype = this.specifictype;
-
+this.article.type = 3;
+this.article.id = '';
+this.article.url = 'test1';
+console.log(this.article);
     this.articleService.addArticle(this.article).subscribe(data => {
       alert('add success');
+      console.log(data);
       this.location.back();
     }, error => {
 console.log(error);
@@ -240,7 +257,7 @@ console.log(error);
   selectedtopic(i){
     console.log(this.topics);
     // tslint:disable-next-line:no-unused-expression
-    !this.topics[i].active  ? this.topics[i].active = true :this.topics[i].active=false;
+    !this.topics[i].active  ? this.topics[i].active = true : this.topics[i].active = false;
     // tslint:disable-next-line:no-shadowed-variable
 
 
