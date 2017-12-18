@@ -55,7 +55,47 @@
   <div class="row mobile">
     <app-sub-menu [parentRoute]="parentRoute" [parentRouteName]="parentRouteName" [titles]="titles" [selectedTitle]="selectedTitle"></app-sub-menu>
     <div *ngIf="isFaculty">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#home-mobile">All</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu1-mobile">Department Head</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu2-mobile">System Group</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu3-mobile">Elec. Group</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu4-mobile">Com. Group</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu5-mobile">Other</a>
+        </li>
+      </ul>
 
+      <div class="tab-content">
+        <div class="tab-pane active" id="home-mobile">
+          <advisor-list [group]="advisorGroup.All"></advisor-list>
+        </div>
+        <div class="tab-pane" id="menu1-mobile">
+          <advisor-list [group]="advisorGroup.Head"></advisor-list>
+        </div>
+        <div class="tab-pane" id="menu2-mobile">
+          <advisor-list [group]="advisorGroup.System"></advisor-list>
+        </div>
+        <div class="tab-pane" id="menu3-mobile">
+          <advisor-list [group]="advisorGroup.Elec"></advisor-list>
+        </div>
+        <div class="tab-pane" id="menu4-mobile">
+          <advisor-list [group]="advisorGroup.Com"></advisor-list>
+        </div>
+        <div class="tab-pane" id="menu5-mobile">
+          <advisor-list [group]="advisorGroup.Other"></advisor-list>
+        </div>
+      </div>
     </div>
     <div *ngIf="!isFaculty">
       <app-article-content [article]="article"></app-article-content>
