@@ -12,6 +12,7 @@ export class Article {
   lastUpdated: string;
   specificType: string;
   type: string;
+  url: string;
   constructor() {
     this.id = '';
     this.englishTitle = '';
@@ -23,5 +24,6 @@ export class Article {
     this.createdTime = '';
     this.type = '';
     this.specificType = '';
+    this.url = '';
   }
 }
