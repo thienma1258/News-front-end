@@ -8,7 +8,6 @@ import {ASSERT_IMAGES_URL} from '../../../app.component';
   styleUrls: ['./article-preview.component.css']
 })
 export class ArticlePreviewComponent implements OnInit {
-  assertImagesUrl = ASSERT_IMAGES_URL;
   @Input() article: Article;
   @Input() displayType: number;
   @Input() showTitle = false;
@@ -26,6 +25,45 @@ export class ArticlePreviewComponent implements OnInit {
   }
 
   ngOnInit() {
+    let type, specificType;
+    switch (this.article.specificType) {
+      case 30:
+        type = 'research';
+        specificType = 'research-news';
+        break;
+      case 31:
+        type = 'research';
+        specificType = 'laboratory';
+        break;
+      case 32:
+        type = 'research';
+        specificType = 'conferences-and-seminars';
+        break;
+      case 34:
+        type = 'research';
+        specificType = 'poster';
+        break;
+      case 40:
+        type = 'news';
+        specificType = 'department-news';
+        break;
+      case 41:
+        type = 'news';
+        specificType = 'course-news';
+        break;
+      case 42:
+        type = 'news';
+        specificType = 'event';
+        break;
+      case 43:
+        type = 'news';
+        specificType = 'school-leadership';
+        break;
+    }
+
+    if (type && specificType) {
+      this.articleUrl = type + '/' + specificType + '/' + this.article.id;
+    }
   }
 
 }

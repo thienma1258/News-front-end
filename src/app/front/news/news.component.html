@@ -13,87 +13,93 @@
     </div>
     <!-- end submenu -->
     <!-- Main -->
-    <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12" >
-      <iframe *ngIf="showcalender==true" src="https://calendar.google.com/calendar/embed?title=Calender&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ac7aa0viqtknc5lnrf09ak1d3k%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=Asia%2FSaigon" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-      <div class="row" *ngIf="showcalender!=true">
-        <!-- button lab -->
-        <!-- <div class="tab-area" >
-          <button type="" class="tab">Image Proccesiing</button>
-          <button type="" class="tab">Signal Proccesiing</button>
-          <button type="" class="tab">Information systems</button>
-          <button type="" class="tab">Circuits</button>
-        </div> -->
+    <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12">
+      <app-article-content *ngIf="isShowArticle" [article]="article"></app-article-content>
+      <div *ngIf="!isShowArticle">
+        <iframe *ngIf="showcalender==true"
+                src="https://calendar.google.com/calendar/embed?title=Calender&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=ac7aa0viqtknc5lnrf09ak1d3k%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=Asia%2FSaigon"
+                style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        <div class="row" *ngIf="showcalender!=true">
+          <!-- button lab -->
+          <!-- <div class="tab-area" >
+            <button type="" class="tab">Image Proccesiing</button>
+            <button type="" class="tab">Signal Proccesiing</button>
+            <button type="" class="tab">Information systems</button>
+            <button type="" class="tab">Circuits</button>
+          </div> -->
 
-        <!-- col 1 -->
-        <!-- 1 image -->
-        <div class="article small col-xs-12">
-          <img class="img col1" src="assets/images/070.jpg">
-          <div class="title-article">
-            One skill shot for every thing blame blame blame
+          <!-- col 1 -->
+          <!-- 1 image -->
+          <div class="article small col-xs-12">
+            <img class="img col1" src="assets/images/070.jpg">
+            <div class="title-article">
+              One skill shot for every thing blame blame blame
+            </div>
           </div>
-        </div>
-        <!-- end  -->
+          <!-- end  -->
 
-        <!-- big img -->
-        <div class="article big col-xs-12">
-          <img class="img col1" src="assets/images/077.jpg">
-          <div class="title-article">
-            One skill shot for every thing blame blame blameGAPasdisadlasjkdsakljdasjlkdklsjalkdjkasdksajdasdsaldkj
-            asdasdasdsadsa
+          <!-- big img -->
+          <div class="article big col-xs-12">
+            <img class="img col1" src="assets/images/077.jpg">
+            <div class="title-article">
+              One skill shot for every thing blame blame blameGAPasdisadlasjkdsakljdasjlkdklsjalkdjkasdksajdasdsaldkj
+              asdasdasdsadsa
 
+            </div>
           </div>
-        </div>
-        <!-- end -->
-        <!-- end col1 -->
-        <!-- col 2 -->
-        <div class="article big col-xs-12">
-          <img class="img col2" src="assets/images/077.jpg">
-          <div class="title-article">
-            One skill shot for every thing blame blame blameasdasdsadjashdasdhlkjashldsakjhdashkdjhlsakjdhkjahjdhsa
+          <!-- end -->
+          <!-- end col1 -->
+          <!-- col 2 -->
+          <div class="article big col-xs-12">
+            <img class="img col2" src="assets/images/077.jpg">
+            <div class="title-article">
+              One skill shot for every thing blame blame blameasdasdsadjashdasdhlkjashldsakjhdashkdjhlsakjdhkjahjdhsa
 
+            </div>
           </div>
-        </div>
-        <div class="small">
-          <div class="article  col1 col-xs-12">
+          <div class="small">
+            <div class="article  col1 col-xs-12">
+              <img class="img " src="assets/images/077.jpg">
+              <div class="title-article">
+                One skill shot for every thing blame blame blame
+
+              </div>
+            </div>
+            <div class="article  col1 col-xs-12">
+              <img class="img " src="assets/images/077.jpg">
+              <div class="title-article">
+                One skill shot for every thing blame blame blame
+
+              </div>
+            </div>
+          </div>
+          <!-- end col 2 -->
+
+
+          <div class="small article col1">
             <img class="img " src="assets/images/077.jpg">
             <div class="title-article">
               One skill shot for every thing blame blame blame
 
             </div>
           </div>
-          <div class="article  col1 col-xs-12">
+          <div class="small article col1">
             <img class="img " src="assets/images/077.jpg">
             <div class="title-article">
               One skill shot for every thing blame blame blame
-
+            </div>
+          </div>
+          <div class="small article col1">
+            <img class="img " src="assets/images/077.jpg">
+            <div class="title-article">
+              One skill shot for every thing blame blame blame
             </div>
           </div>
         </div>
-        <!-- end col 2 -->
-
-
-        <div class="small article col1">
-          <img class="img " src="assets/images/077.jpg">
-          <div class="title-article">
-            One skill shot for every thing blame blame blame
-
-          </div>
-        </div>
-        <div class="small article col1">
-          <img class="img " src="assets/images/077.jpg">
-          <div class="title-article">
-            One skill shot for every thing blame blame blame
-          </div>
-        </div>
-        <div class="small article col1">
-          <img class="img " src="assets/images/077.jpg">
-          <div class="title-article">
-            One skill shot for every thing blame blame blame
-          </div>
-        </div>
+        <!-- end row -->
       </div>
-      <!-- end row -->
     </div>
+
     <!-- end container -->
   </div>
 </div>

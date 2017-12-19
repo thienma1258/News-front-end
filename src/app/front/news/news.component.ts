@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Article} from '../../shared/model/article';
 import {ActivatedRoute} from '@angular/router';
-import {ArticleSize} from "../../shared/enum/article-size.enum";
 import {TranslateService, TranslationChangeEvent} from '@ngx-translate/core';
+import {ArticleService} from '../../shared/services/article.service';
 
 @Component({
   selector: 'news',
@@ -15,8 +15,12 @@ export class NewsComponent implements OnInit {
   public menu: any;
   public selectedTitle;
   public articles: Article[];
-  public showcalender:boolean;
-  constructor(private translate: TranslateService, private route: ActivatedRoute) {
+  public showcalender: boolean;
+  public isShowArticle = false;
+  public article: Article = new Article();
+
+  constructor(private translate: TranslateService, private route: ActivatedRoute,
+              private articleService: ArticleService) {
   }
 
   ngOnInit() {
@@ -76,8 +80,24 @@ export class NewsComponent implements OnInit {
     });
     this.route.params.subscribe(params => {
       this.selectedTitle = params['title'];
-      if(this.selectedTitle == 'calendar'){
-        this.showcalender=true;
+      const id = params['id'];
+
+      if (id) {
+        this.articleService.getArticlesById(id).subscribe(
+          data => {
+            if (data['content']) {
+              this.isShowArticle = true;
+              this.article = data['content'];
+            }
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      }
+
+      if (this.selectedTitle == 'calendar') {
+        this.showcalender = true;
       }
       for (const title of this.menu) {
         if (title.route === this.selectedTitle) {
@@ -91,7 +111,7 @@ export class NewsComponent implements OnInit {
 
   getarticle() {
 
-    return ;
+    return;
   }
 
 }

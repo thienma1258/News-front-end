@@ -26,6 +26,7 @@ import {InformationService} from '../shared/services/information.service';
 import { AdvisorInfomationComponent } from './shared/advisor-information/advisor-information.component';
 import { AdvisorListComponent } from './shared/advisor-list/advisor-list.component';
 import {AdvisorService} from "../shared/services/advisor.service";
+import { ResearchArticleListComponent } from './shared/research-article-list/research-article-list.component';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -43,6 +44,7 @@ import {AdvisorService} from "../shared/services/advisor.service";
     NewsDetailsComponent,
     AdvisorInfomationComponent,
     AdvisorListComponent,
+    ResearchArticleListComponent,
   ],
   imports: [
     SharedModule,
