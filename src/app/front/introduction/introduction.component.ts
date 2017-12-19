@@ -75,6 +75,7 @@ export class IntroductionComponent implements OnInit {
     this.parentRouteName = 'Introduction';
     this.route.params.subscribe(params => {
       this.selectedTitle = params['title'];
+      this.isFaculty = false;
       switch (this.selectedTitle) {
         case 'about-us':
           this.selectedTitle = 'About us';
