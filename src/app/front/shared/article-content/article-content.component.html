@@ -16,8 +16,8 @@
       </div>
     </div>
     <ng-container>
-      <p *ngIf="Locale == 'en'" [innerHtml]="article?.englishContent | safeHtml"></p>
-      <p *ngIf="Locale == 'zh-tw'" [innerHtml]="article?.chineseContent | safeHtml"></p>
+      <p *ngIf="Locale == 'en'" class="fr-element fr-view" [innerHtml]="article?.englishContent | safeHtml"></p>
+      <p *ngIf="Locale == 'zh-tw'" class="fr-element fr-view" [innerHtml]="article?.chineseContent | safeHtml"></p>
     </ng-container>
   </div>
   <div class="social float-right bottom">

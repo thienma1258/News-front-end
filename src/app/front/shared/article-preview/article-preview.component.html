@@ -14,8 +14,8 @@
             </ng-container>
           </p>
           <ng-container *ngIf="showPreviewContent">
-            <p *ngIf="LanguageLocale == 'en'" [innerHtml]="article.englishContent | safeHtml"></p>
-            <p *ngIf="LanguageLocale == 'zh-tw'" [innerHtml]="article.chineseContent | safeHtml"></p>
+            <p *ngIf="LanguageLocale == 'en'" class="fr-element fr-view" [innerHtml]="article.englishContent | safeHtml"></p>
+            <p *ngIf="LanguageLocale == 'zh-tw'" class="fr-element fr-view" [innerHtml]="article.chineseContent | safeHtml"></p>
           </ng-container>
           <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime | date:'MMM dd yyyy'}}</p>
         </div>
@@ -36,8 +36,8 @@
           </ng-container>
         </p>
         <ng-container *ngIf="showPreviewContent">
-          <p *ngIf="LanguageLocale == 'en'" [innerHtml]="article.englishContent | safeHtml"></p>
-          <p *ngIf="LanguageLocale == 'zh-tw'" [innerHtml]="article.chineseContent | safeHtml"></p>
+          <p *ngIf="LanguageLocale == 'en'" class="fr-element fr-view" [innerHtml]="article.englishContent | safeHtml"></p>
+          <p *ngIf="LanguageLocale == 'zh-tw'" class="fr-element fr-view" [innerHtml]="article.chineseContent | safeHtml"></p>
         </ng-container>
         <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime | date:'MMM dd yyyy'}}</p>
       </div>
@@ -57,8 +57,8 @@
           </ng-container>
         </p>
         <ng-container *ngIf="showPreviewContent">
-          <p *ngIf="LanguageLocale == 'en'" [innerHtml]="article.englishContent | safeHtml"></p>
-          <p *ngIf="LanguageLocale == 'zh-tw'" [innerHtml]="article.chineseContent | safeHtml"></p>
+          <p *ngIf="LanguageLocale == 'en'" class="fr-element fr-view" [innerHtml]="article.englishContent | safeHtml"></p>
+          <p *ngIf="LanguageLocale == 'zh-tw'" class="fr-element fr-view" [innerHtml]="article.chineseContent | safeHtml"></p>
         </ng-container>
         <p *ngIf="showCreatedTime" class="created-time">{{article.createdTime | date:'MMM dd yyyy'}}</p>
       </div>
