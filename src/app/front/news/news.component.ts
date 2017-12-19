@@ -15,7 +15,8 @@ export class NewsComponent implements OnInit {
   public menu: any;
   public selectedTitle;
   public articles: Article[];
-  public showcalender:boolean;
+  public showcalender: boolean;
+
   constructor(private translate: TranslateService, private route: ActivatedRoute) {
   }
 
@@ -76,8 +77,9 @@ export class NewsComponent implements OnInit {
     });
     this.route.params.subscribe(params => {
       this.selectedTitle = params['title'];
-      if(this.selectedTitle == 'calendar'){
-        this.showcalender=true;
+      this.showcalender = false;
+      if (this.selectedTitle === 'calendar') {
+        this.showcalender = true;
       }
       for (const title of this.menu) {
         if (title.route === this.selectedTitle) {
@@ -91,7 +93,7 @@ export class NewsComponent implements OnInit {
 
   getarticle() {
 
-    return ;
+    return;
   }
 
 }
