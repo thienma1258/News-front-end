@@ -14,7 +14,7 @@
     <!-- end submenu -->
     <!-- Main -->
     <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12" >
-      <div class="row">
+      <div class="row" *ngIf="!this.article">
         <!-- button lab -->
         <div class="tags-container col-sm-12 col-md-12">
           <!-- <button type="" class="tab active">Image Proccesiing</button>
@@ -27,7 +27,7 @@
 
         <!-- col 1 -->
         <!-- 1 image -->
-        <div class="article  col-xs-12 small" [class.small]="i!==1 &&i!== 2" [class.big]="i===1 ||i===2 "   *ngFor="let article of articles;let i =index">
+        <div class="article  col-xs-12 small" [class.small]="i!==1 &&i!== 2" [class.big]="i===1 ||i===2 " [routerLink]="['/research/'+currentroute+'/'+article.id]"   *ngFor="let article of articles;let i =index">
           <img class="img col1"[src]="article.previewImageUrl?article.previewImageUrl:'assets/images/no_preview_image.jpg'" >
           <div class="title-article">
            {{article.englishTitle}}
@@ -54,6 +54,9 @@
         <!-- col 2 -->
 
       <!-- end row -->
+    </div>
+    <div *ngIf="this.article" >
+<app-article-preview [article]="article" [showTitle]="'true'" [displayType]="'3'" [showPreviewContent]="'true'" [showPreviewImage]="'true'" [showCreatedTime]="'true'" ></app-article-preview>
     </div>
     <!-- end container -->
   </div>

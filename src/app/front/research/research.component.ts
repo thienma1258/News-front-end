@@ -13,6 +13,8 @@ import {ArticleService} from '../../shared/services/article.service';
 export class ResearchComponent implements OnInit {
   parentRoute: string;
   parentRouteName: string;
+  // tslint:disable-next-line:whitespace
+  currentroute:string;
   public menu: any = [
     {
       'route': 'research-news',
@@ -38,7 +40,8 @@ export class ResearchComponent implements OnInit {
   public selectedTitle;
   public articles: Article[] = [];
   public topics: topic[] = [];
-  constructor(private route: ActivatedRoute,private reserachservices:ResearchServices,private articleservices:ArticleService) {
+  public article: Article;
+  constructor(private route: ActivatedRoute, private reserachservices: ResearchServices, private articleservices: ArticleService) {
   }
 
   get Locale() {
@@ -58,22 +61,36 @@ export class ResearchComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.selectedTitle = params['title'];
-      if( this.selectedTitle == 'research-news') {
-        this.reserachservices.getresearchtopic().subscribe((data)=>{
+
+      this.currentroute = this.selectedTitle;
+      // tslint:disable-next-line:one-line
+      if (params['id'] !== undefined){
+
+    this.articleservices.getArticlesById(params['id']).subscribe(data => {
+      this.article = data['content'];
+
+    });
+
+        return;
+      }
+
+
+      if ( this.selectedTitle == 'research-news') {
+        this.reserachservices.getresearchtopic().subscribe((data) => {
           console.log(data['content']);
-          this.topics=data['content'];
+          this.topics = data['content'];
         });
-        this.articleservices.getArticles('ResearchNews').subscribe((data)=>{
+        this.articleservices.getArticles('ResearchNews').subscribe((data) => {
       if (data['succeed'])
       {
-          this.articles=data['content'];
+          this.articles = data['content'];
       }
         });
       }
-      else if(this.selectedTitle=='laboratory'){
-        this.reserachservices.getlaboratorytopic().subscribe((data)=>{
+      else if (this.selectedTitle == 'laboratory'){
+        this.reserachservices.getlaboratorytopic().subscribe((data) => {
           console.log(data['content']);
-          this.topics= data['content'];
+          this.topics = data['content'];
         });
         this.articleservices.getArticles('laboratory').subscribe((data) => {
       if (data['succeed'])
@@ -82,14 +99,32 @@ export class ResearchComponent implements OnInit {
       }
         });
       }
-      else if(this.selectedTitle == 'conferences-and-seminars'){
-
+      else if (this.selectedTitle == 'conferences-and-seminars'){
+this.topics = null;
+this.articleservices.getArticles('ConferencesAndSemminars').subscribe((data) => {
+  if (data['succeed'])
+  {
+      this.articles = data['content'];
+  }
+    });
       }
-      else if(this.selectedTitle == 'area'){
-
+      else if (this.selectedTitle == 'area'){
+        this.topics = null;
+        this.articleservices.getArticles('Area').subscribe((data) => {
+          if (data['succeed'])
+          {
+              this.articles = data['content'];
+          }
+            });
       }
       else if (this.selectedTitle == 'poster'){
-
+        this.topics = null;
+        this.articleservices.getArticles('Poster').subscribe((data) => {
+          if (data['succeed'])
+          {
+              this.articles = data['content'];
+          }
+            });
       }
       for (const title of this.menu) {
         if (title.route === this.selectedTitle) {

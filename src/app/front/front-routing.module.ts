@@ -7,7 +7,7 @@ import {AcademicComponent} from './academic/academic.component';
 import {FooterComponent} from './shared/footer/footer.component';
 import {ResearchComponent} from './research/research.component';
 import {NewsComponent} from './news/news.component';
-import { ResearchDetailsComponent } from './research-details/research-details.component';
+
 const routes: Routes = [
   {path: '', component: HeaderComponent, outlet: 'header'},
   {path: '', component: HomepageComponent},
@@ -18,8 +18,10 @@ const routes: Routes = [
   {path: 'academic/:title', component: AcademicComponent},
   {path: 'research', component: ResearchComponent},
   {path: 'research/:title', component: ResearchComponent},
+  {path: 'research/:title/:id', component: ResearchComponent},
   {path: 'news', component: NewsComponent},
   {path: 'news/:title', component: NewsComponent}
+  {path: 'news/:title/:id', component: NewsComponent},
 ];
 
 @NgModule({

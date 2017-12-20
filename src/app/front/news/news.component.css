@@ -3,7 +3,7 @@
 
 }
 
-.img {  
+.img {
   width: 100%;
   display: inherit;
   padding: 10px;
@@ -82,7 +82,7 @@
   background-color: rgba(80, 80, 80, 0.2);
   margin-bottom: 20px;
   margin-top: 20px;
-
+cursor: pointer;
   margin-left: 20px;
 }
 
@@ -91,7 +91,7 @@
   width: 100%;
 }
 .search-form{
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
 }
 .search-form >#search{
   display: block;
@@ -105,7 +105,7 @@
   background-clip: padding-box;;
   border: 1px solid #ced4da;
   border-radius: .25rem;
-      
+
 background: url('~assets/images/search.png') no-repeat;
 background-size: contain;
 background-origin: content-box;;
@@ -136,12 +136,12 @@ background-origin: content-box;;
   .submenu {
 
   }
-  
+
    .article{
    width: 100%;
    margin-left: 0px;
    margin-right: 0px;
-  
+
   }
   .title-article {
     width: 100%;
