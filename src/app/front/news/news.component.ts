@@ -16,11 +16,13 @@ export class NewsComponent implements OnInit {
   public selectedTitle;
   public articles: Article[];
   public showcalender: boolean;
+
   public isShowArticle = false;
   public article: Article = new Article();
 
   constructor(private translate: TranslateService, private route: ActivatedRoute,
               private articleService: ArticleService) {
+
   }
 
   ngOnInit() {
@@ -96,7 +98,8 @@ export class NewsComponent implements OnInit {
         );
       }
 
-      if (this.selectedTitle == 'calendar') {
+      this.showcalender = false;
+      if (this.selectedTitle === 'calendar') {
         this.showcalender = true;
       }
       for (const title of this.menu) {
