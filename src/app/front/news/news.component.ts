@@ -143,7 +143,7 @@ export class NewsComponent implements OnInit {
         if (title.route === this.selectedTitle) {
           this.selectedTitle = title.name;
         }
-      }});
+      });
     this.parentRoute = '/news';
     this.parentRouteName = 'News';
   }
