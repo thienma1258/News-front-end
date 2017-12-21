@@ -5,7 +5,9 @@ import {ArticleService} from '../../shared/services/article.service';
 import {TranslateService, TranslationChangeEvent} from '@ngx-translate/core';
 import {EmitterService} from '../../admin/shared/emitter.service';
 import {Article} from '../../shared/model/article';
-import {topic} from    '../../shared/model/research-news-models';
+import {ArticleType} from '../../shared/enum/article-type.enum';
+// tslint:disable-next-line:import-spacing
+import {topic} from  '../../shared/model/research-news-models';
 @Component({
   selector: 'app-research',
   templateUrl: './research.component.html',
@@ -135,37 +137,43 @@ export class ResearchComponent implements OnInit {
           console.log(data['content']);
           this.topics = data['content'];
         });
-        this.articleservices.getArticles('ResearchNews').subscribe((data) => {
+        this.articleservices.getArticles(String(ArticleType.ResearchNews)).subscribe((data) => {
       if (data['succeed'])
+      // tslint:disable-next-line:one-line
       {
           this.articles = data['content'];
       }
         });
       }
+      // tslint:disable-next-line:one-line
       else if (this.selectedTitle === 'laboratory'){
         this.reserachservices.getlaboratorytopic().subscribe((data) => {
           console.log(data['content']);
           this.topics = data['content'];
         });
-        this.articleservices.getArticles('laboratory').subscribe((data) => {
+        this.articleservices.getArticles(String(ArticleType.Laboratory)).subscribe((data) => {
       if (data['succeed'])
+      // tslint:disable-next-line:one-line
       {
           this.articles = data['content'];
       }
         });
       }
+      // tslint:disable-next-line:one-line
       else if (this.selectedTitle === 'conferences-and-seminars'){
-this.topics = null;
-this.articleservices.getArticles('ConferencesAndSemminars').subscribe((data) => {
+  this.topics = null;
+  this.articleservices.getArticles((String(ArticleType.ConferencesAndSemminars))).subscribe((data) => {
   if (data['succeed'])
+  // tslint:disable-next-line:one-line
   {
       this.articles = data['content'];
   }
     });
       }
+      // tslint:disable-next-line:one-line
       else if (this.selectedTitle === 'area'){
         this.topics = null;
-        this.articleservices.getArticles('Area').subscribe((data) => {
+        this.articleservices.getArticles((String(ArticleType.Area))).subscribe((data) => {
           if (data['succeed'])
           {
               this.articles = data['content'];
@@ -175,31 +183,15 @@ this.articleservices.getArticles('ConferencesAndSemminars').subscribe((data) => 
       // tslint:disable-next-line:one-line
       else if (this.selectedTitle === 'poster'){
         this.topics = null;
-        this.articleservices.getArticles('Poster').subscribe((data) => {
+        this.articleservices.getArticles((String(ArticleType.Poster))).subscribe((data) => {
           if (data['succeed'])
+          // tslint:disable-next-line:one-line
           {
               this.articles = data['content'];
           }
             });
       }
 
-      const id = params['id'];
-
-      if (id) {
-        this.articleservices.getArticlesById(id).subscribe(
-          data => {
-            if (data['content']) {
-                this.isShowArticle = true;
-                this.article = data['content'];
-            }
-          },
-          err => {
-            console.log(err);
-          }
-        );
-      }
-
-      console.log('id = ' + id);
       this.routeEmitter.emit(this.selectedTitle);
 
       for (const title of this.menu) {

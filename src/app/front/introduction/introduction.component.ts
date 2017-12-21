@@ -4,8 +4,9 @@ import {ArticleService} from '../../shared/services/article.service';
 import {Article} from '../../shared/model/article';
 import {ArticleType} from '../../shared/enum/article-type.enum';
 import {TranslateService, TranslationChangeEvent} from '@ngx-translate/core';
-import {AdvisorGroup} from "../../shared/enum/advisor-group.enum";
-
+import {AdvisorGroup} from '../../shared/enum/advisor-group.enum';
+import {Laboratory} from '../../shared/model/laboratory.model';
+import {LaboratoryServices} from '../../shared/services/laboratory.service';
 @Component({
   selector: 'app-introduction',
   templateUrl: './introduction.component.html',
@@ -17,17 +18,23 @@ export class IntroductionComponent implements OnInit {
   titles: any;
   selectedTitle: string;
   article: Article;
+  Laboratory: Laboratory[]= [];
   public isFaculty = false;
+  public isLaboratories= false;
   public advisorGroup = AdvisorGroup;
 
-  constructor(private translate: TranslateService, private route: ActivatedRoute, private articleService: ArticleService) {
+  constructor(private translate: TranslateService,
+     private route: ActivatedRoute,
+      private articleService: ArticleService,
+    private laboratoryServices: LaboratoryServices) {
     this.article = new Article();
   }
 
   ngOnInit() {
-    this.translate.get(['Homepage.AboutUs', 'Homepage.FacultyAdvisor', 'Homepage.DepartmentStructureStaff', 'Homepage.Contact']).subscribe(
+    // tslint:disable-next-line:max-line-length
+    this.translate.get(['Homepage.AboutUs', 'Homepage.FacultyAdvisor', 'Homepage.DepartmentStructureStaff', 'Homepage.Laboratories', 'Homepage.Contact']).subscribe(
       res => {
-        console.log(res['Homepage.FacultyAdvisor']);
+        console.log(res);
         this.titles = [
           {
             'route': 'about-us',
@@ -42,13 +49,18 @@ export class IntroductionComponent implements OnInit {
             'name': res['Homepage.DepartmentStructureStaff']
           },
           {
+            'route': 'Laboratories',
+            'name': res['Homepage.Laboratories']
+          },
+          {
             'route': 'contact',
             'name': res['Homepage.Contact']
           }
         ];
       });
     this.translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
-      this.translate.get(['Homepage.AboutUs', 'Homepage.FacultyAdvisor', 'Homepage.DepartmentStructureStaff', 'Homepage.Contact']).subscribe(
+      // tslint:disable-next-line:max-line-length
+      this.translate.get(['Homepage.AboutUs', 'Homepage.FacultyAdvisor', 'Homepage.DepartmentStructureStaff', 'Homepage.Laboratories', 'Homepage.Contact']).subscribe(
         res => {
           this.titles = [
             {
@@ -62,6 +74,10 @@ export class IntroductionComponent implements OnInit {
             {
               'route': 'department-structure-staff',
               'name': res['Homepage.DepartmentStructureStaff']
+            },
+            {
+              'route': 'Laboratories',
+              'name': res['Homepage.Laboratories']
             },
             {
               'route': 'contact',
@@ -92,6 +108,7 @@ export class IntroductionComponent implements OnInit {
         case 'facility-advisor':
           this.selectedTitle = 'Facility Advisor';
           this.isFaculty = true;
+
           break;
         case 'department-structure-staff':
           this.selectedTitle = 'Department Structure & Staff';
@@ -104,6 +121,15 @@ export class IntroductionComponent implements OnInit {
             }
           );
           break;
+        case 'Laboratories':
+          this.isLaboratories = true;
+          this.laboratoryServices.getlaboratory().subscribe(data => {
+            console.log(data);
+            this.Laboratory = data['content'];
+          }, error => {
+            console.log(error);
+          });
+        break;
         case 'contact':
           this.selectedTitle = 'Contact';
           this.articleService.getArticles(String(ArticleType.Contact)).subscribe(

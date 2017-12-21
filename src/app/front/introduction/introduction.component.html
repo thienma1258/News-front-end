@@ -47,10 +47,30 @@
           </div>
         </div>
       </div>
-      <div *ngIf="!isFaculty">
+      <div *ngIf="!isFaculty&&!isLaboratories">
         <app-article-content [article]="article"></app-article-content>
       </div>
+      <div *ngIf="isLaboratories">
+        <table class="table">
+          <thead>
+            <tr  class="table-secondary" >
+              <th>The Title of The Lab</th>
+              <th>Teacher</th>
+              <th>Research</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let labo of Laboratory">
+              <td>{{labo.englishTitle}}</td>
+              <td>{{labo.englishTeacherName}}</td>
+              <td>{{labo.englishResearch}}</td>
+            </tr>
+          </tbody>
+
+        </table>
+
     </div>
+
   </div>
   <div class="row mobile">
     <app-sub-menu [parentRoute]="parentRoute" [parentRouteName]="parentRouteName" [titles]="titles" [selectedTitle]="selectedTitle"></app-sub-menu>

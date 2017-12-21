@@ -45,7 +45,8 @@ import { AdvisorInfomationComponent } from './shared/advisor-infomation/advisor-
 import {AdvisorService} from '../shared/services/advisor.service';
 import { AdvisorListComponent } from './shared/advisor-list/advisor-list.component';
 import {ResearchServices} from '../shared/services/research.services';
-
+import {LaboratoryServices} from '../shared/services/laboratory.service';
+import { LaboratoriesComponent } from './shared/laboratories/laboratories.component';
 @NgModule({
   imports: [
     SharedModule,
@@ -63,7 +64,9 @@ import {ResearchServices} from '../shared/services/research.services';
   ],
 
   providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService, DatePipe, InformationService, AdvisorService,
-    ResearchServices],
+    ResearchServices,
+    LaboratoryServices
+  ],
   declarations: [
     DashboardComponent,
     LoginComponent,
@@ -93,6 +96,7 @@ import {ResearchServices} from '../shared/services/research.services';
     EditEventDetailComponent,
     AdvisorInfomationComponent,
     AdvisorListComponent,
+    LaboratoriesComponent,
   ]
 })
 

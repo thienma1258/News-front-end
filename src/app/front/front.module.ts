@@ -26,6 +26,7 @@ import {InformationService} from '../shared/services/information.service';
 import { AdvisorInfomationComponent } from './shared/advisor-information/advisor-information.component';
 import { AdvisorListComponent } from './shared/advisor-list/advisor-list.component';
 import {AdvisorService} from "../shared/services/advisor.service";
+import {LaboratoryServices} from '../shared/services/laboratory.service';
 import { ResearchArticleListComponent } from './shared/research-article-list/research-article-list.component';
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ResearchArticleListComponent } from './shared/research-article-list/res
     RouterModule,
     CommonModule,
     FacebookModule.forRoot(),
-    TranslateModule
+    TranslateModule,
+
   ],
   providers: [
     ArticleService,
@@ -60,7 +62,8 @@ import { ResearchArticleListComponent } from './shared/research-article-list/res
     UniversityService,
     ResearchServices,
     InformationService,
-    AdvisorService
+    AdvisorService,
+    LaboratoryServices
   ],
   bootstrap: []
 })

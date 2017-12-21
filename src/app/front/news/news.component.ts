@@ -3,7 +3,7 @@ import {Article} from '../../shared/model/article';
 import {ActivatedRoute} from '@angular/router';
 import {ArticleSize} from '../../shared/enum/article-size.enum';
 import {ArticleService} from '../../shared/services/article.service';
-
+import {ArticleType} from '../../shared/enum/article-type.enum';
 import {TranslateService, TranslationChangeEvent} from '@ngx-translate/core';
 
 @Component({
@@ -126,7 +126,7 @@ export class NewsComponent implements OnInit {
         this.showcalender = false;
       }
       if (this.selectedTitle === 'department-news'){
-        this.articleService.getArticles('DepartmentNews').subscribe(data => {
+        this.articleService.getArticles(String(ArticleType.DepartmentNews)).subscribe(data => {
           this.articles = data['content'];
         });
       }
@@ -139,7 +139,7 @@ this.articles = null;
       }
       // tslint:disable-next-line:one-line
       else if (this.selectedTitle === 'event'){
-        this.articleService.getArticles('Event').subscribe(data => {
+        this.articleService.getArticles(String(ArticleType.Event)).subscribe(data => {
           console.log(data);
           this.articles = data['content'];
         }, error => {
@@ -148,7 +148,7 @@ this.articles = null;
       }
       // tslint:disable-next-line:one-line
       else if (this.selectedTitle === 'school-leadership'){
-        this.articleService.getArticles('SchoolLeadership').subscribe(data => {
+        this.articleService.getArticles(String(ArticleType.SchoolLeadership)).subscribe(data => {
           this.articles = data['content'];
         }, error => {
           console.log(error);

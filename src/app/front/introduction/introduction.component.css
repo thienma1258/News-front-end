@@ -10,7 +10,9 @@
 .desktop {
   display: flex;
 }
-
+.table>thead,.table>tbody>:nth-child(2n){
+  background-color: #dddfe2
+}
 @media (max-width: 1024px) {
   .mobile {
     display: flex;
