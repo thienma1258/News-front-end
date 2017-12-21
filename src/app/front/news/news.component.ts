@@ -79,34 +79,6 @@ export class NewsComponent implements OnInit {
           }
         ];
       });
-    this.translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
-      this.translate.get(['Homepage.DepartmentNews', 'Homepage.CourseNews', 'Homepage.Event', 'Homepage.SchoolLeaderShip', 'Homepage.Calendar']).subscribe(
-        res => {
-          this.menu = [
-            {
-              'route': 'department-news',
-              'name': res['Homepage.DepartmentNews']
-            },
-            {
-              'route': 'course-news',
-              'name': res['Homepage.CourseNews']
-            },
-            {
-              'route': 'event',
-              'name': res['Homepage.Event']
-            },
-            {
-              'route': 'school-leadership',
-              'name': res['Homepage.SchoolLeaderShip']
-            },
-            {
-              'route': 'calendar',
-              'name': res['Homepage.Calendar']
-            }
-          ];
-        }
-      );
-    });
     this.route.params.subscribe(params => {
       this.selectedTitle = params['title'];
       this.currentroute = this.selectedTitle;
