@@ -38,4 +38,24 @@
   </ng-container>
 </container-box>
 
+<container-box [title]="'ADMISSION INFOMATION'" [isShowEditLink]="true">
+  <ng-container *ngIf="!admissionEditMode">
+    <p *ngIf="Locale === 'en'" class="fr-element fr-view" [innerHtml]="admissionArticle.englishContent | safeHtml"></p>
+    <p *ngIf="Locale === 'zh-tw'" class="fr-element fr-view" [innerHtml]="admissionArticle.chineseContent | safeHtml"></p>
+  </ng-container>
+  <ng-container *ngIf="admissionEditMode">
+    <edit-article-detail [article]="admissionArticle" [showTitle]="false"></edit-article-detail>
+  </ng-container>
+</container-box>
+
+<container-box [title]="'GUIDELINE'" [isShowEditLink]="true">
+  <ng-container *ngIf="!guidelineEditMode">
+    <p *ngIf="Locale === 'en'" class="fr-element fr-view" [innerHtml]="guideLineArticle.englishContent | safeHtml"></p>
+    <p *ngIf="Locale === 'zh-tw'" class="fr-element fr-view" [innerHtml]="guideLineArticle.chineseContent | safeHtml"></p>
+  </ng-container>
+  <ng-container *ngIf="guidelineEditMode">
+    <edit-article-detail [article]="guideLineArticle" [showTitle]="false"></edit-article-detail>
+  </ng-container>
+</container-box>
+
 <admin-footer></admin-footer>

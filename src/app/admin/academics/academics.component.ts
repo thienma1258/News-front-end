@@ -14,16 +14,22 @@ export class AcademicsComponent implements OnInit {
   public studentEmitter = EmitterService.get('STUDENT GRADUATE AND UNGRADUATE');
   public teachingEmitter = EmitterService.get('TEACHING');
   public degreeEmitter = EmitterService.get('DEGREE REQUIREMENT');
+  public admissionEmitter = EmitterService.get('ADMISSION');
+  public guidelineEmitter = EmitterService.get('GUIDELINE');
 
   public academicEditMode = false;
   public studentEditMode = false;
   public teachingEditMode = false;
   public degreeEditMode = false;
+  public admissionEditMode = false;
+  public guidelineEditMode = false;
 
   public academicArticle: Article;
   public studentArticle: Article;
   public teachingArticle: Article;
   public degreeArticle: Article;
+  public admissionArticle: Article;
+  public guideLineArticle: Article;
 
   constructor(public articleService: ArticleService) {
   }
@@ -37,6 +43,8 @@ export class AcademicsComponent implements OnInit {
     this.studentArticle = new Article();
     this.teachingArticle = new Article();
     this.degreeArticle = new Article();
+    this.admissionArticle = new Article();
+    this.guideLineArticle = new Article();
 
     this.articleService.getArticles(String(ArticleType.AcademicInfo)).subscribe(
       data => {
@@ -65,6 +73,22 @@ export class AcademicsComponent implements OnInit {
     this.articleService.getArticles(String(ArticleType.DegreeRequirement)).subscribe(
       data => {
         this.degreeArticle = data['content'][0];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.articleService.getArticles(String(ArticleType.AdmissionInfo)).subscribe(
+      data => {
+        this.admissionArticle = data['content'][0];
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.articleService.getArticles(String(ArticleType.Guideline)).subscribe(
+      data => {
+        this.guideLineArticle = data['content'][0];
       },
       err => {
         console.log(err);
@@ -110,6 +134,26 @@ export class AcademicsComponent implements OnInit {
         this.degreeEditMode = false;
       }
     });
+    this.admissionEmitter.subscribe(msg => {
+      if (msg === 'edit') {
+        this.admissionEditMode = true;
+      } else if (msg === 'done') {
+        this.admissionArticleFinishEdit();
+        this.admissionEditMode = false;
+      } else {
+        this.admissionEditMode = false;
+      }
+    });
+    this.guidelineEmitter.subscribe(msg => {
+      if (msg === 'edit') {
+        this.guidelineEditMode = true;
+      } else if (msg === 'done') {
+        this.guidelineArticleFinishEdit();
+        this.guidelineEditMode = false;
+      } else {
+        this.guidelineEditMode = false;
+      }
+    });
   }
 
 
@@ -148,6 +192,28 @@ export class AcademicsComponent implements OnInit {
 
   degreeArticleFinishEdit() {
     this.articleService.editArticle(this.degreeArticle).subscribe(
+      data => {
+
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  admissionArticleFinishEdit() {
+    this.articleService.editArticle(this.admissionArticle).subscribe(
+      data => {
+
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  guidelineArticleFinishEdit() {
+    this.articleService.editArticle(this.guideLineArticle).subscribe(
       data => {
 
       },
