@@ -8,6 +8,8 @@ export enum ArticleType {
   StudentGraduate = 21,
   Teaching = 22,
   DegreeRequirement = 23,
+  AdmissionInfo = 24,
+  Guideline = 25,
 
   ResearchNews = 30,
   Laboratory = 31,
