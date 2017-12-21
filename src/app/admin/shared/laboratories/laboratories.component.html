@@ -4,7 +4,7 @@
     <div class="pull-right">
       <img class="actionimage border" src="assets/images/cancel.png">
       <img  class="actionimage border" src="assets/images/add.png">
-      <img  class="actionimage" src="assets/images/down.png">
+      <img (click)="addnew()"  class="actionimage" src="assets/images/down.png">
     </div>
     <table class="table">
     <thead>
@@ -19,6 +19,25 @@
           <td>{{labo.englishTitle}}</td>
           <td>{{labo.englishTeacherName}}</td>
           <td>{{labo.englishResearch}}</td>
+        </tr>
+        <tr *ngIf="isAddnew">
+          <td><input type="text" class="form-control" placeholder="
+          The Title of The Lab" [(ngModel)]="laboratory.englishTitle">
+        </td>
+        <td>
+            <div class="form-group">
+
+                <select [(ngModel)]="laboratory.englishTeacherName" class="form-control" id="exampleSelect1">
+                  <option value="{{teacher.englishName}}" *ngFor="let teacher of advisor  " >{{teacher.englishName}}</option>
+
+                </select>
+              </div>
+        </td>
+        <td>
+            <textarea [(ngModel)]="laboratory.englishResearch" type="text-area" class="form-control" placeholder="
+            Research"></textarea>
+
+        </td>
         </tr>
       </tbody>
     </table>
