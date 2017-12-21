@@ -10,8 +10,8 @@ export class Article {
   chineseContent?: string;
   createdTime: string;
   lastUpdated: string;
-  specificType: string;
-  type: string;
+  specificType: number;
+  type: number;
   url: string;
   constructor() {
     this.id = '';
@@ -22,8 +22,8 @@ export class Article {
     this.englishContent = '';
     this.chineseContent = '';
     this.createdTime = '';
-    this.type = '';
-    this.specificType = '';
+    this.type = 0;
+    this.specificType = 0;
     this.url = '';
   }
 }

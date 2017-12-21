@@ -26,22 +26,22 @@
 </header>
 
 <nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
-  <button (click)="toggleMenu()" class="navbar-toggler" type="button" data-toggle="collapse"
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
           data-target="#navbar-content" aria-controls="navbarTogglerDemo01" aria-expanded="false"
           aria-label="Toggle navigation">
     <img id="toggle-menu-button" src="../../../../assets/images/menu.png">
   </button>
 
-  <ul class="collapse navbar-collapse" id="navbar-content" [ngClass]="{'show': isToggleMenuExpanded}">
+  <ul class="collapse navbar-collapse" id="navbar-content" [ngClass]="isToggleMenuExpanded ? 'show' : 'collapse'">
     <li class="dropdown nav-item active">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" routerLinkActive="nav-link-active">
         {{'Nav.Introduction' | translate}}
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" routerLink="/introduction/about-us">{{'Homepage.AboutUs' | translate}}</a>
-        <a class="dropdown-item" routerLink="/introduction/facility-advisor">{{'Homepage.FacultyAdvisor' | translate}}</a>
-        <a class="dropdown-item" routerLink="/introduction/department-structure-staff">{{'Homepage.DepartmentStructureStaff' | translate}}</a>
-        <a class="dropdown-item" routerLink="/introduction/contact">{{'Homepage.Contact' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/introduction/about-us">{{'Homepage.AboutUs' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/introduction/facility-advisor">{{'Homepage.FacultyAdvisor' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/introduction/department-structure-staff">{{'Homepage.DepartmentStructureStaff' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/introduction/contact">{{'Homepage.Contact' | translate}}</a>
       </div>
     </li>
     <li class="dropdown nav-item">
@@ -49,10 +49,10 @@
         {{'Nav.Academics_Admissions' | translate}}
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" routerLink="/academic/academic-information">{{'Homepage.AcademicInformation' | translate}}</a>
-        <a class="dropdown-item" routerLink="/academic/student-graduate-and-undergraduate">{{'Homepage.StudentGraduate' | translate}}</a>
-        <a class="dropdown-item" routerLink="/academic/teaching">{{'Homepage.Teaching' | translate}}</a>
-        <a class="dropdown-item" routerLink="/academic/degree-requirement">{{'Homepage.DegreeRequirement' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/academic/academic-information">{{'Homepage.AcademicInformation' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/academic/student-graduate-and-undergraduate">{{'Homepage.StudentGraduate' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/academic/teaching">{{'Homepage.Teaching' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/academic/degree-requirement">{{'Homepage.DegreeRequirement' | translate}}</a>
       </div>
     </li>
     <li class="dropdown nav-item">
@@ -60,10 +60,10 @@
         {{'Nav.Research' | translate}}
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" routerLink="/research/research-news">{{'Homepage.ResearchNews' | translate}}</a>
-        <a class="dropdown-item" routerLink="/research/laboratory">{{'Homepage.Laboratory' | translate}}</a>
-        <a class="dropdown-item" routerLink="/research/conferences-and-seminars">{{'Homepage.ConferencesAndSeminars' | translate}}</a>
-        <a class="dropdown-item" routerLink="/research/poster">{{'Homepage.Poster' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/research/research-news">{{'Homepage.ResearchNews' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/research/laboratory">{{'Homepage.Laboratory' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/research/conferences-and-seminars">{{'Homepage.ConferencesAndSeminars' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/research/poster">{{'Homepage.Poster' | translate}}</a>
       </div>
     </li>
     <li class="dropdown nav-item">
@@ -71,21 +71,21 @@
         {{'Nav.News' | translate}}
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" routerLink="/news/department-news">{{'Homepage.DepartmentNews' | translate}}</a>
-        <a class="dropdown-item" routerLink="/news/course-news">{{'Homepage.CourseNews' | translate}}</a>
-        <a class="dropdown-item" routerLink="/news/event">{{'Homepage.Event' | translate}}</a>
-        <a class="dropdown-item" routerLink="/news/school-leadership">{{'Homepage.SchoolLeaderShip' | translate}}</a>
-        <a class="dropdown-item" routerLink="/news/calendar">{{'Homepage.Calendar' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/news/department-news">{{'Homepage.DepartmentNews' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/news/course-news">{{'Homepage.CourseNews' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/news/event">{{'Homepage.Event' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/news/school-leadership">{{'Homepage.SchoolLeaderShip' | translate}}</a>
+        <a class="dropdown-item" (click)="toggleMenu()" routerLink="/news/calendar">{{'Homepage.Calendar' | translate}}</a>
       </div>
     </li>
   </ul>
   <div class="nav-right">
-    <span class="header-search">
-      <input type="text" class="search-form" maxlength="64" placeholder="Search"/>
-      <a routerLink="">
-        <img class="search-button" src="./../../../../assets/images/search-white.png">
-      </a>
-    </span>
+    <!--<span class="header-search">-->
+      <!--<input type="text" class="search-form" maxlength="64" placeholder="Search"/>-->
+      <!--<a routerLink="">-->
+        <!--<img class="search-button" src="./../../../../assets/images/search-white.png">-->
+      <!--</a>-->
+    <!--</span>-->
     <a class="translation" (click)="switchLanguage()">
       <img class="icon" src="./../../../../assets/images/translation-white.png">
       <span class="language"><b>{{language}}</b></span>

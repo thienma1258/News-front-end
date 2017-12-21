@@ -20,8 +20,8 @@ const routes: Routes = [
   {path: 'research/:title', component: ResearchComponent},
   {path: 'research/:title/:id', component: ResearchComponent},
   {path: 'news', component: NewsComponent},
-  {path: 'news/:title', component: NewsComponent}
-  {path: 'news/:title/:id', component: NewsComponent},
+  {path: 'news/:title', component: NewsComponent},
+  {path: 'news/:title/:id', component: NewsComponent}
 ];
 
 @NgModule({

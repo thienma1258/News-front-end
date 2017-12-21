@@ -1,7 +1,7 @@
 <container-box [title]="'ABOUT US'" [isShowEditLink]="true">
   <ng-container *ngIf="!aboutEditMode">
-    <p *ngIf="Locale === 'en'" [innerHtml]="aboutArticle.englishContent | safeHtml"></p>
-    <p *ngIf="Locale === 'zh-tw'" [innerHtml]="aboutArticle.chineseContent | safeHtml"></p>
+    <p *ngIf="Locale === 'en'" class="fr-element fr-view" [innerHtml]="aboutArticle.englishContent | safeHtml"></p>
+    <p *ngIf="Locale === 'zh-tw'" class="fr-element fr-view" [innerHtml]="aboutArticle.chineseContent | safeHtml"></p>
   </ng-container>
   <ng-container *ngIf="aboutEditMode">
     <edit-article-detail [article]="aboutArticle" [showTitle]="false"></edit-article-detail>
@@ -10,25 +10,25 @@
 
 <container-box [title]="'FACILITY & ADVISOR'">
   <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">All</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1">Department Head</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu2">System Group</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu3">Elec. Group</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu4">Com. Group</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu5">Other</a>
-    </li>
-  </ul>
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#home">All</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu1">Department Head</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu2">System Group</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu3">Elec. Group</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu4">Com. Group</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu5">Other</a>
+  </li>
+</ul>
 
   <div class="tab-content">
     <div class="tab-pane active" id="home">
@@ -54,8 +54,8 @@
 
 <container-box [title]="'DEPARTMENT STRUCTURE & STAFF'" [isShowEditLink]="true">
   <ng-container *ngIf="!departmentEditMode">
-    <p *ngIf="Locale === 'en'" [innerHtml]="departmentArticle.englishContent | safeHtml"></p>
-    <p *ngIf="Locale === 'zh-tw'" [innerHtml]="departmentArticle.englishContent | safeHtml"></p>
+    <p *ngIf="Locale === 'en'" class="fr-element fr-view" [innerHtml]="departmentArticle.englishContent | safeHtml"></p>
+    <p *ngIf="Locale === 'zh-tw'" class="fr-element fr-view" [innerHtml]="departmentArticle.englishContent | safeHtml"></p>
   </ng-container>
   <ng-container *ngIf="departmentEditMode">
     <edit-article-detail [article]="departmentArticle" [showTitle]="false"></edit-article-detail>
@@ -64,8 +64,8 @@
 
 <container-box [title]="'CONTACT'" [isShowEditLink]="true">
   <ng-container *ngIf="!contactEditMode">
-    <p *ngIf="Locale === 'en'" [innerHtml]="contactArticle.englishContent | safeHtml"></p>
-    <p *ngIf="Locale === 'zh-tw'" [innerHtml]="contactArticle.englishContent | safeHtml"></p>
+    <p *ngIf="Locale === 'en'" class="fr-element fr-view" [innerHtml]="contactArticle.englishContent | safeHtml"></p>
+    <p *ngIf="Locale === 'zh-tw'" class="fr-element fr-view" [innerHtml]="contactArticle.englishContent | safeHtml"></p>
   </ng-container>
   <ng-container *ngIf="contactEditMode">
     <edit-article-detail [article]="contactArticle" [showTitle]="false"></edit-article-detail>

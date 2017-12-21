@@ -45,6 +45,7 @@ import { AdvisorInfomationComponent } from './shared/advisor-infomation/advisor-
 import {AdvisorService} from '../shared/services/advisor.service';
 import { AdvisorListComponent } from './shared/advisor-list/advisor-list.component';
 import {ResearchServices} from '../shared/services/research.services';
+
 @NgModule({
   imports: [
     SharedModule,

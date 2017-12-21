@@ -1,12 +1,12 @@
 <div *ngFor="let advisor of advisors; let i = index" class="advisor-info">
   <advisor-infomation [advisor]="advisor"></advisor-infomation>
   <div class="order-button">
-    <img [class.disabled]="i == 0" class="button button-up" src="./../../../assets/images/up.png" (click)="moveUp()">
-    <img [class.disabled]="i == advisors.length - 1" class="button button-down" src="./../../../assets/images/down.png" (click)="moveDown()">
+    <img [class.disabled]="i == 0" class="button button-up" src="./../../../assets/images/up.png" (click)="moveUp(i)">
+    <img [class.disabled]="i == advisors.length - 1" class="button button-down" src="./../../../assets/images/down.png" (click)="moveDown(i)">
   </div>
 </div>
 <ng-container *ngIf="isAddingNew">
-  <div id="info-container">
+  <div class="info-container" [ngClass]="classGroup">
     <div class="left-info">
       <img class="edit-avatar" [src]="selectedImageUrlPath" onerror="src='./assets/images/no_preview_image.jpg'">
       <input class="upload-image" type="file" ng2FileSelect [uploader]="uploader">
@@ -17,7 +17,7 @@
         <ng-container *ngIf="Locale === 'en'">
           <input type="text" [(ngModel)]="newAdvisor.englishName">
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           <input type="text" [(ngModel)]="newAdvisor.chineseName">
         </ng-container>
       </div>
@@ -26,7 +26,7 @@
         <ng-container *ngIf="Locale === 'en'">
           <textarea type="text" [(ngModel)]="newAdvisor.englishTitle"></textarea>
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           <textarea type="text" [(ngModel)]="newAdvisor.chineseTitle"></textarea>
         </ng-container>
       </div>
@@ -35,7 +35,7 @@
         <ng-container *ngIf="Locale === 'en'">
           <textarea type="text" [(ngModel)]="newAdvisor.englishBackground"></textarea>
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           <textarea type="text" [(ngModel)]="newAdvisor.chineseBackground"></textarea>
         </ng-container>
       </div>
@@ -44,7 +44,7 @@
         <ng-container *ngIf="Locale === 'en'">
           <textarea type="text" [(ngModel)]="newAdvisor.englishSpecialties"></textarea>
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           <textarea type="text" [(ngModel)]="newAdvisor.chineseSpecialties"></textarea>
         </ng-container>
       </div>
@@ -53,7 +53,7 @@
         <ng-container *ngIf="Locale === 'en'">
           <input type="text" [(ngModel)]="newAdvisor.englishOffice">
         </ng-container>
-        <ng-container *ngIf="Locale === 'cn'">
+        <ng-container *ngIf="Locale === 'zh-tw'">
           <input type="text" [(ngModel)]="newAdvisor.chineseOffice">
         </ng-container>
       </div>
@@ -69,14 +69,32 @@
         <label><input type="checkbox" value="">Department Head</label>
       </div>
 
-      <div class="edit-modify-button">
+      <div *ngIf="isShowLoadingIndicator" class="loading-indicator">
+        <div class="sk-fading-circle">
+          <div class="sk-circle1 sk-circle"></div>
+          <div class="sk-circle2 sk-circle"></div>
+          <div class="sk-circle3 sk-circle"></div>
+          <div class="sk-circle4 sk-circle"></div>
+          <div class="sk-circle5 sk-circle"></div>
+          <div class="sk-circle6 sk-circle"></div>
+          <div class="sk-circle7 sk-circle"></div>
+          <div class="sk-circle8 sk-circle"></div>
+          <div class="sk-circle9 sk-circle"></div>
+          <div class="sk-circle10 sk-circle"></div>
+          <div class="sk-circle11 sk-circle"></div>
+          <div class="sk-circle12 sk-circle"></div>
+        </div>
+        <span class="message">Please wait...</span>
+      </div>
+
+    <div class="edit-modify-button">
         <img (click)="done()" style="margin-right: 10px" src="../../../../assets/images/done.png">
       </div>
     </div>
   </div>
 </ng-container>
 
-<div style="width: 85%">
+<div *ngIf="isShowCreateNewButton" style="width: 85%">
   <div style="text-align: right;">
     <button type="button" class="btn-add-new" (click)="addNewAdvisor()">Add new</button>
   </div>

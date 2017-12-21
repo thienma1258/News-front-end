@@ -59,7 +59,7 @@ export class AdvisorService {
   }
 
   removeAdvisor(id: string) {
-    const url = this.editAdvisorUrl;
+    const url = this.removeAdvisorUrl;
     const data: FormData = new FormData();
     data.append('facultyId', id);
     const options = {
@@ -71,5 +71,21 @@ export class AdvisorService {
       )
     };
     return this.http.post(url, data, options);
+  }
+
+  changeAdvisorOrder(id: string, isUp: boolean) {
+    const url = this.orderAdvisorUrl;
+    const data: FormData = new FormData();
+    data.append('id', id);
+    data.append('isUp', isUp ? 'true' : 'false');
+    const options = {
+      headers: new HttpHeaders(
+        {
+          'Accept': 'application/json',
+          'Authorization': this.authService.getAccessToken()
+        }
+      )
+    };
+    return this.http.put(url, data, options);
   }
 }

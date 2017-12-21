@@ -1,0 +1,259 @@
+.small {
+  width: 30%;
+
+}
+
+.img {
+  width: 100%;
+  display: inherit;
+  padding: 10px;
+
+  margin-bottom: 10px;
+}
+
+.col1 {
+  height: 260px;
+}
+
+.medium {
+  width: 40%;
+  height: auto;
+}
+
+.big {
+  width: 63%;
+
+  height: auto;
+}
+
+.tab-area {
+
+  margin-left: 20px;
+  height: fit-content;
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid transparent;
+  border-color: #ccc;
+}
+
+.tab-area .tab {
+  background-color: #fff;
+  padding: 8px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0px 0px;
+  font-weight: 520;
+  border: 1px solid transparent;
+  border-color: #ccc;
+  margin-left: -4px;
+
+  cursor: pointer;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+
+}
+
+.tab-area .tab:hover {
+  background-color: #ccc
+}
+
+.mg-l-30 {
+  margin-left: 30;
+}
+
+.col2 {
+  height: 468px;
+  width: 100%;
+  margin-right: -10px;
+}
+
+.small > .article.col1 {
+  margin-right: -20px;
+}
+
+.title-article {
+  font-weight: bold;
+  font-size: 18px;
+  word-wrap: break-word;;
+
+  hyphens: auto;
+  padding-left: 5px;
+  padding-bottom: 10px;
+
+}
+
+.article {
+  background-color: rgba(80, 80, 80, 0.2);
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+  margin-left: 20px;
+}
+
+.container {
+  padding: 50px 8%;
+  width: 100%;
+}
+
+.tab-area > .tab:last-child {
+  display: none;
+}
+
+.search-form {
+  margin-bottom: 2rem;
+}
+
+.search-form > #search {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  /*background-image: none;*/
+  background-clip: padding-box;;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+
+  background: url('~assets/images/search.png') no-repeat;
+  background-size: contain;
+  background-origin: content-box;;
+  background-position-x: right;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+}
+
+.tags-container {
+  display: inline;
+}
+
+.tags-container > span {
+  display: inline-block;
+  border: 2px solid #CCC;
+  color: #AAA;
+  font-size: 12px;
+  line-height: 10px;
+  padding: 5px 9px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 12px;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.tags-container > span:hover {
+  color: #495057;
+  background-color: #AAA;
+
+}
+
+.tags-container > span.active {
+  border: 2px solid #000;
+  color: #000;
+  background-color: transparent;
+}
+
+@media (max-width: 1024px) {
+  .submenu {
+    width: 100%;
+  }
+
+  .article {
+    height: max-content;
+  }
+
+  .tab-area {
+    display: none;
+  }
+
+  /* .tab-area>.tab.active{
+   border-bottom: 1px solid red;
+   font-weight: bold;
+   }*/
+  .search-form {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .submenu {
+
+  }
+
+  .tab-area {
+    display: block;
+  }
+
+  .tab-area > .tab:not(:first-child):not(:nth-child(2)):not(:last-child) {
+    /* font-size: 10px;*/
+    display: none;
+
+    /*content: '...'*/
+  }
+
+  .tab-area > .tab:first-child, .tab-area > .tab:nth-child(2) {
+    width: 44%;
+    text-align: -webkit-auto;
+    font-size: 14px;
+    padding: 0px;
+    height: 26px;
+
+  }
+
+  .tab-area > .tab:last-child {
+
+    /*  height: 26px;*/
+    padding: 0px;
+    margin-top: -10px;
+    width: 30px;
+    display: inline;
+    /*//margin-bottom: -10px;*/
+    border-bottom: none;
+  }
+
+  .tab-area {
+    width: 100%;
+    margin-left: -10px;
+  }
+
+  .tab-area > .tab.active {
+    border-bottom: 1px solid red;
+    font-weight: bold;
+  }
+
+  .article {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+
+  }
+
+  .title-article {
+    width: 100%;
+  }
+
+  .small {
+    width: 100%;
+  }
+
+  .big {
+    width: 100%;
+  }
+
+  .col2 {
+    height: auto;
+  }
+
+  .col1 {
+    height: auto;
+  }
+}
+

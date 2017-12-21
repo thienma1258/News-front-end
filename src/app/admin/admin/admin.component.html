@@ -16,15 +16,15 @@
         <span class="language"><b>{{language}}</b></span>
       </a>
     </div>
-    <div class="header-nav-right">
-      <a ngbDropdown ngbDropdownToggle>
+    <div class="header-nav-right dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown">
         <img class="avatar" src="../../../assets/images/user.png">
         <span class="username"><b>{{userName}}</b></span>
-        <div class="dropdown-menu" ngbDropdownMenu>
-          <a routerLink="/admin/change-password" class="dropdown-item">Change password</a>
-          <a (click)="logout()" class="dropdown-item">Log out</a>
-        </div>
       </a>
+      <div class="dropdown-menu">
+        <a routerLink="/admin/change-password" class="dropdown-item">Change password</a>
+        <a (click)="logout()" class="dropdown-item">Log out</a>
+      </div>
     </div>
   </div>
 </header>
