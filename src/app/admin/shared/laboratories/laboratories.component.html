@@ -2,8 +2,8 @@
     <p *ngIf="title !== ''" class="title"><span>Laboratories</span></p>
     <hr>
     <div class="pull-right">
-      <img class="actionimage border" src="assets/images/cancel.png">
-      <img  class="actionimage border" src="assets/images/add.png">
+      <img class="actionimage border" (click)="changeisnotaddnew()" src="assets/images/cancel.png">
+      <img  class="actionimage border" (click)="changestate()" src="assets/images/add.png">
       <img (click)="addnew()"  class="actionimage" src="assets/images/down.png">
     </div>
     <table class="table">
@@ -16,8 +16,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let labo of laboratories">
-          <td>{{labo.englishTitle}}</td>
-          <td>{{labo.englishTeacherName}}</td>
+          <td style="width:30%">{{labo.englishTitle}}</td>
+          <td style="width:30%">{{labo.englishTeacherName}}</td>
           <td>{{labo.englishResearch}}</td>
         </tr>
         <tr *ngIf="isAddnew">

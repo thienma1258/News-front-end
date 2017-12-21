@@ -10,7 +10,7 @@ import {AdvisorService} from '../../../shared/services/advisor.service';
 })
 export class LaboratoriesComponent implements OnInit {
   public laboratories: Laboratory[]= [];
-  public isAddnew= true;
+  public isAddnew= false;
   public advisor: Advisor[]= [];
   public laboratory: any= {
     'englishTitle': '',
@@ -31,6 +31,10 @@ this.advisor = data['content'];
 console.log(this.advisor);
     });
   }
+  changeisnotaddnew(){
+this.isAddnew=false;
+  }
+  // tslint:disable-next-line:one-line
   loaddata(){
     this.laboratoryServices.getlaboratory().subscribe(data => {
       console.log(data);
@@ -38,10 +42,16 @@ console.log(this.advisor);
 
     });
   }
+  changestate(){
+    // tslint:disable-next-line:no-unused-expression
+    this.isAddnew === false ? this.isAddnew = true : '';
+  }
+  // tslint:disable-next-line:one-line
   addnew(){
-    this.laboratoryServices.addnew(this.laboratory).subscribe(data=>{
-      if(data['content']===true){
+    this.laboratoryServices.addnew(this.laboratory).subscribe(data => {
+      if (data['content'] === true){
        this.loaddata();
+       this.isAddnew = false;
       }
       console.log(data);
     });
