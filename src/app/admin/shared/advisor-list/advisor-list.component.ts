@@ -80,6 +80,18 @@ export class AdvisorListComponent implements OnInit {
         this.classGroup = 'other-group';
         break;
     }
+    this.addDeanEmitter.subscribe(msg => {
+      if (this.group === AdvisorGroup.Head) {
+        this.advisorService.getAdvisorbyGroup(this.group).subscribe(
+          data => {
+            this.advisors = data['content'];
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      }
+    });
     if (this.group === AdvisorGroup.All) {
       this.advisorService.getAllAdvisors().subscribe(
         data => {
@@ -89,18 +101,6 @@ export class AdvisorListComponent implements OnInit {
           console.log(err);
         }
       );
-    } else if (this.group === AdvisorGroup.Head) {
-      // refresh data to get new dean list
-      this.addDeanEmitter.subscribe(msg => {
-        this.advisorService.getAdvisorbyGroup(this.group).subscribe(
-          data => {
-            this.advisors = data['content'];
-          },
-          err => {
-            console.log(err);
-          }
-        );
-      });
     } else {
       this.advisorService.getAdvisorbyGroup(this.group).subscribe(
         data => {
