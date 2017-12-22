@@ -38,6 +38,11 @@
     "SchoolLeaderShip": "SCHOOL LEADERSHIP",
     "Calendar": "CALENDAR"
   },
+  "Lab":{
+    "TitleOfLab": "The Title of The Lab",
+    "Advisor": "Advisor",
+    "Research": "Research"
+  },
   "Footer": {
     "Contact": "Contact",
     "Address": "Address",

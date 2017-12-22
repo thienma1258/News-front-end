@@ -83,8 +83,12 @@
 .about-title{
   color: white;
   font-weight: bold;
-  font-size: 26px;
+  font-size: 24px;
   margin-bottom: 20px;
+  /*overflow: hidden;*/
+  /*display: -webkit-box;*/
+  /*-webkit-line-clamp: 1;*/
+  /*-webkit-box-orient: vertical;*/
 }
 
 @media (max-width: 1024px) {

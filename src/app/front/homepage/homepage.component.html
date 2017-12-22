@@ -69,7 +69,14 @@
 <div id="about">
   <div class="row">
     <div *ngFor="let information of informations" class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-      <p i18n class="about-title">{{'Homepage.Admissions' | translate}}</p>
+      <p i18n class="about-title">
+        <ng-container *ngIf="Locale === 'en'">
+          {{information.englishTitle}}
+        </ng-container>
+        <ng-container *ngIf="Locale === 'zh-tw'">
+          {{information.chineseTitle}}
+        </ng-container>
+      </p>
       <app-article-preview [article]="information" [displayType]="3" [showPreviewImage]="true"
                            [showPreviewContent]="true" [articleUrl]="information.redirectUrl">
       </app-article-preview>

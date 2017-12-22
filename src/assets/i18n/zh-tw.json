@@ -38,6 +38,11 @@
     "SchoolLeaderShip": "SCHOOL LEADERSHIP",
     "Calendar": "行事曆"
   },
+  "Lab":{
+    "TitleOfLab": "實驗室的名稱",
+    "Advisor": "顧問",
+    "Research": "研究"
+  },
   "Footer": {
     "Contact": "聯絡方式",
     "Address": "地址",
