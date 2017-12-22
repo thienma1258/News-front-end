@@ -14,7 +14,7 @@ export class AcademicsComponent implements OnInit {
   public studentEmitter = EmitterService.get('STUDENT GRADUATE AND UNGRADUATE');
   public teachingEmitter = EmitterService.get('TEACHING');
   public degreeEmitter = EmitterService.get('DEGREE REQUIREMENT');
-  public admissionEmitter = EmitterService.get('ADMISSION');
+  public admissionEmitter = EmitterService.get('ADMISSION INFOMATION');
   public guidelineEmitter = EmitterService.get('GUIDELINE');
 
   public academicEditMode = false;

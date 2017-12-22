@@ -25,6 +25,7 @@ export class ArticlePreviewComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.articleUrl);
     let type, specificType;
     switch (this.article.specificType) {
       case 30:

@@ -23,6 +23,12 @@ a{
   margin-bottom: 10px;
 }
 
+.large-image{
+  width: 100%;
+  height: 250px;
+  margin-bottom: 10px;
+}
+
 .content{
   text-overflow:ellipsis;
 }

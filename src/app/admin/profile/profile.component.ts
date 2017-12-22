@@ -60,8 +60,14 @@ export class ProfileComponent implements OnInit {
     };
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
       if (status === 200) {
-        this.selectedSlide.slideImageUrl = JSON.parse(response)['content'];
-        this.updateSlide();
+        if (this.slideEditMode) {
+          this.selectedSlide.slideImageUrl = JSON.parse(response)['content'];
+          this.updateSlide();
+        }
+        if (this.informationEditMode) {
+          this.selectedInformation.previewImageUrl = JSON.parse(response)['content'];
+          this.updateInformation();
+        }
       }
     };
 
@@ -257,7 +263,6 @@ export class ProfileComponent implements OnInit {
   }
 
   slideFinishEdit() {
-    this.slideEditMode = false;
     if (this.uploader.queue.length > 0) {
       this.selectedSlide.slideImageUrl = this.selectedImageUrlPath.toString();
       this.uploader.queue[0].upload();
@@ -272,7 +277,7 @@ export class ProfileComponent implements OnInit {
     } else {
       this.articleService.editSlide(this.selectedSlide).subscribe(
         data => {
-
+          this.slideEditMode = false;
         },
         err => {
           console.log(err);
@@ -286,14 +291,18 @@ export class ProfileComponent implements OnInit {
   }
 
   informationFinishEdit() {
-    this.informationEditMode = false;
-    this.updateInformation();
+    if (this.uploader.queue.length > 0) {
+      this.selectedInformation.previewImageUrl = this.selectedImageUrlPath.toString();
+      this.uploader.queue[0].upload();
+    } else {
+      this.updateInformation();
+    }
   }
 
   updateInformation() {
     this.informationService.editInfomation(this.selectedInformation).subscribe(
       data => {
-
+        this.informationEditMode = false;
       },
       err => {
         console.log(err);

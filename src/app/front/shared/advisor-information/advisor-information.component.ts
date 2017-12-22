@@ -22,7 +22,8 @@ export class AdvisorInfomationComponent implements OnInit {
 
   classGroup: string;
 
-  constructor(private articleService: ArticleService, private sanitizer: DomSanitizer, private advisorService: AdvisorService) {
+  constructor(private articleService: ArticleService, private sanitizer: DomSanitizer,
+              private advisorService: AdvisorService) {
   }
 
   get Locale() {

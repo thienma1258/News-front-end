@@ -44,8 +44,8 @@
     </a>
   </div>
   <div class="large" *ngSwitchCase="3">
-    <a routerLink="{{articleUrl}}">
-      <img *ngIf="showPreviewImage" class="image" src="{{article.previewImageUrl}}"
+    <a href="{{articleUrl}}" target="_blank">
+      <img *ngIf="showPreviewImage" class="large-image" src="{{article.previewImageUrl}}"
            onerror="src='./assets/images/no_preview_image.jpg'">
       <div class="content">
         <p *ngIf="showTitle" class="title">
