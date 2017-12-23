@@ -1,0 +1,35 @@
+thead{
+  background-color: rgba(206, 70, 86, 0.2);
+  color: #850615;
+}
+
+a{
+  cursor: pointer;
+}
+
+.top-nav{
+    text-align: right;
+}
+
+.btn{
+  border: 1px solid rgb(200, 200, 200);
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.translation{
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.language{
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.translation-icon{
+  width: 25px;
+  height: 25px;
+}

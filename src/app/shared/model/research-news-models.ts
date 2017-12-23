@@ -1,6 +1,6 @@
-export class topic{
-	id:string;
-	englishTitle: string;
+export class topic {
+  id: string;
+  englishTitle: string;
   chineseTitle?: string;
   active: boolean;
 
@@ -8,6 +8,6 @@ export class topic{
     this.id = '';
     this.englishTitle = '';
     this.chineseTitle = '';
-   this.active = false;
+    this.active = false;
   }
 }

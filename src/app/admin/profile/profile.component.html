@@ -127,9 +127,14 @@
 <container-box [title]="'INFORMATION'">
   <ng-container *ngIf="informationEditMode">
     <div style="position: absolute; right: 30px; top: 25px;">
-      <img (click)="informationFinishEdit()" style="cursor: pointer; margin-right: 10px;"
-           src="../../../../assets/images/done.png">
-      <img (click)="informationCancelEdit()" style="cursor: pointer;" src="../../../../assets/images/cancel.png">
+      <div style="text-align: right;">
+        <img (click)="informationFinishEdit()" style="cursor: pointer; margin-right: 10px;"
+             src="../../../../assets/images/done.png">
+        <img (click)="informationCancelEdit()" style="cursor: pointer;" src="../../../../assets/images/cancel.png">
+      </div>
+      <div *ngIf="isShowLoadingIndicator" style="display: inline-block">
+        <loading-indicator></loading-indicator>
+      </div>
     </div>
     <div>
       <div class="upload-image">

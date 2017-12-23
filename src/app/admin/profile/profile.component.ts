@@ -45,6 +45,8 @@ export class ProfileComponent implements OnInit {
 
   uploader: FileUploader;
 
+  isShowLoadingIndicator = false;
+
   constructor(private universityService: UniversityService, private authService: AuthService,
               private articleService: ArticleService, private sanitizer: DomSanitizer,
               private informationService: InformationService) {
@@ -291,6 +293,7 @@ export class ProfileComponent implements OnInit {
   }
 
   informationFinishEdit() {
+    this.isShowLoadingIndicator = true;
     if (this.uploader.queue.length > 0) {
       this.selectedInformation.previewImageUrl = this.selectedImageUrlPath.toString();
       this.uploader.queue[0].upload();
@@ -303,6 +306,7 @@ export class ProfileComponent implements OnInit {
     this.informationService.editInfomation(this.selectedInformation).subscribe(
       data => {
         this.informationEditMode = false;
+        this.isShowLoadingIndicator = false;
       },
       err => {
         console.log(err);

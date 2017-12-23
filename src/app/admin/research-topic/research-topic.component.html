@@ -1,0 +1,50 @@
+<container-box [title]="'RESEARCH'">
+  <div class="top-nav">
+    <a class="translation" (click)="switchEditorLanguage()">
+      <img class="translation-icon" src="./../../../../assets/images/translation-web.png">
+      <span class="language"><b>{{editorLanguage}}</b></span>
+    </a>
+    <button type="button" class="btn" (click)="addNewTopic()">Add new</button>
+  </div>
+  <hr/>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="80%">Title</th>
+        <th width="20%">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="isAdding">
+        <td>
+          <input type="text" *ngIf="editorLocale === 'en'" [(ngModel)]="newTopic.englishTitle">
+          <input type="text" *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="newTopic.chineseTitle">
+        </td>
+        <td>
+          <a (click)="done()">Done</a>
+        </td>
+      </tr>
+      <tr *ngFor="let topic of topics">
+        <ng-container *ngIf="!isEditing">
+          <td>
+            <ng-container *ngIf="editorLocale === 'en'">{{topic.englishTitle}}</ng-container>
+            <ng-container *ngIf="editorLocale === 'zh-tw'">{{topic.chineseTitle}}</ng-container>
+          </td>
+          <td>
+            <a style="margin-right: 12px" (click)="edit()">Edit</a>
+            <a (click)="delete(topic)">Delete</a>
+          </td>
+        </ng-container>
+        <ng-container *ngIf="isEditing">
+          <td>
+            <input type="text" *ngIf="editorLocale === 'en'" [(ngModel)]="topic.englishTitle">
+            <input type="text" *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="topic.chineseTitle">
+          </td>
+          <td>
+            <a (click)="done(topic)">Done</a>
+          </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+</container-box>

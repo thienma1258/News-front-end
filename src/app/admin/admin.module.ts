@@ -47,6 +47,8 @@ import { AdvisorListComponent } from './shared/advisor-list/advisor-list.compone
 import {ResearchServices} from '../shared/services/research.services';
 import {LaboratoryServices} from '../shared/services/laboratory.service';
 import { LaboratoriesComponent } from './shared/laboratories/laboratories.component';
+import { LoadingIndicatorComponent } from './shared/loading-indicator/loading-indicator.component';
+import { ResearchTopicComponent } from './research-topic/research-topic.component';
 @NgModule({
   imports: [
     SharedModule,
@@ -97,6 +99,8 @@ import { LaboratoriesComponent } from './shared/laboratories/laboratories.compon
     AdvisorInfomationComponent,
     AdvisorListComponent,
     LaboratoriesComponent,
+    LoadingIndicatorComponent,
+    ResearchTopicComponent,
   ]
 })
 

@@ -9,8 +9,7 @@ import {topic} from '../../../shared/model/research-news-models';
 import {ResearchServices} from '../../../shared/services/research.services';
 import {FileUploader} from 'ng2-file-upload';
 import {AuthService} from '../auth.service';
-import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import * as $ from 'jquery';
+import {DomSanitizer} from '@angular/platform-browser';
 
 
 @Component({
@@ -36,7 +35,7 @@ export class EditArticleDetailComponent implements OnInit {
   topics: topic[] = [];
   editorLanguage = '中文';
   editorLocale = 'en';
-  specifictype= null;
+  specifictype = null;
   en: any;
 
   eventbeginDate: Date;
@@ -52,8 +51,7 @@ export class EditArticleDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private location: Location, private datePipe: DatePipe,
               private articleService: ArticleService, private eventService: EventService,
               private authService: AuthService, private sanitizer: DomSanitizer,
-              private researchservices: ResearchServices
-            ) {
+              private researchservices: ResearchServices) {
     this.uploader = new FileUploader(
       {
         url: this.articleService.uploadImageUrl,
@@ -73,15 +71,15 @@ export class EditArticleDetailComponent implements OnInit {
       if (status === 200) {
         this.article.previewImageUrl = JSON.parse(response)['content'];
 
-      // tslint:disable-next-line:whitespace
-      // tslint:disable-next-line:one-line
-      if (!this.isAddNew){
-        this.updateData();
-      }
-      // tslint:disable-next-line:one-line
-      else{
-        this.addnew();
-      }
+        // tslint:disable-next-line:whitespace
+        // tslint:disable-next-line:one-line
+        if (!this.isAddNew) {
+          this.updateData();
+        }
+        // tslint:disable-next-line:one-line
+        else {
+          this.addnew();
+        }
       }
     };
 
@@ -108,26 +106,26 @@ export class EditArticleDetailComponent implements OnInit {
         this.articleId = params['id'];
         console.log(params.type);
         // tslint:disable-next-line:one-line
-        if (params.type === 'research-news'){
+        if (params.type === 'research-news') {
           this.specifictype = 30;
         }
         // tslint:disable-next-line:one-line
-        else if (params.type === 'laboratory'){
+        else if (params.type === 'laboratory') {
           this.specifictype = 31;
         }
         // tslint:disable-next-line:one-line
-        else if (params.type === 'conferences-and-seminars'){
+        else if (params.type === 'conferences-and-seminars') {
           this.specifictype = 32;
         }
         // tslint:disable-next-line:one-line
-        else if (params.type === 'areas'){
+        else if (params.type === 'areas') {
           this.specifictype = 33;
         }
         // tslint:disable-next-line:whitespace
         // tslint:disable-next-line:one-line
-        else if ( params.type === 'posters' ){
+        else if (params.type === 'posters') {
           // tslint:disable-next-line:whitespace
-          this.specifictype= 34;
+          this.specifictype = 34;
         }
         if (this.articleId === null || this.articleId === undefined) {
           this.isAddNew = true;
@@ -168,43 +166,45 @@ export class EditArticleDetailComponent implements OnInit {
       this.uploader.queue[0].upload();
     }
     // tslint:disable-next-line:one-line
-   else if (this.isAddNew){
+    else if (this.isAddNew) {
       this.addnew();
     }
     // tslint:disable-next-line:one-line
-    else  {
+    else {
       this.updateData();
     }
   }
+
 // tslint:disable-next-line:one-line
-loadingtopic(spcefictype){
-  if (spcefictype === ArticleType.ResearchNews) {
-    this.showtopic = true;
-    // loading topics
-  // tslint:disable-next-line:no-shadowed-variable
-  this.researchservices.getresearchtopic().subscribe(data => {
-    this.topics = data['content'];
+  loadingtopic(spcefictype) {
+    if (spcefictype === ArticleType.ResearchNews) {
+      this.showtopic = true;
+      // loading topics
+      // tslint:disable-next-line:no-shadowed-variable
+      this.researchservices.getresearchtopic().subscribe(data => {
+          this.topics = data['content'];
 
-  },
-  error => {
-    console.log(error);
-  });
+        },
+        error => {
+          console.log(error);
+        });
 
 
+    }
+    // tslint:disable-next-line:one-line
+    else if (spcefictype === ArticleType.Laboratory) {
+      // tslint:disable-next-line:no-shadowed-variable
+      // tslint:disable-next-line:whitespace
+      this.showtopic = true;
+      this.researchservices.getlaboratorytopic().subscribe(data => {
+        this.topics = data['content'];
+      }, error => {
+        console.log(error);
+        alert('could not load laboratory topic');
+      });
+    }
   }
-  // tslint:disable-next-line:one-line
-  else if (spcefictype === ArticleType.Laboratory){
-    // tslint:disable-next-line:no-shadowed-variable
-    // tslint:disable-next-line:whitespace
-    this.showtopic =true;
-    this.researchservices.getlaboratorytopic().subscribe(data => {
-      this.topics = data['content'];
-    }, error => {
-      console.log(error);
-      alert('could not load laboratory topic');
-    });
-  }
-}
+
   updateData() {
     if (this.isEditingEvent) {
       this.eventService.editEvent(this.article).subscribe(
@@ -230,22 +230,24 @@ loadingtopic(spcefictype){
 
 
   }
+
 // tslint:disable-next-line:one-line
-  addnew(){
+  addnew() {
     alert('starting add new articles');
-this.article.spcefictype = this.specifictype;
-this.article.type = 3;
-this.article.id = '';
-this.article.url = 'test1';
-console.log(this.article);
+    this.article.spcefictype = this.specifictype;
+    this.article.type = 3;
+    this.article.id = '';
+    this.article.url = 'test1';
+    console.log(this.article);
     this.articleService.addArticle(this.article).subscribe(data => {
       alert('add success');
       console.log(data);
       this.location.back();
     }, error => {
-console.log(error);
+      console.log(error);
     });
   }
+
   switchEditorLanguage() {
     this.editorLanguage = this.editorLanguage === 'English' ? '中文' : 'English';
     this.editorLocale = this.editorLocale === 'en' ? 'zh-tw' : 'en';
@@ -254,10 +256,11 @@ console.log(error);
   openImageUploader() {
     console.log('new image uploader');
   }
-  selectedtopic(i){
+
+  selectedtopic(i) {
     console.log(this.topics);
     // tslint:disable-next-line:no-unused-expression
-    !this.topics[i].active  ? this.topics[i].active = true : this.topics[i].active = false;
+    !this.topics[i].active ? this.topics[i].active = true : this.topics[i].active = false;
     // tslint:disable-next-line:no-shadowed-variable
 
 

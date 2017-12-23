@@ -6,6 +6,4 @@ export class Laboratory {
   chineseTeacherName: string;
   englishResearch: string;
   chineseResearch: string;
-
-
 }

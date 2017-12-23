@@ -7,8 +7,8 @@ import {AuthService} from "../shared/auth.service";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  language = '中文';
-  locale = 'en';
+  language = 'English';
+  locale = 'zh-tw';
   isToggleMenuExpanded = false;
   userName: string;
 
@@ -20,6 +20,8 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.locale = this.Locale;
+    this.language = (this.locale === 'en' ? '中文' : 'English');
     this.userName = localStorage.getItem('username');
   }
 

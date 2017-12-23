@@ -23,6 +23,7 @@ import {SchoolLeadershipComponent} from './news/school-leadership/school-leaders
 import {CalendarComponent} from './news/calendar/calendar.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {EditEventDetailComponent} from "./shared/edit-event-detail/edit-event-detail.component";
+import {ResearchTopicComponent} from './research-topic/research-topic.component';
 
 const routes: Routes = [
   {
@@ -97,6 +98,10 @@ const routes: Routes = [
             redirectTo: '/admin/research'
           }
         ]
+      },
+      {
+        path: 'research-topic',
+        component: ResearchTopicComponent
       },
       {
         path: 'news',
