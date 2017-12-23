@@ -49,6 +49,8 @@ import {LaboratoryServices} from '../shared/services/laboratory.service';
 import { LaboratoriesComponent } from './shared/laboratories/laboratories.component';
 import { LoadingIndicatorComponent } from './shared/loading-indicator/loading-indicator.component';
 import { ResearchTopicComponent } from './research-topic/research-topic.component';
+import { DocumentManagerComponent } from './document-manager/document-manager.component';
+import {DocumentServices} from '../shared/services/docuemnt.services';
 @NgModule({
   imports: [
     SharedModule,
@@ -67,7 +69,8 @@ import { ResearchTopicComponent } from './research-topic/research-topic.componen
 
   providers: [AuthGuard, AuthService, UniversityService, ArticleService, EventService, DatePipe, InformationService, AdvisorService,
     ResearchServices,
-    LaboratoryServices
+    LaboratoryServices,
+    DocumentServices
   ],
   declarations: [
     DashboardComponent,
@@ -101,6 +104,7 @@ import { ResearchTopicComponent } from './research-topic/research-topic.componen
     LaboratoriesComponent,
     LoadingIndicatorComponent,
     ResearchTopicComponent,
+    DocumentManagerComponent,
   ]
 })
 

@@ -1,0 +1,60 @@
+<div class="box">
+  <p  class="title"><span>LASTESTDOCUMENT</span></p>
+  <hr class="title  ">
+  <div (click)="changestate(0)" class="selected border-right colortext"> ALL({{documents?. length}})</div>
+ <div (click)="changestate(1)" class="selected colortext"> Published({{documentspublishield?.length}})</div>
+<div style="margin-bottom:2em">
+<div class="input-group" style="width:30%">
+  <input type="text" class="form-control"   placeholder="Bulk Actions">
+  <div class="input-group-btn">
+      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+    <div class="dropdown-menu dropdown-menu-right">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div>
+</div>
+<button class="btn btn-secondary">Apply</button>
+<button class="pull-right btn btn-secondary">Add New</button>
+</div>
+<table class="table">
+<thead>
+  <tr>
+
+    <td style="width:40%"> <label class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input">
+      <span class="custom-control-indicator" ></span>
+      <span class="custom-control-description">Title</span>
+    </label>
+      </td>
+    <td>Date</td>
+    <td>Status</td>
+    <td>Action</td>
+  </tr>
+</thead>
+<tbody>
+<tr  *ngFor="let document of showdocuments ">
+<td><label class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input">
+  <span class="custom-control-indicator" style="    border: 1px solid #ddd;" ></span>
+  <span class="custom-control-description">{{document.title}}</span>
+</label></td>
+<td>{{document.date| date: 'dd/MM/yyyy'}}</td>
+<td>
+  <select [(ngModel)]="document.status" class="form-control" id="exampleSelect1">
+    <option value="true">Published</option>
+    <option value="false">Unpublished</option>
+
+  </select>
+
+</td>
+<td><span class="border-right colortext" style="margin-right: 20px;padding-right: 20px;" (click)="delete(document.id)">Delete</span><span class="colortext">Share Link</span></td>
+</tr>
+</tbody>
+</table>
+</div>

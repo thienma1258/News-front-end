@@ -22,9 +22,9 @@ import {EventsComponent} from './news/events/events.component';
 import {SchoolLeadershipComponent} from './news/school-leadership/school-leadership.component';
 import {CalendarComponent} from './news/calendar/calendar.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
-import {EditEventDetailComponent} from "./shared/edit-event-detail/edit-event-detail.component";
+import {EditEventDetailComponent} from './shared/edit-event-detail/edit-event-detail.component';
 import {ResearchTopicComponent} from './research-topic/research-topic.component';
-
+import { DocumentManagerComponent } from './document-manager/document-manager.component';
 const routes: Routes = [
   {
     path: '',
@@ -103,6 +103,7 @@ const routes: Routes = [
         path: 'research-topic',
         component: ResearchTopicComponent
       },
+
       {
         path: 'news',
         component: NewsComponent,
@@ -145,6 +146,10 @@ const routes: Routes = [
             redirectTo: '/admin/news'
           }
         ]
+      }
+      , {
+        path: 'document-manager',
+        component: DocumentManagerComponent
       }
     ]
   },
