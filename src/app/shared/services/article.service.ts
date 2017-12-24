@@ -83,6 +83,7 @@ export class ArticleService {
         }
       )
     };
+    console.log(article);
     return this.http.post(url, article, options);
   }
 

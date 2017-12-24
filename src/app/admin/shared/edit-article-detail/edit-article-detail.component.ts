@@ -98,7 +98,7 @@ export class EditArticleDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.article === undefined) {
+    if (!this.article) {
       this.article = {};
       this.isShowDoneButton = true;
 
@@ -108,51 +108,52 @@ export class EditArticleDetailComponent implements OnInit {
         // tslint:disable-next-line:one-line
         if (params.type === 'research-news') {
           this.specifictype = 30;
-        }
-        // tslint:disable-next-line:one-line
-        else if (params.type === 'laboratory') {
+        } else if (params.type === 'laboratory') {
           this.specifictype = 31;
-        }
-        // tslint:disable-next-line:one-line
-        else if (params.type === 'conferences-and-seminars') {
+        } else if (params.type === 'conferences-and-seminars') {
           this.specifictype = 32;
-        }
-        // tslint:disable-next-line:one-line
-        else if (params.type === 'areas') {
+        } else if (params.type === 'areas') {
           this.specifictype = 33;
-        }
-        // tslint:disable-next-line:whitespace
-        // tslint:disable-next-line:one-line
-        else if (params.type === 'posters') {
+        } else if (params.type === 'posters') {
           // tslint:disable-next-line:whitespace
           this.specifictype = 34;
+        } else if (params.type === 'department-news') {
+          this.specifictype = 40;
+        } else if (params.type === 'course-news') {
+          this.specifictype = 41;
+        } else if (params.type === 'event') {
+          this.specifictype = 42;
+        } else if (params.type === 'school-leadership') {
+          this.specifictype = 43;
         }
+        console.log(this.specifictype);
         if (this.articleId === null || this.articleId === undefined) {
           this.isAddNew = true;
 
           this.showPreviewImageEditor = true;
           this.loadingtopic(this.specifictype);
-        }
-        this.articleService.getArticlesById(this.articleId).subscribe(
-          data => {
-            console.log(data);
-            this.article = data['content'];
+        } else {
+          this.articleService.getArticlesById(this.articleId).subscribe(
+            data => {
+              console.log(data);
+              this.article = data['content'];
 
-            this.loadingtopic(this.article.specificType);
-            // loading topic
+              this.loadingtopic(this.article.specificType);
+              // loading topic
 
-            this.selectedSlideImageUrlPath = this.article.previewImageUrl;
-            if (this.article.beginDate) {
-              this.isEditingEvent = true;
-              this.eventbeginDate = new Date(this.article.beginDate);
-            } else {
-              this.showPreviewImageEditor = true;
+              this.selectedSlideImageUrlPath = this.article.previewImageUrl;
+              if (this.article.beginDate) {
+                this.isEditingEvent = true;
+                this.eventbeginDate = new Date(this.article.beginDate);
+              } else {
+                this.showPreviewImageEditor = true;
+              }
+            },
+            err => {
+              console.log(err);
             }
-          },
-          err => {
-            console.log(err);
-          }
-        );
+          );
+        }
       });
     }
   }
@@ -233,14 +234,11 @@ export class EditArticleDetailComponent implements OnInit {
 
 // tslint:disable-next-line:one-line
   addnew() {
-    alert('starting add new articles');
     this.article.spcefictype = this.specifictype;
     this.article.type = 3;
-    this.article.id = '';
-    this.article.url = 'test1';
+    this.article.id = null;
     console.log(this.article);
     this.articleService.addArticle(this.article).subscribe(data => {
-      alert('add success');
       console.log(data);
       this.location.back();
     }, error => {

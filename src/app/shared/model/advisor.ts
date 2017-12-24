@@ -16,5 +16,6 @@ export class Advisor {
   email: string;
   facultyGroup: AdvisorGroup;
   facultyImageUrl: string;
+  link: string;
   isDean: boolean;
 }
