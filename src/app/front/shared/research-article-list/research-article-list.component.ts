@@ -32,8 +32,8 @@ export class ResearchArticleListComponent implements OnInit {
             this.articles = data['content'];
           }
         });
-      } else if (this.selectedTitle === 'laboratory') {
-        this.articleservices.getArticles('laboratory').subscribe((data) => {
+      } else if (this.selectedTitle === 'newLaboratory') {
+        this.articleservices.getArticles('newLaboratory').subscribe((data) => {
           if (data['succeed']) {
             this.articles = data['content'];
           }
@@ -52,12 +52,12 @@ export class ResearchArticleListComponent implements OnInit {
         }
       });
     }
-    else if (this.selectedTitle == 'laboratory') {
+    else if (this.selectedTitle == 'newLaboratory') {
       this.reserachservices.getlaboratorytopic().subscribe((data) => {
         console.log(data['content']);
         this.topics = data['content'];
       });
-      this.articleservices.getArticles('laboratory').subscribe((data) => {
+      this.articleservices.getArticles('newLaboratory').subscribe((data) => {
         if (data['succeed']) {
           this.articles = data['content'];
         }

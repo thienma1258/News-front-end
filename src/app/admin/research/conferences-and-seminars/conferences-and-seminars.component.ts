@@ -31,7 +31,7 @@ export class ConferencesAndSeminarsComponent implements OnInit {
   }
 
   addNewArticle() {
-    this.router.navigate(['/admin/research/addnew', {
+    this.router.navigate(['/admin/research/done', {
       type: 'conferences-and-seminars'
     }]);
   }

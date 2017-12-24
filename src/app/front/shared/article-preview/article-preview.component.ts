@@ -34,7 +34,7 @@ export class ArticlePreviewComponent implements OnInit {
         break;
       case 31:
         type = 'research';
-        specificType = 'laboratory';
+        specificType = 'newLaboratory';
         break;
       case 32:
         type = 'research';

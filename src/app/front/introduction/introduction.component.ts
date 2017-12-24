@@ -123,7 +123,7 @@ export class IntroductionComponent implements OnInit {
           break;
         case 'Laboratories':
           this.isLaboratories = true;
-          this.laboratoryServices.getlaboratory().subscribe(data => {
+          this.laboratoryServices.getLaboratory().subscribe(data => {
             console.log(data);
             this.Laboratory = data['content'];
           }, error => {

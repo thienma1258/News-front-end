@@ -11,56 +11,60 @@ import {AdvisorService} from '../../../shared/services/advisor.service';
 })
 export class LaboratoriesComponent implements OnInit {
   public laboratories: Laboratory[] = [];
-  public isAddnew = false;
+  public isAddNew = false;
   public advisor: Advisor[] = [];
-  public laboratory: any = {
-    'englishTitle': '',
-    'chineseTitle': '',
-    'englishTeacherName': '',
-    'chineseTeacherName': '',
-    'englishResearch': '',
-    'chineseResearch': ''
-  };
+  public newLaboratory: Laboratory = new Laboratory();
+
+  editorLanguage = '中文';
+  editorLocale = 'en';
 
   constructor(private laboratoryServices: LaboratoryServices,
               private Advisorservices: AdvisorService) {
   }
 
+  get Locale() {
+    return localStorage.getItem('locale');
+  }
+
+  switchEditorLanguage() {
+    this.editorLanguage = this.editorLanguage === 'English' ? '中文' : 'English';
+    this.editorLocale = this.editorLocale === 'en' ? 'zh-tw' : 'en';
+  }
+
   ngOnInit() {
-    this.loaddata();
-    this.Advisorservices.getAllAdvisors().subscribe(data => {
-      console.log(data);
-      this.advisor = data['content'];
-      console.log(this.advisor);
-    });
-  }
-
-  changeisnotaddnew() {
-    this.isAddnew = false;
-  }
-
-  // tslint:disable-next-line:one-line
-  loaddata() {
-    this.laboratoryServices.getlaboratory().subscribe(data => {
-      console.log(data);
+    this.laboratoryServices.getLaboratory().subscribe(data => {
       this.laboratories = data['content'];
-
+    });
+    this.Advisorservices.getAllAdvisors().subscribe(data => {
+      this.advisor = data['content'];
     });
   }
 
-  changestate() {
+  addNewLab() {
     // tslint:disable-next-line:no-unused-expression
-    this.isAddnew === false ? this.isAddnew = true : '';
+    this.isAddNew = true;
+  }
+
+  removeLab(lab: Laboratory) {
+    this.laboratoryServices.removeLaboratory(lab.id).subscribe(
+      data => {
+        this.laboratories.splice(this.laboratories.indexOf(lab), 1);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   // tslint:disable-next-line:one-line
-  addnew() {
-    this.laboratoryServices.addnew(this.laboratory).subscribe(data => {
-      if (data['content'] === true) {
-        this.loaddata();
-        this.isAddnew = false;
-      }
-      console.log(data);
-    });
+  done() {
+    this.laboratoryServices.addLaboratory(this.newLaboratory).subscribe(
+      data => {
+        if (data['content'] === true) {
+          this.isAddNew = false;
+          this.laboratories.push(this.newLaboratory);
+        }
+        console.log(data);
+      });
   }
 }
