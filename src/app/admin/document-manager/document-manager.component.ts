@@ -69,12 +69,16 @@ document.getElementById('Filenew').click();
   }
   // tslint:disable-next-line:one-line
   uppfile(event){
+    const  file: File = event.srcElement.files[0];
+    // tslint:disable-next-line:curly
+    if (file === null)
+      return;
     let status = false;
     const answer = confirm('Published or not');
     // tslint:disable-next-line:curly
     if (answer)
         status = true;
-    const  file: File = event.srcElement.files[0];
+
 
    this.documentServices.addnewdocument(file, status).subscribe(data => {
    // tslint:disable-next-line:whitespace
