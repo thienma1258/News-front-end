@@ -92,6 +92,7 @@ export class IntroductionComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.selectedTitle = params['title'];
       this.isFaculty = false;
+      this.isLaboratories = false;
       switch (this.selectedTitle) {
         case 'about-us':
           this.selectedTitle = 'About us';
