@@ -33,11 +33,11 @@ export class DocumentServices {
       return this.http.post(url, data, options);
     }
     // tslint:disable-next-line:one-line
-    addnewdocument(file){
+    addnewdocument(file,status){
 
 const formData: FormData = new FormData();
 formData.append('File', file);
-formData.append('status', 'true ');
+formData.append('status', status);
       const url = this.authService.apiUrl + this.docuemntadd;
       const options = {
         headers: new HttpHeaders(

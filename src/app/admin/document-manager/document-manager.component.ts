@@ -62,15 +62,34 @@ this.loaddata();
       this.loaddata();
     });
   }
+  // tslint:disable-next-line:one-line
   addnewfile(){
+
 document.getElementById('Filenew').click();
   }
+  // tslint:disable-next-line:one-line
   uppfile(event){
-const  file: File = event.srcElement.files[0];
+    let status = false;
+    const answer = confirm('Published or not');
+    // tslint:disable-next-line:curly
+    if (answer)
+        status = true;
+    const  file: File = event.srcElement.files[0];
 
- this.documentServices.addnewdocument(file).subscribe(data => {
-  this.loaddata();
- });
+   this.documentServices.addnewdocument(file, status).subscribe(data => {
+   // tslint:disable-next-line:whitespace
+   // tslint:disable-next-line:curly
+   console.log(data);
+     if (data['succeed'] === true){
+      this.loaddata();
+     }
+     // tslint:disable-next-line:one-line
+     else{
+      alert('File doesn"t valid');
+     }
+
+       });
+
   }
 
 }
