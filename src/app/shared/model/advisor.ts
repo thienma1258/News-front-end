@@ -17,5 +17,6 @@ export class Advisor {
   facultyGroup: AdvisorGroup;
   facultyImageUrl: string;
   link: string;
+  isDisplay: boolean;
   isDean: boolean;
 }

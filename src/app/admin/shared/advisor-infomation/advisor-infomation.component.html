@@ -138,6 +138,9 @@
       <div class="checkbox">
         <label><input type="checkbox" [checked]="advisor.isDean" (change)="advisor.isDean = !advisor.isDean">Department Head</label>
       </div>
+      <div class="checkbox">
+        <label><input type="checkbox" [checked]="advisor.isDisplay" (change)="advisor.isDisplay = !advisor.isDisplay">Is Display ?</label>
+      </div>
 
       <div *ngIf="isShowLoadingIndicator" class="loading-indicator">
         <loading-indicator></loading-indicator>
