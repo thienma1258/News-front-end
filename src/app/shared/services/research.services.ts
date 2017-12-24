@@ -7,7 +7,7 @@ import {topic} from '../model/research-news-models';
 @Injectable()
 export class ResearchServices {
   reseachtopicapi = '/research/get';
-  laboratorytopic = '/laboratory/get';
+  laboratorytopic = '/newLaboratory/get';
   filtertopics = '/article/filter';
   addTopicUrl = '/research/add';
   editTopicUrl = '/research/edit';

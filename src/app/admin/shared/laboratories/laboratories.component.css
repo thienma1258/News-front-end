@@ -1,7 +1,8 @@
-.table>thead{
+.table > thead {
   background-color: #dddfe2
 }
-.box{
+
+.box {
   position: relative;
   width: 100%;
   background-color: white;
@@ -10,23 +11,28 @@
   font-size: 18px;
   margin-bottom: 20px;
 }
-.actionimage{
+
+.actionimage {
   width: 24px;
   height: 24px;
   margin: 10px;
-padding:2px;
+  padding: 2px;
+  cursor: pointer;
 }
-.border{
-  border:1px black solid;
+
+.border {
+  border: 1px black solid;
   border-radius: 50%;
 }
-.title{
+
+.title {
   display: inline-block;
   font-size: 26px;
   font-weight: bold;
   margin-bottom: 0;
 }
-hr{
+
+hr {
   width: 100px;
   margin: 0;
   border: none;
@@ -34,8 +40,26 @@ hr{
   background-color: #EB5757;
   margin-bottom: 20px;
 }
-@media (max-width: 1440px){
-  .box{
+
+.translation{
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.language{
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.translation-icon{
+  width: 25px;
+  height: 25px;
+}
+
+@media (max-width: 1440px) {
+  .box {
     padding: 25px 30px;
   }
 }

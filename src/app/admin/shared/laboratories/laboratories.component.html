@@ -1,44 +1,60 @@
 <div class="box">
-    <p *ngIf="title !== ''" class="title"><span>Laboratories</span></p>
-    <hr>
-    <div class="pull-right">
-      <img class="actionimage border" (click)="changeisnotaddnew()" src="assets/images/cancel.png">
-      <img  class="actionimage border" (click)="changestate()" src="assets/images/add.png">
-      <img (click)="addnew()"  class="actionimage" src="assets/images/down.png">
-    </div>
-    <table class="table">
+  <p *ngIf="title !== ''" class="title"><span>Laboratories</span></p>
+  <hr>
+  <div class="pull-right">
+    <a class="translation" (click)="switchEditorLanguage()">
+      <img class="translation-icon" src="./../../../../assets/images/translation-web.png">
+      <span class="language"><b>{{editorLanguage}}</b></span>
+    </a>
+    <img *ngIf="!isAddNew" class="actionimage border" (click)="addNewLab()" src="assets/images/add.png">
+    <img *ngIf="isAddNew" (click)="done()" class="actionimage" src="assets/images/done.png">
+  </div>
+  <table class="table">
     <thead>
-        <tr  class="table-secondary" >
-          <th>The Title of The Lab</th>
-          <th>Teacher</th>
-          <th>Research</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let labo of laboratories">
-          <td style="width:30%">{{labo.englishTitle}}</td>
-          <td style="width:30%">{{labo.englishTeacherName}}</td>
-          <td>{{labo.englishResearch}}</td>
-        </tr>
-        <tr *ngIf="isAddnew">
-          <td><input type="text" class="form-control" placeholder="
-          The Title of The Lab" [(ngModel)]="laboratory.englishTitle">
-        </td>
-        <td>
-            <div class="form-group">
-
-                <select [(ngModel)]="laboratory.englishTeacherName" class="form-control" id="exampleSelect1">
-                  <option value="{{teacher.englishName}}" *ngFor="let teacher of advisor  " >{{teacher.englishName}}</option>
-
-                </select>
-              </div>
-        </td>
-        <td>
-            <textarea [(ngModel)]="laboratory.englishResearch" type="text-area" class="form-control" placeholder="
-            Research"></textarea>
-
-        </td>
-        </tr>
-      </tbody>
-    </table>
+    <tr class="table-secondary">
+      <th>The Title of The Lab</th>
+      <th>Teacher</th>
+      <th>Research</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let lab of laboratories">
+      <ng-container *ngIf="Locale === 'en'">
+        <td style="width:30%">{{lab.englishTitle}}</td>
+        <td style="width:30%">{{lab.englishTeacherName}}</td>
+        <td>{{lab.englishResearch}}</td>
+        <td><img class="actionimage border" (click)="removeLab(lab)" src="assets/images/cancel.png"></td>
+      </ng-container>
+      <ng-container *ngIf="Locale === 'zh-tw'">
+        <td style="width:30%">{{lab.chineseTitle}}</td>
+        <td style="width:30%">{{lab.chineseTeacherName}}</td>
+        <td>{{lab.chineseResearch}}</td>
+        <td><img class="actionimage border" (click)="removeLab(lab)" src="assets/images/cancel.png"></td>
+      </ng-container>
+    </tr>
+    <tr *ngIf="isAddNew">
+      <td>
+        <input *ngIf="editorLocale === 'en'" type="text" class="form-control" placeholder="The Title of The Lab" [(ngModel)]="newLaboratory.englishTitle">
+        <input *ngIf="editorLocale === 'zh-tw'" type="text" class="form-control" placeholder="The Title of The Lab" [(ngModel)]="newLaboratory.chineseTitle">
+      </td>
+      <td>
+        <div class="form-group">
+          <select *ngIf="editorLocale === 'en'" [(ngModel)]="newLaboratory.englishTeacherName" class="form-control" id="exampleSelect1">
+            <option value="{{teacher.englishName}}" *ngFor="let teacher of advisor  ">{{teacher.englishName}}</option>
+          </select>
+          <select *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="newLaboratory.chineseTeacherName" class="form-control" id="exampleSelect1">
+            <option value="{{teacher.chineseName}}" *ngFor="let teacher of advisor  ">{{teacher.chineseName}}</option>
+          </select>
+        </div>
+      </td>
+      <td>
+        <textarea *ngIf="editorLocale === 'en'" [(ngModel)]="newLaboratory.englishResearch"
+                  type="text-area" class="form-control" placeholder="Research"></textarea>
+        <textarea *ngIf="editorLocale === 'zh-tw'" [(ngModel)]="newLaboratory.chineseResearch"
+                  type="text-area" class="form-control" placeholder="Research"></textarea>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>

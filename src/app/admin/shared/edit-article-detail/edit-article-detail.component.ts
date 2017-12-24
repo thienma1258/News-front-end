@@ -108,7 +108,7 @@ export class EditArticleDetailComponent implements OnInit {
         // tslint:disable-next-line:one-line
         if (params.type === 'research-news') {
           this.specifictype = 30;
-        } else if (params.type === 'laboratory') {
+        } else if (params.type === 'newLaboratory') {
           this.specifictype = 31;
         } else if (params.type === 'conferences-and-seminars') {
           this.specifictype = 32;
@@ -201,7 +201,7 @@ export class EditArticleDetailComponent implements OnInit {
         this.topics = data['content'];
       }, error => {
         console.log(error);
-        alert('could not load laboratory topic');
+        alert('could not load newLaboratory topic');
       });
     }
   }

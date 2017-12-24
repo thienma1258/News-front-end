@@ -66,7 +66,7 @@ const routes: Routes = [
             pathMatch: 'full'
           },
           {
-            path: 'addnew',
+            path: 'done',
             component: EditArticleDetailComponent
           },
           {
@@ -78,7 +78,7 @@ const routes: Routes = [
             component: ResearchNewsComponent
           },
           {
-            path: 'laboratory',
+            path: 'newLaboratory',
             component: LaboratoryComponent
           },
           {
@@ -114,7 +114,7 @@ const routes: Routes = [
             pathMatch: 'full'
           },
           {
-            path: 'addnew',
+            path: 'done',
             component: EditArticleDetailComponent
           },
           {

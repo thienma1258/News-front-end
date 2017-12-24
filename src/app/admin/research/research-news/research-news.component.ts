@@ -43,7 +43,7 @@ export class ResearchNewsComponent implements OnInit {
   }
 
   addNewArticle() {
-    this.router.navigate(['/admin/research/addnew', {
+    this.router.navigate(['/admin/research/done', {
       type: 'research-news'
     }]);
   }

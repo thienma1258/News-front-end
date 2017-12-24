@@ -30,7 +30,7 @@ export class EventsComponent implements OnInit {
   }
 
   addNewArticle() {
-    this.router.navigate(['/admin/news/addnew', {
+    this.router.navigate(['/admin/news/done', {
       type: 'events'
     }]);
   }

@@ -31,7 +31,7 @@ export class PostersComponent implements OnInit {
   }
 
   addNewArticle() {
-    this.router.navigate(['/admin/research/addnew', {
+    this.router.navigate(['/admin/research/done', {
       type: 'posters'
     }]);
   }

@@ -24,7 +24,7 @@ export class ResearchComponent implements OnInit {
       'name': 'Research News'
     },
     {
-      'route': 'laboratory',
+      'route': 'newLaboratory',
       'name': 'Laboratory'
     },
     {
@@ -79,7 +79,7 @@ export class ResearchComponent implements OnInit {
             'name': res['Homepage.ResearchNews']
           },
           {
-            'route': 'laboratory',
+            'route': 'newLaboratory',
             'name': res['Homepage.Laboratory']
           },
           {
@@ -101,7 +101,7 @@ export class ResearchComponent implements OnInit {
               'name': res['Homepage.ResearchNews']
             },
             {
-              'route': 'laboratory',
+              'route': 'newLaboratory',
               'name': res['Homepage.Laboratory']
             },
             {
@@ -146,7 +146,7 @@ export class ResearchComponent implements OnInit {
         });
       }
       // tslint:disable-next-line:one-line
-      else if (this.selectedTitle === 'laboratory'){
+      else if (this.selectedTitle === 'newLaboratory'){
         this.reserachservices.getlaboratorytopic().subscribe((data) => {
           console.log(data['content']);
           this.topics = data['content'];

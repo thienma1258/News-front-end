@@ -5,20 +5,22 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class LaboratoryServices {
-  laboratoryget = '/laboratory/get';
-  laboratoryadd= '/laboratory/add';
+  laboratoryGet = '/laboratory/get';
+  laboratoryAdd = '/laboratory/add';
+  laboratoryRemove = '/laboratory/remove';
+
   constructor(private http: HttpClient, private authService: AuthService) {
 
   }
 
-  getlaboratory() {
-    const url = this.authService.apiUrl + this.laboratoryget;
+  getLaboratory() {
+    const url = this.authService.apiUrl + this.laboratoryGet;
     return this.http.get(url);
   }
 
   // tslint:disable-next-line:one-line
-  addnew(data){
-    const url = this.authService.apiUrl + this.laboratoryadd;
+  addLaboratory(data) {
+    const url = this.authService.apiUrl + this.laboratoryAdd;
     const options = {
       headers: new HttpHeaders(
         {
@@ -28,6 +30,23 @@ export class LaboratoryServices {
       )
     };
     console.log(this.authService.getAccessToken());
-   return  this.http.post(url, data, options );
+    return this.http.post(url, data, options);
+  }
+
+  removeLaboratory(id: string) {
+    const url = this.authService.apiUrl + this.laboratoryRemove;
+
+    const data: FormData = new FormData();
+    data.append('id', id);
+
+    const options = {
+      headers: new HttpHeaders(
+        {
+          'Accept': 'application/json',
+          'Authorization': this.authService.getAccessToken()
+        }
+      )
+    };
+    return this.http.post(url, data, options);
   }
 }

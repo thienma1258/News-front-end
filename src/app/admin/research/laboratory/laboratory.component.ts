@@ -5,7 +5,7 @@ import {ArticleService} from '../../../shared/services/article.service';
 import {ArticleType} from "../../../shared/enum/article-type.enum";
 
 @Component({
-  selector: 'laboratory',
+  selector: 'newLaboratory',
   templateUrl: './laboratory.component.html',
   styleUrls: ['./laboratory.component.css']
 })
@@ -31,8 +31,8 @@ export class LaboratoryComponent implements OnInit {
   }
 
   addNewArticle() {
-    this.router.navigate(['/admin/research/addnew', {
-      type: 'laboratory'
+    this.router.navigate(['/admin/research/done', {
+      type: 'newLaboratory'
     }]);
   }
 }

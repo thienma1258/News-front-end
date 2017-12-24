@@ -31,7 +31,7 @@ export class CourseNewsComponent implements OnInit {
   }
 
   addNewArticle() {
-    this.router.navigate(['/admin/news/addnew', {
+    this.router.navigate(['/admin/news/done', {
       type: 'course-news'
     }]);
   }
