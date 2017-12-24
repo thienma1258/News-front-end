@@ -8,6 +8,7 @@ export class DocumentServices {
   documentget = '/file/get?numberOfPage=0';
   // tslint:disable-next-line:whitespace
   documentdelete='/File/delete';
+  docuemntadd= '/file/upload';
   constructor(private http: HttpClient, private authService: AuthService) {
 
   }
@@ -31,5 +32,20 @@ export class DocumentServices {
       console.log(data);
       return this.http.post(url, data, options);
     }
+    // tslint:disable-next-line:one-line
+    addnewdocument(file){
 
+const formData: FormData = new FormData();
+formData.append('File', file);
+formData.append('status', 'true ');
+      const url = this.authService.apiUrl + this.docuemntadd;
+      const options = {
+        headers: new HttpHeaders(
+          {
+            'Authorization': this.authService.getAccessToken()
+          }
+        )
+      };
+return this.http.post(url, formData, options);
+    }
 }

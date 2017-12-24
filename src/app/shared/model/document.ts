@@ -4,5 +4,5 @@ export class Document {
   date: Date;
   status: boolean;
   isDisabled: boolean;
-
+  link:string;
 }

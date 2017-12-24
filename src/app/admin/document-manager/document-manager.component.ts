@@ -10,12 +10,15 @@ export class DocumentManagerComponent implements OnInit {
 
   constructor(private documentServices: DocumentServices) { }
   documents: Document[]= [];
-  showdocuments: Document[]= [];'';
+  showdocuments: Document[]= []; '';
   documentspublishield: Document[]= [];
+
   ngOnInit() {
 this.loaddata();
   }
   loaddata(){
+    this.documentspublishield = [];
+
     this.documentServices.getalldocument().subscribe(data => {
       console.log(data);
       // tslint:disable-next-line:curly
@@ -23,6 +26,7 @@ this.loaddata();
         return;
       this.documents = data['content']['fileModel'];
       this.showdocuments = this.documents;
+      console.log(data);
       // tslint:disable-next-line:no-shadowed-variable
 
       this.documents.forEach(dasta => {
@@ -52,9 +56,21 @@ this.loaddata();
 
     });
   }
+  // tslint:disable-next-line:one-line
   delete(id){
     return this.documentServices.deletedocument(id).subscribe(data => {
       this.loaddata();
     });
   }
+  addnewfile(){
+document.getElementById('Filenew').click();
+  }
+  uppfile(event){
+const  file: File = event.srcElement.files[0];
+
+ this.documentServices.addnewdocument(file).subscribe(data => {
+  this.loaddata();
+ });
+  }
+
 }

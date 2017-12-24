@@ -4,8 +4,8 @@
   <div (click)="changestate(0)" class="selected border-right colortext"> ALL({{documents?. length}})</div>
  <div (click)="changestate(1)" class="selected colortext"> Published({{documentspublishield?.length}})</div>
 <div style="margin-bottom:2em">
-<div class="input-group" style="width:30%">
-  <input type="text" class="form-control"   placeholder="Bulk Actions">
+<div class="input-group" style="width:30% ;display:none">
+  <input type="text" class="form-control"   placeholder="Bulk Actions" >
   <div class="input-group-btn">
       <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="sr-only">Toggle Dropdown</span>
@@ -19,8 +19,9 @@
     </div>
   </div>
 </div>
-<button class="btn btn-secondary">Apply</button>
-<button class="pull-right btn btn-secondary">Add New</button>
+<button class="btn btn-secondary"  style="display:none">Apply</button>
+<input type="file" (change)="uppfile($event)" accept="application/pdf,application/vnd.ms-excel"  id="Filenew" style="display:none">
+<button class="pull-right btn btn-secondary" (click)="addnewfile()">Add New</button>
 </div>
 <table class="table">
 <thead>
@@ -53,7 +54,7 @@
   </select>
 
 </td>
-<td><span class="border-right colortext" style="margin-right: 20px;padding-right: 20px;" (click)="delete(document.id)">Delete</span><span class="colortext">Share Link</span></td>
+<td><span class="border-right colortext" style="margin-right: 20px;padding-right: 20px;" (click)="delete(document.id)">Delete</span><a class="colortext"  target="_blank"  href="{{document.link}}" >Share Link</a></td>
 </tr>
 </tbody>
 </table>
