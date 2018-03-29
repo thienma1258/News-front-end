@@ -175,6 +175,7 @@ export class ResearchComponent implements OnInit {
         this.topics = null;
         this.articleservices.getArticles((String(ArticleType.Area))).subscribe((data) => {
           if (data['succeed'])
+          // tslint:disable-next-line:one-line
           {
               this.articles = data['content'];
           }
